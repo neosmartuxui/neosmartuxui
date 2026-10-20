@@ -2,7 +2,7 @@
 
 Local-only milestone. These 12 distinct operational UI renderers are an Operations/SaaS vertical, not Core replacements. They reuse the existing card, badge, button and the ten theme packages. Original NeoBrutal Soft's seven installable primitives remain mapped to existing Core, not duplicated.
 
-Reference source: verified owner-controlled NeoBrutal Soft source modules (operations, agent-diff, permissions, identity, scheduling, data-viz, inspector, file) and its NeoLicenser v0.7 demo. Owner explicitly authorized cross-project reuse. No original CSS fork is imported. Keep attribution and confirm rights of third-party contributions before public distribution. Canonical target LICENSE still requires declaration.
+Reference source: verified owner-controlled NeoBrutal Soft source modules (operations, agent-diff, permissions, identity, scheduling, data-viz, inspector, file) and its NeoLicenser v0.7 demo. Owner explicitly authorized cross-project reuse. No original CSS fork is imported. Keep attribution and confirm rights of third-party contributions before public distribution. The canonical NeoSmartUXUI target license is Apache-2.0 with a root LICENSE and NOTICE; the original Soft archive remains UNLICENSED and unchanged.
 
 Implemented components:
 1. Stat Card: provider KPI

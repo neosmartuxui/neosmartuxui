@@ -1,12 +1,14 @@
 import {readFile,access} from 'node:fs/promises';
 import {resolve} from 'node:path';
+import {verifyRootApacheLicense} from './verify-license.mjs';
 const root=resolve(import.meta.dirname,'../..');
 const data=JSON.parse(await readFile(resolve(root,'packages/distribution/release-admission.json'),'utf8'));
+await verifyRootApacheLicense(root);
 if(data.schema!=='neosmartuxui/release-admission@1'||!data.actionsMustRemainDisabled)throw new Error('Guardrail or release record changed unexpectedly');
 const blockers=[];
 if(!data.localMilestoneValidated)blockers.push('Local integration milestone not signed off by all regressions');
 for(const app of ['foundry','studio']){try{await access(resolve(root,'dist',app,'ecosystem'));blockers.push('Local-only catalog present in deployable '+app+' artifact');}catch{}}
-if(data.licenseDecision==='pending-owner-SPDX-selection')blockers.push('Named public license still requires explicit owner choice');
+if(data.licenseDecision!=='Apache-2.0')blockers.push('Owner Apache-2.0 license decision not recorded');
 try{await access(resolve(root,'LICENSE'));}catch{blockers.push('No canonical LICENSE file');}
 if(!data.thirdPartyAttributionReviewed)blockers.push('Third-party contributions/attribution not reviewed');
 if(!data.productionProvidersVerified)blockers.push('Production checkout and licensing adapters not verified');

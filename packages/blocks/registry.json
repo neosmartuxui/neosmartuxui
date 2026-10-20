@@ -72,5 +72,7 @@
   ],
   "noCoreMutation": true,
   "noPublicProofClaim": true,
-  "note": "Themed local gallery is not a competing Theme editor; editing remains in Studio."
+  "note": "Themed local gallery is not a competing Theme editor; editing remains in Studio.",
+  "license": "Apache-2.0",
+  "ownerAuthorization": "Owner-authorized adapted Commerce Blocks; original archived source stays PolyForm Noncommercial."
 }

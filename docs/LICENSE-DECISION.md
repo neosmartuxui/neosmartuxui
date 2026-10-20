@@ -1,9 +1,22 @@
-# NeoSmartUXUI licensing decision record — local milestone
+# NeoSmartUXUI license decision — Apache-2.0
 
-Owner statement: The owner expressly authorized reuse of the NeoBrutal Commerce, NeoBrutal Soft, and NeoLicenser UI patterns in NeoSmartUXUI under NeoSmartUXUI's intended license. Attribution is recorded in the component admission registries.
+**Owner decision on 20 October 2026:** Adopt the Apache License, Version 2.0 (SPDX: Apache-2.0) for NeoSmartUXUI, including the owner's authorized adaptations of NeoBrutal Commerce, NeoBrutal Soft and NeoLicenser-inspired UI patterns.
 
-**Blocking missing decision:** This recovered NeoSmartUXUI repository has no canonical top-level LICENSE document and no clearly declared SPDX license. The owner approved same-license cross-project reuse, but did NOT identify which public license NeoSmartUXUI should issue. This document does not select or imply MIT, Apache-2.0, PolyForm, or a proprietary EULA.
+## Authoritative local artifacts
 
-Therefore the generated local package is PRIVATE, tagged UNLICENSED and MUST NOT be published, installed publicly, marketed as open source, or distributed. UNLICENSED is a package-manager publish barrier, not a license agreement or an ownership claim.
+- Root LICENSE: the full, unmodified official Apache-2.0 license text, obtained from https://www.apache.org/licenses/LICENSE-2.0.txt.
+- Root NOTICE: project acknowledgements and preserved original upstream copyright/license provenance.
+- Root package.json: Apache-2.0.
+- Generated private ESM library package: Apache-2.0 metadata and verbatim LICENSE and NOTICE.
 
-Before distribution: obtain explicit owner's target license name and full canonical license text; review that its rights cover all included code and contributions; write top-level LICENSE; update this decision record and package metadata; confirm all third-party notices, and re-run release admission tests. Do not copy an inherited PolyForm license or remove attribution automatically.
+## Cross-project boundary
+
+The original NeoBrutal Commerce archive declares PolyForm Noncommercial 1.0.0 and the notice Copyright 2026 NeoBrutalism-shop. The owner's separate authorization permits adaptations and derivative UI interfaces under Apache-2.0 **inside NeoSmartUXUI**. The archived source's own license and copyright are unchanged. This is not a general relicensing of the original Commerce distribution.
+
+The original NeoBrutal Soft archive's package metadata declared UNLICENSED. Its owner authorized the adapted operational interfaces in NeoSmartUXUI under Apache-2.0. The original archive remains unchanged. The separate NeoLicenser and NeoLicenser Pro repositories, particularly private Pro code, are not covered by this repository's new license and are not shipped in the library.
+
+Third-party trademarks, artworks, borrowed fonts, independent authors' contributions and external libraries require their own rights review. See THIRD-PARTY-ATTRIBUTION.md. The owner authorization does not waive independent third-party rights.
+
+## Still blocked for public distribution
+
+The owner's license selection and local LICENSE file do **not** approve publication. Third-party review, real production payment and licensing provider adapters, signed artifact/entitlement behavior, pinned new-host proof, and explicit approval to publish remain required. The ESM package remains private, local only, and at version 0.0.0-local. Generated local discovery must be stripped from any public Foundry or Studio build.

@@ -2,7 +2,7 @@
   "name": "neosmartuxui",
   "version": "0.0.0",
   "private": true,
-  "description": "NeoSmartUXUI Ã¢â‚¬â€ the AI-first neo-brutalist UI system.",
+  "description": "NeoSmartUXUI \u00c3\u00a2\u00e2\u201a\u00ac\u00e2\u20ac\u009d the AI-first neo-brutalist UI system.",
   "engines": {
     "node": ">=22"
   },
@@ -64,9 +64,13 @@
     "build:ecosystem:local": "node tooling/ecosystem/local.mjs",
     "validate:ecosystem": "node tooling/ecosystem/validate.mjs",
     "test:ecosystem": "playwright test --config=playwright.ecosystem.config.mjs",
-    "gate:public": "node tooling/ecosystem/release-gate.mjs --public"
+    "gate:public": "node tooling/ecosystem/release-gate.mjs --public",
+    "validate:license": "node tooling/ecosystem/check-license.mjs",
+    "test:license": "node tooling/ecosystem/test-license.mjs",
+    "validate:package-dryrun": "node tooling/ecosystem/validate-package-dryrun.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1"
-  }
+  },
+  "license": "Apache-2.0"
 }

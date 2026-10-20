@@ -1,0 +1,55 @@
+{
+  "schema": "neosmartuxui/third-party-inventory@1",
+  "date": "2026-10-20",
+  "scope": "Tracked repository source and current npm lock, no legal clearance claim",
+  "dependencies": [
+    {
+      "name": "@playwright/test",
+      "version": "1.64.1",
+      "license": "Apache-2.0",
+      "usage": "development dependency in root package lock"
+    },
+    {
+      "name": "playwright",
+      "version": "1.64.1",
+      "license": "Apache-2.0",
+      "usage": "development dependency in root package lock"
+    },
+    {
+      "name": "playwright-core",
+      "version": "1.64.1",
+      "license": "Apache-2.0",
+      "usage": "development dependency in root package lock"
+    }
+  ],
+  "trackedAssets": [
+    "apps/foundry/public/favicon.ico",
+    "apps/foundry/public/favicon.svg",
+    "apps/studio/src/favicon.ico",
+    "apps/studio/src/favicon.svg"
+  ],
+  "originalSourceProvenance": [
+    {
+      "project": "NeoSmartUXUI Core",
+      "license": "owner-approved Apache-2.0"
+    },
+    {
+      "project": "NeoBrutal Commerce source archive",
+      "license": "PolyForm Noncommercial 1.0.0 (archive unchanged)"
+    },
+    {
+      "project": "NeoBrutal Soft source archive",
+      "license": "UNLICENSED (archive unchanged)"
+    },
+    {
+      "project": "NeoLicenser / Pro",
+      "license": "Separate repositories; no backend/Pro bundled"
+    }
+  ],
+  "unresolved": [
+    "Artwork ownership and source history for tracked favicon images",
+    "Any third-party code, artwork or text contributed before reconstructed Git snapshot",
+    "Third-party license/NOTICE review on final built distribution and future runtime adapters"
+  ],
+  "reviewStatus": "open"
+}

@@ -8,7 +8,9 @@
     "license": "PolyForm Noncommercial 1.0.0",
     "reuse": "ADAPT model and behavior; implement using NeoSmartUXUI Core tokens",
     "second": "NeoBrutalismshop/NeoBrutal-Soft/demo/v07.html",
-    "authorization": "Owner-authorized reuse between NeoBrutalismshop and NeoSmartUXUI; formal destination LICENSE is still unspecified."
+    "authorization": "Owner expressly authorized adapted Commerce UI under Apache-2.0. Original source license remains unchanged.",
+    "originalSourceLicense": "PolyForm Noncommercial 1.0.0",
+    "targetLicense": "Apache-2.0"
   },
   "components": [
     {

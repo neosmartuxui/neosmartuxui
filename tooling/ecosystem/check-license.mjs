@@ -1,0 +1,12 @@
+import {resolve} from 'node:path';
+import {readFile} from 'node:fs/promises';
+import {verifyRootApacheLicense} from './verify-license.mjs';
+const root=resolve(import.meta.dirname,'../..');
+const result=await verifyRootApacheLicense(root);
+const provenance=JSON.parse(await readFile(resolve(root,'packages/verticals/commerce/component-registry.json'),'utf8'));
+if(provenance.source.license!=='PolyForm Noncommercial 1.0.0'||provenance.source.targetLicense!=='Apache-2.0')throw new Error('Original Commerce license provenance missing');
+const block=JSON.parse(await readFile(resolve(root,'packages/blocks/registry.json'),'utf8'));
+if(block.license!=='Apache-2.0')throw new Error('Blocks target license mismatch');
+const admission=JSON.parse(await readFile(resolve(root,'packages/distribution/release-admission.json'),'utf8'));
+if(admission.publicPublishApproved||admission.thirdPartyAttributionReviewed||admission.productionProvidersVerified)throw new Error('Premature release/admission flag');
+console.log('[license] PASS: Apache-2.0 canonical text hash '+result.sha256+'; NOTICE, upstream provenance, and public-release gate preserved.');

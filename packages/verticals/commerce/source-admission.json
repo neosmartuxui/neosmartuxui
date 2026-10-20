@@ -11,7 +11,7 @@
     "implementedBlocks": 7,
     "referenceOnly": 4
   },
-  "note": "Local-only migration: owner explicitly authorizes cross-project reuse under NeoSmartUXUI's intended terms. NeoSmartUXUI's exact license remains undocumented in a top-level LICENSE file; honor third-party rights. Blocks and platform patterns are not counted as primitives.",
+  "note": "Local Commerce adaptations are owner-authorized under Apache-2.0. Original archive remains PolyForm Noncommercial 1.0.0. Independent third-party rights require review.",
   "entries": [
     {
       "sourceId": "product-card",
@@ -662,5 +662,7 @@
       "actionRefs": [],
       "stateRefs": []
     }
-  ]
+  ],
+  "targetLicense": "Apache-2.0",
+  "ownerAuthorization": "Owner expressly authorized adapted Commerce UI under Apache-2.0; original PolyForm archived distribution unchanged."
 }

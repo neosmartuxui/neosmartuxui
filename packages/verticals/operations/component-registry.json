@@ -5,8 +5,10 @@
   "source": {
     "sourceRepository": "NeoBrutalismshop/NeoBrutal-Soft",
     "sourceDemo": "NeoBrutalismshop/NeoBrutal-Soft/demo/v07.html",
-    "authorization": "Owner-authorized reuse into NeoSmartUXUI. Source attribution retained.",
-    "approach": "Independent semantic DOM implementation of reusable behavior consuming existing Core and Theme tokens."
+    "authorization": "Owner expressly authorized adapted Soft and NeoLicenser UI here under Apache-2.0; archived sources unchanged.",
+    "approach": "Independent semantic DOM implementation of reusable behavior consuming existing Core and Theme tokens.",
+    "originalSourceLicense": "UNLICENSED in archived NeoBrutal Soft package",
+    "targetLicense": "Apache-2.0"
   },
   "components": [
     {

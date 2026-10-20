@@ -93,3 +93,12 @@ Vertical/SaaS/Commerce previews ⏳
 ```
 
 Breadth does not override quality: variants, aliases, examples, and visual presets do not count as separate components.
+
+
+## License and local unified library (2026-10-20)
+
+NeoSmartUXUI is licensed under Apache-2.0 by explicit owner decision. See LICENSE, NOTICE and docs/LICENSE-DECISION.md. This license applies to the project and owner-authorized adaptations, not to the original archived NeoBrutal Commerce (PolyForm Noncommercial) or NeoBrutal Soft (UNLICENSED) distributions; those remain separate and unchanged. Independent third-party rights remain under audit.
+
+The private local unified DOM package now includes 50 Core, 35 Commerce, 12 Operations component entries, 7 Blocks and 2 Templates. It is not a public distribution or production entitlement server. All ten canonical Themes remain under Studio authority; source proof claims are not promoted by local tests.
+
+The generated local package remains private even though its code is labeled Apache-2.0. Public publication is gated by third-party clearance, verified production providers, exact new-host proof and explicit approval. See docs/UNIFIED-LOCAL-RELEASE.md. GitHub Actions are not used for development automation.

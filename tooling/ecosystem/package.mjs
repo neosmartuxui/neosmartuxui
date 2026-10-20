@@ -2,8 +2,10 @@ import {mkdir,readFile,writeFile,cp,rm} from 'node:fs/promises';
 import {resolve,dirname} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {renderResolvedTokenCss} from '../../packages/adapters/css/resolve-theme.mjs';
+import {verifyRootApacheLicense} from './verify-license.mjs';
 const root=resolve(import.meta.dirname,'../..'),out=resolve(root,'artifacts/library-package');
 const json=async path=>JSON.parse(await readFile(resolve(root,path),'utf8'));
+await verifyRootApacheLicense(root);
 const core=await json('packages/core/component-registry.json');
 const commerce=await json('packages/verticals/commerce/component-registry.json');
 const operations=await json('packages/verticals/operations/component-registry.json');
@@ -37,7 +39,8 @@ for(const [src,dst] of [
  ['packages/blocks/commerce/index.d.ts','blocks/commerce/index.d.ts'],
  ['packages/blocks/blocks.css','styles/blocks.css'],
  ['packages/templates/operations.mjs','templates/operations.mjs'],
- ['packages/templates/operations.d.ts','templates/operations.d.ts']
+ ['packages/templates/operations.d.ts','templates/operations.d.ts'],
+ ['LICENSE','LICENSE'],['NOTICE','NOTICE']
 ])await copy(src,dst);
 const baseCSS=(await Promise.all(['button.css','badge.css','card.css'].map(f=>readFile(resolve(root,'packages/adapters/web/components',f),'utf8')))).join('\n');
 await writeFile(resolve(out,'styles/core.css'),baseCSS);
@@ -48,7 +51,7 @@ const barrels=["commerce from './verticals/commerce/index.mjs'","operations from
 await writeFile(resolve(out,'index.mjs'),barrels.map(x=>'export * as '+x+';').join('\n')+'\n');
 await writeFile(resolve(out,'index.d.ts'),barrels.map(x=>'export * as '+x+';').join('\n')+'\n');
 const moduleExport=(js,types)=>({types,default:js});
-const pkg={name:'@neosmartuxui/library',version:'0.0.0-local',type:'module',private:true,license:'UNLICENSED',description:'Local-only browser DOM ESM package for Commerce, Operations, Blocks, Templates',exports:{
+const pkg={name:'@neosmartuxui/library',version:'0.0.0-local',type:'module',private:true,license:'Apache-2.0',description:'Local-only browser DOM ESM package for Commerce, Operations, Blocks, Templates',exports:{
  '.':moduleExport('./index.mjs','./index.d.ts'),
  './commerce':moduleExport('./verticals/commerce/index.mjs','./verticals/commerce/index.d.ts'),
  './operations':moduleExport('./verticals/operations/index.mjs','./verticals/operations/index.d.ts'),
@@ -65,10 +68,10 @@ await writeFile(resolve(out,'README.md'),[
  'Use the package subpaths commerce, operations, blocks and templates. Imports return semantic DOM renderers, not React/Vue components.',
  'Import core.css, one canonical theme CSS and relevant vertical/blocks CSS. Theme authoring remains in Studio.',
  'Provider mutations and billing need explicitly integrated host callbacks. No simulated payment authorization.',
- 'This package is private, 0.0.0-local and UNLICENSED: this is NOT a grant of public distribution rights.',
- 'A named target license, third-party rights review, live proof and backend integration remain release blockers.'
+ 'This package is Apache-2.0, private and 0.0.0-local. The owner chose the license; public release is NOT approved.',
+ 'Third-party rights review, live proof, provider adapters and explicit release approval remain blockers.'
 ].join('\n')+'\n');
-await writeFile(resolve(out,'RELEASE-BLOCKED.txt'),'NOT FOR PUBLIC DISTRIBUTION - named license and production-admission gates pending.\n');
+await writeFile(resolve(out,'RELEASE-BLOCKED.txt'),'NOT FOR PUBLIC DISTRIBUTION - third-party rights, provider, proof and approval gates pending.\n');
 const mod=await import(pathToFileURL(resolve(out,'index.mjs')).href);
 if(Object.keys(mod.commerce.COMMERCE_RENDERERS).length!==8||Object.keys(mod.operations.OPERATIONS_RENDERERS).length!==12||Object.keys(mod.blocks.COMMERCE_BLOCKS).length!==7||Object.keys(mod.templates.TEMPLATE_RENDERERS).length!==2)throw new Error('Built distribution import self-test failed');
 console.log('[distribution] built private ESM exports and ten saved Themes for',items.length,'catalog entries');
