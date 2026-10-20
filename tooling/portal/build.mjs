@@ -37,8 +37,37 @@ const pages=[
  ['docs/index.html','Documentation',site.docsPage,'Docs']
 ];
 for(const [path,title,body,active] of pages)await write(path,site.shell(title,body,{active,sha}));
-for(const [src,dst] of [['tooling/portal/site.css','portal.css'],['tooling/portal/site.mjs','portal.mjs']])
- await cp(resolve(root,src),resolve(out,dst));
+// Use the canonical Hardline Theme rather than arbitrary marketing-page press values.
+const hardline=await json('packages/themes/hardline-light/tokens.json');
+if(hardline.flavor!=='flavor.hardline')throw new Error('Portal must use Hardline Theme');
+const values=new Map(hardline.values.map(t=>[t.id,t.value]));
+const pressure={
+ '--portal-depth-rest-x':'depth.rest.x','--portal-depth-rest-y':'depth.rest.y',
+ '--portal-depth-hover-x':'depth.hover.x','--portal-depth-hover-y':'depth.hover.y',
+ '--portal-depth-active-x':'depth.active.x','--portal-depth-active-y':'depth.active.y',
+ '--portal-press-hover-x':'press.hover.x','--portal-press-hover-y':'press.hover.y',
+ '--portal-press-active-x':'press.active.x','--portal-press-active-y':'press.active.y',
+ '--portal-motion-press-duration':'motion.press.duration',
+ '--portal-motion-release-duration':'motion.release.duration',
+ '--portal-motion-press-easing':'motion.press.easing',
+ '--portal-motion-release-easing':'motion.release.easing',
+ '--portal-focus-width':'focus.ring.width','--portal-focus-offset':'focus.ring.offset',
+ '--portal-focus-color':'color.focus.ring',
+ '--portal-pressure-radius':'radius.control',
+ '--portal-control-minimum':'size.control.minimum'
+};
+const declarations=Object.entries(pressure).map(([css,role])=>{
+ const raw=values.get(role);
+ if(raw===undefined)throw new Error('Required Hardline token missing: '+role);
+ const val=Array.isArray(raw)?'cubic-bezier('+raw.join(',')+')':String(raw);
+ if(!/^(#[0-9a-fA-F]{6}|[0-9]+px|[0-9]+ms|cubic-bezier\([\d., ]+\))$/.test(val))
+  throw new Error('Unsupported semantic token value: '+role);
+ return '  '+css+': '+val+';';
+}).join('\n');
+const cssBase=await readFile(resolve(root,'tooling/portal/site.css'),'utf8');
+const cssPressure=await readFile(resolve(root,'tooling/portal/pressure.css'),'utf8');
+await write('portal.css',cssBase+'\n/* Generated from canonical Hardline Light Theme; no copied values */\n:root {\n'+declarations+'\n}\n'+cssPressure);
+await cp(resolve(root,'tooling/portal/site.mjs'),resolve(out,'portal.mjs'));
 const catalog={schema:'neosmartuxui/portal-catalog@1',sourceSha:sha,scope:'mixed-maturity',productionReady:false,counts:{core:50,commerce:35,operations:12,blocks:7,templates:2,total:106},items};
 await write('components/catalog.json',JSON.stringify(catalog,null,2)+'\n');
 const entrypoints=['/','/components/','/themes/','/blocks/','/templates/','/labs/','/flavors/','/docs/'];

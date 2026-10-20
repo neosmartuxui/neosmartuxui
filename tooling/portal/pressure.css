@@ -1,0 +1,67 @@
+/* Hardline portal interaction law: PRESSURE, NOT LEVITATION.
+   Values are generated at build-time from canonical hardline-light/tokens.json.
+   Only actionable surfaces move. Informational surfaces never impersonate controls. */
+:is(.btn,.tile,.route-card,.nav-cta,.menu-btn,.link-list a,.entry a,.theme-card a){
+  --portal-press-ink:var(--line);
+  position:relative;
+  border-radius:var(--portal-pressure-radius);
+  box-shadow:var(--portal-depth-rest-x) var(--portal-depth-rest-y) 0 var(--portal-press-ink);
+  transform:translate(0,0);
+  transition-property:transform,box-shadow,background-color,color;
+  transition-duration:var(--portal-motion-release-duration);
+  transition-timing-function:var(--portal-motion-release-easing);
+  touch-action:manipulation;
+}
+:is(.btn,.nav-cta,.menu-btn,.entry a,.theme-card a){min-block-size:var(--portal-control-minimum);}
+:is(.btn,.tile,.route-card,.nav-cta,.menu-btn,.link-list a,.entry a,.theme-card a):focus-visible{
+  outline:var(--portal-focus-width) solid var(--portal-focus-color);
+  outline-offset:var(--portal-focus-offset);
+}
+.nav-cta{--portal-press-ink:var(--blue);}
+.entry a,.theme-card a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  align-self:start;
+  gap:6px;
+  padding:8px 12px;
+  background:var(--surface);
+  border:2px solid var(--line);
+  color:var(--blue);
+  font-size:12px;
+  font-weight:850;
+  text-decoration:none;
+}
+.theme-card a{width:100%;}
+.route-card{cursor:pointer;min-inline-size:0;}
+.route-card .textlink{margin-top:auto;}
+@media(hover:hover){
+  :is(.btn,.tile,.route-card,.nav-cta,.menu-btn,.link-list a,.entry a,.theme-card a):hover{
+    transform:translate(var(--portal-press-hover-x),var(--portal-press-hover-y));
+    box-shadow:var(--portal-depth-hover-x) var(--portal-depth-hover-y) 0 var(--portal-press-ink);
+    transition-duration:var(--portal-motion-press-duration);
+    transition-timing-function:var(--portal-motion-press-easing);
+    text-decoration:none;
+  }
+  .btn-primary:hover,.nav-cta:hover{background:var(--blue-deep);color:white;}
+  :is(.tile,.route-card,.menu-btn,.link-list a,.entry a,.theme-card a):hover{background:var(--blue-soft);}
+}
+:is(.btn,.tile,.route-card,.nav-cta,.menu-btn,.link-list a,.entry a,.theme-card a):active{
+  transform:translate(var(--portal-press-active-x),var(--portal-press-active-y));
+  box-shadow:var(--portal-depth-active-x) var(--portal-depth-active-y) 0 var(--portal-press-ink);
+  transition-duration:var(--portal-motion-press-duration);
+  transition-timing-function:var(--portal-motion-press-easing);
+}
+:is(.tile,.route-card,.link-list a,.entry a,.theme-card a):active{background:#dce6ff;}
+/* Shadow and travel must remain one physical system even when native colors change. */
+@media(forced-colors:active){
+  :is(.btn,.tile,.route-card,.nav-cta,.menu-btn,.link-list a,.entry a,.theme-card a){
+    border-color:ButtonText;
+    --portal-press-ink:ButtonText;
+  }
+  :is(.btn,.tile,.route-card,.nav-cta,.menu-btn,.link-list a,.entry a,.theme-card a):focus-visible{outline-color:Highlight;}
+}
+/* Do not animate travel in reduced-motion mode; press remains visible immediately. */
+@media(prefers-reduced-motion:reduce){
+  :is(.btn,.tile,.route-card,.nav-cta,.menu-btn,.link-list a,.entry a,.theme-card a){transition-duration:1ms!important;}
+}

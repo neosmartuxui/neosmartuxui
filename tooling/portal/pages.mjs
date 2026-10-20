@@ -4,7 +4,7 @@ const link=(url,label,cls='')=>'<a href="'+url+'"'+(cls?' class="'+cls+'"':'')+'
 const cta=(url,label,kind='')=>link(url,label+' ↗','btn'+(kind?' btn-'+kind:''));
 const kicker=s=>'<p class="kicker">'+s+'</p>';
 const card=(url,title,caption,desc,tone='')=>'<a class="tile" href="'+url+'"><div class="tile-art '+tone+'"><div class="fake-rows" aria-hidden="true"><div></div><div></div><div></div><div></div><div></div></div></div><div class="tile-body"><span class="tile-eyebrow">'+caption+'</span><h3 class="tile-title">'+title+'</h3><p class="tile-desc">'+desc+'</p><span class="tile-link">Explore '+title+' ↗</span></div></a>';
-const route=(number,title,description,href)=>'<article class="route-card"><div class="route-top"><span class="route-num">'+number+'</span><span class="status">VIEW AVAILABLE</span></div><h3>'+title+'</h3><p>'+description+'</p>'+link(href,'Explore section ↗','textlink')+'</article>';
+const route=(number,title,description,href)=>'<a class="route-card" href="'+href+'"><div class="route-top"><span class="route-num">'+number+'</span><span class="status">VIEW AVAILABLE</span></div><h3>'+title+'</h3><p>'+description+'</p><span class="textlink">Explore section ↗</span></a>';
 export function shell(title,main,{active='',sha='local-unpinned',description='An accessible system of UI components, themes, Blocks, Templates and interactive Labs.'}={}){
  const nav=navigation.map(([name,href])=>'<a href="'+href+'"'+(name===active?' aria-current="page"':'')+'>'+name+'</a>').join('');
  return [

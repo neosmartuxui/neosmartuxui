@@ -30,3 +30,11 @@ Never deploy artifacts/library-package, or imply experimental Commerce or Operat
 ## Verification
 
 Portal tests cover desktop/mobile, RTL, reduced motion, keyboard navigation, search/filter, all section pages and their crosslinks, real preexisting routes, and historical deep-link redirects. Passing the portal suite does not open the product/public npm release gate.
+
+## Canonical tactile Hardline interaction
+
+The portal uses the flagship Hardline Light physical contract, not generic marketing-hover motion. The build resolves motion, press travel, structural depth, focus keyline, minimum control target, and radius from packages/themes/hardline-light/tokens.json; tooling/portal/pressure.css consumes those generated roles. This prevents the portal CSS from becoming a competing token authority.
+
+All actionable buttons, navigation CTAs, linked category tiles, linked workspace cards, directory links and mobile menu controls follow REST 4px shadow / 0px travel -> HOVER 2px shadow / 2px inward travel -> PRESS 0px shadow / 4px inward travel -> RELEASE. Motion uses canonical 70ms pressure and 110ms release token values. Hover-lift is forbidden.
+
+Non-interactive illustrations, compositional previews, and informational result-card containers remain stationary. Only their explicit semantic links are pressable; workspace cards that press are whole native anchor elements. Focus-visible remains an independent three-pixel keyline, while reduced-motion users receive immediate visual state changes. Touch, pointer and keyboard behavior have separate Chromium acceptance tests in tests/portal/pressure.spec.mjs. Hardline Core, flavor proofs, Studio and existing deployed demos are unaffected by the marketing-shell styling update.
