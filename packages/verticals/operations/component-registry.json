@@ -1,0 +1,172 @@
+{
+  "schema": "neosmartuxui/operations-component-registry@1",
+  "vertical": "operations",
+  "maturity": "implemented-local",
+  "source": {
+    "sourceRepository": "NeoBrutalismshop/NeoBrutal-Soft",
+    "sourceDemo": "NeoBrutalismshop/NeoBrutal-Soft/demo/v07.html",
+    "authorization": "Owner-authorized reuse into NeoSmartUXUI. Source attribution retained.",
+    "approach": "Independent semantic DOM implementation of reusable behavior consuming existing Core and Theme tokens."
+  },
+  "components": [
+    {
+      "id": "operations.stat-card",
+      "origin": "Soft data-viz; NeoLicenser KPI",
+      "exportName": "renderStatCard",
+      "authority": "read-only",
+      "composesCore": [
+        "core.card",
+        "core.badge",
+        "core.button"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "operations.activation-meter",
+      "origin": "Soft identity; NeoLicenser activation",
+      "exportName": "renderActivationMeter",
+      "authority": "read-only",
+      "composesCore": [
+        "core.card",
+        "core.badge",
+        "core.button"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "operations.integration-status",
+      "origin": "Soft operations; NeoLicenser integrations",
+      "exportName": "renderIntegrationStatus",
+      "authority": "read-only",
+      "composesCore": [
+        "core.card",
+        "core.badge",
+        "core.button"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "operations.risk-indicator",
+      "origin": "Soft permissions; NeoLicenser agent",
+      "exportName": "renderRiskIndicator",
+      "authority": "read-only",
+      "composesCore": [
+        "core.card",
+        "core.badge",
+        "core.button"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "operations.permission-scope",
+      "origin": "Soft permissions",
+      "exportName": "renderPermissionScope",
+      "authority": "read-only",
+      "composesCore": [
+        "core.card",
+        "core.badge",
+        "core.button"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "operations.webhook-delivery-log",
+      "origin": "Soft operations",
+      "exportName": "renderWebhookDeliveryLog",
+      "authority": "callback",
+      "composesCore": [
+        "core.card",
+        "core.badge",
+        "core.button"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "operations.secret-reference",
+      "origin": "Soft inspector; NeoLicenser integrations",
+      "exportName": "renderOpaqueSecretReference",
+      "authority": "masked-only",
+      "composesCore": [
+        "core.card",
+        "core.badge",
+        "core.button"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "operations.release-artifact",
+      "origin": "Soft file/scheduling; NeoLicenser releases",
+      "exportName": "renderReleaseArtifact",
+      "authority": "callback",
+      "composesCore": [
+        "core.card",
+        "core.badge",
+        "core.button"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "operations.rollout-stages",
+      "origin": "Soft scheduling; NeoLicenser release stages",
+      "exportName": "renderRolloutStages",
+      "authority": "read-only",
+      "composesCore": [
+        "core.card",
+        "core.badge",
+        "core.button"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "operations.operation-timeline",
+      "origin": "Soft operations; NeoLicenser activity",
+      "exportName": "renderOperationTimeline",
+      "authority": "read-only",
+      "composesCore": [
+        "core.card",
+        "core.badge",
+        "core.button"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "operations.usage-chart",
+      "origin": "Soft data-viz; NeoLicenser dashboard",
+      "exportName": "renderUsageChart",
+      "authority": "read-only",
+      "composesCore": [
+        "core.card",
+        "core.badge",
+        "core.button"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "operations.agent-approval-plan",
+      "origin": "Soft agent-diff; NeoLicenser agents",
+      "exportName": "renderAgentApprovalPlan",
+      "authority": "callback",
+      "composesCore": [
+        "core.card",
+        "core.badge",
+        "core.button"
+      ],
+      "status": "implemented-local"
+    }
+  ],
+  "themes": [
+    "hardline-light",
+    "hardline-dark",
+    "soft-light",
+    "soft-dark",
+    "rivet-light",
+    "rivet-dark",
+    "mono-light",
+    "mono-dark",
+    "pulse-light",
+    "pulse-dark"
+  ],
+  "noCoreMutation": true,
+  "noPublicProofClaim": true,
+  "noProviderBackend": true
+}

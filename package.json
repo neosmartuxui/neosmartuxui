@@ -2,7 +2,7 @@
   "name": "neosmartuxui",
   "version": "0.0.0",
   "private": true,
-  "description": "NeoSmartUXUI â€” the AI-first neo-brutalist UI system.",
+  "description": "NeoSmartUXUI Ã¢â‚¬â€ the AI-first neo-brutalist UI system.",
   "engines": {
     "node": ">=22"
   },
@@ -51,7 +51,15 @@
     "validate:commerce": "node tooling/commerce/validate.mjs",
     "build:commerce": "node tooling/commerce/build.mjs",
     "test:commerce": "playwright test --config=playwright.commerce.config.mjs",
-    "quality:commerce": "npm run validate:commerce && npm run build:commerce && npm run test:commerce"
+    "quality:commerce": "npm run validate:commerce && npm run build:commerce && npm run test:commerce",
+    "validate:operations": "node tooling/operations/validate.mjs",
+    "build:operations": "node tooling/operations/build.mjs",
+    "test:operations": "playwright test --config=playwright.operations.config.mjs",
+    "quality:operations": "npm run validate:operations && npm run build:operations && npm run test:operations",
+    "validate:blocks": "node tooling/blocks/validate.mjs",
+    "build:blocks": "node tooling/blocks/build.mjs",
+    "test:blocks": "playwright test --config=playwright.blocks.config.mjs",
+    "quality:blocks": "npm run validate:blocks && npm run build:blocks && npm run test:blocks"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1"

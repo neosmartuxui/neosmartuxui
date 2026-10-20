@@ -1,0 +1,76 @@
+{
+  "schema": "neosmartuxui/blocks@1",
+  "maturity": "implemented-local",
+  "source": "NeoBrutalismshop/NeoBrutal-Commerce",
+  "compositions": [
+    {
+      "id": "block.trust-strip",
+      "kind": "commerce",
+      "module": "packages/blocks/commerce/index.mjs",
+      "status": "implemented-local"
+    },
+    {
+      "id": "block.promo-band",
+      "kind": "commerce",
+      "module": "packages/blocks/commerce/index.mjs",
+      "status": "implemented-local"
+    },
+    {
+      "id": "block.testimonials",
+      "kind": "commerce",
+      "module": "packages/blocks/commerce/index.mjs",
+      "status": "implemented-local"
+    },
+    {
+      "id": "block.guarantee",
+      "kind": "commerce",
+      "module": "packages/blocks/commerce/index.mjs",
+      "status": "implemented-local"
+    },
+    {
+      "id": "block.plan-comparison",
+      "kind": "commerce",
+      "module": "packages/blocks/commerce/index.mjs",
+      "status": "implemented-local"
+    },
+    {
+      "id": "block.bundle-builder",
+      "kind": "commerce",
+      "module": "packages/blocks/commerce/index.mjs",
+      "status": "implemented-local"
+    },
+    {
+      "id": "block.account-nav",
+      "kind": "commerce",
+      "module": "packages/blocks/commerce/index.mjs",
+      "status": "implemented-local"
+    }
+  ],
+  "templates": [
+    {
+      "id": "template.license-ops-dashboard",
+      "source": "NeoBrutal Soft v07",
+      "status": "implemented-local"
+    },
+    {
+      "id": "template.release-operations-console",
+      "source": "NeoBrutal Soft v07",
+      "status": "implemented-local"
+    }
+  ],
+  "themes": [
+    "hardline-light",
+    "hardline-dark",
+    "soft-light",
+    "soft-dark",
+    "rivet-light",
+    "rivet-dark",
+    "mono-light",
+    "mono-dark",
+    "pulse-light",
+    "pulse-dark"
+  ],
+  "noCoreMutation": true,
+  "noPublicProofClaim": true,
+  "note": "Themed local gallery is not a competing Theme editor; editing remains in Studio."
+}

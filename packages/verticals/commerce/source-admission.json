@@ -7,7 +7,9 @@
     "sourceEntries": 47,
     "implementedLocal": 35,
     "reusedCore": 1,
-    "remaining": 11
+    "remaining": 0,
+    "implementedBlocks": 7,
+    "referenceOnly": 4
   },
   "note": "Local-only migration: owner explicitly authorizes cross-project reuse under NeoSmartUXUI's intended terms. NeoSmartUXUI's exact license remains undocumented in a top-level LICENSE file; honor third-party rights. Blocks and platform patterns are not counted as primitives.",
   "entries": [
@@ -28,9 +30,9 @@
     {
       "sourceId": "trust-strip",
       "decision": "PROMOTE_BLOCK",
-      "state": "pending",
+      "state": "implemented-local-block",
       "wave": 5,
-      "target": null,
+      "target": "block.trust-strip",
       "modelRefs": [],
       "actionRefs": [],
       "stateRefs": []
@@ -38,9 +40,9 @@
     {
       "sourceId": "promo-band",
       "decision": "PROMOTE_BLOCK",
-      "state": "pending",
+      "state": "implemented-local-block",
       "wave": 5,
-      "target": null,
+      "target": "block.promo-band",
       "modelRefs": [],
       "actionRefs": [],
       "stateRefs": []
@@ -122,9 +124,9 @@
     {
       "sourceId": "testimonials",
       "decision": "PROMOTE_BLOCK",
-      "state": "pending",
+      "state": "implemented-local-block",
       "wave": 5,
-      "target": null,
+      "target": "block.testimonials",
       "modelRefs": [],
       "actionRefs": [],
       "stateRefs": []
@@ -132,9 +134,9 @@
     {
       "sourceId": "guarantee",
       "decision": "PROMOTE_BLOCK",
-      "state": "pending",
+      "state": "implemented-local-block",
       "wave": 5,
-      "target": null,
+      "target": "block.guarantee",
       "modelRefs": [],
       "actionRefs": [],
       "stateRefs": []
@@ -180,9 +182,9 @@
     {
       "sourceId": "plan-comparison",
       "decision": "PROMOTE_BLOCK",
-      "state": "pending",
+      "state": "implemented-local-block",
       "wave": 5,
-      "target": null,
+      "target": "block.plan-comparison",
       "modelRefs": [
         "ProductView"
       ],
@@ -192,9 +194,9 @@
     {
       "sourceId": "bundle-builder",
       "decision": "PROMOTE_BLOCK",
-      "state": "pending",
+      "state": "implemented-local-block",
       "wave": 5,
-      "target": null,
+      "target": "block.bundle-builder",
       "modelRefs": [
         "ProductView"
       ],
@@ -386,9 +388,9 @@
     {
       "sourceId": "account-nav",
       "decision": "PROMOTE_BLOCK",
-      "state": "pending",
+      "state": "implemented-local-block",
       "wave": 5,
-      "target": null,
+      "target": "block.account-nav",
       "modelRefs": [],
       "actionRefs": [],
       "stateRefs": []
@@ -612,9 +614,9 @@
     {
       "sourceId": "component-contract",
       "decision": "REFERENCE",
-      "state": "pending-platform-review",
+      "state": "reference-only",
       "wave": 5,
-      "target": null,
+      "target": "packages/core/component-registry.json; packages/verticals/commerce/component-registry.json; packages/verticals/operations/component-registry.json",
       "modelRefs": [],
       "actionRefs": [],
       "stateRefs": []
@@ -622,9 +624,9 @@
     {
       "sourceId": "tokens",
       "decision": "REFERENCE",
-      "state": "pending-platform-review",
+      "state": "reference-only",
       "wave": 5,
-      "target": null,
+      "target": "spec/core/token-contracts.json; packages/themes/*/tokens.json",
       "modelRefs": [],
       "actionRefs": [],
       "stateRefs": []
@@ -632,9 +634,9 @@
     {
       "sourceId": "system-states",
       "decision": "REFERENCE",
-      "state": "pending-platform-review",
+      "state": "reference-only",
       "wave": 5,
-      "target": null,
+      "target": "domain state types in packages/verticals/commerce/index.d.ts and packages/verticals/operations/index.d.ts",
       "modelRefs": [],
       "actionRefs": [],
       "stateRefs": [
@@ -649,9 +651,9 @@
     {
       "sourceId": "ownership-lifecycle",
       "decision": "REFERENCE",
-      "state": "pending-platform-review",
+      "state": "reference-only",
       "wave": 5,
-      "target": null,
+      "target": "packages/verticals/commerce/wave4.mjs and provider callback types in index.d.ts",
       "modelRefs": [
         "LicenseView",
         "SubscriptionView",

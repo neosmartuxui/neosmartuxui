@@ -39,3 +39,7 @@ The Soft v0.7 demo has five views: overview, licenses, releases, integrations an
 ## Next implementation gate
 
 Merge Wave 1's eight tested Commerce renderers to LOCAL main only, when all quality checks pass. Add the next actual renderers in a fresh LOCAL feature branch. Priority: license card, activation meter, integration status, risk indicator, agent approval plan. Each needs contracts, appropriate authority, adapters, accessibility and tests; Blocks remain deferred. No remote push or pull; GitHub Actions remains disabled.
+
+## Local integration update
+
+The subsequent local milestone implements 12 independently composed Operations components from the advanced Soft/NeoLicenser domain patterns, seven Commerce Blocks from the original source inventory, and two operations Templates. The older admission sections above describe original source candidates, not new Core identities. Run quality:operations and quality:blocks. No backend, public proof, or GitHub push/pull. All theme choices use the existing canonical ten Theme bundles; Theme editing remains in Studio.

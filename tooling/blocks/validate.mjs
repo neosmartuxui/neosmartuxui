@@ -1,0 +1,34 @@
+import {readFile} from 'node:fs/promises';
+import {resolve} from 'node:path';
+import {pathToFileURL} from 'node:url';
+const root=resolve(import.meta.dirname,'../..');
+const get=async p=>JSON.parse(await readFile(resolve(root,p),'utf8'));
+const reg=await get('packages/blocks/registry.json');
+const admission=await get('packages/verticals/commerce/source-admission.json');
+const core=await get('packages/core/component-registry.json');
+const commerce=await get('packages/verticals/commerce/component-registry.json');
+const operations=await get('packages/verticals/operations/component-registry.json');
+if(reg.schema!=='neosmartuxui/blocks@1'||reg.compositions.length!==7||reg.templates.length!==2||reg.themes.length!==10||!reg.noPublicProofClaim)throw new Error('Blocks registry shape');
+if(core.components.length!==50||commerce.components.length!==35||operations.components.length!==12)throw new Error('Component boundary has changed');
+const B=await import(pathToFileURL(resolve(root,'packages/blocks/commerce/index.mjs')).href);
+const T=await import(pathToFileURL(resolve(root,'packages/templates/operations.mjs')).href);
+if(Object.keys(B.COMMERCE_BLOCKS).length!==7||Object.keys(T.TEMPLATE_RENDERERS).length!==2)throw new Error('Renderer count');
+const blockIds=new Set(reg.compositions.map(x=>x.id));
+const templateIds=new Set(reg.templates.map(x=>x.id));
+if(blockIds.size!==7||templateIds.size!==2)throw new Error('Duplicate Block or Template ID');
+for(const item of reg.compositions)if(typeof B.COMMERCE_BLOCKS[item.id]!=='function'||item.status!=='implemented-local')throw new Error('Renderer missing '+item.id);
+for(const item of reg.templates)if(typeof T.TEMPLATE_RENDERERS[item.id]!=='function'||item.status!=='implemented-local')throw new Error('Template renderer missing '+item.id);
+const originalBlocks=admission.entries.filter(x=>x.decision==='PROMOTE_BLOCK');
+const platform=admission.entries.filter(x=>x.decision==='REFERENCE');
+if(originalBlocks.length!==7||platform.length!==4)throw new Error('Original 47 source admission changed');
+for(const b of originalBlocks)if(!blockIds.has('block.'+b.sourceId)||b.state!=='implemented-local-block')throw new Error('Unmapped original Block '+b.sourceId);
+for(const p of platform)if(p.state==='implemented-local'||p.state==='implemented-local-block')throw new Error('Reference cannot be counted as a component');
+const css=await readFile(resolve(root,'packages/blocks/blocks.css'),'utf8');
+const tokens=await get('spec/core/token-contracts.json');
+const valid=new Set(tokens.contracts.map(t=>'--ns-'+t.id.replaceAll('.','-')));
+for(const [,token] of css.matchAll(/var\((--ns-[a-z0-9-]+)/g))if(!valid.has(token))throw new Error('Unknown token '+token);
+for(const name of reg.themes){
+ const theme=await get('packages/themes/'+name+'/tokens.json');
+ if(theme.values.length!==55)throw new Error('Missing theme '+name);
+}
+console.log('[blocks] PASS: 7 Commerce Blocks, 2 operational templates; Core=50, Commerce=35, Operations=12, ten original Themes.');
