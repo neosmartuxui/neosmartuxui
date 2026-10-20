@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neosmartui.com/schemas/component-preview@1.json",
+  "title": "NeoSmartUI Component Preview Contract v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "component",
+    "fixture",
+    "controller",
+    "fixtureComponents",
+    "defaultState",
+    "resetStrategy",
+    "stateRealization",
+    "renderers"
+  ],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schema": {"const": "neosmartui/component-preview@1"},
+    "component": {
+      "type": "string",
+      "pattern": "^(?!flavor\\.|vertical\\.)[a-z][a-z0-9-]*\\.(?!block\\.|page\\.)[a-z][a-z0-9-]*$"
+    },
+    "fixture": {"const": "fixture.html"},
+    "controller": {
+      "anyOf": [
+        {"const": "controller.mjs"},
+        {"type": "null"}
+      ]
+    },
+    "fixtureComponents": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^(?!flavor\\.|vertical\\.)[a-z][a-z0-9-]*\\.(?!block\\.|page\\.)[a-z][a-z0-9-]*$"
+      }
+    },
+    "defaultState": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "resetStrategy": {"const": "remount"},
+    "stateRealization": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"$ref": "#/$defs/stateRealization"}
+    },
+    "renderers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["web"],
+      "properties": {
+        "web": {"$ref": "#/$defs/webRenderer"}
+      }
+    }
+  },
+  "$defs": {
+    "simpleSelector": {
+      "type": "string",
+      "pattern": "^(?:#[A-Za-z][A-Za-z0-9_-]*|\\.[A-Za-z][A-Za-z0-9_-]*)$"
+    },
+    "stateRealization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "target"],
+      "properties": {
+        "mode": {
+          "enum": ["fixture", "native-pointer", "native-keyboard", "controller"]
+        },
+        "target": {"$ref": "#/$defs/simpleSelector"}
+      }
+    },
+    "binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["module", "export", "selector"],
+      "properties": {
+        "module": {
+          "type": "string",
+          "pattern": "^packages/adapters/web/components/[a-z][a-z0-9-]*\\.mjs$"
+        },
+        "export": {
+          "type": "string",
+          "pattern": "^[A-Za-z_$][A-Za-z0-9_$]*$"
+        },
+        "selector": {"$ref": "#/$defs/simpleSelector"},
+        "options": {"type": "object"}
+      }
+    },
+    "webRenderer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["styles", "bindings"],
+      "properties": {
+        "styles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^packages/adapters/web/components/[a-z][a-z0-9-]*\\.css$"
+          }
+        },
+        "bindings": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/binding"}
+        }
+      }
+    }
+  }
+}

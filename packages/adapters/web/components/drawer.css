@@ -1,0 +1,135 @@
+.ns-drawer {
+  --ns-drawer-closed-x: 0%;
+  --ns-drawer-closed-y: 0%;
+  position: fixed;
+  margin: 0;
+  padding: var(--ns-space-surface-block) var(--ns-space-surface-inline);
+  border: var(--ns-border-surface-width) solid var(--ns-color-border-strong);
+  border-radius: var(--ns-radius-surface);
+  background: var(--ns-color-surface-panel);
+  color: var(--ns-color-content-primary);
+  box-shadow: var(--ns-depth-rest-x) var(--ns-depth-rest-y) 0 var(--ns-color-border-strong);
+  font-family: var(--ns-font-family-body);
+  font-size: var(--ns-font-size-body);
+  overflow: auto;
+  opacity: 0;
+  transform: translate(var(--ns-drawer-closed-x), var(--ns-drawer-closed-y));
+  transition-property: opacity, transform, box-shadow;
+  transition-duration: var(--ns-motion-standard-duration);
+  transition-timing-function: var(--ns-motion-standard-easing);
+}
+.ns-drawer[open] {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.ns-drawer::backdrop {
+  background: color-mix(in srgb, var(--ns-color-content-primary) 58%, transparent);
+}
+.ns-drawer[data-drawer-placement="inline-start"],
+.ns-drawer[data-drawer-placement="inline-end"] {
+  inset-block: 0;
+  inline-size: min(28rem, calc(100vi - var(--ns-space-surface-inline)));
+  max-inline-size: calc(100vi - var(--ns-space-surface-inline));
+  block-size: 100dvb;
+  max-block-size: 100dvb;
+}
+.ns-drawer[data-drawer-placement="inline-start"] {
+  inset-inline-start: 0;
+  --ns-drawer-closed-x: -100%;
+}
+.ns-drawer[data-drawer-placement="inline-end"] {
+  inset-inline-end: 0;
+  --ns-drawer-closed-x: 100%;
+}
+.ns-drawer[data-drawer-placement="inline-start"]:dir(rtl) {
+  --ns-drawer-closed-x: 100%;
+}
+.ns-drawer[data-drawer-placement="inline-end"]:dir(rtl) {
+  --ns-drawer-closed-x: -100%;
+}
+.ns-drawer[data-drawer-placement="block-start"],
+.ns-drawer[data-drawer-placement="block-end"] {
+  inset-inline: 0;
+  inline-size: 100vi;
+  max-inline-size: 100vi;
+  block-size: min(24rem, calc(100dvb - var(--ns-space-surface-block)));
+  max-block-size: calc(100dvb - var(--ns-space-surface-block));
+}
+.ns-drawer[data-drawer-placement="block-start"] {
+  inset-block-start: 0;
+  --ns-drawer-closed-y: -100%;
+}
+.ns-drawer[data-drawer-placement="block-end"] {
+  inset-block-end: 0;
+  --ns-drawer-closed-y: 100%;
+}
+.ns-drawer__stack {
+  display: grid;
+  gap: var(--ns-space-surface-block);
+  min-block-size: 100%;
+}
+.ns-drawer__title,
+.ns-drawer__description {
+  margin: 0;
+}
+.ns-drawer__title {
+  font-size: var(--ns-font-size-label);
+  font-weight: var(--ns-font-weight-emphasis);
+}
+.ns-drawer__description {
+  color: var(--ns-color-content-secondary);
+  font-weight: var(--ns-font-weight-regular);
+}
+.ns-drawer__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--ns-space-surface-block);
+}
+.ns-drawer__swipe-handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: var(--ns-size-control-minimum);
+  user-select: none;
+  cursor: grab;
+}
+.ns-drawer[data-drawer-placement^="inline"] .ns-drawer__swipe-handle {
+  touch-action: pan-y;
+}
+.ns-drawer[data-drawer-placement^="block"] .ns-drawer__swipe-handle {
+  touch-action: pan-x;
+}
+.ns-drawer:focus-visible {
+  outline: var(--ns-focus-ring-width) solid var(--ns-color-focus-ring);
+  outline-offset: var(--ns-focus-ring-offset);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ns-drawer {
+    transition-duration: 1ms !important;
+  }
+}
+@media (forced-colors: active) {
+  .ns-drawer {
+    border-color: CanvasText;
+    box-shadow: var(--ns-depth-rest-x) var(--ns-depth-rest-y) 0 CanvasText;
+    forced-color-adjust: auto;
+  }
+  .ns-drawer::backdrop {
+    background: Canvas;
+    opacity: 0.75;
+  }
+  .ns-drawer:focus-visible {
+    outline-color: Highlight;
+  }
+}
+@media (max-width: 32rem) {
+  .ns-drawer[data-drawer-placement="inline-start"],
+  .ns-drawer[data-drawer-placement="inline-end"] {
+    inline-size: calc(100vi - var(--ns-space-surface-inline));
+  }
+  .ns-drawer__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

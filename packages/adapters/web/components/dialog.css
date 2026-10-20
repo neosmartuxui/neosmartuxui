@@ -1,0 +1,37 @@
+.ns-dialog {
+  inline-size: min(38rem, calc(100vi - var(--ns-space-surface-inline) - var(--ns-space-surface-inline)));
+  max-block-size: calc(100dvb - var(--ns-space-surface-block) - var(--ns-space-surface-block));
+  margin: auto;
+  padding: var(--ns-space-surface-block) var(--ns-space-surface-inline);
+  border: var(--ns-border-surface-width) solid var(--ns-color-border-strong);
+  border-radius: var(--ns-radius-surface);
+  background: var(--ns-color-surface-panel);
+  color: var(--ns-color-content-primary);
+  box-shadow: var(--ns-depth-rest-x) var(--ns-depth-rest-y) 0 var(--ns-color-border-strong);
+  font-family: var(--ns-font-family-body);
+  font-size: var(--ns-font-size-body);
+  overflow: auto;
+  opacity: 0;
+  transform: none;
+  transition-property: opacity, box-shadow;
+  transition-duration: var(--ns-motion-standard-duration);
+  transition-timing-function: var(--ns-motion-standard-easing);
+}
+.ns-dialog[open] { opacity: 1; }
+.ns-dialog::backdrop { background: color-mix(in srgb, var(--ns-color-content-primary) 58%, transparent); }
+.ns-dialog__stack { display: grid; gap: var(--ns-space-surface-block); }
+.ns-dialog__title, .ns-dialog__description { margin: 0; }
+.ns-dialog__title { font-size: var(--ns-font-size-label); font-weight: var(--ns-font-weight-emphasis); }
+.ns-dialog__description { color: var(--ns-color-content-secondary); font-weight: var(--ns-font-weight-regular); }
+.ns-dialog__actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--ns-space-surface-block); }
+.ns-dialog:focus-visible { outline: var(--ns-focus-ring-width) solid var(--ns-color-focus-ring); outline-offset: var(--ns-focus-ring-offset); }
+@media (prefers-reduced-motion: reduce) { .ns-dialog { transition-duration: 1ms !important; } }
+@media (forced-colors: active) {
+  .ns-dialog { border-color: CanvasText; box-shadow: var(--ns-depth-rest-x) var(--ns-depth-rest-y) 0 CanvasText; forced-color-adjust: auto; }
+  .ns-dialog::backdrop { background: Canvas; opacity: 0.75; }
+  .ns-dialog:focus-visible { outline-color: Highlight; }
+}
+@media (max-width: 32rem) {
+  .ns-dialog { inline-size: calc(100vi - var(--ns-space-surface-inline) - var(--ns-space-surface-inline)); }
+  .ns-dialog__actions { align-items: stretch; flex-direction: column; }
+}

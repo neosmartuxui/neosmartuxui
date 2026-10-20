@@ -1,0 +1,16 @@
+        <div class="ns-multi-select" id="multi-select-demo" data-state="closed" data-selection-state="none-selected" data-highlight-state="none" data-invalid="false" data-disabled="false">
+          <span class="ns-multi-select__label" id="multi-select-label">Frameworks</span>
+          <button class="ns-multi-select__trigger" id="multi-select-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="multi-select-listbox" aria-labelledby="multi-select-label multi-select-summary" aria-describedby="multi-select-hint">
+            <span class="ns-multi-select__summary" id="multi-select-summary" data-multi-select-summary>Choose frameworks</span>
+            <span class="ns-multi-select__chevron" aria-hidden="true">▼</span>
+          </button>
+          <div class="ns-multi-select__popup" id="multi-select-popup" hidden>
+            <div class="ns-multi-select__list" id="multi-select-listbox" role="listbox" tabindex="-1" aria-multiselectable="true" aria-labelledby="multi-select-label" aria-disabled="false">
+              <div class="ns-multi-select__option" id="multi-select-option-react" role="option" aria-selected="false" data-value="react" data-highlighted="false">React</div>
+              <div class="ns-multi-select__option" id="multi-select-option-vue" role="option" aria-selected="false" data-value="vue" data-highlighted="false">Vue</div>
+              <div class="ns-multi-select__option" id="multi-select-option-svelte" role="option" aria-selected="false" data-value="svelte" data-highlighted="false">Svelte</div>
+              <div class="ns-multi-select__option" id="multi-select-option-solid" role="option" aria-selected="false" aria-disabled="true" data-value="solid" data-highlighted="false">Solid (unavailable)</div>
+            </div>
+          </div>
+          <p class="ns-multi-select__hint" id="multi-select-hint">Choose any number. Arrow keys move the highlight; Space or Enter toggles the highlighted option.</p>
+        </div>

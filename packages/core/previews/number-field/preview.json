@@ -1,0 +1,31 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.number-field",
+  "fixture": "fixture.html",
+  "controller": "controller.mjs",
+  "fixtureComponents": [],
+  "defaultState": "rest",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "rest": { "mode": "fixture", "target": "#number-field-demo" },
+    "hover": { "mode": "native-pointer", "target": "#number-field-increment" },
+    "focus-visible": { "mode": "native-keyboard", "target": "#number-field-input" },
+    "pressed": { "mode": "native-pointer", "target": "#number-field-increment" },
+    "empty": { "mode": "fixture", "target": "#number-field-input" },
+    "filled": { "mode": "controller", "target": "#number-field-demo" },
+    "invalid": { "mode": "controller", "target": "#number-field-demo" },
+    "read-only": { "mode": "controller", "target": "#number-field-demo" },
+    "disabled": { "mode": "controller", "target": "#number-field-demo" }
+  },
+  "renderers": {
+    "web": {
+      "styles": ["packages/adapters/web/components/number-field.css"],
+      "bindings": [{
+        "module": "packages/adapters/web/components/number-field.mjs",
+        "export": "bindNumberField",
+        "selector": "#number-field-demo"
+      }]
+    }
+  }
+}

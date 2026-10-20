@@ -1,0 +1,28 @@
+{
+  "$schema": "../../spec/schemas/public-proof-maintenance.schema.json",
+  "schema": "neosmartui/public-proof-maintenance@1",
+  "flavor": "flavor.pulse",
+  "trackingIssue": "https://github.com/neosmartui/neosmartui/issues/244",
+  "proofRecord": {
+    "path": "evidence/public/flavor.pulse.json",
+    "blobSha": "6fb3ed02aba2311d94ca07d1a849a30955547bb3"
+  },
+  "implementationFiles": [
+    {
+      "path": "packages/themes/pulse-light/resolution.json",
+      "provenBlobSha": "82fe3f5c5ed081612670b1e1eed1b370216dd5df"
+    },
+    {
+      "path": "packages/themes/pulse-light/tokens.json",
+      "provenBlobSha": "6b9999293ee77bc85470e25b7961e69573aa1b6e"
+    },
+    {
+      "path": "packages/themes/pulse-dark/resolution.json",
+      "provenBlobSha": "ec91c307f74209bbf6eab87c6cd954d7d1fbcb2d"
+    },
+    {
+      "path": "packages/themes/pulse-dark/tokens.json",
+      "provenBlobSha": "6abd1e2b1e7f3ba13cdb7e0cbfaf3be6d909efc3"
+    }
+  ]
+}

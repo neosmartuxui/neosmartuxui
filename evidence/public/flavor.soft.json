@@ -1,0 +1,66 @@
+{
+  "$schema": "../../spec/schemas/public-proof.schema.json",
+  "schema": "neosmartui/public-proof@1",
+  "flavor": "flavor.soft",
+  "deployedSource": {
+    "repository": "neosmartui/neosmartui",
+    "sha": "3d41541d81f8fd5c24e11c9d12a17bb9e7a9e9b0"
+  },
+  "implementationFiles": [
+    {
+      "path": "packages/themes/soft-light/theme.json",
+      "blobSha": "ab7745b39f9cdc39f9f3e588421e119fec8134fd"
+    },
+    {
+      "path": "packages/themes/soft-light/resolution.json",
+      "blobSha": "b3f23f3ad140db429243a18fcad8ae2336e3685d"
+    },
+    {
+      "path": "packages/themes/soft-light/tokens.json",
+      "blobSha": "9606109ddc9738bad5b82a66743966d4f069e8ef"
+    },
+    {
+      "path": "apps/foundry/src/flavors/soft/index.html",
+      "blobSha": "d3cc29c9c83f3e847f1eca821ed94254e2a05a98"
+    },
+    {
+      "path": "packages/themes/soft-dark/theme.json",
+      "blobSha": "ff55cbb4d39d0511b4703fe28d07dd09a8621f05"
+    },
+    {
+      "path": "packages/themes/soft-dark/resolution.json",
+      "blobSha": "48c125e00354c0ef76330c0d6b66c25f43655166"
+    },
+    {
+      "path": "packages/themes/soft-dark/tokens.json",
+      "blobSha": "7bf5539e33120987e89b91449a012e670c5a575d"
+    },
+    {
+      "path": "apps/foundry/fragments/soft-dark.html",
+      "blobSha": "10bcf0d78c357e2eb458a9aaca5de90b6634b6c5"
+    },
+    {
+      "path": "tooling/foundry/assemble-soft-dark.mjs",
+      "blobSha": "bc1aeadc885fdb89d041309841ef31ee8af2b809"
+    }
+  ],
+  "browserEvidence": {
+    "runId": 35720197442,
+    "artifactId": 10690793881,
+    "artifactDigest": "sha256:8dd8c4662e68ea933b709ef312fd0bddc6f8d48aa89c9415edb16230d3a0a0a5"
+  },
+  "deployment": {
+    "repository": "neosmartui/neosmartui.github.io",
+    "commitSha": "d21d12143368efaee1ce1e083f7f936b209b1e19",
+    "treeSha": "2662bbdb270ab2fb0d336ca1e31889672a5fdc8b",
+    "pagesRunId": 35721321083
+  },
+  "live": {
+    "pageUrl": "https://neosmartui.github.io/flavors/soft/",
+    "deploymentRecordUrl": "https://neosmartui.github.io/deployment.json",
+    "assetUrls": [
+      "https://neosmartui.github.io/soft-theme.css",
+      "https://neosmartui.github.io/soft-dark-theme.css"
+    ]
+  }
+}

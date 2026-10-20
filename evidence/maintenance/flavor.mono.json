@@ -1,0 +1,28 @@
+{
+  "$schema": "../../spec/schemas/public-proof-maintenance.schema.json",
+  "schema": "neosmartui/public-proof-maintenance@1",
+  "flavor": "flavor.mono",
+  "trackingIssue": "https://github.com/neosmartui/neosmartui/issues/244",
+  "proofRecord": {
+    "path": "evidence/public/flavor.mono.json",
+    "blobSha": "236ecf29fde6b3823861a570a4ea9b8181c3137f"
+  },
+  "implementationFiles": [
+    {
+      "path": "packages/themes/mono-light/resolution.json",
+      "provenBlobSha": "b7e987c93ee10f2f7f86728660a0fb3545c4f7a6"
+    },
+    {
+      "path": "packages/themes/mono-light/tokens.json",
+      "provenBlobSha": "1ebd67404e5c9775c590792246362201f01e3ee2"
+    },
+    {
+      "path": "packages/themes/mono-dark/resolution.json",
+      "provenBlobSha": "6a81f515eb20662554380f5bf10046b3030f4433"
+    },
+    {
+      "path": "packages/themes/mono-dark/tokens.json",
+      "provenBlobSha": "34a2335ad9091f69d9ab407b4f73550b6d79878c"
+    }
+  ]
+}

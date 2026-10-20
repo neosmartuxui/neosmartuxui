@@ -1,0 +1,46 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.data-grid",
+  "fixture": "fixture.html",
+  "controller": "controller.mjs",
+  "fixtureComponents": [],
+  "defaultState": "rest",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "rest": {
+      "mode": "fixture",
+      "target": "#data-grid-demo"
+    },
+    "hover": {
+      "mode": "native-pointer",
+      "target": "#data-grid-r2c2"
+    },
+    "focus-visible": {
+      "mode": "native-keyboard",
+      "target": "#data-grid-r1c1"
+    },
+    "selected": {
+      "mode": "controller",
+      "target": "#data-grid-r2c2"
+    },
+    "editing": {
+      "mode": "controller",
+      "target": "#data-grid-r1c4"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/data-grid.css"
+      ],
+      "bindings": [
+        {
+          "module": "packages/adapters/web/components/data-grid.mjs",
+          "export": "bindDataGrid",
+          "selector": "#data-grid-demo"
+        }
+      ]
+    }
+  }
+}

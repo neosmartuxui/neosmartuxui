@@ -1,0 +1,28 @@
+{
+  "$schema": "../../spec/schemas/public-proof-maintenance.schema.json",
+  "schema": "neosmartui/public-proof-maintenance@1",
+  "flavor": "flavor.rivet",
+  "trackingIssue": "https://github.com/neosmartui/neosmartui/issues/244",
+  "proofRecord": {
+    "path": "evidence/public/flavor.rivet.json",
+    "blobSha": "e4c24c79ffde65f7fd6ed8b7b69e366de64e1fee"
+  },
+  "implementationFiles": [
+    {
+      "path": "packages/themes/rivet-light/resolution.json",
+      "provenBlobSha": "721479f315e99145bbf39b16b48acc833b70e0f0"
+    },
+    {
+      "path": "packages/themes/rivet-light/tokens.json",
+      "provenBlobSha": "90033566d305192032fb2fa9f92de1b4f697138e"
+    },
+    {
+      "path": "packages/themes/rivet-dark/resolution.json",
+      "provenBlobSha": "7c4d6241ede6df60c59c37d1bf171b0a6267a0bb"
+    },
+    {
+      "path": "packages/themes/rivet-dark/tokens.json",
+      "provenBlobSha": "3067b0ef6590bd8fd0528d9a17bfc2ec27a23fd7"
+    }
+  ]
+}

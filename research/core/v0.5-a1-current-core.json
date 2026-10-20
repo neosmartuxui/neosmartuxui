@@ -1,0 +1,30 @@
+{
+  "schema": "neosmartui/core-inventory-snapshot@1",
+  "checkedAt": "2026-09-20",
+  "sourceRepository": "neosmartui/neosmartui",
+  "sourceSha": "d8161d51d02b3c7a9552386e7c59e1bbbeef31ac",
+  "registryPath": "packages/core/component-registry.json",
+  "registryBlobSha": "8e6723ec138b6bb71cc932fd66e2188a493c8b75",
+  "publicProofCount": 18,
+  "components": [
+    "core.accordion",
+    "core.alert",
+    "core.badge",
+    "core.breadcrumb",
+    "core.button",
+    "core.card",
+    "core.checkbox",
+    "core.combobox",
+    "core.field",
+    "core.input",
+    "core.pagination",
+    "core.radio",
+    "core.segmented-control",
+    "core.select",
+    "core.switch",
+    "core.tabs",
+    "core.textarea",
+    "core.tooltip"
+  ],
+  "countRule": "Only canonical registry entries already at maturity public-proof are counted."
+}

@@ -1,0 +1,42 @@
+        <div class="menubar-preview-grid">
+          <div>
+            <div class="ns-menubar" id="menubar-demo" data-state="closed">
+              <div class="ns-menubar__root" id="menubar-root" role="menubar" aria-label="Document commands" data-menubar-root>
+                <div class="ns-menubar__item" id="menubar-file" role="menuitem" tabindex="0" aria-disabled="false" aria-haspopup="menu" aria-expanded="false" aria-controls="menubar-file-menu">File</div>
+                <div class="ns-menubar__item" id="menubar-edit" role="menuitem" tabindex="-1" aria-disabled="false" aria-haspopup="menu" aria-expanded="false" aria-controls="menubar-edit-menu">Edit</div>
+                <div class="ns-menubar__item" id="menubar-autosave" role="menuitemcheckbox" tabindex="-1" aria-disabled="false" aria-checked="true">Autosave</div>
+                <div class="ns-menubar__item" id="menubar-refresh" role="menuitem" tabindex="-1" aria-disabled="false">Refresh</div>
+                <div class="ns-menubar__item" id="menubar-publish" role="menuitem" tabindex="-1" aria-disabled="true">Publish unavailable</div>
+              </div>
+              <div class="ns-menubar__menu" id="menubar-file-menu" role="menu" data-menubar-menu aria-labelledby="menubar-file" hidden>
+                <div class="ns-menubar__item" id="menubar-new" role="menuitem" tabindex="-1" aria-disabled="false">New document</div>
+                <div class="ns-menubar__item" id="menubar-pin" role="menuitemcheckbox" tabindex="-1" aria-checked="false" aria-disabled="false">Pin sidebar</div>
+                <div class="ns-menubar__item" id="menubar-density-compact" role="menuitemradio" tabindex="-1" aria-checked="true" aria-disabled="false" data-menubar-radio-group="density">Compact view</div>
+                <div class="ns-menubar__item" id="menubar-density-comfortable" role="menuitemradio" tabindex="-1" aria-checked="false" aria-disabled="false" data-menubar-radio-group="density">Comfortable view</div>
+                <div class="ns-menubar__separator" role="separator"></div>
+                <div class="ns-menubar__item" id="menubar-export" role="menuitem" tabindex="-1" aria-disabled="true">Export unavailable</div>
+              </div>
+              <div class="ns-menubar__menu" id="menubar-edit-menu" role="menu" data-menubar-menu aria-labelledby="menubar-edit" hidden>
+                <div class="ns-menubar__item" id="menubar-undo" role="menuitem" tabindex="-1" aria-disabled="false">Undo</div>
+                <div class="ns-menubar__item" id="menubar-redo" role="menuitem" tabindex="-1" aria-disabled="false">Redo</div>
+              </div>
+            </div>
+            <a id="menubar-after" href="#principles">Continue after the Menubar</a>
+            <button id="menubar-outside" type="button">Outside control</button>
+          </div>
+
+          <div>
+            <p class="ns-menubar__hint">Open interaction-state specimen</p>
+            <div class="ns-menubar ns-menubar--preview-static" id="menubar-state-demo" data-state="open">
+              <div class="ns-menubar__root" id="menubar-state-root" role="menubar" aria-label="State sample commands" data-menubar-root data-state="open">
+                <div class="ns-menubar__item" id="menubar-state-parent" role="menuitem" tabindex="0" aria-disabled="false" aria-haspopup="menu" aria-expanded="true" aria-controls="menubar-state-menu" data-state="open">File</div>
+                <div class="ns-menubar__item" id="menubar-state-check" role="menuitemcheckbox" tabindex="-1" aria-disabled="false" aria-checked="true" data-state="checked">Autosave</div>
+                <div class="ns-menubar__item" id="menubar-state-disabled" role="menuitem" tabindex="-1" aria-disabled="true" data-state="disabled">Publish unavailable</div>
+              </div>
+              <div class="ns-menubar__menu" id="menubar-state-menu" role="menu" data-menubar-menu aria-labelledby="menubar-state-parent" data-state="open">
+                <div class="ns-menubar__item" id="menubar-state-item-primary" role="menuitem" tabindex="-1" aria-disabled="false" data-state="rest">Duplicate item</div>
+                <div class="ns-menubar__item" id="menubar-state-subcheck" role="menuitemcheckbox" tabindex="-1" aria-checked="true" aria-disabled="false" data-state="checked">Keep visible</div>
+              </div>
+            </div>
+          </div>
+        </div>

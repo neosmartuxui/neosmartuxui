@@ -1,0 +1,14 @@
+        <div class="ns-alert-dialog-demo" id="alert-dialog-demo" data-state="closed">
+          <button class="ns-button" id="alert-dialog-trigger" type="button" data-alert-dialog-trigger aria-haspopup="dialog" aria-controls="alert-dialog-surface">Discard local changes</button>
+          <dialog class="ns-dialog ns-alert-dialog" id="alert-dialog-surface" role="alertdialog" aria-modal="true" aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-message" data-state="closed">
+            <div class="ns-dialog__stack">
+              <h3 class="ns-dialog__title" id="alert-dialog-title">Discard unsaved changes?</h3>
+              <p class="ns-dialog__description ns-alert-dialog__message" id="alert-dialog-message">This removes the unsaved local edits. Choose the safer response first if you are unsure.</p>
+              <div class="ns-dialog__actions ns-alert-dialog__actions">
+                <button class="ns-button" id="alert-dialog-cancel" type="button" data-alert-dialog-response data-alert-dialog-close data-alert-dialog-least-destructive>Keep editing</button>
+                <button class="ns-button" id="alert-dialog-confirm" type="button" data-alert-dialog-response data-alert-dialog-close data-alert-dialog-destructive>Discard changes</button>
+              </div>
+            </div>
+          </dialog>
+          <button class="ns-button" id="alert-dialog-after" type="button">After alert dialog</button>
+        </div>

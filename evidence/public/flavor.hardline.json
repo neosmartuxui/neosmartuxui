@@ -1,0 +1,66 @@
+{
+  "$schema": "../../spec/schemas/public-proof.schema.json",
+  "schema": "neosmartui/public-proof@1",
+  "flavor": "flavor.hardline",
+  "deployedSource": {
+    "repository": "neosmartui/neosmartui",
+    "sha": "3d41541d81f8fd5c24e11c9d12a17bb9e7a9e9b0"
+  },
+  "implementationFiles": [
+    {
+      "path": "packages/themes/hardline-light/theme.json",
+      "blobSha": "0debcfc19995e9343d82bef60c78f039f441860e"
+    },
+    {
+      "path": "packages/themes/hardline-light/resolution.json",
+      "blobSha": "1189f865793b29eeb0a396e4b8cb2a0e983354a5"
+    },
+    {
+      "path": "packages/themes/hardline-light/tokens.json",
+      "blobSha": "47f4e5daae9de8d0d891fea6c4473f62530f188a"
+    },
+    {
+      "path": "apps/foundry/src/flavors/hardline/index.html",
+      "blobSha": "e62450698fb966799c92236fbb5d616ea71aee2c"
+    },
+    {
+      "path": "packages/themes/hardline-dark/theme.json",
+      "blobSha": "5bb9cec64da2a6fd6b28fecdbbd76861f9771664"
+    },
+    {
+      "path": "packages/themes/hardline-dark/resolution.json",
+      "blobSha": "28ab86b62a79916e0f9a4f58e53753ad871748c7"
+    },
+    {
+      "path": "packages/themes/hardline-dark/tokens.json",
+      "blobSha": "0054c51d564fd6d65fef508b4f08c22a19b52940"
+    },
+    {
+      "path": "apps/foundry/fragments/hardline-dark.html",
+      "blobSha": "f0999afbe681643687d72c00eb18aea8dd0be4c7"
+    },
+    {
+      "path": "tooling/foundry/build.mjs",
+      "blobSha": "177d87fd062bb839f734306f76a8dda4eb8e4614"
+    }
+  ],
+  "browserEvidence": {
+    "runId": 35720197442,
+    "artifactId": 10690793881,
+    "artifactDigest": "sha256:8dd8c4662e68ea933b709ef312fd0bddc6f8d48aa89c9415edb16230d3a0a0a5"
+  },
+  "deployment": {
+    "repository": "neosmartui/neosmartui.github.io",
+    "commitSha": "d21d12143368efaee1ce1e083f7f936b209b1e19",
+    "treeSha": "2662bbdb270ab2fb0d336ca1e31889672a5fdc8b",
+    "pagesRunId": 35721321083
+  },
+  "live": {
+    "pageUrl": "https://neosmartui.github.io/flavors/hardline/",
+    "deploymentRecordUrl": "https://neosmartui.github.io/deployment.json",
+    "assetUrls": [
+      "https://neosmartui.github.io/hardline-theme.css",
+      "https://neosmartui.github.io/hardline-dark-theme.css"
+    ]
+  }
+}

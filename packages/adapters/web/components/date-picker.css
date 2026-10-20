@@ -1,0 +1,141 @@
+.ns-date-picker {
+  position: relative;
+  display: grid;
+  gap: var(--ns-space-control-block);
+  inline-size: min(100%, 34rem);
+  color: var(--ns-color-content-primary);
+  font-family: var(--ns-font-family-body);
+}
+
+.ns-date-picker__label,
+.ns-date-picker__field-label {
+  font-size: var(--ns-font-size-body);
+  font-weight: var(--ns-font-weight-emphasis);
+}
+
+.ns-date-picker__fields,
+.ns-date-picker__field {
+  display: grid;
+  gap: var(--ns-space-control-block);
+}
+
+.ns-date-picker__control {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--ns-space-navigation-gap);
+  align-items: stretch;
+}
+
+.ns-date-picker__input {
+  min-inline-size: 0;
+  min-block-size: var(--ns-size-control-minimum);
+  padding: var(--ns-space-control-block) var(--ns-space-control-inline);
+  border: var(--ns-border-control-width) solid var(--ns-color-border-default);
+  border-radius: var(--ns-radius-control);
+  background: var(--ns-color-surface-interactive);
+  color: var(--ns-color-content-primary);
+  font: inherit;
+  box-shadow: none;
+  transform: none;
+}
+
+.ns-date-picker__input:focus-visible,
+.ns-date-picker__trigger:focus-visible {
+  outline: var(--ns-focus-ring-width) solid var(--ns-color-focus-ring);
+  outline-offset: var(--ns-focus-ring-offset);
+}
+
+.ns-date-picker__trigger {
+  min-inline-size: var(--ns-size-control-minimum);
+  min-block-size: var(--ns-size-control-minimum);
+  padding: var(--ns-space-control-block) var(--ns-space-control-inline);
+  border: var(--ns-border-control-width) solid var(--ns-color-border-strong);
+  border-radius: var(--ns-radius-control);
+  background: var(--ns-color-surface-interactive);
+  color: var(--ns-color-content-primary);
+  font: inherit;
+  font-weight: var(--ns-font-weight-emphasis);
+  box-shadow: var(--ns-depth-rest-x) var(--ns-depth-rest-y) 0 var(--ns-color-border-strong);
+  transform: translate(0, 0);
+  cursor: pointer;
+  transition-property: transform, box-shadow, background-color, color, border-color, opacity;
+  transition-duration: var(--ns-motion-release-duration);
+  transition-timing-function: var(--ns-motion-release-easing);
+}
+
+@media (hover: hover) {
+  .ns-date-picker__trigger:hover:not(:active):not(:disabled) {
+    box-shadow: var(--ns-depth-hover-x) var(--ns-depth-hover-y) 0 var(--ns-color-border-strong);
+    transform: translate(var(--ns-press-hover-x), var(--ns-press-hover-y));
+    transition-duration: var(--ns-motion-press-duration);
+    transition-timing-function: var(--ns-motion-press-easing);
+  }
+}
+
+.ns-date-picker__trigger:active:not(:disabled) {
+  box-shadow: var(--ns-depth-active-x) var(--ns-depth-active-y) 0 var(--ns-color-border-strong);
+  transform: translate(var(--ns-press-active-x), var(--ns-press-active-y));
+  transition-duration: var(--ns-motion-press-duration);
+  transition-timing-function: var(--ns-motion-press-easing);
+}
+
+.ns-date-picker[data-invalid="true"] .ns-date-picker__input {
+  border-color: var(--ns-color-state-error);
+}
+
+.ns-date-picker__hint,
+.ns-date-picker__error {
+  margin: 0;
+  font-size: var(--ns-font-size-body);
+  overflow-wrap: anywhere;
+}
+
+.ns-date-picker__hint { color: var(--ns-color-content-secondary); }
+.ns-date-picker__error { color: var(--ns-color-state-error); font-weight: var(--ns-font-weight-emphasis); }
+
+.ns-date-picker__popup {
+  position: absolute;
+  z-index: 30;
+  inset-block-start: calc(100% + 0.625rem);
+  inset-inline-start: 0;
+  inline-size: min(34rem, calc(100vw - 2rem));
+}
+
+.ns-date-picker__popup[hidden],
+.ns-date-picker__field[hidden] {
+  display: none;
+}
+
+.ns-date-picker__input:disabled,
+.ns-date-picker__trigger:disabled {
+  cursor: not-allowed;
+  opacity: var(--ns-opacity-disabled);
+}
+
+@media (max-width: 560px) {
+  .ns-date-picker { inline-size: 100%; }
+  .ns-date-picker__popup {
+    position: static;
+    inline-size: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ns-date-picker__trigger { transition-duration: 1ms !important; }
+}
+
+@media (forced-colors: active) {
+  .ns-date-picker__input,
+  .ns-date-picker__trigger {
+    background: Canvas;
+    color: CanvasText;
+    border-color: ButtonText;
+    forced-color-adjust: auto;
+  }
+  .ns-date-picker__input:focus-visible,
+  .ns-date-picker__trigger:focus-visible { outline-color: Highlight; }
+  .ns-date-picker[data-invalid="true"] .ns-date-picker__input { border-color: Mark; }
+  .ns-date-picker__input:disabled,
+  .ns-date-picker__trigger:disabled { color: GrayText; }
+  .ns-date-picker__trigger { box-shadow: none; }
+}

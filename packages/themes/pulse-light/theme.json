@@ -1,0 +1,40 @@
+{
+  "$schema": "../../../spec/schemas/theme.schema.json",
+  "schema": "neosmartui/theme@1",
+  "name": "Pulse Light",
+  "family": "neosmartui",
+  "category": "pulse",
+  "color": {
+    "mode": "light",
+    "strategy": "crisp-neutral-electric-violet"
+  },
+  "typography": {
+    "strategy": "product-system-first"
+  },
+  "geometry": {
+    "profile": "sharp-micro"
+  },
+  "border": {
+    "profile": "visible-compact"
+  },
+  "shadow": {
+    "model": "medium-hard-depth"
+  },
+  "spacing": {
+    "density": "compact"
+  },
+  "density": {
+    "control": "compact-accessible"
+  },
+  "motion": {
+    "model": "pressure-not-levitation",
+    "intensity": "restrained"
+  },
+  "interaction": {
+    "model": "pressure-not-levitation",
+    "selection": "seated"
+  },
+  "icons": {
+    "strategy": "adapter-owned"
+  }
+}

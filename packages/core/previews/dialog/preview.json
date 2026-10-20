@@ -1,0 +1,37 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.dialog",
+  "fixture": "fixture.html",
+  "controller": "controller.mjs",
+  "fixtureComponents": [
+    "core.button"
+  ],
+  "defaultState": "closed",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "closed": {
+      "mode": "fixture",
+      "target": "#dialog-surface"
+    },
+    "open": {
+      "mode": "controller",
+      "target": "#dialog-surface"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/dialog.css",
+        "packages/adapters/web/components/button.css"
+      ],
+      "bindings": [
+        {
+          "module": "packages/adapters/web/components/dialog.mjs",
+          "export": "bindDialog",
+          "selector": "#dialog-demo"
+        }
+      ]
+    }
+  }
+}

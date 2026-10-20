@@ -1,0 +1,318 @@
+{
+  "schema": "neosmartui/competitor-snapshot@1",
+  "competitor": "Riddle UI",
+  "competitorId": "riddle-ui",
+  "checkedAt": "2026-09-20",
+  "sources": {
+    "homepage": "https://riddleui.framer.website/",
+    "figmaPreview": "https://www.figma.com/design/2CcPQtvyD9gdxow4UNJUrV/Riddle-UI---Neo-Brutalism-UI-Kit--v1.0--Preview-IMAGE?node-id=1-5&p=f",
+    "fullFigmaFileLinkedFromSite": "https://www.figma.com/file/7XkPKZfIcSVWQ5Yz6Iwl3H/Riddle-UI---Neo-Brutalism-UI-Kit-(v1.0)?type=design&node-id=1%3A6&mode=design"
+  },
+  "positioning": {
+    "delivery": [
+      "Framer",
+      "Figma"
+    ],
+    "category": "Neo-Brutalism design system / UI kit",
+    "emphasis": [
+      "design foundations",
+      "utility components",
+      "interactive components",
+      "marketing sections",
+      "example pages"
+    ]
+  },
+  "marketingClaims": {
+    "globalStyles": "250+",
+    "smartComponents": "5k+",
+    "exampleSections": "160+",
+    "includedIcons": "2,000+",
+    "professionalLicenseUsd": 99,
+    "unlimitedLicenseUsd": 399,
+    "lifetimeUpdates": true
+  },
+  "figmaPreviewEvidence": {
+    "accessible": true,
+    "previewMode": "Preview IMAGE / public Figma preview",
+    "foundations": [
+      "Color",
+      "Typography",
+      "Icons (Riddle Icon)",
+      "Various icons",
+      "Spacing & Grids",
+      "Effects",
+      "Brand"
+    ],
+    "utilityComponentPages": [
+      "Attachment",
+      "Avatars",
+      "Buttons",
+      "Button group",
+      "Badges",
+      "Checkbox, Radio, Toggle",
+      "Menu",
+      "Dropdown",
+      "Form fields",
+      "Progress bar",
+      "Range Slider",
+      "Tags",
+      "Tooltips"
+    ],
+    "interactiveComponentPages": [
+      "Accordion",
+      "Alert",
+      "Breadcrumb",
+      "Coach mark",
+      "Divider",
+      "Datepicker",
+      "File uploader",
+      "Empty state",
+      "Loader",
+      "Flyout menu",
+      "Navbar",
+      "Pagination",
+      "Steps",
+      "Tabs",
+      "Sidebar navigations",
+      "Table",
+      "Charts",
+      "Modals",
+      "Stats",
+      "Notifications",
+      "Headings & Footers",
+      "Stacked lists",
+      "Action panels",
+      "Radio groups"
+    ],
+    "marketingSectionPages": [
+      "Hero section",
+      "Feature section",
+      "Testimonial section",
+      "Pricing section",
+      "Footer",
+      "Team section",
+      "CTA section",
+      "Logo cloud",
+      "Stats",
+      "Banner",
+      "FAQ section",
+      "Page header"
+    ],
+    "additionalPages": [
+      "Marketing UI Pages",
+      "Example pages",
+      "Marketing UI Sections",
+      "Base and parts",
+      "Element's base",
+      "Section's base items",
+      "Image & Mockups",
+      "Kit components"
+    ],
+    "colorSystem": {
+      "primaryFamilies": [
+        "Black",
+        "White",
+        "Gray",
+        "Primary",
+        "Accent",
+        "Warning",
+        "Success",
+        "Info",
+        "Danger"
+      ],
+      "primaryScale": "50-900 where applicable",
+      "secondaryFamilies": [
+        "Light pink",
+        "Dark pink",
+        "Orange",
+        "Peach",
+        "Yellow",
+        "Light green",
+        "Green",
+        "Mint",
+        "Teal",
+        "Cyan",
+        "Light blue",
+        "Blue",
+        "Indigo",
+        "Purple",
+        "Violet"
+      ],
+      "secondaryScale": "50-900",
+      "alphaScale": [
+        "White",
+        "Black",
+        "Gray"
+      ],
+      "alphaSteps": "10-90"
+    },
+    "limitations": [
+      "The public Figma URL is a preview image experience rather than an editable source file.",
+      "Exact variant/state counts per component are not reliably visible from page names alone.",
+      "Specific spacing values, typography tokens, hex values and effect parameters were not exposed in the preview navigation evidence.",
+      "No exact responsive breakpoint contract was visible from the preview navigation.",
+      "Marketing claims such as 5k+ smart components are preserved as claims and are not treated as equivalent to distinct semantic Core components.",
+      "The full Figma file linked from Riddle's site is authentication-gated in anonymous browsing, so exact master component-set and total variant counts could not be verified."
+    ],
+    "componentCountAudit": {
+      "method": "Public Preview IMAGE Pages panel plus visible canvas labels; read-only. The separately linked full Figma file requires authentication and did not expose Assets/component metadata anonymously.",
+      "verifiedUtilityComponentFamilies": 15,
+      "verifiedInteractiveComponentFamilies": 24,
+      "verifiedDistinctUiComponentFamilies": 39,
+      "verifiedMarketingSectionFamilies": 12,
+      "verifiedFoundationFamilies": 7,
+      "exactMasterComponentSetCount": null,
+      "exactVariantOrInstanceCount": null,
+      "marketingSmartComponentsClaim": "5k+",
+      "interpretation": "39 is the strongest directly verifiable count of distinct UI component families exposed by the public preview. The 5k+ figure is a marketing claim that appears to include variants/configurations/instances and is not comparable to NeoSmartUI distinct Core component IDs."
+    },
+    "verifiedDistinctUiComponentFamilies": [
+      "Attachment",
+      "Avatars",
+      "Buttons",
+      "Button group",
+      "Badges",
+      "Checkbox",
+      "Radio",
+      "Toggle",
+      "Menu",
+      "Dropdown",
+      "Form fields",
+      "Progress bar",
+      "Range Slider",
+      "Tags",
+      "Tooltips",
+      "Accordion",
+      "Alert",
+      "Breadcrumb",
+      "Coach mark",
+      "Divider",
+      "Datepicker",
+      "File uploader",
+      "Empty state",
+      "Loader",
+      "Flyout menu",
+      "Navbar",
+      "Pagination",
+      "Steps",
+      "Tabs",
+      "Sidebar navigations",
+      "Table",
+      "Charts",
+      "Modals",
+      "Stats",
+      "Notifications",
+      "Headings & Footers",
+      "Stacked lists",
+      "Action panels",
+      "Radio groups"
+    ]
+  },
+  "websiteEvidence": {
+    "visibleFoundationCategories": [
+      "Color",
+      "Typography",
+      "Icons",
+      "Spacing & Grids",
+      "Effects",
+      "Brand"
+    ],
+    "visibleUtilityExamples": [
+      "Avatars",
+      "Buttons",
+      "Button group",
+      "Badges",
+      "Checkbox",
+      "Radio",
+      "Toggle",
+      "Menu",
+      "Dropdown",
+      "Text input",
+      "Tags",
+      "Tooltips"
+    ],
+    "samplePalette": [
+      {
+        "name": "Primary",
+        "value": "#B286FD"
+      },
+      {
+        "name": "Tomato",
+        "value": "#FF7051"
+      },
+      {
+        "name": "Gray",
+        "value": "#78716C"
+      },
+      {
+        "name": "Success",
+        "value": "#11A365"
+      },
+      {
+        "name": "Danger",
+        "value": "#E2442F"
+      },
+      {
+        "name": "Topaz",
+        "value": "#FFCA7F"
+      },
+      {
+        "name": "Neo",
+        "value": "#A2E435"
+      },
+      {
+        "name": "Crystal",
+        "value": "#60A5F9"
+      },
+      {
+        "name": "Cyan",
+        "value": "#22D2ED"
+      },
+      {
+        "name": "Sea",
+        "value": "#68D391"
+      },
+      {
+        "name": "Pastel",
+        "value": "#DE5356"
+      },
+      {
+        "name": "Teal",
+        "value": "#2DD3BE"
+      }
+    ],
+    "typographyExample": {
+      "typeface": "Inter",
+      "exampleSize": "14pt"
+    }
+  },
+  "capabilitySignals": {
+    "designFoundations": true,
+    "figma": true,
+    "framer": true,
+    "utilityComponents": true,
+    "interactiveComponents": true,
+    "examplePages": true,
+    "marketingSections": true,
+    "iconSystem": true,
+    "largeColorScale": true,
+    "spacingAndGridSystem": true,
+    "effectsSystem": true,
+    "brandSystem": true,
+    "lifetimeUpdatesClaim": true
+  },
+  "neosmartuiLearningSignals": [
+    "The public Figma preview directly verifies 39 distinct UI component families (15 utility + 24 interactive). This is the semantic breadth benchmark; the 5k+ smart-components claim is not used as a distinct-component count.",
+    "Riddle UI is a strong design-system breadth benchmark rather than a code-registry benchmark.",
+    "Its separation of foundations, utility elements, interactive components, pages and marketing sections reinforces NeoSmartUI's own layered architecture.",
+    "Advanced patterns visible in the Figma preview—coach marks, datepicker, file uploader, steps, tables, charts, notifications, stacked lists and action panels—are useful gap-analysis inputs for the 90+ Core expansion.",
+    "The 160+ example-sections claim is more relevant to future Blocks/Pages breadth than to Core component counting.",
+    "Framer + Figma dual delivery is a useful benchmark for designer workflows; NeoSmartUI should preserve its stronger code/contract/public-proof architecture rather than copy Riddle's asset model."
+  ],
+  "planning": {
+    "neosmartuiCoreTarget": "90+ distinct public-proof Core components",
+    "countsAreBenchmarkOnly": true,
+    "countIntegrityNote": "Riddle marketing counts must not be converted directly into NeoSmartUI semantic component counts.",
+    "trackedCompetitorComparison": "Riddle's 39 directly verified UI families are below neobrutalism.com's 57 public component documentation routes and neobrutalism.dev's 61 unique UI implementation files. NeoSmartUI's 90+ distinct public-proof Core target remains above every currently verified tracked-competitor semantic/component breadth count."
+  }
+}

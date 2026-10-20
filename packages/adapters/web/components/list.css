@@ -1,0 +1,53 @@
+.ns-list {
+  margin: 0;
+  padding-block: 0;
+  padding-inline-start: calc(var(--ns-space-surface-inline) + var(--ns-space-surface-inline));
+  color: var(--ns-color-content-primary);
+  font-family: var(--ns-font-family-body);
+  font-size: var(--ns-font-size-body);
+  font-weight: var(--ns-font-weight-regular);
+}
+
+.ns-list > li {
+  padding-block: var(--ns-space-surface-block);
+  padding-inline-start: var(--ns-space-surface-block);
+  border-block-end: var(--ns-border-surface-width) solid var(--ns-color-border-default);
+  color: var(--ns-color-content-primary);
+}
+
+.ns-list > li:last-child {
+  border-block-end: 0;
+}
+
+.ns-list > li::marker {
+  color: var(--ns-color-content-secondary);
+  font-weight: var(--ns-font-weight-strong);
+}
+
+.ns-list .ns-list {
+  margin-block-start: var(--ns-space-surface-block);
+}
+
+.ns-list :is(p, h1, h2, h3, h4, h5, h6) {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 36rem) {
+  .ns-list {
+    padding-inline-start: var(--ns-space-surface-inline);
+  }
+
+  .ns-list > li {
+    padding-inline-start: 0;
+  }
+}
+
+@media (forced-colors: active) {
+  .ns-list,
+  .ns-list > li,
+  .ns-list > li::marker {
+    color: CanvasText;
+    border-color: CanvasText;
+    forced-color-adjust: auto;
+  }
+}

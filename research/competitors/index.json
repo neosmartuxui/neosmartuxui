@@ -1,0 +1,37 @@
+{
+  "schema": "neosmartui/competitor-index@1",
+  "updatedAt": "2026-09-20",
+  "coreExpansionTarget": {
+    "rule": "90+ distinct public-proof Core components",
+    "minimumPublicProofCount": 90,
+    "automaticCompetitorCountFormula": false,
+    "note": "Competitor counts are living benchmarks and gap signals. They do not automatically redefine the NeoSmartUI target."
+  },
+  "competitors": [
+    {
+      "id": "neobrutalism-com",
+      "name": "NeoBrutalism",
+      "homepage": "https://neobrutalism.com/",
+      "status": "active",
+      "role": "primary tracked competitor",
+      "latestSnapshot": "neobrutalism-com/snapshot-2026-09-20.json"
+    },
+    {
+      "id": "neobrutalism-dev",
+      "name": "neobrutalism.dev",
+      "homepage": "https://www.neobrutalism.dev/",
+      "status": "active",
+      "role": "tracked competitor",
+      "latestSnapshot": "neobrutalism-dev/components-2026-09-20.json"
+    },
+    {
+      "id": "riddle-ui",
+      "name": "Riddle UI",
+      "homepage": "https://riddleui.framer.website/",
+      "figmaPreview": "https://www.figma.com/design/2CcPQtvyD9gdxow4UNJUrV/Riddle-UI---Neo-Brutalism-UI-Kit--v1.0--Preview-IMAGE?node-id=1-5&p=f",
+      "status": "active",
+      "role": "tracked design-system competitor",
+      "latestSnapshot": "riddle-ui/snapshot-2026-09-20.json"
+    }
+  ]
+}

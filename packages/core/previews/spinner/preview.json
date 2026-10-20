@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.spinner",
+  "fixture": "fixture.html",
+  "controller": null,
+  "fixtureComponents": [],
+  "defaultState": "active",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "active": {
+      "mode": "fixture",
+      "target": ".ns-spinner"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/spinner.css"
+      ],
+      "bindings": []
+    }
+  }
+}

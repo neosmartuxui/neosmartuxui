@@ -1,0 +1,22 @@
+{
+  "$schema": "../../../spec/schemas/component.schema.json",
+  "schema": "neosmartui/component@1",
+  "id": "core.separator",
+  "intent": "Separate adjacent content or control groups with a semantic or decorative boundary whose orientation is explicit.",
+  "states": [
+    "rest"
+  ],
+  "dependencies": [
+    "color.border.default",
+    "border.surface.width"
+  ],
+  "layer": "component",
+  "domain": "core",
+  "supports": {
+    "keyboard": true,
+    "touch": true,
+    "rtl": true,
+    "reducedMotion": true,
+    "forcedColors": true
+  }
+}

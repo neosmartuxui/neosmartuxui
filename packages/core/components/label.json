@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../spec/schemas/component.schema.json",
+  "schema": "neosmartui/component@1",
+  "id": "core.label",
+  "intent": "Provide visible labeling text that is programmatically associated with a labelable control without replacing the control's native semantics.",
+  "states": [
+    "rest",
+    "disabled"
+  ],
+  "dependencies": [
+    "color.content.primary",
+    "color.content.secondary",
+    "font.family.body",
+    "font.size.label",
+    "font.weight.emphasis",
+    "opacity.disabled"
+  ],
+  "layer": "component",
+  "domain": "core",
+  "supports": {
+    "keyboard": true,
+    "touch": true,
+    "rtl": true,
+    "reducedMotion": true,
+    "forcedColors": true
+  }
+}

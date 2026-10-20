@@ -1,0 +1,54 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.menubar",
+  "fixture": "fixture.html",
+  "controller": null,
+  "fixtureComponents": [],
+  "defaultState": "closed",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "closed": {
+      "mode": "fixture",
+      "target": "#menubar-demo"
+    },
+    "open": {
+      "mode": "fixture",
+      "target": "#menubar-state-demo"
+    },
+    "hover": {
+      "mode": "native-pointer",
+      "target": "#menubar-state-item-primary"
+    },
+    "focus-visible": {
+      "mode": "native-keyboard",
+      "target": "#menubar-file"
+    },
+    "pressed": {
+      "mode": "native-pointer",
+      "target": "#menubar-state-item-primary"
+    },
+    "checked": {
+      "mode": "fixture",
+      "target": "#menubar-state-check"
+    },
+    "disabled": {
+      "mode": "fixture",
+      "target": "#menubar-state-disabled"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/menubar.css"
+      ],
+      "bindings": [
+        {
+          "module": "packages/adapters/web/components/menubar.mjs",
+          "export": "bindMenubar",
+          "selector": "#menubar-demo"
+        }
+      ]
+    }
+  }
+}

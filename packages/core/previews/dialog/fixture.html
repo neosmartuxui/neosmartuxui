@@ -1,0 +1,14 @@
+        <div class="ns-dialog-demo" id="dialog-demo" data-state="closed">
+          <button class="ns-button" id="dialog-trigger" type="button" data-dialog-trigger aria-haspopup="dialog" aria-controls="dialog-surface">Open dialog</button>
+          <dialog class="ns-dialog" id="dialog-surface" tabindex="-1" aria-modal="true" aria-labelledby="dialog-title" aria-describedby="dialog-description" data-state="closed">
+            <div class="ns-dialog__stack">
+              <h3 class="ns-dialog__title" id="dialog-title">Create a reusable workspace</h3>
+              <p class="ns-dialog__description" id="dialog-description">This modal keeps focus contained until you close it. It does not invent destructive AlertDialog semantics.</p>
+              <div class="ns-dialog__actions">
+                <button class="ns-button" id="dialog-close" type="button" data-dialog-close autofocus>Close dialog</button>
+                <button class="ns-button" id="dialog-primary-action" type="button">Continue</button>
+              </div>
+            </div>
+          </dialog>
+          <button class="ns-button" id="dialog-after" type="button">After dialog</button>
+        </div>

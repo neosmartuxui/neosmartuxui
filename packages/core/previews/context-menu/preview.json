@@ -1,0 +1,57 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.context-menu",
+  "fixture": "fixture.html",
+  "controller": "controller.mjs",
+  "fixtureComponents": [
+    "core.button"
+  ],
+  "defaultState": "closed",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "closed": {
+      "mode": "fixture",
+      "target": "#context-menu-demo"
+    },
+    "open": {
+      "mode": "fixture",
+      "target": "#context-menu-state-demo"
+    },
+    "hover": {
+      "mode": "native-pointer",
+      "target": "#context-menu-state-item-primary"
+    },
+    "focus-visible": {
+      "mode": "controller",
+      "target": "#context-menu-item-open"
+    },
+    "pressed": {
+      "mode": "native-pointer",
+      "target": "#context-menu-state-item-primary"
+    },
+    "checked": {
+      "mode": "fixture",
+      "target": "#context-menu-state-check"
+    },
+    "disabled": {
+      "mode": "fixture",
+      "target": "#context-menu-state-disabled"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/context-menu.css",
+        "packages/adapters/web/components/button.css"
+      ],
+      "bindings": [
+        {
+          "module": "packages/adapters/web/components/context-menu.mjs",
+          "export": "bindContextMenu",
+          "selector": "#context-menu-demo"
+        }
+      ]
+    }
+  }
+}

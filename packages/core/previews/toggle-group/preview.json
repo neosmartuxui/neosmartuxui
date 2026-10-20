@@ -1,0 +1,50 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.toggle-group",
+  "fixture": "fixture.html",
+  "controller": "controller.mjs",
+  "fixtureComponents": [
+    "core.toggle"
+  ],
+  "defaultState": "rest",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "rest": {
+      "mode": "fixture",
+      "target": "#toggle-group-demo"
+    },
+    "none-selected": {
+      "mode": "controller",
+      "target": "#toggle-group-demo"
+    },
+    "selected": {
+      "mode": "controller",
+      "target": "#toggle-group-demo"
+    },
+    "disabled": {
+      "mode": "controller",
+      "target": "#toggle-group-demo"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/toggle-group.css",
+        "packages/adapters/web/components/toggle.css"
+      ],
+      "bindings": [
+        {
+          "module": "packages/adapters/web/components/toggle-group.mjs",
+          "export": "bindToggleGroup",
+          "selector": "#toggle-group-demo"
+        },
+        {
+          "module": "packages/adapters/web/components/toggle-group.mjs",
+          "export": "bindToggleGroup",
+          "selector": "#toggle-group-single"
+        }
+      ]
+    }
+  }
+}

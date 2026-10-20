@@ -1,0 +1,23 @@
+{
+  "$schema": "../../../spec/schemas/component.schema.json",
+  "schema": "neosmartui/component@1",
+  "id": "core.button-group",
+  "intent": "Group closely related action buttons into one recognizable control cluster without changing each button's native activation semantics.",
+  "states": [
+    "rest"
+  ],
+  "dependencies": [
+    "space.control.inline",
+    "border.control.width",
+    "radius.control"
+  ],
+  "layer": "component",
+  "domain": "core",
+  "supports": {
+    "keyboard": true,
+    "touch": true,
+    "rtl": true,
+    "reducedMotion": true,
+    "forcedColors": true
+  }
+}

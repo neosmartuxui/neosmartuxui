@@ -1,0 +1,226 @@
+.ns-calendar {
+  display: grid;
+  gap: var(--ns-space-surface-block);
+  inline-size: min(100%, 34rem);
+  padding: var(--ns-space-surface-block) var(--ns-space-surface-inline);
+  border: var(--ns-border-surface-width) solid var(--ns-color-border-strong);
+  border-radius: var(--ns-radius-surface);
+  background: var(--ns-color-surface-panel);
+  color: var(--ns-color-content-primary);
+  font-family: var(--ns-font-family-body);
+  box-shadow: var(--ns-depth-rest-x) var(--ns-depth-rest-y) 0 var(--ns-color-border-strong);
+}
+
+.ns-calendar__toolbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--ns-space-navigation-gap);
+}
+
+.ns-calendar__month {
+  min-inline-size: 0;
+  font-size: var(--ns-font-size-label);
+  font-weight: var(--ns-font-weight-emphasis);
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.ns-calendar__nav,
+.ns-calendar__day {
+  min-inline-size: var(--ns-size-control-minimum);
+  min-block-size: var(--ns-size-control-minimum);
+  border: var(--ns-border-control-width) solid var(--ns-color-border-strong);
+  border-radius: var(--ns-radius-control);
+  background: var(--ns-color-surface-interactive);
+  color: var(--ns-color-content-primary);
+  font: inherit;
+  box-shadow: var(--ns-depth-rest-x) var(--ns-depth-rest-y) 0 var(--ns-color-border-strong);
+  transform: translate(0, 0);
+  cursor: pointer;
+  transition-property: transform, box-shadow, background-color, color, border-color, opacity;
+  transition-duration: var(--ns-motion-release-duration);
+  transition-timing-function: var(--ns-motion-release-easing);
+}
+
+.ns-calendar__nav {
+  padding: var(--ns-space-control-block) var(--ns-space-control-inline);
+  font-weight: var(--ns-font-weight-emphasis);
+}
+
+.ns-calendar__weekdays,
+.ns-calendar__row {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.25rem;
+}
+
+.ns-calendar__weekday {
+  min-inline-size: 0;
+  color: var(--ns-color-content-secondary);
+  font-size: var(--ns-font-size-label);
+  font-weight: var(--ns-font-weight-emphasis);
+  text-align: center;
+}
+
+.ns-calendar__grid {
+  display: grid;
+  gap: 0.25rem;
+  outline: none;
+}
+
+.ns-calendar__cell {
+  min-inline-size: 0;
+}
+
+.ns-calendar__day {
+  position: relative;
+  display: grid;
+  place-items: center;
+  inline-size: 100%;
+  padding: var(--ns-space-control-block);
+  overflow: hidden;
+}
+
+@media (hover: hover) {
+  .ns-calendar__nav:hover:not(:active):not(:disabled),
+  .ns-calendar__day:hover:not(:active):not(:disabled):not([aria-disabled="true"]) {
+    box-shadow: var(--ns-depth-hover-x) var(--ns-depth-hover-y) 0 var(--ns-color-border-strong);
+    transform: translate(var(--ns-press-hover-x), var(--ns-press-hover-y));
+    transition-duration: var(--ns-motion-press-duration);
+    transition-timing-function: var(--ns-motion-press-easing);
+  }
+}
+
+.ns-calendar__nav:active:not(:disabled),
+.ns-calendar__day:active:not(:disabled):not([aria-disabled="true"]) {
+  box-shadow: var(--ns-depth-active-x) var(--ns-depth-active-y) 0 var(--ns-color-border-strong);
+  transform: translate(var(--ns-press-active-x), var(--ns-press-active-y));
+  transition-duration: var(--ns-motion-press-duration);
+  transition-timing-function: var(--ns-motion-press-easing);
+}
+
+.ns-calendar__nav:focus-visible,
+.ns-calendar__day:focus-visible {
+  outline: var(--ns-focus-ring-width) solid var(--ns-color-focus-ring);
+  outline-offset: var(--ns-focus-ring-offset);
+}
+
+.ns-calendar__day[data-outside-month="true"] {
+  color: var(--ns-color-content-secondary);
+  opacity: 0.7;
+}
+
+.ns-calendar__day[aria-current="date"] {
+  border-style: dashed;
+}
+
+.ns-calendar__day[data-state="selected"],
+.ns-calendar__day[data-state="range-start"],
+.ns-calendar__day[data-state="range-middle"],
+.ns-calendar__day[data-state="range-end"] {
+  background: var(--ns-color-action-primary-surface);
+  color: var(--ns-color-action-primary-content);
+  font-weight: var(--ns-font-weight-emphasis);
+}
+
+.ns-calendar__day[data-state="selected"],
+.ns-calendar__day[data-state="range-start"],
+.ns-calendar__day[data-state="range-end"] {
+  border-style: double;
+}
+
+.ns-calendar__day[data-state="range-start"]::after,
+.ns-calendar__day[data-state="range-middle"]::after,
+.ns-calendar__day[data-state="range-end"]::after {
+  position: absolute;
+  inset-block-end: 0.05rem;
+  font-size: 0.52rem;
+  line-height: 1;
+}
+
+.ns-calendar__day[data-state="range-start"]::after { content: "Start"; }
+.ns-calendar__day[data-state="range-middle"]::after { content: "Range"; }
+.ns-calendar__day[data-state="range-end"]::after { content: "End"; }
+
+.ns-calendar__day[data-state="unavailable"] {
+  cursor: not-allowed;
+  opacity: var(--ns-opacity-disabled);
+  text-decoration: line-through;
+  box-shadow: none;
+  transform: none;
+}
+
+.ns-calendar[data-disabled="true"] .ns-calendar__day,
+.ns-calendar[data-disabled="true"] .ns-calendar__nav {
+  cursor: not-allowed;
+  opacity: var(--ns-opacity-disabled);
+}
+
+.ns-calendar__hint {
+  margin: 0;
+  color: var(--ns-color-content-secondary);
+  font-size: var(--ns-font-size-body);
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 560px) {
+  .ns-calendar {
+    inline-size: 100%;
+    padding-inline: var(--ns-space-control-inline);
+  }
+
+  .ns-calendar__weekdays,
+  .ns-calendar__row {
+    gap: 0.125rem;
+  }
+
+  .ns-calendar__day {
+    min-inline-size: 0;
+    padding-inline: 0.125rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ns-calendar__nav,
+  .ns-calendar__day {
+    transition-duration: 1ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .ns-calendar,
+  .ns-calendar__nav,
+  .ns-calendar__day {
+    background: Canvas;
+    color: CanvasText;
+    border-color: ButtonText;
+    forced-color-adjust: auto;
+  }
+
+  .ns-calendar__nav:focus-visible,
+  .ns-calendar__day:focus-visible {
+    outline-color: Highlight;
+  }
+
+  .ns-calendar__day[data-state="selected"],
+  .ns-calendar__day[data-state="range-start"],
+  .ns-calendar__day[data-state="range-middle"],
+  .ns-calendar__day[data-state="range-end"] {
+    background: Highlight;
+    color: HighlightText;
+    border-color: Highlight;
+  }
+
+  .ns-calendar__day[data-state="unavailable"],
+  .ns-calendar[data-disabled="true"] .ns-calendar__day,
+  .ns-calendar[data-disabled="true"] .ns-calendar__nav {
+    color: GrayText;
+  }
+
+  .ns-calendar,
+  .ns-calendar__nav,
+  .ns-calendar__day {
+    box-shadow: none;
+  }
+}

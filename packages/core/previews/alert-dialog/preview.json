@@ -1,0 +1,39 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.alert-dialog",
+  "fixture": "fixture.html",
+  "controller": "controller.mjs",
+  "fixtureComponents": [
+    "core.dialog",
+    "core.button"
+  ],
+  "defaultState": "closed",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "closed": {
+      "mode": "fixture",
+      "target": "#alert-dialog-surface"
+    },
+    "open": {
+      "mode": "controller",
+      "target": "#alert-dialog-surface"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/alert-dialog.css",
+        "packages/adapters/web/components/dialog.css",
+        "packages/adapters/web/components/button.css"
+      ],
+      "bindings": [
+        {
+          "module": "packages/adapters/web/components/alert-dialog.mjs",
+          "export": "bindAlertDialog",
+          "selector": "#alert-dialog-demo"
+        }
+      ]
+    }
+  }
+}

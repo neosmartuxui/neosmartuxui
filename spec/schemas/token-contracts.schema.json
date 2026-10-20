@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neosmartui.com/schemas/token-contracts@1.json",
+  "title": "NeoSmartUI Semantic Token Contracts",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "schemaVersion", "interopTarget", "contracts"],
+  "properties": {
+    "$schema": {"type":"string"},
+    "schema": {"const":"neosmartui/token-contracts@1"},
+    "schemaVersion": {"const":1},
+    "interopTarget": {
+      "type":"object",
+      "additionalProperties":false,
+      "required":["format","version","stage"],
+      "properties":{
+        "format":{"const":"DTCG"},
+        "version":{"const":"2025.10"},
+        "stage":{"const":"resolved-value-bundles"}
+      }
+    },
+    "contracts": {
+      "type":"array",
+      "minItems":1,
+      "items":{
+        "type":"object",
+        "additionalProperties":false,
+        "required":["id","type","resolution","description"],
+        "properties":{
+          "id":{"type":"string","pattern":"^[a-z][a-z0-9-]*(\\.[a-z][a-z0-9-]*){1,4}$"},
+          "type":{"enum":["color","dimension","duration","cubicBezier","number","fontFamily","fontWeight"]},
+          "resolution":{"enum":["theme","flavor-theme"]},
+          "description":{"type":"string","minLength":8}
+        }
+      }
+    }
+  }
+}

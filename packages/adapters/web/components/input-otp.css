@@ -1,0 +1,62 @@
+.ns-input-otp {
+  display: grid;
+  gap: var(--ns-space-control-block);
+  max-inline-size: 24rem;
+}
+.ns-input-otp__label {
+  color: var(--ns-color-content-primary);
+  font-family: var(--ns-font-family-body);
+  font-size: var(--ns-font-size-body);
+  font-weight: var(--ns-font-weight-emphasis);
+}
+.ns-input-otp__input {
+  display: block;
+  inline-size: min(100%, 18rem);
+  min-block-size: var(--ns-size-control-minimum);
+  padding: var(--ns-space-control-block) var(--ns-space-control-inline);
+  border: var(--ns-border-control-width) solid var(--ns-color-border-default);
+  border-radius: var(--ns-radius-control);
+  background: var(--ns-color-surface-interactive);
+  color: var(--ns-color-content-primary);
+  font-family: var(--ns-font-family-body);
+  font-size: var(--ns-font-size-body);
+  font-weight: var(--ns-font-weight-regular);
+  letter-spacing: 0.45em;
+  text-align: center;
+  box-shadow: none;
+  transform: none;
+  transition-property: border-color, background-color, color, outline-color, opacity;
+  transition-duration: var(--ns-motion-standard-duration);
+  transition-timing-function: var(--ns-motion-standard-easing);
+}
+.ns-input-otp__input:hover:not(:disabled) { border-color: var(--ns-color-border-strong); transform: none; }
+.ns-input-otp__input:focus-visible {
+  border-color: var(--ns-color-border-strong);
+  outline: var(--ns-focus-ring-width) solid var(--ns-color-focus-ring);
+  outline-offset: var(--ns-focus-ring-offset);
+  transform: none;
+}
+.ns-input-otp__input:active:not(:disabled) { transform: none; }
+.ns-input-otp[data-state="invalid"] .ns-input-otp__input,
+.ns-input-otp__input[aria-invalid="true"] { border-color: var(--ns-color-state-error); }
+.ns-input-otp__input:disabled { cursor: not-allowed; opacity: var(--ns-opacity-disabled); }
+.ns-input-otp__hint {
+  margin: 0;
+  color: var(--ns-color-content-secondary);
+  font-family: var(--ns-font-family-body);
+  font-size: var(--ns-font-size-body);
+}
+@media (max-width: 560px) { .ns-input-otp { inline-size: 100%; } }
+@media (prefers-reduced-motion: reduce) { .ns-input-otp__input { transition-duration: 1ms; } }
+@media (forced-colors: active) {
+  .ns-input-otp__input {
+    background: Canvas;
+    color: CanvasText;
+    border-color: ButtonText;
+    forced-color-adjust: auto;
+  }
+  .ns-input-otp__input:focus-visible { outline-color: Highlight; }
+  .ns-input-otp[data-state="invalid"] .ns-input-otp__input,
+  .ns-input-otp__input[aria-invalid="true"] { border-color: Mark; }
+  .ns-input-otp__input:disabled { color: GrayText; }
+}

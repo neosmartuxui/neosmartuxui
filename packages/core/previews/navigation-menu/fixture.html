@@ -1,0 +1,57 @@
+        <div>
+          <button id="navigation-menu-outside" type="button">Outside control</button>
+          <nav class="ns-navigation-menu" id="navigation-menu-demo" aria-label="Primary navigation" data-state="closed">
+            <ul class="ns-navigation-menu__list" data-navigation-menu-list>
+              <li class="ns-navigation-menu__item">
+                <a class="ns-navigation-menu__link" id="navigation-menu-home" href="#button-slice" aria-current="page">Home</a>
+              </li>
+              <li class="ns-navigation-menu__item">
+                <a class="ns-navigation-menu__link" id="navigation-menu-components" href="#field-slice">Components</a>
+              </li>
+              <li class="ns-navigation-menu__item">
+                <a class="ns-navigation-menu__link" id="navigation-menu-guides" href="#principles">Guides</a>
+                <button class="ns-navigation-menu__trigger" id="navigation-menu-guides-trigger" type="button" data-navigation-menu-trigger aria-expanded="false" aria-controls="navigation-menu-guides-panel">Explore guides</button>
+                <div class="ns-navigation-menu__panel" id="navigation-menu-guides-panel" data-navigation-menu-panel aria-labelledby="navigation-menu-guides-trigger" hidden>
+                  <ul class="ns-navigation-menu__panel-list">
+                    <li><a class="ns-navigation-menu__link" id="navigation-menu-guide-components" href="#foundation-status">Core overview</a></li>
+                    <li><a class="ns-navigation-menu__link" id="navigation-menu-guide-studio" href="#studio-surface">Studio</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="ns-navigation-menu__item">
+                <button class="ns-navigation-menu__trigger" id="navigation-menu-resources-trigger" type="button" data-navigation-menu-trigger aria-expanded="false" aria-controls="navigation-menu-resources-panel">Resources</button>
+                <div class="ns-navigation-menu__panel" id="navigation-menu-resources-panel" data-navigation-menu-panel aria-labelledby="navigation-menu-resources-trigger" hidden>
+                  <ul class="ns-navigation-menu__panel-list">
+                    <li><a class="ns-navigation-menu__link" id="navigation-menu-resource-foundry" href="#foundation-status">Foundry</a></li>
+                    <li><a class="ns-navigation-menu__link" id="navigation-menu-resource-rules" href="#principles">Permanent rules</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          <a id="navigation-menu-after" href="#studio-surface">Continue after NavigationMenu</a>
+
+          <p class="ns-navigation-menu__hint">Open disclosure specimen</p>
+          <nav class="ns-navigation-menu" id="navigation-menu-state-open" aria-label="Open navigation specimen" data-state="open">
+            <ul class="ns-navigation-menu__list" data-navigation-menu-list>
+              <li class="ns-navigation-menu__item">
+                <button class="ns-navigation-menu__trigger" id="navigation-menu-state-trigger" type="button" data-navigation-menu-trigger aria-expanded="true" aria-controls="navigation-menu-state-panel" data-state="open">Products</button>
+                <div class="ns-navigation-menu__panel" id="navigation-menu-state-panel" data-navigation-menu-panel aria-labelledby="navigation-menu-state-trigger" data-state="open">
+                  <ul class="ns-navigation-menu__panel-list">
+                    <li><a class="ns-navigation-menu__link" id="navigation-menu-state-link" href="#button-slice">Design system</a></li>
+                    <li><a class="ns-navigation-menu__link" href="#studio-surface">Studio</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </nav>
+
+          <p class="ns-navigation-menu__hint">Current-route specimen</p>
+          <nav class="ns-navigation-menu" id="navigation-menu-state-current" aria-label="Current route navigation specimen" data-state="closed">
+            <ul class="ns-navigation-menu__list" data-navigation-menu-list>
+              <li class="ns-navigation-menu__item">
+                <a class="ns-navigation-menu__link" id="navigation-menu-state-current-link" href="#principles" aria-current="page">Principles</a>
+              </li>
+            </ul>
+          </nav>
+        </div>

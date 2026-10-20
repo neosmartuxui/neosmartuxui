@@ -1,0 +1,30 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.time-picker",
+  "fixture": "fixture.html",
+  "controller": "controller.mjs",
+  "fixtureComponents": [],
+  "defaultState": "rest",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "rest": { "mode": "fixture", "target": "#time-picker-input" },
+    "hover": { "mode": "native-pointer", "target": "#time-picker-input" },
+    "focus-visible": { "mode": "native-keyboard", "target": "#time-picker-input" },
+    "empty": { "mode": "fixture", "target": "#time-picker-input" },
+    "filled": { "mode": "controller", "target": "#time-picker-demo" },
+    "invalid": { "mode": "controller", "target": "#time-picker-demo" },
+    "read-only": { "mode": "controller", "target": "#time-picker-demo" },
+    "disabled": { "mode": "controller", "target": "#time-picker-demo" }
+  },
+  "renderers": {
+    "web": {
+      "styles": ["packages/adapters/web/components/time-picker.css"],
+      "bindings": [{
+        "module": "packages/adapters/web/components/time-picker.mjs",
+        "export": "bindTimePicker",
+        "selector": "#time-picker-demo"
+      }]
+    }
+  }
+}

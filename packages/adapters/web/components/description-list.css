@@ -1,0 +1,64 @@
+.ns-description-list {
+  margin: 0;
+  color: var(--ns-color-content-primary);
+  font-family: var(--ns-font-family-body);
+  font-size: var(--ns-font-size-body);
+  font-weight: var(--ns-font-weight-regular);
+}
+
+.ns-description-list > dt {
+  margin: 0;
+  padding-block: var(--ns-space-surface-block);
+  padding-inline: var(--ns-space-surface-inline);
+  border-block-start: var(--ns-border-surface-width) solid var(--ns-color-border-default);
+  color: var(--ns-color-content-primary);
+  font-weight: var(--ns-font-weight-strong);
+  overflow-wrap: anywhere;
+}
+
+.ns-description-list > dt:first-child {
+  border-block-start: 0;
+}
+
+.ns-description-list > dd {
+  margin-block: 0;
+  margin-inline-start: calc(var(--ns-space-surface-inline) + var(--ns-space-surface-inline));
+  padding-block: var(--ns-space-surface-block);
+  padding-inline: var(--ns-space-surface-inline);
+  color: var(--ns-color-content-secondary);
+  overflow-wrap: anywhere;
+}
+
+.ns-description-list > dt + dt {
+  padding-block-start: 0;
+  border-block-start: 0;
+}
+
+.ns-description-list > dd + dd {
+  padding-block-start: 0;
+}
+
+.ns-description-list :is(a, button, input, select, textarea) {
+  position: relative;
+}
+
+@media (max-width: 36rem) {
+  .ns-description-list > dt,
+  .ns-description-list > dd {
+    padding-inline: var(--ns-space-surface-block);
+  }
+
+  .ns-description-list > dd {
+    margin-inline-start: var(--ns-space-surface-inline);
+  }
+}
+
+@media (forced-colors: active) {
+  .ns-description-list,
+  .ns-description-list > dt,
+  .ns-description-list > dd {
+    color: CanvasText;
+    border-color: CanvasText;
+    forced-color-adjust: auto;
+  }
+}

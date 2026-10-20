@@ -1,0 +1,57 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.dropdown-menu",
+  "fixture": "fixture.html",
+  "controller": null,
+  "fixtureComponents": [
+    "core.button"
+  ],
+  "defaultState": "closed",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "closed": {
+      "mode": "fixture",
+      "target": "#dropdown-menu-demo"
+    },
+    "open": {
+      "mode": "fixture",
+      "target": "#dropdown-menu-state-demo"
+    },
+    "hover": {
+      "mode": "native-pointer",
+      "target": "#dropdown-menu-state-item-primary"
+    },
+    "focus-visible": {
+      "mode": "native-keyboard",
+      "target": "#dropdown-menu-state-trigger"
+    },
+    "pressed": {
+      "mode": "native-pointer",
+      "target": "#dropdown-menu-state-item-primary"
+    },
+    "checked": {
+      "mode": "fixture",
+      "target": "#dropdown-menu-state-check"
+    },
+    "disabled": {
+      "mode": "fixture",
+      "target": "#dropdown-menu-state-disabled"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/dropdown-menu.css",
+        "packages/adapters/web/components/button.css"
+      ],
+      "bindings": [
+        {
+          "module": "packages/adapters/web/components/dropdown-menu.mjs",
+          "export": "bindDropdownMenu",
+          "selector": "#dropdown-menu-demo"
+        }
+      ]
+    }
+  }
+}

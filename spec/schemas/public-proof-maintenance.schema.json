@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neosmartui.com/schemas/public-proof-maintenance@1.json",
+  "title": "NeoSmartUI Public Proof Maintenance Record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schema", "trackingIssue", "proofRecord", "implementationFiles"],
+  "oneOf": [
+    {"required": ["component"], "not": {"required": ["flavor"]}},
+    {"required": ["flavor"], "not": {"required": ["component"]}}
+  ],
+  "properties": {
+    "$schema": {"const": "../../spec/schemas/public-proof-maintenance.schema.json"},
+    "schema": {"const": "neosmartui/public-proof-maintenance@1"},
+    "component": {"type": "string", "pattern": "^(?!flavor\\.|vertical\\.)[a-z][a-z0-9-]*\\.(?!block\\.|page\\.)[a-z][a-z0-9-]*$"},
+    "flavor": {"type": "string", "pattern": "^flavor\\.[a-z][a-z0-9-]*$"},
+    "trackingIssue": {"type": "string", "pattern": "^https://github\\.com/neosmartui/neosmartui/issues/[1-9][0-9]*$"},
+    "proofRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "blobSha"],
+      "properties": {
+        "path": {"type": "string", "pattern": "^evidence/public/(?:core\\.[a-z][a-z0-9-]*|flavor\\.[a-z][a-z0-9-]*)\\.json$"},
+        "blobSha": {"type": "string", "pattern": "^[0-9a-f]{40}$"}
+      }
+    },
+    "implementationFiles": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "provenBlobSha"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "provenBlobSha": {"type": "string", "pattern": "^[0-9a-f]{40}$"}
+        }
+      }
+    }
+  }
+}

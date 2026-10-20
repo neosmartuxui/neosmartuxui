@@ -1,0 +1,23 @@
+.ns-alert-dialog__message {
+  margin: 0;
+  color: var(--ns-color-content-secondary);
+  font-weight: var(--ns-font-weight-regular);
+}
+
+.ns-alert-dialog__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--ns-space-surface-block);
+}
+
+.ns-alert-dialog [data-alert-dialog-destructive] {
+  font-weight: var(--ns-font-weight-emphasis);
+}
+
+@media (max-width: 32rem) {
+  .ns-alert-dialog__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

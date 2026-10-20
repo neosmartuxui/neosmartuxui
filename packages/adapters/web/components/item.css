@@ -1,0 +1,104 @@
+.ns-item {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--ns-space-surface-inline);
+  inline-size: 100%;
+  padding-block: var(--ns-space-surface-block);
+  padding-inline: var(--ns-space-surface-inline);
+  border-block-end: var(--ns-border-surface-width) solid var(--ns-color-border-default);
+  background: var(--ns-color-surface-panel);
+  color: var(--ns-color-content-primary);
+  font-family: var(--ns-font-family-body);
+  font-size: var(--ns-font-size-body);
+  font-weight: var(--ns-font-weight-regular);
+  text-align: start;
+}
+
+.ns-item__leading,
+.ns-item__trailing,
+.ns-item__actions {
+  flex: 0 0 auto;
+}
+
+.ns-item__leading {
+  display: grid;
+  place-items: center;
+  min-inline-size: 3rem;
+  min-block-size: 3rem;
+  padding: var(--ns-space-surface-block);
+  border: var(--ns-border-surface-width) solid var(--ns-color-border-default);
+  color: var(--ns-color-content-secondary);
+  font-weight: var(--ns-font-weight-strong);
+}
+
+.ns-item__content {
+  flex: 1 1 14rem;
+  min-inline-size: 0;
+}
+
+.ns-item__title,
+.ns-item__description,
+.ns-item__metadata {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.ns-item__title {
+  color: var(--ns-color-content-primary);
+  font-size: var(--ns-font-size-body);
+  font-weight: var(--ns-font-weight-strong);
+}
+
+.ns-item__description,
+.ns-item__metadata,
+.ns-item__trailing {
+  color: var(--ns-color-content-secondary);
+}
+
+.ns-item__description {
+  margin-block-start: var(--ns-space-surface-block);
+}
+
+.ns-item__metadata {
+  margin-block-start: var(--ns-space-surface-block);
+  font-weight: var(--ns-font-weight-regular);
+}
+
+.ns-item__trailing {
+  max-inline-size: 16rem;
+  overflow-wrap: anywhere;
+}
+
+.ns-item__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--ns-space-surface-inline);
+}
+
+@media (max-width: 36rem) {
+  .ns-item__content {
+    flex-basis: calc(100% - 5rem);
+  }
+
+  .ns-item__trailing,
+  .ns-item__actions {
+    margin-inline-start: calc(3rem + var(--ns-space-surface-inline));
+  }
+}
+
+@media (forced-colors: active) {
+  .ns-item,
+  .ns-item__leading {
+    background: Canvas;
+    color: CanvasText;
+    border-color: CanvasText;
+    forced-color-adjust: auto;
+  }
+
+  .ns-item__description,
+  .ns-item__metadata,
+  .ns-item__trailing {
+    color: CanvasText;
+  }
+}

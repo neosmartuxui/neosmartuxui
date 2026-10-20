@@ -1,0 +1,171 @@
+.ns-toast-region {
+  display: grid;
+  inline-size: min(100%, 26rem);
+  gap: var(--ns-space-surface-block);
+  font-family: var(--ns-font-family-body);
+  color: var(--ns-color-content-primary);
+}
+
+.ns-toast {
+  --ns-toast-tone: var(--ns-color-border-strong);
+  display: flex;
+  min-inline-size: 0;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--ns-space-surface-inline);
+  padding-block: var(--ns-space-surface-block);
+  padding-inline: var(--ns-space-surface-inline);
+  border: var(--ns-border-surface-width) solid var(--ns-color-border-strong);
+  border-inline-start-color: var(--ns-toast-tone);
+  border-radius: var(--ns-radius-surface);
+  background: var(--ns-color-surface-panel);
+  color: var(--ns-color-content-primary);
+  box-shadow: var(--ns-depth-rest-x) var(--ns-depth-rest-y) 0 var(--ns-color-border-strong);
+  transform: translate(0, 0);
+  transition-property: opacity, transform, box-shadow;
+  transition-duration: var(--ns-motion-standard-duration);
+  transition-timing-function: var(--ns-motion-standard-easing);
+}
+
+.ns-toast[hidden] {
+  display: none;
+}
+
+.ns-toast[data-tone="info"] {
+  --ns-toast-tone: var(--ns-color-state-info);
+}
+
+.ns-toast[data-tone="success"] {
+  --ns-toast-tone: var(--ns-color-state-success);
+}
+
+.ns-toast[data-tone="warning"] {
+  --ns-toast-tone: var(--ns-color-state-warning);
+}
+
+.ns-toast[data-tone="error"] {
+  --ns-toast-tone: var(--ns-color-state-error);
+}
+
+.ns-toast[data-state="queued"],
+.ns-toast[data-state="dismissed"] {
+  opacity: 0.72;
+}
+
+.ns-toast__content {
+  min-inline-size: 0;
+  display: grid;
+  gap: var(--ns-space-control-block);
+}
+
+.ns-toast__title,
+.ns-toast__message {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.ns-toast__title {
+  font-size: var(--ns-font-size-body);
+  font-weight: var(--ns-font-weight-emphasis);
+}
+
+.ns-toast__message {
+  color: var(--ns-color-content-secondary);
+  font-size: var(--ns-font-size-body);
+  font-weight: var(--ns-font-weight-regular);
+  line-height: 1.45;
+}
+
+.ns-toast__dismiss {
+  min-inline-size: var(--ns-size-control-minimum);
+  min-block-size: var(--ns-size-control-minimum);
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: var(--ns-space-control-block);
+  padding-inline: var(--ns-space-control-inline);
+  border: var(--ns-border-control-width) solid var(--ns-color-border-strong);
+  border-radius: var(--ns-radius-control);
+  background: var(--ns-color-surface-interactive);
+  color: var(--ns-color-content-primary);
+  font: inherit;
+  font-weight: var(--ns-font-weight-emphasis);
+  line-height: 1;
+  box-shadow: var(--ns-depth-rest-x) var(--ns-depth-rest-y) 0 var(--ns-color-border-strong);
+  transform: translate(0, 0);
+  transition-property: transform, box-shadow;
+  transition-duration: var(--ns-motion-release-duration);
+  transition-timing-function: var(--ns-motion-release-easing);
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .ns-toast__dismiss:hover:not(:active) {
+    box-shadow: var(--ns-depth-hover-x) var(--ns-depth-hover-y) 0 var(--ns-color-border-strong);
+    transform: translate(var(--ns-press-hover-x), var(--ns-press-hover-y));
+    transition-duration: var(--ns-motion-press-duration);
+    transition-timing-function: var(--ns-motion-press-easing);
+  }
+}
+
+.ns-toast__dismiss:active {
+  box-shadow: var(--ns-depth-active-x) var(--ns-depth-active-y) 0 var(--ns-color-border-strong);
+  transform: translate(var(--ns-press-active-x), var(--ns-press-active-y));
+  transition-duration: var(--ns-motion-press-duration);
+  transition-timing-function: var(--ns-motion-press-easing);
+}
+
+.ns-toast__dismiss:focus-visible {
+  outline: var(--ns-focus-ring-width) solid var(--ns-color-focus-ring);
+  outline-offset: var(--ns-focus-ring-offset);
+}
+
+.ns-toast__hint {
+  margin: 0;
+  color: var(--ns-color-content-secondary);
+  font-size: var(--ns-font-size-body);
+}
+
+@media (max-width: 32rem) {
+  .ns-toast-region {
+    inline-size: 100%;
+  }
+
+  .ns-toast {
+    flex-direction: column;
+  }
+
+  .ns-toast__dismiss {
+    inline-size: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ns-toast,
+  .ns-toast__dismiss {
+    transition-duration: 1ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .ns-toast,
+  .ns-toast__dismiss {
+    background: Canvas;
+    color: CanvasText;
+    border-color: ButtonText;
+    forced-color-adjust: auto;
+  }
+
+  .ns-toast {
+    box-shadow: 5px 5px 0 ButtonText;
+  }
+
+  .ns-toast__dismiss {
+    box-shadow: 4px 4px 0 ButtonText;
+  }
+
+  .ns-toast__dismiss:focus-visible {
+    outline-color: Highlight;
+  }
+}

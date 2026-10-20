@@ -1,0 +1,42 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.hover-card",
+  "fixture": "fixture.html",
+  "controller": "controller.mjs",
+  "fixtureComponents": [],
+  "defaultState": "closed",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "closed": {
+      "mode": "fixture",
+      "target": "#hover-card-surface"
+    },
+    "open": {
+      "mode": "controller",
+      "target": "#hover-card-surface"
+    },
+    "dismissed": {
+      "mode": "controller",
+      "target": "#hover-card-surface"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/hover-card.css"
+      ],
+      "bindings": [
+        {
+          "module": "packages/adapters/web/components/hover-card.mjs",
+          "export": "bindHoverCard",
+          "selector": "#hover-card-trigger",
+          "options": {
+            "openDelay": 320,
+            "closeDelay": 100
+          }
+        }
+      ]
+    }
+  }
+}

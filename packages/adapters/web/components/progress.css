@@ -1,0 +1,86 @@
+.ns-progress {
+  appearance: none;
+  display: block;
+  inline-size: 100%;
+  min-inline-size: 0;
+  block-size: 0.875rem;
+  overflow: hidden;
+  border: var(--ns-border-control-width) solid var(--ns-color-border-default);
+  border-radius: var(--ns-radius-control);
+  background: var(--ns-color-surface-interactive);
+  color: var(--ns-color-action-primary-surface);
+  vertical-align: middle;
+  transform: none;
+}
+
+.ns-progress::-webkit-progress-bar {
+  background: var(--ns-color-surface-interactive);
+}
+
+.ns-progress::-webkit-progress-value {
+  background: var(--ns-color-action-primary-surface);
+  transition-property: inline-size;
+  transition-duration: var(--ns-motion-standard-duration);
+  transition-timing-function: var(--ns-motion-standard-easing);
+}
+
+.ns-progress::-moz-progress-bar {
+  background: var(--ns-color-action-primary-surface);
+  transition-property: inline-size;
+  transition-duration: var(--ns-motion-standard-duration);
+  transition-timing-function: var(--ns-motion-standard-easing);
+}
+
+.ns-progress:not([value]) {
+  background-image: linear-gradient(
+    90deg,
+    var(--ns-color-surface-interactive) 0 20%,
+    var(--ns-color-action-primary-surface) 20% 45%,
+    var(--ns-color-surface-interactive) 45% 100%
+  );
+  background-size: 220% 100%;
+  animation: ns-progress-indeterminate calc(var(--ns-motion-standard-duration) * 8) linear infinite;
+}
+
+.ns-progress[data-state="complete"] {
+  outline: var(--ns-border-control-width) solid var(--ns-color-action-primary-surface);
+  outline-offset: 1px;
+}
+
+@keyframes ns-progress-indeterminate {
+  from { background-position: 100% 0; }
+  to { background-position: -100% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ns-progress::-webkit-progress-value,
+  .ns-progress::-moz-progress-bar {
+    transition-duration: 1ms !important;
+  }
+
+  .ns-progress:not([value]) {
+    animation: none;
+    background-image: repeating-linear-gradient(
+      135deg,
+      var(--ns-color-action-primary-surface) 0 0.375rem,
+      var(--ns-color-surface-interactive) 0.375rem 0.75rem
+    );
+    background-size: auto;
+  }
+}
+
+@media (forced-colors: active) {
+  .ns-progress {
+    border-color: CanvasText;
+    background: Canvas;
+    color: Highlight;
+    forced-color-adjust: auto;
+  }
+
+  .ns-progress::-webkit-progress-bar { background: Canvas; }
+  .ns-progress::-webkit-progress-value { background: Highlight; }
+  .ns-progress::-moz-progress-bar { background: Highlight; }
+  .ns-progress:not([value]) {
+    background: repeating-linear-gradient(135deg, Highlight 0 0.375rem, Canvas 0.375rem 0.75rem);
+  }
+}

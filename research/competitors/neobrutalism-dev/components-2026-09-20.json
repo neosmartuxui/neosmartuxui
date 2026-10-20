@@ -1,0 +1,135 @@
+{
+  "schema": "neosmartui/competitor-component-inventory@1",
+  "competitor": "neobrutalism.dev",
+  "checkedAt": "2026-09-20",
+  "source": {
+    "repository": "ekmas/neobrutalism-components",
+    "registryPath": "registry.json",
+    "registryBlobSha": "ce85037867fe8fd646eac7f9dee76b5dc9a97b5a",
+    "homepage": "https://www.neobrutalism.dev/",
+    "changelog": "https://www.neobrutalism.dev/docs/changelog"
+  },
+  "evidence": {
+    "homepageAdvertisedCatalogCount": 64,
+    "homepageWording": "64 components, charts and star shapes for React and Tailwind v4.",
+    "september2026NewComponentsReported": 18,
+    "registryUiEntries": 71,
+    "uniqueRegistryUiFilePaths": 61,
+    "internalAliasEntries": 10
+  },
+  "planning": {
+    "neosmartuiCoreTarget": "90+ distinct public-proof Core components",
+    "competitorCountsAreBenchmarkOnly": true,
+    "note": "This snapshot preserves neobrutalism.dev evidence. It does not define, lower, or mechanically recalculate the NeoSmartUI 90+ target."
+  },
+  "uniqueRegistryUiComponents": [
+    "accordion",
+    "alert",
+    "alert-dialog",
+    "avatar",
+    "badge",
+    "breadcrumb",
+    "button",
+    "calendar",
+    "card",
+    "carousel",
+    "chart",
+    "checkbox",
+    "collapsible",
+    "command",
+    "context-menu",
+    "dialog",
+    "drawer",
+    "dropdown-menu",
+    "form",
+    "hover-card",
+    "image-card",
+    "input",
+    "input-otp",
+    "label",
+    "marquee",
+    "menubar",
+    "navigation-menu",
+    "pagination",
+    "popover",
+    "progress",
+    "radio-group",
+    "resizable",
+    "scroll-area",
+    "select",
+    "sheet",
+    "sidebar",
+    "skeleton",
+    "slider",
+    "switch",
+    "table",
+    "tabs",
+    "textarea",
+    "tooltip",
+    "attachment",
+    "bubble",
+    "button-group",
+    "direction",
+    "empty",
+    "field",
+    "input-group",
+    "item",
+    "kbd",
+    "marker",
+    "message",
+    "message-scroller",
+    "native-select",
+    "questionnaire",
+    "spinner",
+    "toast",
+    "toggle",
+    "toggle-group"
+  ],
+  "deduplicatedAliases": {
+    "button": [
+      "nbutton",
+      "button"
+    ],
+    "card": [
+      "ncard",
+      "card"
+    ],
+    "dialog": [
+      "ndialog",
+      "dialog"
+    ],
+    "input": [
+      "input",
+      "ninput"
+    ],
+    "label": [
+      "nlabel",
+      "label"
+    ],
+    "sheet": [
+      "sheet",
+      "nsheet"
+    ],
+    "skeleton": [
+      "skeleton",
+      "nskeleton"
+    ],
+    "textarea": [
+      "textarea",
+      "ntextarea"
+    ],
+    "tooltip": [
+      "tooltip",
+      "ntooltip"
+    ],
+    "toggle": [
+      "toggle",
+      "ntoggle"
+    ]
+  },
+  "notes": [
+    "Star-shape registry:component entries are not counted as UI components in the strict registry implementation count.",
+    "Registry aliases pointing at the same UI implementation file are not counted as distinct components.",
+    "The public homepage catalogue wording and strict unique registry UI count differ; both are preserved rather than silently reconciled."
+  ]
+}

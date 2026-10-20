@@ -1,0 +1,219 @@
+.ns-menubar {
+  position: relative;
+  display: block;
+  max-inline-size: 100%;
+  color: var(--ns-color-content-primary);
+  font-family: var(--ns-font-family-body);
+}
+
+.ns-menubar__root {
+  display: flex;
+  align-items: stretch;
+  gap: var(--ns-space-navigation-gap);
+  max-inline-size: 100%;
+  padding: calc(var(--ns-space-surface-block) / 2) calc(var(--ns-space-surface-inline) / 2);
+  overflow-x: auto;
+  border: var(--ns-border-surface-width) solid var(--ns-color-border-strong);
+  border-radius: var(--ns-radius-surface);
+  background: var(--ns-color-surface-panel);
+  box-shadow: var(--ns-depth-rest-x) var(--ns-depth-rest-y) 0 var(--ns-color-border-strong);
+}
+
+.ns-menubar__item {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--ns-space-control-inline) / 2);
+  min-block-size: var(--ns-size-control-minimum);
+  padding: var(--ns-space-control-block) var(--ns-space-control-inline);
+  border: var(--ns-border-surface-width) solid transparent;
+  border-radius: var(--ns-radius-control);
+  background: transparent;
+  color: var(--ns-color-content-primary);
+  box-shadow: var(--ns-depth-rest-x) var(--ns-depth-rest-y) 0 transparent;
+  font: inherit;
+  font-size: var(--ns-font-size-label);
+  font-weight: var(--ns-font-weight-regular);
+  text-align: start;
+  white-space: nowrap;
+  cursor: pointer;
+  transform: translate(0, 0);
+  transition-property: transform, box-shadow, background-color, color, border-color, opacity;
+  transition-duration: var(--ns-motion-release-duration);
+  transition-timing-function: var(--ns-motion-release-easing);
+  user-select: none;
+}
+
+.ns-menubar__item[aria-haspopup="menu"]::after {
+  content: "▾";
+  font-size: 0.8em;
+}
+
+.ns-menubar__menu {
+  position: fixed;
+  z-index: 30;
+  inset: auto;
+  box-sizing: border-box;
+  display: grid;
+  gap: calc(var(--ns-space-surface-block) / 2);
+  inline-size: min(20rem, calc(100vi - var(--ns-space-surface-inline) - var(--ns-space-surface-inline)));
+  max-inline-size: calc(100vi - var(--ns-space-surface-inline) - var(--ns-space-surface-inline));
+  max-block-size: calc(100dvb - var(--ns-space-surface-block) - var(--ns-space-surface-block));
+  padding: var(--ns-space-surface-block) var(--ns-space-surface-inline);
+  overflow: auto;
+  border: var(--ns-border-surface-width) solid var(--ns-color-border-strong);
+  border-radius: var(--ns-radius-surface);
+  background: var(--ns-color-surface-panel);
+  color: var(--ns-color-content-primary);
+  box-shadow: var(--ns-depth-rest-x) var(--ns-depth-rest-y) 0 var(--ns-color-border-strong);
+  font-size: var(--ns-font-size-body);
+  font-weight: var(--ns-font-weight-regular);
+  opacity: 1;
+  transform: none;
+  transition-property: opacity;
+  transition-duration: var(--ns-motion-standard-duration);
+  transition-timing-function: var(--ns-motion-standard-easing);
+}
+
+.ns-menubar__menu[hidden] {
+  display: none;
+}
+
+.ns-menubar--preview-static .ns-menubar__menu {
+  position: static;
+  inline-size: min(20rem, 100%);
+  max-inline-size: 100%;
+  max-block-size: none;
+  margin-block-start: var(--ns-space-control-block);
+}
+
+.ns-menubar__menu .ns-menubar__item {
+  display: flex;
+  inline-size: 100%;
+  justify-content: space-between;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+@media (hover: hover) {
+  .ns-menubar__item:hover:not([aria-disabled="true"]):not(:active) {
+    border-color: var(--ns-color-border-strong);
+    background: var(--ns-color-surface-interactive);
+    box-shadow: var(--ns-depth-hover-x) var(--ns-depth-hover-y) 0 var(--ns-color-border-strong);
+    transform: translate(var(--ns-press-hover-x), var(--ns-press-hover-y));
+    transition-duration: var(--ns-motion-press-duration);
+    transition-timing-function: var(--ns-motion-press-easing);
+  }
+}
+
+.ns-menubar__item:active:not([aria-disabled="true"]) {
+  border-color: var(--ns-color-border-strong);
+  background: var(--ns-color-surface-interactive);
+  box-shadow: var(--ns-depth-active-x) var(--ns-depth-active-y) 0 var(--ns-color-border-strong);
+  transform: translate(var(--ns-press-active-x), var(--ns-press-active-y));
+  transition-duration: var(--ns-motion-press-duration);
+  transition-timing-function: var(--ns-motion-press-easing);
+}
+
+.ns-menubar__item:focus-visible {
+  border-color: var(--ns-color-border-strong);
+  outline: var(--ns-focus-ring-width) solid var(--ns-color-focus-ring);
+  outline-offset: var(--ns-focus-ring-offset);
+}
+
+.ns-menubar__item[aria-expanded="true"],
+.ns-menubar__item[aria-checked="true"] {
+  border-color: var(--ns-color-border-strong);
+  background: var(--ns-color-action-primary-surface);
+  color: var(--ns-color-action-primary-content);
+  font-weight: var(--ns-font-weight-emphasis);
+}
+
+.ns-menubar__item[aria-checked="true"]::before {
+  content: "✓";
+  flex: none;
+  margin-inline-end: calc(var(--ns-space-control-inline) / 2);
+  font-weight: var(--ns-font-weight-emphasis);
+}
+
+.ns-menubar__item[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: var(--ns-opacity-disabled);
+}
+
+.ns-menubar__separator {
+  block-size: 0;
+  margin-block: calc(var(--ns-space-surface-block) / 2);
+  border: 0;
+  border-block-start: var(--ns-border-surface-width) solid var(--ns-color-border-strong);
+}
+
+.ns-menubar__hint {
+  margin: 0;
+  color: var(--ns-color-content-secondary);
+  font-size: var(--ns-font-size-body);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ns-menubar__item,
+  .ns-menubar__menu {
+    transition-duration: 1ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .ns-menubar__root,
+  .ns-menubar__menu {
+    border-color: CanvasText;
+    background: Canvas;
+    color: CanvasText;
+    box-shadow: none;
+    forced-color-adjust: auto;
+  }
+
+  .ns-menubar__item {
+    color: CanvasText;
+    forced-color-adjust: auto;
+  }
+
+  .ns-menubar__item:hover:not([aria-disabled="true"]),
+  .ns-menubar__item:active:not([aria-disabled="true"]),
+  .ns-menubar__item:focus-visible {
+    border-color: Highlight;
+  }
+
+  .ns-menubar__item:focus-visible {
+    outline-color: Highlight;
+  }
+
+  .ns-menubar__item[aria-expanded="true"],
+  .ns-menubar__item[aria-checked="true"] {
+    border-color: Highlight;
+    background: Highlight;
+    color: HighlightText;
+  }
+
+  .ns-menubar__item[aria-disabled="true"] {
+    color: GrayText;
+  }
+
+  .ns-menubar__separator {
+    border-block-start-color: CanvasText;
+  }
+}
+
+@media (max-width: 32rem) {
+  .ns-menubar__root {
+    inline-size: 100%;
+    scroll-snap-type: inline proximity;
+  }
+
+  .ns-menubar__root > .ns-menubar__item {
+    scroll-snap-align: start;
+  }
+
+  .ns-menubar__menu {
+    inline-size: calc(100vi - var(--ns-space-surface-inline) - var(--ns-space-surface-inline));
+  }
+}

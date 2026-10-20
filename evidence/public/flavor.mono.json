@@ -1,0 +1,66 @@
+{
+  "$schema": "../../spec/schemas/public-proof.schema.json",
+  "schema": "neosmartui/public-proof@1",
+  "flavor": "flavor.mono",
+  "deployedSource": {
+    "repository": "neosmartui/neosmartui",
+    "sha": "3d41541d81f8fd5c24e11c9d12a17bb9e7a9e9b0"
+  },
+  "implementationFiles": [
+    {
+      "path": "packages/themes/mono-light/theme.json",
+      "blobSha": "1a359b3e85656c49603031ed45ef01e28d46fb5f"
+    },
+    {
+      "path": "packages/themes/mono-light/resolution.json",
+      "blobSha": "b7e987c93ee10f2f7f86728660a0fb3545c4f7a6"
+    },
+    {
+      "path": "packages/themes/mono-light/tokens.json",
+      "blobSha": "1ebd67404e5c9775c590792246362201f01e3ee2"
+    },
+    {
+      "path": "apps/foundry/src/flavors/mono/index.html",
+      "blobSha": "d45af00591c556af94e04626bb0b1fefadd4ae93"
+    },
+    {
+      "path": "packages/themes/mono-dark/theme.json",
+      "blobSha": "731acb07916cd4c53af677f2fb4a999ee5f7b0d5"
+    },
+    {
+      "path": "packages/themes/mono-dark/resolution.json",
+      "blobSha": "6a81f515eb20662554380f5bf10046b3030f4433"
+    },
+    {
+      "path": "packages/themes/mono-dark/tokens.json",
+      "blobSha": "34a2335ad9091f69d9ab407b4f73550b6d79878c"
+    },
+    {
+      "path": "apps/foundry/fragments/mono-dark.html",
+      "blobSha": "e348276456bbad6282f9d983682aed157ea3386d"
+    },
+    {
+      "path": "tooling/foundry/assemble-mono-dark.mjs",
+      "blobSha": "0403032cccdedcdd1c92f3782a9ed3402906b29d"
+    }
+  ],
+  "browserEvidence": {
+    "runId": 35720197442,
+    "artifactId": 10690793881,
+    "artifactDigest": "sha256:8dd8c4662e68ea933b709ef312fd0bddc6f8d48aa89c9415edb16230d3a0a0a5"
+  },
+  "deployment": {
+    "repository": "neosmartui/neosmartui.github.io",
+    "commitSha": "d21d12143368efaee1ce1e083f7f936b209b1e19",
+    "treeSha": "2662bbdb270ab2fb0d336ca1e31889672a5fdc8b",
+    "pagesRunId": 35721321083
+  },
+  "live": {
+    "pageUrl": "https://neosmartui.github.io/flavors/mono/",
+    "deploymentRecordUrl": "https://neosmartui.github.io/deployment.json",
+    "assetUrls": [
+      "https://neosmartui.github.io/mono-theme.css",
+      "https://neosmartui.github.io/mono-dark-theme.css"
+    ]
+  }
+}

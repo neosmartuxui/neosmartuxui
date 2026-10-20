@@ -1,0 +1,39 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.input-group",
+  "fixture": "fixture.html",
+  "controller": null,
+  "fixtureComponents": [
+    "core.input"
+  ],
+  "defaultState": "rest",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "rest": {
+      "mode": "fixture",
+      "target": "#input-group-rest"
+    },
+    "focus-within": {
+      "mode": "native-keyboard",
+      "target": "#input-group-handle"
+    },
+    "invalid": {
+      "mode": "fixture",
+      "target": "#input-group-invalid"
+    },
+    "disabled": {
+      "mode": "fixture",
+      "target": "#input-group-disabled"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/input-group.css",
+        "packages/adapters/web/components/input.css"
+      ],
+      "bindings": []
+    }
+  }
+}

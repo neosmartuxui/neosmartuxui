@@ -1,0 +1,19 @@
+        <div class="slider-examples">
+          <div class="ns-slider" id="slider-demo" data-slider-mode="single" data-orientation="horizontal" data-min="0" data-max="100" data-step="5">
+            <label class="ns-slider__label" for="slider-input">Volume</label>
+            <div class="ns-slider__rail">
+              <span class="ns-slider__track" aria-hidden="true"></span>
+              <input class="ns-slider__input" id="slider-input" type="range" min="0" max="100" step="5" value="40" aria-label="Volume" />
+            </div>
+            <p class="ns-slider__value">Value: <output for="slider-input" data-slider-output="value">40</output></p>
+          </div>
+          <div class="ns-slider" id="slider-range-demo" data-slider-mode="range" data-orientation="horizontal" data-min="0" data-max="100" data-step="5">
+            <p class="ns-slider__range-label">Budget range</p>
+            <div class="ns-slider__rail">
+              <span class="ns-slider__track" aria-hidden="true"></span>
+              <input class="ns-slider__input" id="slider-lower" data-slider-thumb="lower" type="range" min="0" max="100" step="5" value="25" aria-label="Minimum budget" />
+              <input class="ns-slider__input" id="slider-upper" data-slider-thumb="upper" type="range" min="0" max="100" step="5" value="75" aria-label="Maximum budget" />
+            </div>
+            <p class="ns-slider__value">Range: <output for="slider-lower" data-slider-output="lower">25</output>–<output for="slider-upper" data-slider-output="upper">75</output></p>
+          </div>
+        </div>

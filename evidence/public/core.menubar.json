@@ -1,0 +1,38 @@
+{
+  "$schema": "../../spec/schemas/public-proof.schema.json",
+  "schema": "neosmartui/public-proof@1",
+  "component": "core.menubar",
+  "deployedSource": {
+    "repository": "neosmartui/neosmartui",
+    "sha": "3d41541d81f8fd5c24e11c9d12a17bb9e7a9e9b0"
+  },
+  "implementationFiles": [
+    {
+      "path": "packages/adapters/web/components/menubar.mjs",
+      "blobSha": "2fe555c0ad7c92d2eb7e8f2f8a8593d8f719ede4"
+    },
+    {
+      "path": "packages/adapters/web/components/menubar.css",
+      "blobSha": "e287fe803767e1b3a8ec6c40452b8d96b92ede0c"
+    },
+    {
+      "path": "packages/adapters/web/components/menu-items.mjs",
+      "blobSha": "ae9897bcb42041d1b5ed55b25509f62552e87269"
+    }
+  ],
+  "browserEvidence": {
+    "runId": 35720197442,
+    "artifactId": 10690793881,
+    "artifactDigest": "sha256:8dd8c4662e68ea933b709ef312fd0bddc6f8d48aa89c9415edb16230d3a0a0a5"
+  },
+  "deployment": {
+    "repository": "neosmartui/neosmartui.github.io",
+    "commitSha": "d21d12143368efaee1ce1e083f7f936b209b1e19",
+    "treeSha": "2662bbdb270ab2fb0d336ca1e31889672a5fdc8b",
+    "pagesRunId": 35721321083
+  },
+  "live": {
+    "pageUrl": "https://neosmartui.github.io/",
+    "deploymentRecordUrl": "https://neosmartui.github.io/deployment.json"
+  }
+}

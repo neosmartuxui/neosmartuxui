@@ -1,0 +1,29 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.color-picker",
+  "fixture": "fixture.html",
+  "controller": "controller.mjs",
+  "fixtureComponents": [],
+  "defaultState": "rest",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "rest": { "mode": "fixture", "target": "#color-picker-input" },
+    "hover": { "mode": "native-pointer", "target": "#color-picker-input" },
+    "focus-visible": { "mode": "native-keyboard", "target": "#color-picker-input" },
+    "pressed": { "mode": "native-pointer", "target": "#color-picker-input" },
+    "selected": { "mode": "controller", "target": "#color-picker-demo" },
+    "invalid": { "mode": "controller", "target": "#color-picker-demo" },
+    "disabled": { "mode": "controller", "target": "#color-picker-demo" }
+  },
+  "renderers": {
+    "web": {
+      "styles": ["packages/adapters/web/components/color-picker.css"],
+      "bindings": [{
+        "module": "packages/adapters/web/components/color-picker.mjs",
+        "export": "bindColorPicker",
+        "selector": "#color-picker-demo"
+      }]
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.drawer",
+  "fixture": "fixture.html",
+  "controller": "controller.mjs",
+  "fixtureComponents": [
+    "core.button"
+  ],
+  "defaultState": "closed",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "closed": {
+      "mode": "fixture",
+      "target": "#drawer-surface"
+    },
+    "open": {
+      "mode": "controller",
+      "target": "#drawer-surface"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/drawer.css",
+        "packages/adapters/web/components/button.css"
+      ],
+      "bindings": [
+        {
+          "module": "packages/adapters/web/components/drawer.mjs",
+          "export": "bindDrawer",
+          "selector": "#drawer-demo"
+        }
+      ]
+    }
+  }
+}

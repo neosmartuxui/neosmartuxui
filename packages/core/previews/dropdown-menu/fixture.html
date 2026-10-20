@@ -1,0 +1,33 @@
+        <div class="dropdown-menu-preview-grid">
+          <div>
+            <div class="ns-dropdown-menu" id="dropdown-menu-demo" data-state="closed">
+              <button class="ns-button ns-dropdown-menu__trigger" id="dropdown-menu-trigger" type="button" data-dropdown-menu-trigger aria-haspopup="menu" aria-expanded="false" aria-controls="dropdown-menu-menu">
+                Actions <span aria-hidden="true">▾</span>
+              </button>
+              <div class="ns-dropdown-menu__menu" id="dropdown-menu-menu" role="menu" data-dropdown-menu-menu aria-labelledby="dropdown-menu-trigger" data-dropdown-menu-side="block-end" data-dropdown-menu-align="start" hidden>
+                <div class="ns-dropdown-menu__item" id="dropdown-menu-item-open" role="menuitem" tabindex="-1" aria-disabled="false">Open details</div>
+                <div class="ns-dropdown-menu__item" id="dropdown-menu-item-pin" role="menuitemcheckbox" tabindex="-1" aria-checked="false" aria-disabled="false">Pin item</div>
+                <div class="ns-dropdown-menu__item" id="dropdown-menu-item-compact" role="menuitemradio" tabindex="-1" aria-checked="true" aria-disabled="false" data-dropdown-menu-radio-group="density">Compact view</div>
+                <div class="ns-dropdown-menu__item" id="dropdown-menu-item-comfortable" role="menuitemradio" tabindex="-1" aria-checked="false" aria-disabled="false" data-dropdown-menu-radio-group="density">Comfortable view</div>
+                <div class="ns-dropdown-menu__separator" role="separator"></div>
+                <div class="ns-dropdown-menu__item" id="dropdown-menu-item-archive" role="menuitem" tabindex="-1" aria-disabled="true">Archive unavailable</div>
+              </div>
+            </div>
+            <a id="dropdown-menu-after" href="#principles">Continue after the menu</a>
+            <button id="dropdown-menu-outside" type="button">Outside control</button>
+          </div>
+
+          <div>
+            <p class="ns-dropdown-menu__hint">Open interaction-state specimen</p>
+            <div class="ns-dropdown-menu ns-dropdown-menu--preview-static" id="dropdown-menu-state-demo" data-state="open">
+              <button class="ns-button ns-dropdown-menu__trigger" id="dropdown-menu-state-trigger" type="button" data-dropdown-menu-trigger aria-haspopup="menu" aria-expanded="true" aria-controls="dropdown-menu-state-menu">
+                State sample <span aria-hidden="true">▾</span>
+              </button>
+              <div class="ns-dropdown-menu__menu" id="dropdown-menu-state-menu" role="menu" data-dropdown-menu-menu aria-labelledby="dropdown-menu-state-trigger" data-dropdown-menu-side="block-end" data-dropdown-menu-align="start">
+                <div class="ns-dropdown-menu__item" id="dropdown-menu-state-item-primary" role="menuitem" tabindex="-1" aria-disabled="false" data-state="rest">Duplicate item</div>
+                <div class="ns-dropdown-menu__item" id="dropdown-menu-state-check" role="menuitemcheckbox" tabindex="-1" aria-checked="true" aria-disabled="false" data-state="checked">Keep visible</div>
+                <div class="ns-dropdown-menu__item" id="dropdown-menu-state-disabled" role="menuitem" tabindex="-1" aria-disabled="true" data-state="disabled">Delete unavailable</div>
+              </div>
+            </div>
+          </div>
+        </div>

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neosmartui.com/schemas/component-registry@1.json",
+  "title": "NeoSmartUI Component Registry v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "domain", "components"],
+  "properties": {
+    "$schema": {"type":"string"},
+    "schema": {"const":"neosmartui/component-registry@1"},
+    "domain": {"type":"string","pattern":"^[a-z][a-z0-9-]*$"},
+    "components": {
+      "type":"array",
+      "items":{
+        "type":"object",
+        "additionalProperties":false,
+        "required":["id","contract","maturity","evidence"],
+        "properties":{
+          "id":{"type":"string","pattern":"^(?!flavor\\.|vertical\\.)[a-z][a-z0-9-]*\\.(?!block\\.|page\\.)[a-z][a-z0-9-]*$"},
+          "contract":{"type":"string","minLength":1},
+          "maturity":{"enum":["contract-only","implemented","public-proof"]},
+          "evidence":{
+            "type":"object",
+            "additionalProperties":false,
+            "required":["implementation","publicProof"],
+            "properties":{
+              "implementation":{"type":["string","null"]},
+              "publicProof":{"type":["string","null"]}
+            }
+          }
+        }
+      }
+    }
+  }
+}

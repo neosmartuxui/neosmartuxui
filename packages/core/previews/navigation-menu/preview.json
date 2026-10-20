@@ -1,0 +1,50 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.navigation-menu",
+  "fixture": "fixture.html",
+  "controller": null,
+  "fixtureComponents": [],
+  "defaultState": "closed",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "closed": {
+      "mode": "fixture",
+      "target": "#navigation-menu-demo"
+    },
+    "open": {
+      "mode": "fixture",
+      "target": "#navigation-menu-state-open"
+    },
+    "hover": {
+      "mode": "native-pointer",
+      "target": "#navigation-menu-state-link"
+    },
+    "focus-visible": {
+      "mode": "native-keyboard",
+      "target": "#navigation-menu-components"
+    },
+    "pressed": {
+      "mode": "native-pointer",
+      "target": "#navigation-menu-state-link"
+    },
+    "current": {
+      "mode": "fixture",
+      "target": "#navigation-menu-state-current-link"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/navigation-menu.css"
+      ],
+      "bindings": [
+        {
+          "module": "packages/adapters/web/components/navigation-menu.mjs",
+          "export": "bindNavigationMenu",
+          "selector": "#navigation-menu-demo"
+        }
+      ]
+    }
+  }
+}

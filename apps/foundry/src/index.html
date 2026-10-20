@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="NeoSmartUI — the AI-first neo-brutalist UI system. Built for humans. Structured for agents." />
+    <title>NeoSmartUI — AI-First Neo-Brutalist UI/UX Design System</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./theme.css" />
+    <link rel="stylesheet" href="./button.css" />
+    <link rel="stylesheet" href="./checkbox.css" />
+    <link rel="stylesheet" href="./input.css" />
+    <link rel="stylesheet" href="./radio.css" />
+    <link rel="stylesheet" href="./switch.css" />
+    <link rel="stylesheet" href="./tabs.css" />
+    <link rel="stylesheet" href="./textarea.css" />
+    <link rel="stylesheet" href="./select.css" />
+    <link rel="stylesheet" href="./card.css" />
+    <link rel="stylesheet" href="./badge.css" />
+    <link rel="stylesheet" href="./alert.css" />
+    <link rel="stylesheet" href="./field.css" />
+    <link rel="stylesheet" href="./breadcrumb.css" />
+    <link rel="stylesheet" href="./pagination.css" />
+    <link rel="stylesheet" href="./segmented-control.css" />
+    <link rel="stylesheet" href="./tooltip.css" />
+    <link rel="stylesheet" href="./combobox.css" />
+    <link rel="stylesheet" href="./accordion.css" />
+    <link rel="stylesheet" href="./label.css" />
+    <link rel="stylesheet" href="./separator.css" />
+    <link rel="stylesheet" href="./progress.css" />
+    <link rel="stylesheet" href="./spinner.css" />
+    <link rel="stylesheet" href="./button-group.css" />
+    <link rel="stylesheet" href="./input-group.css" />
+    <link rel="stylesheet" href="./toggle.css" />
+    <link rel="stylesheet" href="./toggle-group.css" />
+    <link rel="stylesheet" href="./number-field.css" />
+    <link rel="stylesheet" href="./slider.css" />
+    <link rel="stylesheet" href="./calendar.css" />
+    <link rel="stylesheet" href="./date-picker.css" />
+    <link rel="stylesheet" href="./file-upload.css" />
+    <link rel="stylesheet" href="./multi-select.css" />
+    <link rel="stylesheet" href="./input-otp.css" />
+    <link rel="stylesheet" href="./color-picker.css" />
+    <link rel="stylesheet" href="./time-picker.css" />
+    <link rel="stylesheet" href="./dialog.css" />
+    <link rel="stylesheet" href="./alert-dialog.css" />
+    <link rel="stylesheet" href="./drawer.css" />
+    <link rel="stylesheet" href="./popover.css" />
+    <link rel="stylesheet" href="./hover-card.css" />
+    <link rel="stylesheet" href="./dropdown-menu.css" />
+    <link rel="stylesheet" href="./context-menu.css" />
+    <link rel="stylesheet" href="./menubar.css" />
+    <link rel="stylesheet" href="./navigation-menu.css" />
+    <link rel="stylesheet" href="./toast.css" />
+    <link rel="stylesheet" href="./table.css" />
+    <link rel="stylesheet" href="./data-grid.css" />
+    <link rel="stylesheet" href="./item.css" />
+    <link rel="stylesheet" href="./list.css" />
+    <link rel="stylesheet" href="./description-list.css" />
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">NeoSmartUI Foundry</p>
+      <h1>Built for humans.<br />Structured for agents.</h1>
+      <p class="lede">NeoSmartUI is the AI-first neo-brutalist UI system. This Foundry is the public proof surface for one canonical architecture: Components → Blocks → Pages → Applications.</p>
+      <section aria-labelledby="foundation-status">
+        <h2 id="foundation-status">v0.2 Core</h2>
+        <p>The Foundry exercises generic Core primitives through one resolved Rivet Light Theme and adapter-owned rendering boundaries. Public-proof maturity remains separately gated on deployed evidence.</p>
+      </section>
+      <section aria-labelledby="button-slice">
+        <h2 id="button-slice">Public-proof component: <code>core.button</code></h2>
+        <p><code>core.button</code> is rendered through the Web adapter using resolved semantic tokens. Hover compresses into the surface; press seats the control instead of lifting it.</p>
+        <!-- NS_PREVIEW:core.button -->
+      </section>
+      <section aria-labelledby="checkbox-slice">
+        <h2 id="checkbox-slice">Public-proof component: <code>core.checkbox</code></h2>
+        <p>The native checkbox remains the semantic control. A 44px token-backed hit target contains the smaller visual box, with checked and indeterminate state remaining distinct after contact feedback ends.</p>
+        <!-- NS_PREVIEW:core.checkbox -->
+      </section>
+      <section aria-labelledby="input-slice">
+        <h2 id="input-slice">Public-proof component: <code>core.input</code></h2>
+        <p>The native text input owns editing and selection. It is interactive, not pressable: hover, focus, and pointer contact never translate the field or simulate button compression.</p>
+        <!-- NS_PREVIEW:core.input -->
+      </section>
+      <section aria-labelledby="radio-slice">
+        <h2 id="radio-slice">Public-proof component: <code>core.radio</code></h2>
+        <p>Native radios preserve one-of-many selection and platform keyboard behavior. Contact compresses into the surface while checked state remains explicit across the whole group.</p>
+        <!-- NS_PREVIEW:core.radio -->
+      </section>
+      <section aria-labelledby="switch-slice">
+        <h2 id="switch-slice">Public-proof component: <code>core.switch</code></h2>
+        <p>A native checkbox base exposes switch semantics while checked state stays authoritative. Contact compresses the whole track; persistent state moves the thumb from logical inline-start to inline-end as track color resolves.</p>
+        <!-- NS_PREVIEW:core.switch -->
+      </section>
+      <section aria-labelledby="tabs-slice">
+        <h2 id="tabs-slice">Public-proof component: <code>core.tabs</code></h2>
+        <p>Tabs are a composite widget: roving focus, selected panel, and activation mode remain explicit. Selected tabs stay seated in their rail instead of rising above their peers.</p>
+        <!-- NS_PREVIEW:core.tabs -->
+      </section>
+      <section aria-labelledby="textarea-slice">
+        <h2 id="textarea-slice">Public-proof component: <code>core.textarea</code></h2>
+        <p>The native multiline textarea preserves line breaks, selection, scrolling, IME, and resize behavior. It is interactive, not pressable: editing and resize contact never borrow button compression.</p>
+        <!-- NS_PREVIEW:core.textarea -->
+      </section>
+      <section aria-labelledby="select-slice">
+        <h2 id="select-slice">Public-proof component: <code>core.select</code></h2>
+        <p>The native single-select owns its option picker and keyboard behavior. Only the collapsed choice trigger receives pressure feedback; NeoSmartUI does not replace the browser/OS option popup.</p>
+        <!-- NS_PREVIEW:core.select -->
+      </section>
+      <section aria-labelledby="card-slice">
+        <h2 id="card-slice">Implemented component: <code>core.card</code></h2>
+        <p>The generic Card groups information without inventing activation. Its resting depth is structural and remains unchanged on hover or pointer contact.</p>
+        <!-- NS_PREVIEW:core.card -->
+      </section>
+      <section aria-labelledby="badge-slice">
+        <h2 id="badge-slice">Implemented component: <code>core.badge</code></h2>
+        <p>Badges communicate compact metadata or status without manufacturing activation or a live region. Tone supports the visible text instead of replacing meaning with color.</p>
+        <!-- NS_PREVIEW:core.badge -->
+      </section>
+      <section aria-labelledby="alert-slice">
+        <h2 id="alert-slice">Implemented component: <code>core.alert</code></h2>
+        <p>Alerts are stable message surfaces, not implicit live regions. Tone supports explicit written meaning; announcement urgency remains a composition decision.</p>
+        <!-- NS_PREVIEW:core.alert -->
+      </section>
+      <section aria-labelledby="field-slice">
+        <h2 id="field-slice">Implemented component: <code>core.field</code></h2>
+        <p>Field composes one real control with its label, help, and validation relationships. The container is not a group, action, or live region; semantics stay on the actual control and associated text.</p>
+        <!-- NS_PREVIEW:core.field -->
+      </section>
+      <section aria-labelledby="breadcrumb-slice">
+        <h2 id="breadcrumb-slice">Implemented component: <code>core.breadcrumb</code></h2>
+        <p>Breadcrumb exposes a real ordered location hierarchy. Ancestor locations stay native links, separators and passive ellipsis are presentation-only, and the current page is non-interactive text with <code>aria-current="page"</code>.</p>
+        <!-- NS_PREVIEW:core.breadcrumb -->
+      </section>
+      <section aria-labelledby="pagination-slice">
+        <h2 id="pagination-slice">Implemented component: <code>core.pagination</code></h2>
+        <p>Pagination keeps page destinations as native links with 44px tactile targets. The current page is non-interactive text with <code>aria-current="page"</code>, unavailable boundaries stay non-operable, and passive ellipsis never becomes a fake control.</p>
+        <!-- NS_PREVIEW:core.pagination -->
+      </section>
+      <section aria-labelledby="segmented-control-slice">
+        <h2 id="segmented-control-slice">Implemented component: <code>core.segmented-control</code></h2>
+        <p>Segmented Control chooses one peer mode with real buttons and persistent <code>aria-pressed</code> state. It keeps normal Tab, Space, and Enter button behavior; it does not borrow Tabs roving focus or form-value Radio semantics.</p>
+        <!-- NS_PREVIEW:core.segmented-control -->
+      </section>
+      <section aria-labelledby="tooltip-slice">
+        <h2 id="tooltip-slice">Implemented component: <code>core.tooltip</code></h2>
+        <p>Tooltip keeps supplemental descriptions non-interactive: keyboard focus remains on the described target, Escape dismisses the surface, and reveal never moves the target.</p>
+        <!-- NS_PREVIEW:core.tooltip -->
+      </section>
+      <section aria-labelledby="combobox-slice">
+        <h2 id="combobox-slice">Implemented component: <code>core.combobox</code></h2>
+        <p>Editable single-selection Combobox keeps query text separate from committed selection. DOM focus stays on the editable control while active suggestions move through <code>aria-activedescendant</code>; only the separate disclosure trigger uses tactile compression.</p>
+        <!-- NS_PREVIEW:core.combobox -->
+      </section>
+      <section aria-labelledby="accordion-slice">
+        <h2 id="accordion-slice">Implemented component: <code>core.accordion</code></h2>
+        <p>Accordion discloses related content with real buttons and ordinary document focus. Space and Enter use native button activation; Arrow/Home/End keys are not remapped into Tabs-style roving focus.</p>
+        <!-- NS_PREVIEW:core.accordion -->
+      </section>
+      <section aria-labelledby="label-slice">
+        <h2 id="label-slice">Implemented component: <code>core.label</code></h2>
+        <p>Label uses native <code>&lt;label&gt;</code> association, stays out of the tab order, and keeps disabled presentation separate from control semantics.</p>
+        <!-- NS_PREVIEW:core.label -->
+      </section>
+      <section aria-labelledby="separator-slice">
+        <h2 id="separator-slice">Implemented component: <code>core.separator</code></h2>
+        <p>Separator provides semantic or decorative boundaries without focus, press physics, or artificial depth.</p>
+        <!-- NS_PREVIEW:core.separator -->
+      </section>
+      <section aria-labelledby="progress-slice">
+        <h2 id="progress-slice">Implemented component: <code>core.progress</code></h2>
+        <p>Progress uses native reporting semantics for determinate, indeterminate, and complete task state; it never becomes a user-adjustable Slider.</p>
+        <!-- NS_PREVIEW:core.progress -->
+      </section>
+      <section aria-labelledby="spinner-slice">
+        <h2 id="spinner-slice">Implemented component: <code>core.spinner</code></h2>
+        <p>Spinner is a compact visual busy indicator owned by an already-labeled loading context, with static reduced-motion treatment and no invented percentage.</p>
+        <!-- NS_PREVIEW:core.spinner -->
+      </section>
+      <section aria-labelledby="button-group-slice">
+        <h2 id="button-group-slice">Implemented component: <code>core.button-group</code></h2>
+        <p>ButtonGroup clusters related real Buttons without turning actions into a selection model or installing roving focus.</p>
+        <!-- NS_PREVIEW:core.button-group -->
+      </section>
+      <section aria-labelledby="input-group-slice">
+        <h2 id="input-group-slice">Implemented component: <code>core.input-group</code></h2>
+        <p>InputGroup composes a primary native editing control with generic adornments while the real Input remains the value, keyboard, focus, and validation authority.</p>
+        <!-- NS_PREVIEW:core.input-group -->
+      </section>
+      <section aria-labelledby="toggle-slice">
+        <h2 id="toggle-slice">Implemented component: <code>core.toggle</code></h2>
+        <p>Toggle is a real pressed-state Button: persistent <code>aria-pressed</code> selection stays distinct from transient pointer pressure and never becomes Switch or Checkbox semantics.</p>
+        <!-- NS_PREVIEW:core.toggle -->
+      </section>
+      <section aria-labelledby="toggle-group-slice">
+        <h2 id="toggle-group-slice">Implemented component: <code>core.toggle-group</code></h2>
+        <p>ToggleGroup coordinates labelled Toggle buttons under explicit single- or multiple-selection policy while preserving ordinary document Tab traversal.</p>
+        <!-- NS_PREVIEW:core.toggle-group -->
+      </section>
+      <section aria-labelledby="number-field-slice">
+        <h2 id="number-field-slice">Implemented component: <code>core.number-field</code></h2>
+        <p>NumberField keeps a real numeric input as the value authority. Typed editing remains non-pressable while optional decrement/increment child actions use native step algorithms and tactile pressure.</p>
+        <!-- NS_PREVIEW:core.number-field -->
+      </section>
+      <section aria-labelledby="slider-slice">
+        <h2 id="slider-slice">Implemented component: <code>core.slider</code></h2>
+        <p>Slider uses native range inputs for scalar and two-thumb range modes. Each thumb keeps native keyboard/value semantics while range ordering is explicit and direct thumb manipulation alone receives pressure feedback.</p>
+        <!-- NS_PREVIEW:core.slider -->
+      </section>
+      <section aria-labelledby="calendar-slice">
+        <h2 id="calendar-slice">Implemented component: <code>core.calendar</code></h2>
+        <p>Calendar exposes one roving calendar grid with ISO date authority. Active-day keyboard movement stays separate from committed single/range selection, while current and unavailable dates remain explicit and machine-readable.</p>
+        <!-- NS_PREVIEW:core.calendar -->
+      </section>
+
+      <section aria-labelledby="date-picker-slice">
+        <h2 id="date-picker-slice">Implemented component: <code>core.date-picker</code></h2>
+        <p>DatePicker coordinates ISO date entry and a non-modal disclosure around the shipping Calendar primitive. Single/range values remain explicit while Calendar keeps grid navigation and unavailable-date authority.</p>
+        <!-- NS_PREVIEW:core.date-picker -->
+      </section>
+
+      <section aria-labelledby="file-upload-slice">
+        <h2 id="file-upload-slice">Implemented component: <code>core.file-upload</code></h2>
+        <p>FileUpload keeps one real native file input as selected-file and form authority. Drag/drop feeds that same local authority and never implies network upload.</p>
+        <!-- NS_PREVIEW:core.file-upload -->
+      </section>
+
+      <section aria-labelledby="multi-select-slice">
+        <h2 id="multi-select-slice">Implemented component: <code>core.multi-select</code></h2>
+        <p>MultiSelect keeps zero-or-more committed values in one explicit multi-selection listbox. Transient highlight stays separate from selection, and ordinary Tab traversal enters and leaves the component normally.</p>
+        <!-- NS_PREVIEW:core.multi-select -->
+      </section>
+      <section aria-labelledby="input-otp-slice">
+        <h2 id="input-otp-slice">Implemented component: <code>core.input-otp</code></h2>
+        <p>InputOTP keeps one real text input as the logical code authority. Native paste and one-time-code autofill remain intact; partial and complete state never auto-submit the form.</p>
+        <!-- NS_PREVIEW:core.input-otp -->
+      </section>
+      <section aria-labelledby="color-picker-slice">
+        <h2 id="color-picker-slice">Implemented component: <code>core.color-picker</code></h2>
+        <p>ColorPicker keeps a real native color input as the value and platform-picker authority. The collapsed control uses tactile pressure while the committed opaque sRGB value stays explicit in text.</p>
+        <!-- NS_PREVIEW:core.color-picker -->
+      </section>
+      <section aria-labelledby="time-picker-slice">
+        <h2 id="time-picker-slice">Implemented component: <code>core.time-picker</code></h2>
+        <p>TimePicker keeps a real native time input with min/max/step and segmented editing authority. The editable surface never borrows button pressure and no portable popup-open state is invented.</p>
+        <!-- NS_PREVIEW:core.time-picker -->
+      </section>
+      <section aria-labelledby="dialog-slice">
+        <h2 id="dialog-slice">Implemented component: <code>core.dialog</code></h2>
+        <p>Dialog uses the browser's native modal top layer and focus containment. Escape, explicit close, and programmatic close restore focus to the invoker while AlertDialog semantics remain a separate future contract.</p>
+        <!-- NS_PREVIEW:core.dialog -->
+      </section>
+      <section aria-labelledby="alert-dialog-slice">
+        <h2 id="alert-dialog-slice">Implemented component: <code>core.alert-dialog</code></h2>
+        <p>AlertDialog uses the native modal top layer for an important response-required message, requires a prompt description, and focuses the least-destructive response before an irreversible choice.</p>
+        <!-- NS_PREVIEW:core.alert-dialog -->
+      </section>
+      <section aria-labelledby="drawer-slice">
+        <h2 id="drawer-slice">Implemented component: <code>core.drawer</code></h2>
+        <p>Drawer is a modal edge-origin overlay with logical placement, native focus containment, deterministic restoration, and optional intentional swipe dismissal that does not steal ordinary content scrolling.</p>
+        <!-- NS_PREVIEW:core.drawer -->
+      </section>
+      <section aria-labelledby="popover-slice">
+        <h2 id="popover-slice">Implemented component: <code>core.popover</code></h2>
+        <p>Popover uses the platform non-modal top layer with explicit invocation, native light dismiss, ordinary document focus traversal, and logical anchored placement without becoming Dialog, Tooltip, or a menu.</p>
+        <!-- NS_PREVIEW:core.popover -->
+      </section>
+      <section aria-labelledby="hover-card-slice">
+        <h2 id="hover-card-slice">Implemented component: <code>core.hover-card</code></h2>
+        <p>HoverCard reveals richer read-only preview content from pointer hover or keyboard focus after a controlled delay, without becoming Tooltip, Popover, a menu, or a focus destination.</p>
+        <!-- NS_PREVIEW:core.hover-card -->
+      </section>
+      <section aria-labelledby="dropdown-menu-slice">
+        <h2 id="dropdown-menu-slice">Implemented component: <code>core.dropdown-menu</code></h2>
+        <p>DropdownMenu turns one real menu button into a temporary action menu with managed item focus, arrow/Home/End/typeahead navigation, checkable item state, Escape restoration, and ordinary Tab traversal without becoming ContextMenu, Menubar, NavigationMenu, or a value picker.</p>
+        <!-- NS_PREVIEW:core.dropdown-menu -->
+      </section>
+      <section aria-labelledby="context-menu-slice">
+        <h2 id="context-menu-slice">Implemented component: <code>core.context-menu</code></h2>
+        <p>ContextMenu enhances one already keyboard-reachable context target with right-click, context-key, and cancellable long-press invocation while preserving ordinary primary activation, visible fallback discovery, managed menu focus, and native document traversal.</p>
+        <!-- NS_PREVIEW:core.context-menu -->
+      </section>
+      <section aria-labelledby="menubar-slice">
+        <h2 id="menubar-slice">Implemented component: <code>core.menubar</code></h2>
+        <p>Menubar keeps one persistent application-command menu row in ordinary Tab order, uses visual-direction root roving focus, and opens at most one first-level command menu without becoming site navigation, a toolbar, or a searchable command palette.</p>
+        <!-- NS_PREVIEW:core.menubar -->
+      </section>
+      <section aria-labelledby="navigation-menu-slice">
+        <h2 id="navigation-menu-slice">Implemented component: <code>core.navigation-menu</code></h2>
+        <p>NavigationMenu preserves native site/application navigation: real destination links stay in ordinary document traversal, separate disclosure buttons reveal one first-level destination list, and <code>aria-current="page"</code> remains authored route state without becoming an application-command menu or router.</p>
+        <!-- NS_PREVIEW:core.navigation-menu -->
+      </section>
+      <section aria-labelledby="toast-slice">
+        <h2 id="toast-slice">Implemented component: <code>core.toast</code></h2>
+        <p>Toast queues transient status feedback without blocking interaction or stealing focus: one announcement is visible at a time, priority is explicit, optional passive timers pause for hover/focus/document-hidden state, and dismissal never becomes an application command.</p>
+        <!-- NS_PREVIEW:core.toast -->
+      </section>
+      <section aria-labelledby="table-slice">
+        <h2 id="table-slice">Implemented component: <code>core.table</code></h2>
+        <p>Table preserves native semantic row/column relationships for static or read-only data: real captions, row/column headers, ordinary document focus for composed controls, and no hidden sorting, selection, editing, grid-navigation, virtualization, or business authority.</p>
+        <!-- NS_PREVIEW:core.table -->
+      </section>
+      <section aria-labelledby="data-grid-slice">
+        <h2 id="data-grid-slice">Implemented component: <code>core.data-grid</code></h2>
+        <p>DataGrid is an interactive tabular composite: one managed cell enters the page Tab order, directional keys move focus without silently selecting, Space toggles optional single-cell selection, and explicit edit mode hands native text editing to the cell editor without acquiring data-operation authority.</p>
+        <!-- NS_PREVIEW:core.data-grid -->
+      </section>
+      <section aria-labelledby="item-slice">
+        <h2 id="item-slice">Implemented component: <code>core.item</code></h2>
+        <p>Item is a structured content row, not a control: leading/media, title, supporting text, metadata, trailing content, and independent actions stay composable while the row itself never acquires selection, navigation, activation, disclosure, editing, or business authority.</p>
+        <!-- NS_PREVIEW:core.item -->
+      </section>
+      <section aria-labelledby="list-slice">
+        <h2 id="list-slice">Implemented component: <code>core.list</code></h2>
+        <p>List owns passive semantic collection structure: real unordered/ordered lists preserve native item semantics and authored sequence while composed Item rows and controls keep their own behavior and ordinary document focus order.</p>
+        <!-- NS_PREVIEW:core.list -->
+      </section>
+      <section aria-labelledby="description-list-slice">
+        <h2 id="description-list-slice">Implemented component: <code>core.description-list</code></h2>
+        <p>DescriptionList preserves native term/description relationships: real dl/dt/dd source order can express shared terms and multiple descriptions without becoming a List, Item row, Table, Grid, form field, or synthetic interactive control.</p>
+        <!-- NS_PREVIEW:core.description-list -->
+      </section>
+      <section aria-labelledby="studio-surface">
+        <h2 id="studio-surface">Build / customize: NeoSmartUI Studio</h2>
+        <p>Edit canonical Themes, switch official Light/Dark starters, and preview real shipping Core components through the same contracts and adapters used by the system.</p>
+        <p><a href="./studio/">Open NeoSmartUI Studio</a></p>
+      </section>
+      <section aria-labelledby="principles">
+        <h2 id="principles">Permanent rules</h2>
+        <ul><li>Restart the architecture, not the knowledge.</li><li>Source once. Demonstrate everywhere.</li><li>Pressure, not levitation.</li></ul>
+      </section>
+      <p class="footnote">This page may display implemented slices, but registry maturity reaches <code>public-proof</code> only after deployed, verified evidence exists.</p>
+    </main>
+    <!-- NS_PREVIEW:RUNTIME -->
+  </body>
+</html>

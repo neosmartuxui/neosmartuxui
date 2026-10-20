@@ -1,0 +1,54 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.toggle",
+  "fixture": "fixture.html",
+  "controller": "controller.mjs",
+  "fixtureComponents": [],
+  "defaultState": "rest",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "rest": {
+      "mode": "fixture",
+      "target": "#toggle-demo"
+    },
+    "hover": {
+      "mode": "native-pointer",
+      "target": "#toggle-demo"
+    },
+    "focus-visible": {
+      "mode": "native-keyboard",
+      "target": "#toggle-demo"
+    },
+    "pressed": {
+      "mode": "native-pointer",
+      "target": "#toggle-demo"
+    },
+    "off": {
+      "mode": "controller",
+      "target": "#toggle-demo"
+    },
+    "on": {
+      "mode": "controller",
+      "target": "#toggle-demo"
+    },
+    "disabled": {
+      "mode": "controller",
+      "target": "#toggle-demo"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/toggle.css"
+      ],
+      "bindings": [
+        {
+          "module": "packages/adapters/web/components/toggle.mjs",
+          "export": "bindToggle",
+          "selector": "#toggle-demo"
+        }
+      ]
+    }
+  }
+}

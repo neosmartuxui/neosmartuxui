@@ -1,0 +1,512 @@
+name: Quality
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+env:
+  NEOSMARTUI_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+
+jobs:
+  foundation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.NEOSMARTUI_SOURCE_SHA }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate foundation authority and provenance
+        run: npm run validate:foundation
+      - name: Validate Spec architecture and taxonomy
+        run: npm run validate:spec
+      - name: Validate schemas and stable IDs
+        run: npm run validate:schemas
+      - name: Validate Component preview contract
+        run: npm run validate:component-preview-contract
+      - name: Validate Studio contract
+        run: npm run validate:studio-contract
+      - name: Validate Studio Theme package
+        run: npm run validate:studio-theme-package
+      - name: Validate Studio runtime
+        run: npm run validate:studio-runtime
+      - name: Validate migration snapshots and provenance
+        run: npm run validate:migration
+      - name: Validate Core semantic token contracts
+        run: npm run validate:tokens
+      - name: Validate Core component registry
+        run: npm run validate:components
+      - name: Validate Flavor, Theme, and adapter resolution
+        run: npm run validate:resolution
+      - name: Validate accessibility invariants
+        run: npm run validate:accessibility
+      - name: Validate public-proof evidence structure
+        run: npm run validate:proof
+      - name: Verify claimed public proof against live HTTPS endpoints
+        run: npm run validate:proof:live
+      - name: Build Foundry artifact
+        run: npm run build:foundry
+      - name: Verify expected deployable files
+        run: |
+          test -f dist/foundry/index.html
+          test -f dist/foundry/styles.css
+          test -f dist/foundry/theme.css
+          test -f dist/foundry/rivet-theme.css
+          test -f dist/foundry/flavors/rivet/index.html
+          test -f dist/foundry/hardline-theme.css
+          test -f dist/foundry/flavors/hardline/index.html
+          test -f dist/foundry/soft-theme.css
+          test -f dist/foundry/flavors/soft/index.html
+          test -f dist/foundry/mono-theme.css
+          test -f dist/foundry/mono-dark-theme.css
+          test -f dist/foundry/flavors/mono/index.html
+          test -f dist/foundry/pulse-theme.css
+          test -f dist/foundry/pulse-dark-theme.css
+          test -f dist/foundry/flavors/pulse/index.html
+          test -f dist/foundry/button.css
+          test -f dist/foundry/checkbox.css
+          test -f dist/foundry/checkbox.mjs
+          test -f dist/foundry/input.css
+          test -f dist/foundry/input.mjs
+          test -f dist/foundry/radio.css
+          test -f dist/foundry/radio.mjs
+          test -f dist/foundry/switch.css
+          test -f dist/foundry/switch.mjs
+          test -f dist/foundry/tabs.css
+          test -f dist/foundry/tabs.mjs
+          test -f dist/foundry/textarea.css
+          test -f dist/foundry/textarea.mjs
+          test -f dist/foundry/select.css
+          test -f dist/foundry/select.mjs
+          test -f dist/foundry/card.css
+          test ! -e dist/foundry/card.mjs
+          test -f dist/foundry/badge.css
+          test ! -e dist/foundry/badge.mjs
+          test -f dist/foundry/alert.css
+          test ! -e dist/foundry/alert.mjs
+          test -f dist/foundry/field.css
+          test ! -e dist/foundry/field.mjs
+          test -f dist/foundry/breadcrumb.css
+          test ! -e dist/foundry/breadcrumb.mjs
+          test -f dist/foundry/pagination.css
+          test ! -e dist/foundry/pagination.mjs
+          test -f dist/foundry/segmented-control.css
+          test -f dist/foundry/segmented-control.mjs
+          test -f dist/foundry/tooltip.css
+          test -f dist/foundry/tooltip.mjs
+          test -f dist/foundry/combobox.css
+          test -f dist/foundry/combobox.mjs
+          test -f dist/foundry/accordion.css
+          test -f dist/foundry/accordion.mjs
+          test -f dist/foundry/button-group.css
+          test -f dist/foundry/input-group.css
+          test -f dist/foundry/toggle.css
+          test -f dist/foundry/toggle.mjs
+          test -f dist/foundry/toggle-group.css
+          test -f dist/foundry/toggle-group.mjs
+          test -f dist/foundry/number-field.css
+          test -f dist/foundry/number-field.mjs
+          test -f dist/foundry/slider.css
+          test -f dist/foundry/slider.mjs
+          test -f dist/foundry/multi-select.css
+          test -f dist/foundry/multi-select.mjs
+          test -f dist/foundry/calendar.css
+          test -f dist/foundry/calendar.mjs
+          test -f dist/foundry/date-picker.css
+          test -f dist/foundry/date-picker.mjs
+          test -f dist/foundry/file-upload.css
+          test -f dist/foundry/file-upload.mjs
+          test -f dist/foundry/input-otp.css
+          test -f dist/foundry/input-otp.mjs
+          test -f dist/foundry/color-picker.css
+          test -f dist/foundry/color-picker.mjs
+          test -f dist/foundry/time-picker.css
+          test -f dist/foundry/time-picker.mjs
+          test -f dist/foundry/dialog.css
+          test -f dist/foundry/dialog.mjs
+          test -f dist/foundry/alert-dialog.css
+          test -f dist/foundry/alert-dialog.mjs
+          test -f dist/foundry/drawer.css
+          test -f dist/foundry/drawer.mjs
+          test -f dist/foundry/popover.css
+          test -f dist/foundry/popover.mjs
+          test -f dist/foundry/hover-card.css
+          test -f dist/foundry/hover-card.mjs
+          test -f dist/foundry/dropdown-menu.css
+          test -f dist/foundry/dropdown-menu.mjs
+          test -f dist/foundry/context-menu.css
+          test -f dist/foundry/context-menu.mjs
+          test -f dist/foundry/menubar.css
+          test -f dist/foundry/menubar.mjs
+          test -f dist/foundry/navigation-menu.css
+          test -f dist/foundry/navigation-menu.mjs
+          test -f dist/foundry/toast.css
+          test -f dist/foundry/toast.mjs
+          test -f dist/foundry/table.css
+          test ! -e dist/foundry/table.mjs
+          test -f dist/foundry/data-grid.css
+          test -f dist/foundry/data-grid.mjs
+          test -f dist/foundry/item.css
+          test ! -e dist/foundry/item.mjs
+          test -f dist/foundry/list.css
+          test ! -e dist/foundry/list.mjs
+          test -f dist/foundry/description-list.css
+          test ! -e dist/foundry/description-list.mjs
+          test -f dist/foundry/menu-items.mjs
+          test -f dist/foundry/deployment.json
+          test ! -e dist/foundry/CNAME
+          grep -q -- ".ns-theme-rivet-light {" dist/foundry/rivet-theme.css
+          grep -q -- "--ns-border-control-width: 3px;" dist/foundry/rivet-theme.css
+          grep -q -- "--ns-radius-control: 6px;" dist/foundry/rivet-theme.css
+          grep -q -- "--ns-depth-rest-y: 5px;" dist/foundry/rivet-theme.css
+          grep -q -- "--ns-depth-hover-y: 3px;" dist/foundry/rivet-theme.css
+          grep -q -- "--ns-press-active-y: 5px;" dist/foundry/rivet-theme.css
+          grep -q -- "--ns-color-action-primary-surface: #b9a1ed;" dist/foundry/rivet-theme.css
+          grep -q -- "--ns-color-focus-ring: #7550ac;" dist/foundry/rivet-theme.css
+          grep -q -- "Rivet Light" dist/foundry/flavors/rivet/index.html
+          grep -q -- "ns-theme-rivet-light" dist/foundry/flavors/rivet/index.html
+          grep -q -- ".ns-theme-hardline-light {" dist/foundry/hardline-theme.css
+          grep -q -- "--ns-radius-control: 0px;" dist/foundry/hardline-theme.css
+          grep -q -- "--ns-depth-rest-y: 4px;" dist/foundry/hardline-theme.css
+          grep -q -- "--ns-depth-hover-y: 2px;" dist/foundry/hardline-theme.css
+          grep -q -- "--ns-press-active-y: 4px;" dist/foundry/hardline-theme.css
+          grep -q -- "Hardline Light" dist/foundry/flavors/hardline/index.html
+          grep -q -- "ns-theme-hardline-light" dist/foundry/flavors/hardline/index.html
+          grep -q -- ".ns-theme-soft-light {" dist/foundry/soft-theme.css
+          grep -q -- "--ns-border-control-width: 2px;" dist/foundry/soft-theme.css
+          grep -q -- "--ns-radius-control: 8px;" dist/foundry/soft-theme.css
+          grep -q -- "--ns-radius-surface: 12px;" dist/foundry/soft-theme.css
+          grep -q -- "--ns-depth-rest-y: 3px;" dist/foundry/soft-theme.css
+          grep -q -- "--ns-depth-hover-y: 1.5px;" dist/foundry/soft-theme.css
+          grep -q -- "--ns-press-active-y: 3px;" dist/foundry/soft-theme.css
+          grep -q -- "--ns-color-action-primary-surface: #8bb8f8;" dist/foundry/soft-theme.css
+          grep -q -- "Soft Light" dist/foundry/flavors/soft/index.html
+          grep -q -- "ns-theme-soft-light" dist/foundry/flavors/soft/index.html
+          grep -q -- ".ns-theme-mono-light {" dist/foundry/mono-theme.css
+          grep -q -- "--ns-border-control-width: 2px;" dist/foundry/mono-theme.css
+          grep -q -- "--ns-radius-control: 0px;" dist/foundry/mono-theme.css
+          grep -q -- "--ns-radius-annotation: 0px;" dist/foundry/mono-theme.css
+          grep -q -- "--ns-depth-rest-y: 3px;" dist/foundry/mono-theme.css
+          grep -q -- "--ns-depth-hover-y: 1px;" dist/foundry/mono-theme.css
+          grep -q -- "--ns-press-active-y: 3px;" dist/foundry/mono-theme.css
+          grep -q -- "--ns-color-action-primary-surface: #111111;" dist/foundry/mono-theme.css
+          grep -q -- "--ns-color-focus-ring: #000000;" dist/foundry/mono-theme.css
+          grep -q -- "--ns-font-family-body: ui-serif, Georgia, serif;" dist/foundry/mono-theme.css
+          grep -q -- "Mono Light" dist/foundry/flavors/mono/index.html
+          grep -q -- "ns-theme-mono-light" dist/foundry/flavors/mono/index.html
+          grep -q -- ".ns-theme-mono-dark {" dist/foundry/mono-dark-theme.css
+          grep -q -- "--ns-color-surface-interactive: #151515;" dist/foundry/mono-dark-theme.css
+          grep -q -- "--ns-color-content-primary: #f2f2f2;" dist/foundry/mono-dark-theme.css
+          grep -q -- "--ns-color-action-primary-surface: #f2f2f2;" dist/foundry/mono-dark-theme.css
+          grep -q -- "--ns-color-state-info: #686868;" dist/foundry/mono-dark-theme.css
+          grep -q -- "--ns-color-focus-ring: #ffffff;" dist/foundry/mono-dark-theme.css
+          grep -q -- "--ns-depth-hover-y: 1px;" dist/foundry/mono-dark-theme.css
+          grep -q -- "--ns-press-active-y: 3px;" dist/foundry/mono-dark-theme.css
+          grep -q -- "Mono Dark" dist/foundry/flavors/mono/index.html
+          grep -q -- "ns-theme-mono-dark" dist/foundry/flavors/mono/index.html
+          grep -q -- ".ns-theme-pulse-light {" dist/foundry/pulse-theme.css
+          grep -q -- "--ns-border-control-width: 2px;" dist/foundry/pulse-theme.css
+          grep -q -- "--ns-radius-control: 4px;" dist/foundry/pulse-theme.css
+          grep -q -- "--ns-radius-surface: 6px;" dist/foundry/pulse-theme.css
+          grep -q -- "--ns-depth-rest-y: 4px;" dist/foundry/pulse-theme.css
+          grep -q -- "--ns-depth-hover-y: 2px;" dist/foundry/pulse-theme.css
+          grep -q -- "--ns-press-active-y: 4px;" dist/foundry/pulse-theme.css
+          grep -q -- "--ns-color-surface-panel: #f4f6fa;" dist/foundry/pulse-theme.css
+          grep -q -- "--ns-color-action-primary-surface: #6c5ce7;" dist/foundry/pulse-theme.css
+          grep -q -- "--ns-color-focus-ring: #4e3ccf;" dist/foundry/pulse-theme.css
+          grep -q -- "Pulse Light" dist/foundry/flavors/pulse/index.html
+          grep -q -- "ns-theme-pulse-light" dist/foundry/flavors/pulse/index.html
+          grep -q -- ".ns-theme-pulse-dark {" dist/foundry/pulse-dark-theme.css
+          grep -q -- "--ns-color-surface-interactive: #171821;" dist/foundry/pulse-dark-theme.css
+          grep -q -- "--ns-color-surface-panel: #20222d;" dist/foundry/pulse-dark-theme.css
+          grep -q -- "--ns-color-action-primary-surface: #9b8cff;" dist/foundry/pulse-dark-theme.css
+          grep -q -- "--ns-color-focus-ring: #b8a8ff;" dist/foundry/pulse-dark-theme.css
+          grep -q -- "Pulse Dark" dist/foundry/flavors/pulse/index.html
+          grep -q -- "ns-theme-pulse-dark" dist/foundry/flavors/pulse/index.html
+          grep -q -- "--ns-depth-hover-y: 3px;" dist/foundry/theme.css
+          grep -q -- "--ns-color-surface-interactive: #fffefb;" dist/foundry/theme.css
+          grep -q -- "--ns-color-surface-panel: #f8f6f1;" dist/foundry/theme.css
+          grep -q -- "--ns-color-action-primary-surface: #b9a1ed;" dist/foundry/theme.css
+          grep -q -- "--ns-color-focus-ring: #7550ac;" dist/foundry/theme.css
+          grep -q -- "--ns-motion-standard-duration: 160ms;" dist/foundry/theme.css
+          grep -q -- "--ns-font-size-body: 1rem;" dist/foundry/theme.css
+          grep -q -- "--ns-font-size-label: 1rem;" dist/foundry/theme.css
+          grep -q -- "--ns-font-weight-emphasis: 750;" dist/foundry/theme.css
+          grep -q -- "--ns-space-field-gap: clamp(0.5rem, 0.44rem + 0.18vw, 0.6875rem);" dist/foundry/theme.css
+          grep -q -- "--ns-space-navigation-gap: 0.45rem;" dist/foundry/theme.css
+          grep -q -- "--ns-font-size-navigation: clamp(0.72rem, 0.69rem + 0.08vw, 0.78rem);" dist/foundry/theme.css
+          grep -q -- "--ns-space-surface-inline: 1rem;" dist/foundry/theme.css
+          grep -q -- "--ns-space-surface-block: 1rem;" dist/foundry/theme.css
+          grep -q -- "--ns-border-surface-width: 3px;" dist/foundry/theme.css
+          grep -q -- "--ns-radius-surface: 6px;" dist/foundry/theme.css
+          grep -q -- "--ns-font-weight-strong: 800;" dist/foundry/theme.css
+          grep -q -- "--ns-color-content-inverse: #fffef5;" dist/foundry/theme.css
+          grep -q -- "--ns-color-state-info: #5397c7;" dist/foundry/theme.css
+          grep -q -- "--ns-color-state-success: #2fa371;" dist/foundry/theme.css
+          grep -q -- "--ns-color-state-warning: #c98017;" dist/foundry/theme.css
+          grep -q -- "--ns-space-annotation-inline: 0.55rem;" dist/foundry/theme.css
+          grep -q -- "--ns-space-annotation-block: 0.15rem;" dist/foundry/theme.css
+          grep -q -- "--ns-border-annotation-width: 2px;" dist/foundry/theme.css
+          grep -q -- "--ns-radius-annotation: 999px;" dist/foundry/theme.css
+          grep -q "Pressure, not levitation" dist/foundry/index.html
+          grep -q "core.checkbox" dist/foundry/index.html
+          grep -q "core.input" dist/foundry/index.html
+          grep -q "core.radio" dist/foundry/index.html
+          grep -q "core.switch" dist/foundry/index.html
+          grep -q "Toggle immediate binary setting" dist/foundry/index.html
+          grep -q "core.tabs" dist/foundry/index.html
+          grep -q "Automatic horizontal activation" dist/foundry/index.html
+          grep -q "Manual vertical activation" dist/foundry/index.html
+          grep -q "core.textarea" dist/foundry/index.html
+          grep -q "Multiline native textarea" dist/foundry/index.html
+          grep -q "core.select" dist/foundry/index.html
+          grep -q "Native single-select choice" dist/foundry/index.html
+          grep -q "core.card" dist/foundry/index.html
+          grep -q "Stable informational surface" dist/foundry/index.html
+          grep -q "Grouped content, not a disguised button" dist/foundry/index.html
+          grep -q "core.badge" dist/foundry/index.html
+          grep -q "Info · Reference" dist/foundry/index.html
+          grep -q "Success · Ready" dist/foundry/index.html
+          grep -q "Warning · Needs attention" dist/foundry/index.html
+          grep -q "Error · Failed" dist/foundry/index.html
+          grep -q "core.alert" dist/foundry/index.html
+          grep -q "Alert tone examples" dist/foundry/index.html
+          grep -q "Neutral · Note" dist/foundry/index.html
+          grep -q "Info · Update" dist/foundry/index.html
+          grep -q "Success · Complete" dist/foundry/index.html
+          grep -q "Warning · Check this" dist/foundry/index.html
+          grep -q "Error · Needs correction" dist/foundry/index.html
+          grep -q "Static message surface; no implicit live region." dist/foundry/index.html
+          grep -q "core.field" dist/foundry/index.html
+          grep -q "Email address" dist/foundry/index.html
+          grep -q "This invite code has expired. Request a new code." dist/foundry/index.html
+          grep -q "The disabled state belongs to the real control, not the Field container." dist/foundry/index.html
+          grep -q "core.breadcrumb" dist/foundry/index.html
+          grep -q "Ancestor locations stay native links" dist/foundry/index.html
+          grep -q 'aria-current="page"' dist/foundry/index.html
+          grep -q "core.pagination" dist/foundry/index.html
+          grep -q "Pagination keeps page destinations as native links with 44px tactile targets." dist/foundry/index.html
+          grep -q 'aria-label="Next page"' dist/foundry/index.html
+          grep -q "core.segmented-control" dist/foundry/index.html
+          grep -q "Segmented Control chooses one peer mode with real buttons" dist/foundry/index.html
+          grep -q 'aria-pressed="true"' dist/foundry/index.html
+          grep -q "core.tooltip" dist/foundry/index.html
+          grep -q "Tooltip keeps supplemental descriptions non-interactive" dist/foundry/index.html
+          grep -q 'aria-describedby="tooltip-demo"' dist/foundry/index.html
+          grep -q 'role="tooltip"' dist/foundry/index.html
+          grep -q "core.combobox" dist/foundry/index.html
+          grep -q "Editable single-selection Combobox" dist/foundry/index.html
+          grep -q 'role="combobox"' dist/foundry/index.html
+          grep -q 'role="listbox"' dist/foundry/index.html
+          grep -q "core.number-field" dist/foundry/index.html
+          grep -q "Quantity" dist/foundry/index.html
+          grep -q "core.slider" dist/foundry/index.html
+          grep -q "Budget range" dist/foundry/index.html
+          grep -q "core.multi-select" dist/foundry/index.html
+          grep -q "Frameworks" dist/foundry/index.html
+          grep -q 'aria-multiselectable="true"' dist/foundry/index.html
+          grep -q "core.calendar" dist/foundry/index.html
+          grep -q "Calendar exposes one roving calendar grid with ISO date authority." dist/foundry/index.html
+          grep -q 'role="grid"' dist/foundry/index.html
+          grep -q 'data-visible-month="2026-09"' dist/foundry/index.html
+          grep -q "core.date-picker" dist/foundry/index.html
+          grep -q "DatePicker coordinates ISO date entry and a non-modal disclosure around the shipping Calendar primitive." dist/foundry/index.html
+          grep -q 'id="date-picker-trigger"' dist/foundry/index.html
+          grep -q 'id="date-picker-calendar"' dist/foundry/index.html
+          grep -q "core.file-upload" dist/foundry/index.html
+          grep -q "Project files" dist/foundry/index.html
+          grep -q 'type="file"' dist/foundry/index.html
+          grep -q "Files remain local in this Core demo. Upload transport is outside this component." dist/foundry/index.html
+          grep -q "core.input-otp" dist/foundry/index.html
+          grep -q "Verification code" dist/foundry/index.html
+          grep -q 'autocomplete="one-time-code"' dist/foundry/index.html
+          grep -q "core.color-picker" dist/foundry/index.html
+          grep -q "Accent color" dist/foundry/index.html
+          grep -q "core.time-picker" dist/foundry/index.html
+          grep -q "Meeting time" dist/foundry/index.html
+          grep -q "core.dialog" dist/foundry/index.html
+          grep -q "Dialog uses the browser's native modal top layer and focus containment." dist/foundry/index.html
+          grep -q 'id="dialog-trigger"' dist/foundry/index.html
+          grep -q 'id="dialog-surface"' dist/foundry/index.html
+          grep -q 'aria-modal="true"' dist/foundry/index.html
+          grep -q "core.alert-dialog" dist/foundry/index.html
+          grep -q "AlertDialog uses the native modal top layer for an important response-required message" dist/foundry/index.html
+          grep -q 'id="alert-dialog-trigger"' dist/foundry/index.html
+          grep -q 'id="alert-dialog-surface"' dist/foundry/index.html
+          grep -q 'role="alertdialog"' dist/foundry/index.html
+          grep -q 'aria-describedby="alert-dialog-message"' dist/foundry/index.html
+          grep -q "core.drawer" dist/foundry/index.html
+          grep -q 'id="drawer-trigger"' dist/foundry/index.html
+          grep -q 'id="drawer-surface"' dist/foundry/index.html
+          grep -q 'data-drawer-placement="inline-end"' dist/foundry/index.html
+          grep -q "core.popover" dist/foundry/index.html
+          grep -q 'id="popover-trigger"' dist/foundry/index.html
+          grep -q 'id="popover-surface"' dist/foundry/index.html
+          grep -q 'popover="auto"' dist/foundry/index.html
+          grep -q 'data-popover-side="block-end"' dist/foundry/index.html
+          grep -q "core.hover-card" dist/foundry/index.html
+          grep -q 'id="hover-card-trigger"' dist/foundry/index.html
+          grep -q 'aria-details="hover-card-surface"' dist/foundry/index.html
+          grep -q 'id="hover-card-surface"' dist/foundry/index.html
+          grep -q 'data-hover-card-side="block-end"' dist/foundry/index.html
+          grep -q "core.dropdown-menu" dist/foundry/index.html
+          grep -q 'id="dropdown-menu-trigger"' dist/foundry/index.html
+          grep -q 'aria-haspopup="menu"' dist/foundry/index.html
+          grep -q 'role="menu"' dist/foundry/index.html
+          grep -q 'data-dropdown-menu-side="block-end"' dist/foundry/index.html
+          grep -q "core.context-menu" dist/foundry/index.html
+          grep -q 'id="context-menu-target"' dist/foundry/index.html
+          grep -q "core.menubar" dist/foundry/index.html
+          grep -q "core.navigation-menu" dist/foundry/index.html
+          grep -q 'id="menubar-root"' dist/foundry/index.html
+          grep -q 'role="menubar"' dist/foundry/index.html
+          grep -q 'role="menu"' dist/foundry/index.html
+          grep -q 'data-context-menu-radio-group="density"' dist/foundry/index.html
+          grep -q "core.accordion" dist/foundry/index.html
+          grep -q "Accordion discloses related content with real buttons" dist/foundry/index.html
+          grep -q 'data-expansion="single"' dist/foundry/index.html
+          grep -q 'data-expansion="multiple"' dist/foundry/index.html
+          grep -q 'aria-controls="accordion-single-panel-a"' dist/foundry/index.html
+          grep -q 'href="./studio/"' dist/foundry/index.html
+          node -e "const fs=require('fs'); const d=JSON.parse(fs.readFileSync('dist/foundry/deployment.json','utf8')); if(d.sourceSha!==process.env.NEOSMARTUI_SOURCE_SHA) throw new Error('deployment source SHA mismatch')"
+      - name: Build Studio artifact
+        run: npm run build:studio
+      - name: Verify Studio artifact
+        run: |
+          test -f dist/studio/index.html
+          test -f dist/studio/app.mjs
+          test -f dist/studio/preview-kernel.mjs
+          test -f dist/studio/studio-data.json
+          test -f dist/studio/studio-build.json
+          test -f dist/studio/deployment.json
+          test -f dist/studio/packages/core/component-registry.json
+          test -f dist/studio/packages/core/previews/button/preview.json
+          test -f dist/studio/packages/core/previews/date-picker/preview.json
+          test -f dist/studio/packages/core/previews/date-picker/fixture.html
+          test -f dist/studio/packages/core/previews/date-picker/controller.mjs
+          test -f dist/studio/packages/adapters/web/components/date-picker.css
+          test -f dist/studio/packages/adapters/web/components/date-picker.mjs
+          test -f dist/studio/packages/core/previews/dialog/preview.json
+          test -f dist/studio/packages/core/previews/dialog/fixture.html
+          test -f dist/studio/packages/core/previews/dialog/controller.mjs
+          test -f dist/studio/packages/adapters/web/components/dialog.css
+          test -f dist/studio/packages/adapters/web/components/dialog.mjs
+          test -f dist/studio/packages/core/previews/alert-dialog/preview.json
+          test -f dist/studio/packages/core/previews/alert-dialog/fixture.html
+          test -f dist/studio/packages/core/previews/alert-dialog/controller.mjs
+          test -f dist/studio/packages/adapters/web/components/alert-dialog.css
+          test -f dist/studio/packages/adapters/web/components/alert-dialog.mjs
+          test -f dist/studio/packages/core/previews/drawer/preview.json
+          test -f dist/studio/packages/core/previews/drawer/fixture.html
+          test -f dist/studio/packages/core/previews/drawer/controller.mjs
+          test -f dist/studio/packages/adapters/web/components/drawer.css
+          test -f dist/studio/packages/adapters/web/components/drawer.mjs
+          test -f dist/studio/packages/core/previews/popover/preview.json
+          test -f dist/studio/packages/core/previews/popover/fixture.html
+          test -f dist/studio/packages/core/previews/popover/controller.mjs
+          test -f dist/studio/packages/adapters/web/components/popover.css
+          test -f dist/studio/packages/adapters/web/components/popover.mjs
+          test -f dist/studio/packages/core/previews/hover-card/preview.json
+          test -f dist/studio/packages/core/previews/hover-card/fixture.html
+          test -f dist/studio/packages/core/previews/hover-card/controller.mjs
+          test -f dist/studio/packages/adapters/web/components/hover-card.css
+          test -f dist/studio/packages/adapters/web/components/hover-card.mjs
+          test -f dist/studio/packages/core/previews/dropdown-menu/preview.json
+          test -f dist/studio/packages/core/previews/dropdown-menu/fixture.html
+          test -f dist/studio/packages/adapters/web/components/dropdown-menu.css
+          test -f dist/studio/packages/adapters/web/components/dropdown-menu.mjs
+          test -f dist/studio/packages/core/previews/context-menu/preview.json
+          test -f dist/studio/packages/core/previews/context-menu/fixture.html
+          test -f dist/studio/packages/core/previews/context-menu/controller.mjs
+          test -f dist/studio/packages/adapters/web/components/context-menu.css
+          test -f dist/studio/packages/adapters/web/components/context-menu.mjs
+          test -f dist/studio/packages/core/previews/menubar/preview.json
+          test -f dist/studio/packages/core/previews/menubar/fixture.html
+          test -f dist/studio/packages/adapters/web/components/menubar.css
+          test -f dist/studio/packages/adapters/web/components/menubar.mjs
+          test -f dist/studio/packages/core/previews/navigation-menu/preview.json
+          test -f dist/studio/packages/core/previews/navigation-menu/fixture.html
+          test -f dist/studio/packages/adapters/web/components/navigation-menu.css
+          test -f dist/studio/packages/adapters/web/components/navigation-menu.mjs
+          test -f dist/studio/packages/core/previews/toast/preview.json
+          test -f dist/studio/packages/core/previews/toast/fixture.html
+          test ! -e dist/studio/packages/core/previews/toast/controller.mjs
+          test -f dist/studio/packages/adapters/web/components/toast.css
+          test -f dist/studio/packages/adapters/web/components/toast.mjs
+          test -f dist/studio/packages/core/previews/table/preview.json
+          test -f dist/studio/packages/core/previews/table/fixture.html
+          test ! -e dist/studio/packages/core/previews/table/controller.mjs
+          test -f dist/studio/packages/adapters/web/components/table.css
+          test ! -e dist/studio/packages/adapters/web/components/table.mjs
+          test -f dist/studio/packages/core/previews/data-grid/preview.json
+          test -f dist/studio/packages/core/previews/data-grid/fixture.html
+          test -f dist/studio/packages/core/previews/data-grid/controller.mjs
+          test -f dist/studio/packages/adapters/web/components/data-grid.css
+          test -f dist/studio/packages/adapters/web/components/data-grid.mjs
+          test -f dist/studio/packages/core/previews/item/preview.json
+          test -f dist/studio/packages/core/previews/item/fixture.html
+          test ! -e dist/studio/packages/core/previews/item/controller.mjs
+          test -f dist/studio/packages/adapters/web/components/item.css
+          test ! -e dist/studio/packages/adapters/web/components/item.mjs
+          test -f dist/studio/packages/core/previews/list/preview.json
+          test -f dist/studio/packages/core/previews/list/fixture.html
+          test ! -e dist/studio/packages/core/previews/list/controller.mjs
+          test -f dist/studio/packages/adapters/web/components/list.css
+          test ! -e dist/studio/packages/adapters/web/components/list.mjs
+          test -f dist/studio/packages/core/previews/description-list/preview.json
+          test -f dist/studio/packages/core/previews/description-list/fixture.html
+          test ! -e dist/studio/packages/core/previews/description-list/controller.mjs
+          test -f dist/studio/packages/adapters/web/components/description-list.css
+          test ! -e dist/studio/packages/adapters/web/components/description-list.mjs
+          test -f dist/studio/packages/adapters/web/components/menu-items.mjs
+          test -f dist/studio/packages/contracts/theme-package-io.mjs
+          test -f dist/studio/packages/adapters/css/resolve-theme.mjs
+          test -f dist/studio/packages/themes/pulse-light/theme.json
+          test -f dist/studio/packages/themes/pulse-light/resolution.json
+          test -f dist/studio/packages/themes/pulse-light/tokens.json
+          test -f dist/studio/packages/themes/pulse-dark/theme.json
+          test -f dist/studio/packages/themes/pulse-dark/resolution.json
+          test -f dist/studio/packages/themes/pulse-dark/tokens.json
+          node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('dist/studio/studio-data.json','utf8'));if(!d.builtInThemes?.pulse||d.builtInThemes.pulse.light!=='packages/themes/pulse-light'||d.builtInThemes.pulse.dark!=='packages/themes/pulse-dark')throw new Error('Pulse official starter pair missing')"
+          node -e "const fs=require('fs'); const d=JSON.parse(fs.readFileSync('dist/studio/studio-build.json','utf8')); if(d.sourceSha!==process.env.NEOSMARTUI_SOURCE_SHA || d.publicDeployment!==true || d.publicRoute!=='/studio/') throw new Error('Studio build provenance mismatch')"
+          node -e "const fs=require('fs'); const d=JSON.parse(fs.readFileSync('dist/studio/deployment.json','utf8')); if(d.schema!=='neosmartui/deployment-record@1' || d.sourceRepository!=='neosmartui/neosmartui' || d.sourceSha!==process.env.NEOSMARTUI_SOURCE_SHA || d.artifact!=='studio') throw new Error('Studio deployment record mismatch')"
+
+  browser:
+    needs: foundation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.NEOSMARTUI_SOURCE_SHA }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install pinned Playwright test runtime
+        run: npm install --no-save --no-package-lock @playwright/test@1.63.0
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Build exact-SHA Foundry artifact
+        run: npm run build:foundry
+      - name: Run Foundry browser QA
+        run: npm run test:browser
+      - name: Build Studio artifact
+        run: npm run build:studio
+      - name: Run Studio browser QA
+        run: npm run test:studio
+      - name: Upload browser and deploy evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: foundry-browser-evidence-${{ env.NEOSMARTUI_SOURCE_SHA }}
+          path: |
+            artifacts/browser
+            artifacts/studio
+            dist/foundry
+            dist/studio
+          if-no-files-found: error
+          retention-days: 14

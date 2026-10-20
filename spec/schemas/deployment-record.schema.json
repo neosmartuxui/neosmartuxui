@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neosmartui.com/schemas/deployment-record@1.json",
+  "title": "NeoSmartUI Deployment Record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "sourceRepository", "sourceSha", "artifact"],
+  "properties": {
+    "schema": {"const": "neosmartui/deployment-record@1"},
+    "sourceRepository": {"const": "neosmartui/neosmartui"},
+    "sourceSha": {"anyOf": [{"pattern": "^[0-9a-f]{40}$"}, {"const": "local-unpinned"}]},
+    "artifact": {"enum": ["foundry", "studio"]}
+  }
+}

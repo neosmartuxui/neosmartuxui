@@ -1,0 +1,41 @@
+{
+  "$schema": "../../../spec/schemas/component.schema.json",
+  "schema": "neosmartui/component@1",
+  "id": "core.drawer",
+  "layer": "component",
+  "domain": "core",
+  "intent": "Present supplemental application content and actions in a modal edge-origin overlay with deterministic dismissal and focus restoration, without becoming page navigation, routing, or business-domain authority.",
+  "states": [
+    "closed",
+    "open"
+  ],
+  "dependencies": [
+    "color.surface.panel",
+    "color.content.primary",
+    "color.content.secondary",
+    "color.border.strong",
+    "color.focus.ring",
+    "space.surface.inline",
+    "space.surface.block",
+    "border.surface.width",
+    "radius.surface",
+    "depth.rest.x",
+    "depth.rest.y",
+    "motion.standard.duration",
+    "motion.standard.easing",
+    "focus.ring.width",
+    "focus.ring.offset",
+    "font.family.body",
+    "font.size.body",
+    "font.size.label",
+    "font.weight.regular",
+    "font.weight.emphasis"
+  ],
+  "supports": {
+    "keyboard": true,
+    "touch": true,
+    "rtl": true,
+    "reducedMotion": true,
+    "forcedColors": true
+  }
+}

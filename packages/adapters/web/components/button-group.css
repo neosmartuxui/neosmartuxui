@@ -1,0 +1,40 @@
+.ns-button-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: var(--ns-space-control-inline);
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  border-radius: var(--ns-radius-control);
+}
+
+.ns-button-group[data-orientation="vertical"] {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.ns-button-group > .ns-button {
+  min-inline-size: 0;
+}
+
+@media (max-width: 560px) {
+  .ns-button-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr));
+    inline-size: 100%;
+  }
+
+  .ns-button-group > .ns-button {
+    inline-size: 100%;
+  }
+
+  .ns-button-group[data-orientation="vertical"] {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (forced-colors: active) {
+  .ns-button-group {
+    forced-color-adjust: auto;
+  }
+}

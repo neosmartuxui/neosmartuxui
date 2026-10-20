@@ -1,0 +1,139 @@
+.ns-slider {
+  --ns-slider-value: 50%;
+  --ns-slider-lower: 25%;
+  --ns-slider-upper: 75%;
+  display: grid;
+  gap: var(--ns-space-control-block);
+  max-inline-size: 36rem;
+  min-inline-size: 0;
+  color: var(--ns-color-action-primary-content);
+}
+.ns-slider__label,
+.ns-slider__range-label { margin: 0; color: inherit; font-weight: 700; }
+.ns-slider__rail {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-block-size: var(--ns-size-control-minimum);
+  min-inline-size: 0;
+}
+.ns-slider__track {
+  position: absolute;
+  inset-inline: 0;
+  block-size: max(var(--ns-border-control-width), 0.5rem);
+  border: var(--ns-border-control-width) solid var(--ns-color-border-strong);
+  border-radius: var(--ns-radius-control);
+  background: var(--ns-color-surface-interactive);
+  pointer-events: none;
+}
+.ns-slider__track::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  inline-size: var(--ns-slider-value);
+  background: var(--ns-color-action-primary-surface);
+}
+.ns-slider[data-slider-mode="range"] .ns-slider__track::before {
+  inset-inline-start: var(--ns-slider-lower);
+  inline-size: calc(var(--ns-slider-upper) - var(--ns-slider-lower));
+}
+.ns-slider__input {
+  appearance: none;
+  position: relative;
+  z-index: 1;
+  grid-area: 1 / 1;
+  inline-size: 100%;
+  min-block-size: var(--ns-size-control-minimum);
+  margin: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.ns-slider[data-slider-mode="range"] .ns-slider__input { pointer-events: none; }
+.ns-slider__input::-webkit-slider-runnable-track { block-size: var(--ns-size-control-minimum); background: transparent; border: 0; }
+.ns-slider__input::-webkit-slider-thumb {
+  appearance: none;
+  inline-size: var(--ns-size-control-minimum);
+  block-size: var(--ns-size-control-minimum);
+  margin-block-start: 0;
+  border: var(--ns-border-control-width) solid var(--ns-color-border-strong);
+  border-radius: var(--ns-radius-control);
+  background: var(--ns-color-action-primary-surface);
+  box-shadow: var(--ns-depth-rest-x) var(--ns-depth-rest-y) 0 var(--ns-color-border-strong);
+  transform: translate(0, 0);
+  transition-property: transform, box-shadow, background-color, opacity;
+  transition-duration: var(--ns-motion-release-duration);
+  transition-timing-function: var(--ns-motion-release-easing);
+  pointer-events: auto;
+}
+.ns-slider__input::-moz-range-track { block-size: var(--ns-size-control-minimum); background: transparent; border: 0; }
+.ns-slider__input::-moz-range-thumb {
+  inline-size: var(--ns-size-control-minimum);
+  block-size: var(--ns-size-control-minimum);
+  border: var(--ns-border-control-width) solid var(--ns-color-border-strong);
+  border-radius: var(--ns-radius-control);
+  background: var(--ns-color-action-primary-surface);
+  box-shadow: var(--ns-depth-rest-x) var(--ns-depth-rest-y) 0 var(--ns-color-border-strong);
+  transform: translate(0, 0);
+  transition-property: transform, box-shadow, background-color, opacity;
+  transition-duration: var(--ns-motion-release-duration);
+  transition-timing-function: var(--ns-motion-release-easing);
+  pointer-events: auto;
+}
+@media (hover: hover) {
+  .ns-slider__input:hover:not(:active):not(:disabled)::-webkit-slider-thumb {
+    box-shadow: var(--ns-depth-hover-x) var(--ns-depth-hover-y) 0 var(--ns-color-border-strong);
+    transform: translate(var(--ns-press-hover-x), var(--ns-press-hover-y));
+    transition-duration: var(--ns-motion-press-duration);
+    transition-timing-function: var(--ns-motion-press-easing);
+  }
+  .ns-slider__input:hover:not(:active):not(:disabled)::-moz-range-thumb {
+    box-shadow: var(--ns-depth-hover-x) var(--ns-depth-hover-y) 0 var(--ns-color-border-strong);
+    transform: translate(var(--ns-press-hover-x), var(--ns-press-hover-y));
+  }
+}
+.ns-slider__input:active:not(:disabled)::-webkit-slider-thumb {
+  box-shadow: var(--ns-depth-active-x) var(--ns-depth-active-y) 0 var(--ns-color-border-strong);
+  transform: translate(var(--ns-press-active-x), var(--ns-press-active-y));
+  transition-duration: var(--ns-motion-press-duration);
+  transition-timing-function: var(--ns-motion-press-easing);
+}
+.ns-slider__input:active:not(:disabled)::-moz-range-thumb {
+  box-shadow: var(--ns-depth-active-x) var(--ns-depth-active-y) 0 var(--ns-color-border-strong);
+  transform: translate(var(--ns-press-active-x), var(--ns-press-active-y));
+}
+.ns-slider__input:focus-visible {
+  outline: var(--ns-focus-ring-width) solid var(--ns-color-focus-ring);
+  outline-offset: var(--ns-focus-ring-offset);
+}
+.ns-slider__input:disabled { cursor: not-allowed; opacity: var(--ns-opacity-disabled); }
+.ns-slider[data-orientation="vertical"] { inline-size: max-content; }
+.ns-slider[data-orientation="vertical"] .ns-slider__rail { inline-size: var(--ns-size-control-minimum); block-size: 12rem; }
+.ns-slider[data-orientation="vertical"] .ns-slider__track {
+  inset-block: 0;
+  inset-inline: auto;
+  inline-size: max(var(--ns-border-control-width), 0.5rem);
+  block-size: 100%;
+}
+.ns-slider[data-orientation="vertical"] .ns-slider__input {
+  writing-mode: vertical-lr;
+  direction: rtl;
+  inline-size: var(--ns-size-control-minimum);
+  block-size: 12rem;
+}
+.ns-slider__value { margin: 0; color: inherit; font-variant-numeric: tabular-nums; }
+@media (max-width: 560px) { .ns-slider:not([data-orientation="vertical"]) { inline-size: 100%; } }
+@media (prefers-reduced-motion: reduce) {
+  .ns-slider__input::-webkit-slider-thumb,
+  .ns-slider__input::-moz-range-thumb { transition-duration: 1ms !important; }
+}
+@media (forced-colors: active) {
+  .ns-slider__track { background: Canvas; border-color: ButtonText; forced-color-adjust: auto; }
+  .ns-slider__track::before { background: Highlight; }
+  .ns-slider__input { forced-color-adjust: auto; }
+  .ns-slider__input::-webkit-slider-thumb { background: Highlight; border-color: ButtonText; box-shadow: 5px 5px 0 ButtonText; }
+  .ns-slider__input::-moz-range-thumb { background: Highlight; border-color: ButtonText; box-shadow: 5px 5px 0 ButtonText; }
+  .ns-slider__input:focus-visible { outline-color: Highlight; }
+  .ns-slider__input:disabled { color: GrayText; }
+}

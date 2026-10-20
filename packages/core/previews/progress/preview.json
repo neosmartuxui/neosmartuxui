@@ -1,0 +1,36 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.progress",
+  "fixture": "fixture.html",
+  "controller": null,
+  "fixtureComponents": [],
+  "defaultState": "rest",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "rest": {
+      "mode": "fixture",
+      "target": "#progress-rest"
+    },
+    "determinate": {
+      "mode": "fixture",
+      "target": "#progress-determinate"
+    },
+    "indeterminate": {
+      "mode": "fixture",
+      "target": "#progress-indeterminate"
+    },
+    "complete": {
+      "mode": "fixture",
+      "target": "#progress-complete"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/progress.css"
+      ],
+      "bindings": []
+    }
+  }
+}

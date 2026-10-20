@@ -1,0 +1,625 @@
+{
+  "$schema": "./inventory.schema.json",
+  "schemaVersion": 2,
+  "capturedAt": "2026-09-11",
+  "authority": "docs/CANONICAL-PRD.md",
+  "principle": "RESTART THE ARCHITECTURE, NOT THE KNOWLEDGE.",
+  "scope": "selected-migration-evidence",
+  "allowedDecisions": ["ADOPT", "ADAPT", "PROMOTE", "REWRITE", "RETIRE", "REFERENCE"],
+  "sources": [
+    {
+      "repository": "NeoBrutalism-shop/spec",
+      "branch": "main",
+      "sha": "fbf499397f4e9a52d6e25c13921fd5377799c626",
+      "status": "snapshot-pinned",
+      "legacyRole": "family-spec",
+      "targetLayers": ["spec"],
+      "licenseEvidence": {"status": "not-declared-in-repository-metadata", "path": null, "name": null},
+      "copyPolicy": "knowledge-only-until-reviewed",
+      "evidencePaths": ["README.md", "INTERACTION.md", "TOKENS.md", "COMPONENTS.md", "FLAVORS.md"]
+    },
+    {
+      "repository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "branch": "main",
+      "sha": "dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a",
+      "status": "snapshot-pinned",
+      "legacyRole": "mixed-flavor-vertical",
+      "targetLayers": ["flavor", "vertical", "tooling"],
+      "licenseEvidence": {"status": "not-declared-in-repository-metadata", "path": null, "name": null},
+      "copyPolicy": "knowledge-only-until-reviewed",
+      "evidencePaths": ["COMPONENTS.md", "DESIGN.md", "QUALITY.md", "RESILIENCE.md", "LLMS.md", "component-explorer.js"]
+    },
+    {
+      "repository": "NeoBrutalism-shop/NeoBrutal-Commerce",
+      "branch": "main",
+      "sha": "24563484a9993c6c994f24114dc7956d3b93f694",
+      "status": "snapshot-pinned",
+      "legacyRole": "commerce-system",
+      "targetLayers": ["vertical", "tooling", "applications"],
+      "licenseEvidence": {"status": "declared", "path": "LICENSE.md", "name": "PolyForm Noncommercial License 1.0.0"},
+      "copyPolicy": "license-review-required-before-code-copy",
+      "evidencePaths": ["COMPONENTS.md", "AGENTS.md", "LLMS.md", "storefront/", "tests/", "playwright.config.mjs"]
+    },
+    {
+      "repository": "NeoBrutalRivet/NeoBrutal-Rivet",
+      "branch": "main",
+      "sha": "bb4b641d35bc77c958b7345a3b7c0a134c7d802d",
+      "status": "snapshot-pinned",
+      "legacyRole": "flavor-system",
+      "targetLayers": ["flavor", "tooling"],
+      "licenseEvidence": {"status": "not-declared-in-repository-metadata", "path": null, "name": null},
+      "copyPolicy": "knowledge-only-until-reviewed",
+      "evidencePaths": ["AGENTS.md", "README.md", "components/", "docs/", "hooks/", "lib/", "index.ts"]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "legacy.spec.family-laws",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "README.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "spec",
+      "note": "Preserve family laws while correcting Flavor/Vertical taxonomy."
+    },
+    {
+      "id": "legacy.soft.design-language",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "DESIGN.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "flavor",
+      "note": "Extract Soft visual personality without importing SaaS domain semantics into the flavor."
+    },
+    {
+      "id": "legacy.commerce.domain-contracts",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Commerce",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "vertical",
+      "note": "Use as evidence for Commerce vertical semantics; do not classify Commerce as a flavor."
+    },
+    {
+      "id": "legacy.rivet.flavor-system",
+      "sourceRepository": "NeoBrutalRivet/NeoBrutal-Rivet",
+      "sourcePath": "README.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "flavor",
+      "note": "Preserve Rivet personality and agent-facing lessons under NeoSmartUI authority."
+    },
+    {
+      "id": "legacy.spec.checkbox-laws",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "core",
+      "note": "Adapt explicit checkbox contact-compression and immediate-selection laws into the clean core.checkbox contract."
+    },
+    {
+      "id": "legacy.soft.checkbox-capability",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use only as capability/state-resilience evidence that checkbox belongs in reusable Core; do not copy mixed legacy implementation."
+    },
+    {
+      "id": "legacy.rivet.checkbox-implementation",
+      "sourceRepository": "NeoBrutalRivet/NeoBrutal-Rivet",
+      "sourcePath": "components/ui/checkbox.tsx",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use as implementation knowledge evidence only; repository metadata declares no license, so no source code is copied into NeoSmartUI."
+    },
+    {
+      "id": "legacy.spec.input-conformance",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "core",
+      "note": "Adapt generic focus, keyboard, touch, reduced-motion, fluid-sizing, and agent-readable conformance laws into core.input without treating the field as a pressable control."
+    },
+    {
+      "id": "legacy.soft.input-capability",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use the documented reusable input/field capability only as state and resilience evidence; keep field composition outside the Core input primitive."
+    },
+    {
+      "id": "legacy.rivet.input-implementation",
+      "sourceRepository": "NeoBrutalRivet/NeoBrutal-Rivet",
+      "sourcePath": "components/ui/input.tsx",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use as implementation knowledge evidence for native input, focus, invalid, and disabled behavior only; repository metadata declares no license, so no source code is copied."
+    },
+    {
+      "id": "legacy.spec.radio-laws",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "core",
+      "note": "Adapt explicit radio contact-compression, immediate-selection, keyboard, touch, and reduced-motion family laws into the clean core.radio contract."
+    },
+    {
+      "id": "legacy.soft.radio-capability",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use the documented radio/choice-card capability only as evidence that mutually-exclusive choice belongs in reusable Core; no legacy implementation code is copied."
+    },
+    {
+      "id": "legacy.spec.switch-laws",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "core",
+      "note": "Adapt the explicit switch law that combines contact compression with thumb travel and synchronized state color/position into the clean core.switch contract."
+    },
+    {
+      "id": "legacy.soft.switch-capability",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use the documented reusable switch capability only as generic Core/state-resilience evidence; no legacy implementation code is copied."
+    },
+    {
+      "id": "legacy.spec.tabs-laws",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "core",
+      "note": "Adapt the explicit family law that selected tabs feel seated/locked into their rail, plus shared keyboard/touch/reduced-motion conformance, into the clean core.tabs contract."
+    },
+    {
+      "id": "legacy.soft.tabs-capability",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use the documented reusable Tabs capability and keyboard-complete RTL-aware distribution claim as generic Core evidence."
+    },
+    {
+      "id": "legacy.soft.tabs-implementation",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "packages/react/src/index.js",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use pinned implementation knowledge for tablist/tab/tabpanel roles, roving focus, Arrow/Home/End navigation, disabled-tab skipping, and RTL-aware horizontal movement only; repository metadata declares no license, so no source code is copied."
+    },
+    {
+      "id": "legacy.spec.textarea-conformance",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "core",
+      "note": "Adapt generic focus, keyboard, touch, reduced-motion, fluid-sizing, and agent-readable conformance laws into core.textarea while keeping the multiline editing surface non-pressable."
+    },
+    {
+      "id": "legacy.soft.textarea-capability",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use the explicit reusable textarea Core listing as capability/state-resilience evidence only; no legacy implementation code is copied and no nonexistent Rivet textarea artifact is claimed."
+    },
+    {
+      "id": "legacy.spec.select-conformance",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "core",
+      "note": "Adapt generic pressure-not-levitation, focus, keyboard, touch, reduced-motion, sizing, and agent-readable laws into the collapsed native single-select trigger while leaving the option popup platform-owned."
+    },
+    {
+      "id": "legacy.soft.select-capability",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use the explicit reusable select Core listing as capability/state-resilience evidence only; no legacy implementation code is copied and no nonexistent Rivet select artifact is claimed."
+    },
+    {
+      "id": "legacy.spec.card-laws",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "core",
+      "note": "Adapt the explicit family rule that informational cards remain stable and only cards with real action/navigation semantics may react to hover or press."
+    },
+    {
+      "id": "legacy.soft.card-capability",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use the documented Card Core capability and presentation variants as knowledge evidence while keeping generic core.card informational and non-interactive."
+    },
+    {
+      "id": "legacy.rivet.card-implementation",
+      "sourceRepository": "NeoBrutalRivet/NeoBrutal-Rivet",
+      "sourcePath": "components/ui/card.tsx",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use generic Card anatomy as implementation knowledge only; repository metadata declares no license, so no source code is copied into NeoSmartUI."
+    },
+    {
+      "id": "legacy.spec.badge-conformance",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "core",
+      "note": "Adapt shared no-hover-lift, static-surface, semantic-token, accessibility, reduced-motion, RTL, and agent-readable laws into a non-interactive core.badge contract."
+    },
+    {
+      "id": "legacy.soft.badge-capability",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use the explicit Badge/status Core listing as reusable capability and state-resilience evidence; keep business status calculation outside Core."
+    },
+    {
+      "id": "legacy.rivet.badge-implementation",
+      "sourceRepository": "NeoBrutalRivet/NeoBrutal-Rivet",
+      "sourcePath": "components/ui/badge.tsx",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use the default span host and anchor-only hover treatment as semantic-boundary implementation knowledge only; repository metadata declares no license, so no source code is copied."
+    },
+    {
+      "id": "legacy.spec.alert-conformance",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "core",
+      "note": "Adapt shared static-surface, semantic-token, accessibility, RTL, reduced-motion, forced-colors, and agent-readable laws into a non-interactive core.alert contract while keeping live-announcement urgency explicit."
+    },
+    {
+      "id": "legacy.soft.alert-capability",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use the explicit Core alert classification as capability evidence while keeping business meaning, dismissal lifecycle, stacking, and notification policy outside Core."
+    },
+    {
+      "id": "legacy.soft.alert-implementation",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "registry/default/alert/alert.tsx",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use tone variants and the selective danger-only role=alert behavior as semantic-boundary knowledge; announcement urgency remains composition-owned and no source code is copied."
+    },
+    {
+      "id": "legacy.soft.alert-visual",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "src/components/alert.css",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use stable grouped-surface, icon/title/body, and semantic-tone presentation as future implementation knowledge only; no source code is copied."
+    },
+    {
+      "id": "legacy.rivet.alert-implementation",
+      "sourceRepository": "NeoBrutalRivet/NeoBrutal-Rivet",
+      "sourcePath": "components/ui/alert.tsx",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use Alert/title/description anatomy and default/destructive presentation as reference-only knowledge. Do not adopt unconditional role=alert as a visual default; repository metadata declares no license, so no source code is copied."
+    },
+    {
+      "id": "legacy.spec.field-conformance",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "core",
+      "note": "Adapt shared accessibility, keyboard, touch, reduced-motion, semantic-token, and agent-readable laws into a non-pressable single-control Field composition."
+    },
+    {
+      "id": "legacy.soft.field-capability",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use the explicit label/help/invalid-field Core listing as evidence that accessible field composition belongs in reusable Core."
+    },
+    {
+      "id": "legacy.soft.field-implementation",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "registry/default/field/field.tsx",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use label/control/help anatomy and invalid metadata as reference knowledge; do not assume wrapper-label composition is universally valid and do not copy source code."
+    },
+    {
+      "id": "legacy.soft.field-visual",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "src/components/input.css",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use dedicated field-stack spacing, label/help typography, and invalid treatment as visual knowledge only; preserve NeoSmartUI semantic-token ownership and copy no source code."
+    },
+    {
+      "id": "legacy.rivet.field-implementation",
+      "sourceRepository": "NeoBrutalRivet/NeoBrutal-Rivet",
+      "sourcePath": "components/ui/field.tsx",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use Field/Label/Description/Error/fieldset/legend anatomy and orientation knowledge only. Do not adopt generic role=group or unconditional role=alert as defaults for one-control Field; repository metadata declares no license, so no source code is copied."
+    },
+    {
+      "id": "legacy.spec.breadcrumb-conformance",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "core",
+      "note": "Adapt shared native-link, keyboard-focus, touch, reduced-motion, RTL, semantic-token, and no-generic-hover-lift laws into a hierarchical core.breadcrumb navigation contract without turning inline links into button surfaces."
+    },
+    {
+      "id": "legacy.soft.breadcrumb-capability",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use the explicit Breadcrumb Navigation + discovery listing as evidence that hierarchical location navigation belongs in reusable Core."
+    },
+    {
+      "id": "legacy.soft.breadcrumb-implementation",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "components.html",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use ancestor-anchor plus aria-current page anatomy as reference knowledge only; preserve native link semantics and copy no source code."
+    },
+    {
+      "id": "legacy.soft.breadcrumb-visual",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "src/components/navigation.css",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use wrapped breadcrumb layout, separator treatment, muted-to-current hierarchy, and dedicated gap rhythm as visual knowledge only; semantic token ownership stays in NeoSmartUI and no source code is copied."
+    },
+    {
+      "id": "legacy.rivet.breadcrumb-implementation",
+      "sourceRepository": "NeoBrutalRivet/NeoBrutal-Rivet",
+      "sourcePath": "components/ui/breadcrumb.tsx",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use nav/list/item/link/current/separator/ellipsis anatomy as reference-only knowledge. Do not adopt role=link aria-disabled=true for the current page; repository metadata declares no license, so no source code is copied."
+    },
+    {
+      "id": "legacy.spec.pagination-conformance",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "core",
+      "note": "Adapt shared pressure-not-levitation, explicit focus, touch, reduced-motion, minimum-target, fluid-token, and agent-readable laws into compact reachable pagination navigation controls while preserving native link behavior."
+    },
+    {
+      "id": "legacy.soft.pagination-capability",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use the explicit Pagination Navigation + discovery listing as evidence that discrete paged navigation belongs in reusable Core."
+    },
+    {
+      "id": "legacy.soft.pagination-implementation",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "components.html",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use previous/current/number/next anatomy, labelled-region knowledge, and boundary-state examples as reference only; NeoSmartUI strengthens destination semantics and copies no source code."
+    },
+    {
+      "id": "legacy.soft.pagination-visual",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "src/components/navigation.css",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use wrapped compact-control layout, structural depth, inward hover/active compression, current treatment, and disabled presentation as visual knowledge only; NeoSmartUI retains its existing 44px minimum and semantic token ownership."
+    },
+    {
+      "id": "legacy.spec.segmented-control-laws",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "core",
+      "note": "Adapt the explicit chips/segmented-control law that pressable peers compress toward the surface and persistent selected state remains distinguishable after release, together with shared keyboard, touch, reduced-motion, fluid-token, and agent-readable laws."
+    },
+    {
+      "id": "legacy.soft.segmented-control-capability",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use the explicit Segmented Control Navigation + discovery listing as evidence that compact single-mode selection belongs in reusable Core."
+    },
+    {
+      "id": "legacy.soft.segmented-control-anatomy",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "components.html",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use the labelled role=group, real-button peers, and mutually-exclusive aria-pressed example as semantic anatomy knowledge only; no source code is copied."
+    },
+    {
+      "id": "legacy.soft.segmented-control-visual",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "src/components/navigation.css",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use connected group geometry, inward hover/active travel, persistent selected treatment, and responsive equal-width grid behavior as visual knowledge only; NeoSmartUI retains its existing 44px minimum and semantic token ownership."
+    },
+    {
+      "id": "legacy.soft.segmented-control-behavior",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "component-explorer.js",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use single-selection transfer behavior that leaves exactly one peer aria-pressed=true after activation as reference-only knowledge; native button activation and NeoSmartUI keyboard semantics remain authoritative and no source code is copied."
+    },
+    {
+      "id": "legacy.spec.tooltip-laws",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "core",
+      "note": "Adapt the explicit Tooltip law that supplemental reveal must not introduce movement that makes the described target appear actionable, together with shared keyboard, touch, reduced-motion, RTL, semantic-token, and agent-readable laws."
+    },
+    {
+      "id": "legacy.soft.tooltip-capability",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use the explicit Tooltip Navigation + discovery listing as evidence that concise supplemental target descriptions belong in reusable Core."
+    },
+    {
+      "id": "legacy.soft.tooltip-anatomy",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "components.html",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use the aria-describedby target relationship and distinct role=tooltip surface as semantic anatomy knowledge only; no legacy implementation code is copied."
+    },
+    {
+      "id": "legacy.soft.tooltip-visual",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "src/components/navigation.css",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use the compact bounded informational surface, annotation-like spacing, border/radius, readable text, and stable structural depth as visual knowledge only; NeoSmartUI keeps semantic token ownership and copies no source code."
+    },
+    {
+      "id": "legacy.spec.combobox-conformance",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "core",
+      "note": "Adapt shared explicit-state, focus, keyboard, touch, reduced-motion, fluid-token, agent-readable, and pressure-not-levitation laws into an editable single-selection Combobox; apply the Menus/Popovers trigger law without making the editable input itself pressable."
+    },
+    {
+      "id": "legacy.soft.combobox-capability",
+      "sourceRepository": "NeoBrutalism-shop/NeoBrutal-Soft",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use the explicit Combobox surfaces listing as reusable capability evidence and preserve the document's warning that keyboard-complete production Combobox behavior remains high-value unfinished work; do not overclaim a Soft runtime."
+    },
+    {
+      "id": "legacy.rivet.combobox-implementation",
+      "sourceRepository": "NeoBrutalRivet/NeoBrutal-Rivet",
+      "sourcePath": "components/ui/combobox.tsx",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use editable input, trigger, clear action, positioned popup, list, item, group, label, empty state, separator, selection-indicator, and optional chips anatomy as reference-only knowledge. Initial NeoSmartUI scope is deliberately single-select and excludes chips/multi-select; repository metadata declares no license, so no source code is copied."
+    },
+    {
+      "id": "legacy.spec.accordion-conformance",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "COMPONENTS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "core",
+      "note": "Adapt shared explicit-state, pressure-not-levitation, focus, keyboard, touch, reduced-motion, fluid-token, semantic-token, and agent-readable laws into core.accordion. The pinned family document contains no separate Accordion-specific interaction law, so none is claimed."
+    },
+    {
+      "id": "legacy.rivet.accordion-anatomy",
+      "sourceRepository": "NeoBrutalRivet/NeoBrutal-Rivet",
+      "sourcePath": "components/ui/accordion.tsx",
+      "kind": "implementation",
+      "decision": "REFERENCE",
+      "targetLayer": "core",
+      "note": "Use root/item/header-trigger/content anatomy, open/closed data state, disabled/focus treatment, and disclosure-indicator behavior as reference-only knowledge; repository metadata declares no license, so no source code is copied."
+    }
+  ,
+    {
+      "id": "legacy.spec.flavor-expression-laws",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "FLAVORS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "flavor",
+      "note": "Adapt the pinned Flavor/Core ownership boundary, shared semantic-state invariants, and flavor-owned expression dimensions into Hardline without changing Core behavior."
+    },
+    {
+      "id": "legacy.spec.theme-token-physics",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "TOKENS.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "flavor",
+      "note": "Adapt the pinned 4→2→0 structural-depth reference, matching 0→2→4 press travel, 70/110/170ms semantic motion references, independent focus keyline, and semantic-token separation into Hardline Light."
+    },
+    {
+      "id": "legacy.spec.interaction-physics",
+      "sourceRepository": "NeoBrutalism-shop/spec",
+      "sourcePath": "INTERACTION.md",
+      "kind": "documentation",
+      "decision": "ADAPT",
+      "targetLayer": "flavor",
+      "note": "Adapt compress-never-float, coherent shadow/travel, reduced-motion, keyboard/touch parity, and static-surface laws as Hardline conformance evidence."
+    }
+  ]
+}

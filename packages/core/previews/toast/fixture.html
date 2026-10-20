@@ -1,0 +1,38 @@
+        <div class="toast-examples">
+          <div class="ns-toast-region" id="toast-demo" data-toast-region aria-label="Status notifications">
+            <article class="ns-toast" id="toast-demo-visible" data-toast-item data-state="visible" data-toast-priority="polite" data-tone="success">
+              <div class="ns-toast__content">
+                <p class="ns-toast__title">Saved · Draft updated</p>
+                <p class="ns-toast__message">Your local changes are saved. Focus stays exactly where you left it.</p>
+              </div>
+              <button class="ns-toast__dismiss" id="toast-demo-dismiss" type="button" data-toast-dismiss aria-label="Dismiss saved notification">Dismiss</button>
+            </article>
+            <article class="ns-toast" id="toast-demo-queued" data-toast-item data-state="queued" data-toast-priority="polite" data-tone="info">
+              <div class="ns-toast__content">
+                <p class="ns-toast__title">Queued · Sync complete</p>
+                <p class="ns-toast__message">This second status waits until the visible Toast is dismissed.</p>
+              </div>
+            </article>
+          </div>
+          <button id="toast-after" type="button">After Toast region</button>
+
+          <p class="ns-toast__hint">Queued state specimen</p>
+          <div class="ns-toast-region" aria-label="Queued Toast specimen">
+            <article class="ns-toast" id="toast-state-queued" data-state="queued" data-tone="info" aria-hidden="true">
+              <div class="ns-toast__content">
+                <p class="ns-toast__title">Queued</p>
+                <p class="ns-toast__message">Awaiting the current announcement without competing live-region speech.</p>
+              </div>
+            </article>
+          </div>
+
+          <p class="ns-toast__hint">Dismissed state specimen</p>
+          <div class="ns-toast-region" aria-label="Dismissed Toast specimen">
+            <article class="ns-toast" id="toast-state-dismissed" data-state="dismissed" data-tone="neutral" aria-hidden="true">
+              <div class="ns-toast__content">
+                <p class="ns-toast__title">Dismissed</p>
+                <p class="ns-toast__message">Terminal local state; dismissal never restores or moves document focus.</p>
+              </div>
+            </article>
+          </div>
+        </div>

@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.button-group",
+  "fixture": "fixture.html",
+  "controller": null,
+  "fixtureComponents": [
+    "core.button"
+  ],
+  "defaultState": "rest",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "rest": {
+      "mode": "fixture",
+      "target": "#button-group-demo"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/button-group.css",
+        "packages/adapters/web/components/button.css"
+      ],
+      "bindings": []
+    }
+  }
+}

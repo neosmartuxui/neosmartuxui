@@ -1,0 +1,62 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.file-upload",
+  "fixture": "fixture.html",
+  "controller": "controller.mjs",
+  "fixtureComponents": [],
+  "defaultState": "rest",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "rest": {
+      "mode": "fixture",
+      "target": "#file-upload-demo"
+    },
+    "hover": {
+      "mode": "native-pointer",
+      "target": "#file-upload-input"
+    },
+    "focus-visible": {
+      "mode": "native-keyboard",
+      "target": "#file-upload-input"
+    },
+    "pressed": {
+      "mode": "native-pointer",
+      "target": "#file-upload-input"
+    },
+    "drag-active": {
+      "mode": "controller",
+      "target": "#file-upload-demo"
+    },
+    "empty": {
+      "mode": "fixture",
+      "target": "#file-upload-demo"
+    },
+    "selected": {
+      "mode": "controller",
+      "target": "#file-upload-demo"
+    },
+    "invalid": {
+      "mode": "controller",
+      "target": "#file-upload-demo"
+    },
+    "disabled": {
+      "mode": "controller",
+      "target": "#file-upload-demo"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/file-upload.css"
+      ],
+      "bindings": [
+        {
+          "module": "packages/adapters/web/components/file-upload.mjs",
+          "export": "bindFileUpload",
+          "selector": "#file-upload-demo"
+        }
+      ]
+    }
+  }
+}

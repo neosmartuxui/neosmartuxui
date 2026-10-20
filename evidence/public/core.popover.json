@@ -1,0 +1,34 @@
+{
+  "$schema": "../../spec/schemas/public-proof.schema.json",
+  "schema": "neosmartui/public-proof@1",
+  "component": "core.popover",
+  "deployedSource": {
+    "repository": "neosmartui/neosmartui",
+    "sha": "3d41541d81f8fd5c24e11c9d12a17bb9e7a9e9b0"
+  },
+  "implementationFiles": [
+    {
+      "path": "packages/adapters/web/components/popover.mjs",
+      "blobSha": "9469612841d5489750648ff74c50cbd5bfc1fcf7"
+    },
+    {
+      "path": "packages/adapters/web/components/popover.css",
+      "blobSha": "7f67a24fa300a2e7e5fe5c5296a496a88d893c9b"
+    }
+  ],
+  "browserEvidence": {
+    "runId": 35720197442,
+    "artifactId": 10690793881,
+    "artifactDigest": "sha256:8dd8c4662e68ea933b709ef312fd0bddc6f8d48aa89c9415edb16230d3a0a0a5"
+  },
+  "deployment": {
+    "repository": "neosmartui/neosmartui.github.io",
+    "commitSha": "d21d12143368efaee1ce1e083f7f936b209b1e19",
+    "treeSha": "2662bbdb270ab2fb0d336ca1e31889672a5fdc8b",
+    "pagesRunId": 35721321083
+  },
+  "live": {
+    "pageUrl": "https://neosmartui.github.io/",
+    "deploymentRecordUrl": "https://neosmartui.github.io/deployment.json"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neosmartui.com/schemas/public-proof@1.json",
+  "title": "NeoSmartUI Public Proof Record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "deployedSource", "implementationFiles", "browserEvidence", "deployment", "live"],
+  "oneOf": [
+    {"required": ["component"], "not": {"required": ["flavor"]}},
+    {"required": ["flavor"], "not": {"required": ["component"]}}
+  ],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schema": {"const": "neosmartui/public-proof@1"},
+    "component": {"type": "string", "pattern": "^(?!flavor\\.|vertical\\.)[a-z][a-z0-9-]*\\.(?!block\\.|page\\.)[a-z][a-z0-9-]*$"},
+    "flavor": {"type": "string", "pattern": "^flavor\\.[a-z][a-z0-9-]*$"},
+    "deployedSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "sha"],
+      "properties": {
+        "repository": {"const": "neosmartui/neosmartui"},
+        "sha": {"type": "string", "pattern": "^[0-9a-f]{40}$"}
+      }
+    },
+    "implementationFiles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "blobSha"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "blobSha": {"type": "string", "pattern": "^[0-9a-f]{40}$"}
+        }
+      }
+    },
+    "browserEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["runId", "artifactId", "artifactDigest"],
+      "properties": {
+        "runId": {"type": "integer", "minimum": 1},
+        "artifactId": {"type": "integer", "minimum": 1},
+        "artifactDigest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "commitSha", "treeSha", "pagesRunId"],
+      "properties": {
+        "repository": {"const": "neosmartui/neosmartui.github.io"},
+        "commitSha": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "treeSha": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "pagesRunId": {"type": "integer", "minimum": 1}
+      }
+    },
+    "live": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pageUrl", "deploymentRecordUrl"],
+      "properties": {
+        "pageUrl": {"type": "string", "pattern": "^https://neosmartui\\.github\\.io/(?:flavors/[a-z][a-z0-9-]*/)?$"},
+        "deploymentRecordUrl": {"type": "string", "pattern": "^https://neosmartui\\.github\\.io/deployment\\.json$"},
+        "assetUrls": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^https://neosmartui\\.github\\.io/[a-zA-Z0-9._/-]+$"}
+        }
+      }
+    }
+  }
+}

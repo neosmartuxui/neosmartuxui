@@ -1,0 +1,2 @@
+import { defineConfig } from '@playwright/test';
+export default defineConfig({testDir:'./tests/studio',timeout:30000,expect:{timeout:8000},fullyParallel:false,workers:1,retries:0,reporter:[['line'],['json',{outputFile:'artifacts/studio/report.json'}]],use:{baseURL:'http://127.0.0.1:4174',browserName:'chromium',trace:'retain-on-failure',screenshot:'only-on-failure',acceptDownloads:true},webServer:{command:'node tooling/studio/serve.mjs',url:'http://127.0.0.1:4174',reuseExistingServer:false,timeout:30000}});

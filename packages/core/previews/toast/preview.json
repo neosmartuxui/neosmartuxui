@@ -1,0 +1,38 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.toast",
+  "fixture": "fixture.html",
+  "controller": null,
+  "fixtureComponents": [],
+  "defaultState": "queued",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "queued": {
+      "mode": "fixture",
+      "target": "#toast-state-queued"
+    },
+    "visible": {
+      "mode": "fixture",
+      "target": "#toast-demo-visible"
+    },
+    "dismissed": {
+      "mode": "fixture",
+      "target": "#toast-state-dismissed"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/toast.css"
+      ],
+      "bindings": [
+        {
+          "module": "packages/adapters/web/components/toast.mjs",
+          "export": "bindToast",
+          "selector": "#toast-demo"
+        }
+      ]
+    }
+  }
+}

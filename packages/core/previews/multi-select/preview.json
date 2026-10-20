@@ -1,0 +1,70 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.multi-select",
+  "fixture": "fixture.html",
+  "controller": "controller.mjs",
+  "fixtureComponents": [],
+  "defaultState": "rest",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "rest": {
+      "mode": "fixture",
+      "target": "#multi-select-demo"
+    },
+    "hover": {
+      "mode": "native-pointer",
+      "target": "#multi-select-trigger"
+    },
+    "focus-visible": {
+      "mode": "native-keyboard",
+      "target": "#multi-select-trigger"
+    },
+    "pressed": {
+      "mode": "native-pointer",
+      "target": "#multi-select-trigger"
+    },
+    "closed": {
+      "mode": "fixture",
+      "target": "#multi-select-demo"
+    },
+    "open": {
+      "mode": "controller",
+      "target": "#multi-select-demo"
+    },
+    "none-selected": {
+      "mode": "fixture",
+      "target": "#multi-select-demo"
+    },
+    "selected": {
+      "mode": "controller",
+      "target": "#multi-select-demo"
+    },
+    "highlighted": {
+      "mode": "controller",
+      "target": "#multi-select-demo"
+    },
+    "invalid": {
+      "mode": "controller",
+      "target": "#multi-select-demo"
+    },
+    "disabled": {
+      "mode": "controller",
+      "target": "#multi-select-demo"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/multi-select.css"
+      ],
+      "bindings": [
+        {
+          "module": "packages/adapters/web/components/multi-select.mjs",
+          "export": "bindMultiSelect",
+          "selector": "#multi-select-demo"
+        }
+      ]
+    }
+  }
+}

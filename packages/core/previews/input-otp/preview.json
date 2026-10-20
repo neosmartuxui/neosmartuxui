@@ -1,0 +1,30 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.input-otp",
+  "fixture": "fixture.html",
+  "controller": "controller.mjs",
+  "fixtureComponents": [],
+  "defaultState": "rest",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "rest": { "mode": "fixture", "target": "#input-otp-demo" },
+    "hover": { "mode": "native-pointer", "target": "#input-otp-input" },
+    "focus-visible": { "mode": "native-keyboard", "target": "#input-otp-input" },
+    "empty": { "mode": "fixture", "target": "#input-otp-input" },
+    "partial": { "mode": "controller", "target": "#input-otp-demo" },
+    "complete": { "mode": "controller", "target": "#input-otp-demo" },
+    "invalid": { "mode": "controller", "target": "#input-otp-demo" },
+    "disabled": { "mode": "controller", "target": "#input-otp-demo" }
+  },
+  "renderers": {
+    "web": {
+      "styles": ["packages/adapters/web/components/input-otp.css"],
+      "bindings": [{
+        "module": "packages/adapters/web/components/input-otp.mjs",
+        "export": "bindInputOtp",
+        "selector": "#input-otp-demo"
+      }]
+    }
+  }
+}

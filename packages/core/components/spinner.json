@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../spec/schemas/component.schema.json",
+  "schema": "neosmartui/component@1",
+  "id": "core.spinner",
+  "intent": "Provide a compact visual busy indicator for an already-labeled loading context without inventing progress percentage or mandatory live-region behavior.",
+  "states": [
+    "active"
+  ],
+  "dependencies": [
+    "color.action.primary.surface",
+    "color.border.default",
+    "motion.standard.duration",
+    "motion.standard.easing"
+  ],
+  "layer": "component",
+  "domain": "core",
+  "supports": {
+    "keyboard": true,
+    "touch": true,
+    "rtl": true,
+    "reducedMotion": true,
+    "forcedColors": true
+  }
+}

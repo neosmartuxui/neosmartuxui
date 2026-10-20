@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neosmartui.com/schemas/migration-inventory@2.json",
+  "title": "NeoSmartUI Migration Inventory",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "capturedAt", "authority", "principle", "scope", "allowedDecisions", "sources", "artifacts"],
+  "properties": {
+    "$schema": {"type":"string"},
+    "schemaVersion": {"const":2},
+    "capturedAt": {"type":"string","format":"date"},
+    "authority": {"const":"docs/CANONICAL-PRD.md"},
+    "principle": {"const":"RESTART THE ARCHITECTURE, NOT THE KNOWLEDGE."},
+    "scope": {"const":"selected-migration-evidence"},
+    "allowedDecisions": {"type":"array","uniqueItems":true,"minItems":6,"items":{"enum":["ADOPT","ADAPT","PROMOTE","REWRITE","RETIRE","REFERENCE"]}},
+    "sources": {
+      "type":"array",
+      "minItems":1,
+      "items":{
+        "type":"object",
+        "additionalProperties":false,
+        "required":["repository","branch","sha","status","legacyRole","targetLayers","licenseEvidence","copyPolicy","evidencePaths"],
+        "properties":{
+          "repository":{"type":"string","pattern":"^[^/]+/[^/]+$"},
+          "branch":{"type":"string","minLength":1},
+          "sha":{"type":"string","pattern":"^[0-9a-f]{40}$"},
+          "status":{"enum":["snapshot-pinned","refresh-required"]},
+          "legacyRole":{"enum":["family-spec","mixed-flavor-vertical","commerce-system","flavor-system"]},
+          "targetLayers":{"type":"array","minItems":1,"uniqueItems":true,"items":{"enum":["spec","core","components","blocks","pages","flavor","vertical","theme","tooling","applications"]}},
+          "licenseEvidence":{
+            "type":"object",
+            "additionalProperties":false,
+            "required":["status","path","name"],
+            "properties":{
+              "status":{"enum":["declared","not-declared-in-repository-metadata","unknown"]},
+              "path":{"type":["string","null"]},
+              "name":{"type":["string","null"]}
+            }
+          },
+          "copyPolicy":{"enum":["knowledge-only-until-reviewed","license-review-required-before-code-copy"]},
+          "evidencePaths":{"type":"array","minItems":1,"uniqueItems":true,"items":{"type":"string","minLength":1}}
+        }
+      }
+    },
+    "artifacts": {
+      "type":"array",
+      "items":{
+        "type":"object",
+        "additionalProperties":false,
+        "required":["id","sourceRepository","sourcePath","kind","decision","targetLayer","note"],
+        "properties":{
+          "id":{"type":"string","pattern":"^legacy\\.[a-z0-9.-]+$"},
+          "sourceRepository":{"type":"string","pattern":"^[^/]+/[^/]+$"},
+          "sourcePath":{"type":"string","minLength":1},
+          "kind":{"enum":["documentation","implementation","registry","test","workflow","demo"]},
+          "decision":{"enum":["ADOPT","ADAPT","PROMOTE","REWRITE","RETIRE","REFERENCE"]},
+          "targetLayer":{"enum":["spec","core","components","blocks","pages","flavor","vertical","theme","tooling","applications"]},
+          "note":{"type":"string","minLength":1}
+        }
+      }
+    }
+  }
+}

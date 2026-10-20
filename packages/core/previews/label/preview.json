@@ -1,0 +1,31 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.label",
+  "fixture": "fixture.html",
+  "controller": null,
+  "fixtureComponents": [
+    "core.input"
+  ],
+  "defaultState": "rest",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "rest": {
+      "mode": "fixture",
+      "target": "#label-rest"
+    },
+    "disabled": {
+      "mode": "fixture",
+      "target": "#label-disabled"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/label.css",
+        "packages/adapters/web/components/input.css"
+      ],
+      "bindings": []
+    }
+  }
+}

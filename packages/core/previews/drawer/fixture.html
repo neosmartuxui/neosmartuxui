@@ -1,0 +1,15 @@
+        <div class="ns-drawer-demo" id="drawer-demo" data-state="closed" data-drawer-placement="inline-end">
+          <button class="ns-button" id="drawer-trigger" type="button" data-drawer-trigger aria-haspopup="dialog" aria-controls="drawer-surface">Open activity drawer</button>
+          <dialog class="ns-drawer" id="drawer-surface" tabindex="-1" aria-modal="true" aria-labelledby="drawer-title" aria-describedby="drawer-description" data-drawer-placement="inline-end" data-state="closed">
+            <div class="ns-drawer__stack">
+              <div class="ns-drawer__swipe-handle" data-drawer-swipe-handle aria-hidden="true">Swipe outward to close</div>
+              <h3 class="ns-drawer__title" id="drawer-title">Workspace activity</h3>
+              <p class="ns-drawer__description" id="drawer-description">Supplemental content stays modal while the Drawer is open. Placement is configuration, not navigation.</p>
+              <div class="ns-drawer__actions">
+                <button class="ns-button" id="drawer-close" type="button" data-drawer-close autofocus>Close drawer</button>
+                <button class="ns-button" id="drawer-secondary-action" type="button">Review activity</button>
+              </div>
+            </div>
+          </dialog>
+          <button class="ns-button" id="drawer-after" type="button">After drawer</button>
+        </div>

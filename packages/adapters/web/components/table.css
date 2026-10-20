@@ -1,0 +1,88 @@
+.ns-table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: auto;
+  border: var(--ns-border-surface-width) solid var(--ns-color-border-strong);
+  background: var(--ns-color-surface-panel);
+  color: var(--ns-color-content-primary);
+  font-family: var(--ns-font-family-body);
+  font-size: var(--ns-font-size-body);
+  font-weight: var(--ns-font-weight-regular);
+}
+
+.ns-table caption {
+  padding-block: var(--ns-space-surface-block);
+  padding-inline: var(--ns-space-surface-inline);
+  color: var(--ns-color-content-primary);
+  font-weight: var(--ns-font-weight-strong);
+  text-align: start;
+  caption-side: top;
+}
+
+.ns-table th,
+.ns-table td {
+  min-inline-size: 0;
+  padding-block: var(--ns-space-surface-block);
+  padding-inline: var(--ns-space-surface-inline);
+  border: var(--ns-border-surface-width) solid var(--ns-color-border-default);
+  color: var(--ns-color-content-primary);
+  text-align: start;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.ns-table th {
+  border-color: var(--ns-color-border-strong);
+  color: var(--ns-color-content-primary);
+  font-weight: var(--ns-font-weight-strong);
+}
+
+.ns-table td {
+  font-weight: var(--ns-font-weight-regular);
+}
+
+.ns-table tbody th[scope="row"] {
+  color: var(--ns-color-content-primary);
+}
+
+.ns-table tfoot th,
+.ns-table tfoot td {
+  border-color: var(--ns-color-border-strong);
+  color: var(--ns-color-content-secondary);
+  font-weight: var(--ns-font-weight-strong);
+}
+
+.ns-table :is(a, button, input, select, textarea) {
+  position: relative;
+}
+
+@media (max-width: 32rem) {
+  .ns-table {
+    font-size: var(--ns-font-size-body);
+  }
+
+  .ns-table th,
+  .ns-table td {
+    padding-block: var(--ns-space-surface-block);
+    padding-inline: var(--ns-space-surface-inline);
+  }
+}
+
+@media (forced-colors: active) {
+  .ns-table {
+    background: Canvas;
+    color: CanvasText;
+    border-color: CanvasText;
+    forced-color-adjust: auto;
+  }
+
+  .ns-table th,
+  .ns-table td,
+  .ns-table tfoot th,
+  .ns-table tfoot td {
+    color: CanvasText;
+    border-color: CanvasText;
+  }
+}

@@ -1,0 +1,32 @@
+.ns-spinner {
+  display: inline-block;
+  inline-size: 1em;
+  block-size: 1em;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  border: 0.16em solid var(--ns-color-border-default);
+  border-block-start-color: var(--ns-color-action-primary-surface);
+  border-radius: 50%;
+  animation: ns-spinner-turn calc(var(--ns-motion-standard-duration) * 6) linear infinite;
+  vertical-align: -0.125em;
+}
+
+@keyframes ns-spinner-turn {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ns-spinner {
+    animation: none;
+    border-style: dashed;
+    border-block-start-style: solid;
+  }
+}
+
+@media (forced-colors: active) {
+  .ns-spinner {
+    border-color: CanvasText;
+    border-block-start-color: Highlight;
+    forced-color-adjust: auto;
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.date-picker",
+  "fixture": "fixture.html",
+  "controller": "controller.mjs",
+  "fixtureComponents": [
+    "core.calendar"
+  ],
+  "defaultState": "rest",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "rest": {
+      "mode": "fixture",
+      "target": "#date-picker-demo"
+    },
+    "hover": {
+      "mode": "native-pointer",
+      "target": "#date-picker-trigger"
+    },
+    "focus-visible": {
+      "mode": "native-keyboard",
+      "target": "#date-picker-start"
+    },
+    "pressed": {
+      "mode": "native-pointer",
+      "target": "#date-picker-trigger"
+    },
+    "closed": {
+      "mode": "fixture",
+      "target": "#date-picker-demo"
+    },
+    "open": {
+      "mode": "controller",
+      "target": "#date-picker-demo"
+    },
+    "empty": {
+      "mode": "fixture",
+      "target": "#date-picker-demo"
+    },
+    "selected": {
+      "mode": "controller",
+      "target": "#date-picker-demo"
+    },
+    "range-partial": {
+      "mode": "controller",
+      "target": "#date-picker-demo"
+    },
+    "range-selected": {
+      "mode": "controller",
+      "target": "#date-picker-demo"
+    },
+    "invalid": {
+      "mode": "controller",
+      "target": "#date-picker-demo"
+    },
+    "disabled": {
+      "mode": "controller",
+      "target": "#date-picker-demo"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/date-picker.css",
+        "packages/adapters/web/components/calendar.css"
+      ],
+      "bindings": [
+        {
+          "module": "packages/adapters/web/components/date-picker.mjs",
+          "export": "bindDatePicker",
+          "selector": "#date-picker-demo"
+        }
+      ]
+    }
+  }
+}

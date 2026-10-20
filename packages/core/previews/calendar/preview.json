@@ -1,0 +1,70 @@
+{
+  "$schema": "../../../../spec/schemas/component-preview.schema.json",
+  "schema": "neosmartui/component-preview@1",
+  "component": "core.calendar",
+  "fixture": "fixture.html",
+  "controller": "controller.mjs",
+  "fixtureComponents": [],
+  "defaultState": "rest",
+  "resetStrategy": "remount",
+  "stateRealization": {
+    "rest": {
+      "mode": "fixture",
+      "target": "#calendar-demo"
+    },
+    "hover": {
+      "mode": "native-pointer",
+      "target": "#calendar-grid-day-2026-09-16"
+    },
+    "focus-visible": {
+      "mode": "native-keyboard",
+      "target": "#calendar-grid-day-2026-09-20"
+    },
+    "pressed": {
+      "mode": "native-pointer",
+      "target": "#calendar-grid-day-2026-09-16"
+    },
+    "current": {
+      "mode": "fixture",
+      "target": "#calendar-grid-day-2026-09-20"
+    },
+    "selected": {
+      "mode": "controller",
+      "target": "#calendar-grid-day-2026-09-16"
+    },
+    "range-start": {
+      "mode": "controller",
+      "target": "#calendar-grid-day-2026-09-14"
+    },
+    "range-middle": {
+      "mode": "controller",
+      "target": "#calendar-grid-day-2026-09-16"
+    },
+    "range-end": {
+      "mode": "controller",
+      "target": "#calendar-grid-day-2026-09-18"
+    },
+    "unavailable": {
+      "mode": "fixture",
+      "target": "#calendar-grid-day-2026-09-23"
+    },
+    "disabled": {
+      "mode": "controller",
+      "target": "#calendar-demo"
+    }
+  },
+  "renderers": {
+    "web": {
+      "styles": [
+        "packages/adapters/web/components/calendar.css"
+      ],
+      "bindings": [
+        {
+          "module": "packages/adapters/web/components/calendar.mjs",
+          "export": "bindCalendar",
+          "selector": "#calendar-demo"
+        }
+      ]
+    }
+  }
+}
