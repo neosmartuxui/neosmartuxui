@@ -9,7 +9,7 @@
     "reusedCore": 1,
     "remaining": 38
   },
-  "note": "Wave 1 local-only; future waves require scoped contracts, tests and explicit rights review. Neither Blocks nor platform patterns count as primitive components.",
+  "note": "Local-only migration: owner explicitly authorizes cross-project reuse under NeoSmartUXUI's intended terms. NeoSmartUXUI's exact license remains undocumented in a top-level LICENSE file; honor third-party rights. Blocks and platform patterns are not counted as primitives.",
   "entries": [
     {
       "sourceId": "product-card",

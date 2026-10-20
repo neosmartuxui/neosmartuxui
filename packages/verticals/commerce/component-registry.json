@@ -7,7 +7,8 @@
     "commit": "493f9c0f9f91895199b6d5bdaafdf1c2d8b83d89",
     "license": "PolyForm Noncommercial 1.0.0",
     "reuse": "ADAPT model and behavior; implement using NeoSmartUXUI Core tokens",
-    "second": "NeoBrutalismshop/NeoBrutal-Soft/demo/v07.html"
+    "second": "NeoBrutalismshop/NeoBrutal-Soft/demo/v07.html",
+    "authorization": "Owner-authorized reuse between NeoBrutalismshop and NeoSmartUXUI; formal destination LICENSE is still unspecified."
   },
   "components": [
     {

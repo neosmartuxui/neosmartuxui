@@ -5,7 +5,7 @@ Commerce is a vertical (business semantics), not a sixth Flavor. Keep 50 Core co
 
 Implemented: product-price, product-card, product-gallery, cart-line, order-summary, license-status, seat-usage, download-entitlement. These use the canonical Core classes (ns-card, ns-button, ns-badge) plus existing ns-* Theme tokens. They do not invent provider outcomes.
 
-Provenance: NeoBrutalismshop/NeoBrutal-Commerce commit 493f9c0, PolyForm Noncommercial License 1.0.0, copyright 2026 NeoBrutalism-shop. Domain models and behavior patterns are adapted. CSS and DOM components are written independently on NeoSmartUXUI architecture. Rights review is mandatory before licensing/distributing any original derivative code. Secondary reference: NeoBrutalismshop/NeoBrutal-Soft/demo/v07.html (a NeoLicenser demo, not an independent library).
+Provenance: NeoBrutalismshop/NeoBrutal-Commerce commit 493f9c0, PolyForm Noncommercial License 1.0.0, copyright 2026 NeoBrutalism-shop. Domain models and behavior patterns are adapted. CSS and DOM components are written independently on NeoSmartUXUI architecture. The owner of both projects explicitly authorized cross-project reuse under NeoSmartUXUI's intended terms. NeoSmartUXUI currently has no top-level LICENSE file specifying a named license, so a formal license declaration remains a pre-distribution task. Preserve original attribution and any third-party rights. Secondary reference: NeoBrutalismshop/NeoBrutal-Soft/demo/v07.html (a NeoLicenser demo, not an independent library).
 
 Never fabricate tax, currency, total, entitlement, renewal, download URL, license state, seat count or payment status. Never insert untrusted HTML. Host callbacks perform mutations; rendering does not imply success. Only safe links are permitted.
 
