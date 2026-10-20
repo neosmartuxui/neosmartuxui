@@ -1,0 +1,22 @@
+/** NeoSmartUXUI Commerce Vertical — local implementation, not a published API. */
+export type Money={amount:number;currency:string};
+export type ProductOffer={id:string;price:Money;interval?:string};
+export type ProductView={id:string;name:string;summary?:string;offers:ProductOffer[];route?:string;image?:{src:string;alt:string};status?:string};
+export type MediaImage={src:string;alt:string;label:string};
+export type CartLineView={id:string;label:string;quantity:number;unitPrice:Money;subtotal:Money};
+export type PriceAdjustment={label:string;amount:Money};
+export type OrderSummaryView={subtotal:Money;total:Money;discounts?:PriceAdjustment[];taxes?:PriceAdjustment[]};
+export type LicenseState='active'|'grace'|'expired'|'cancelled'|'refunded';
+export type LicenseView={id:string;productId:string;status:LicenseState;maskedKey?:string;updatesThrough?:string|null};
+export type EntitlementView={id:string;productId:string;downloadAllowed:boolean};
+export type DOMRenderer=(...args:any[])=>HTMLElement;
+export function formatMoney(money:Money,locale?:string):string;
+export function renderProductPrice(money:Money,options?:{locale?:string;compareAt?:Money;interval?:string;renewal?:string}):HTMLElement;
+export function renderProductCard(product:ProductView,options?:{offerId?:string;locale?:string}):HTMLElement;
+export function renderProductGallery(media:{label:string;images:MediaImage[]}):HTMLElement;
+export function renderCartLine(line:CartLineView,options?:{onRemove?:(lineId:string)=>Promise<unknown>|unknown;locale?:string}):HTMLElement;
+export function renderOrderSummary(quote:OrderSummaryView,options?:{locale?:string;heading?:string}):HTMLElement;
+export function renderLicenseStatus(license:LicenseView):HTMLElement;
+export function renderSeatUsage(info:{label:string;used:number;capacity:number}):HTMLElement;
+export function renderDownloadEntitlement(entitlement:EntitlementView,options?:{onRequest?:(entitlementId:string)=>Promise<unknown>|unknown}):HTMLElement;
+export const COMMERCE_RENDERERS:Readonly<Record<string,DOMRenderer>>;

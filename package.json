@@ -47,7 +47,11 @@
     "validate:pulse": "node tooling/validators/validate-pulse-theme.mjs",
     "validate:pulse-dark": "node tooling/validators/validate-pulse-dark-theme.mjs",
     "validate:pulse-proof": "node tooling/validators/validate-pulse-proof.mjs",
-    "quality:restore": "node tooling/recovery/verify-restore.mjs"
+    "quality:restore": "node tooling/recovery/verify-restore.mjs",
+    "validate:commerce": "node tooling/commerce/validate.mjs",
+    "build:commerce": "node tooling/commerce/build.mjs",
+    "test:commerce": "playwright test --config=playwright.commerce.config.mjs",
+    "quality:commerce": "npm run validate:commerce && npm run build:commerce && npm run test:commerce"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1"

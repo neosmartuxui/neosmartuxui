@@ -1,0 +1,159 @@
+{
+  "schema": "neosmartuxui/commerce-component-registry@1",
+  "vertical": "commerce",
+  "maturity": "implemented-local",
+  "source": {
+    "repo": "NeoBrutalismshop/NeoBrutal-Commerce",
+    "commit": "493f9c0f9f91895199b6d5bdaafdf1c2d8b83d89",
+    "license": "PolyForm Noncommercial 1.0.0",
+    "reuse": "ADAPT model and behavior; implement using NeoSmartUXUI Core tokens",
+    "second": "NeoBrutalismshop/NeoBrutal-Soft/demo/v07.html"
+  },
+  "components": [
+    {
+      "id": "commerce.product-price",
+      "sourceId": "price-block",
+      "model": "Money",
+      "module": "renderProductPrice",
+      "states": [
+        "rest"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.product-card",
+      "sourceId": "product-card",
+      "model": "ProductView",
+      "module": "renderProductCard",
+      "states": [
+        "rest"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.product-gallery",
+      "sourceId": "product-gallery",
+      "model": "ProductMedia",
+      "module": "renderProductGallery",
+      "states": [
+        "rest",
+        "selected"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.cart-line",
+      "sourceId": "cart-item",
+      "model": "CartLineView",
+      "module": "renderCartLine",
+      "states": [
+        "rest",
+        "removing",
+        "error"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.order-summary",
+      "sourceId": "order-summary",
+      "model": "CartView|CheckoutQuoteView",
+      "module": "renderOrderSummary",
+      "states": [
+        "rest"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.license-status",
+      "sourceId": "license-status",
+      "model": "LicenseView",
+      "module": "renderLicenseStatus",
+      "states": [
+        "active",
+        "grace",
+        "expired",
+        "cancelled",
+        "refunded"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.seat-usage",
+      "sourceId": "seat-assignment",
+      "model": "LicenseCapacity",
+      "module": "renderSeatUsage",
+      "states": [
+        "rest",
+        "full"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.download-entitlement",
+      "sourceId": "download-entitlement",
+      "model": "EntitlementView",
+      "module": "renderDownloadEntitlement",
+      "states": [
+        "eligible",
+        "unavailable",
+        "requesting",
+        "error"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    }
+  ],
+  "themes": [
+    "hardline-light",
+    "hardline-dark",
+    "soft-light",
+    "soft-dark",
+    "rivet-light",
+    "rivet-dark",
+    "mono-light",
+    "mono-dark",
+    "pulse-light",
+    "pulse-dark"
+  ],
+  "noBlocksOrPages": true,
+  "noPublicProofClaim": true
+}

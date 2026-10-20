@@ -1,0 +1,664 @@
+{
+  "schema": "neosmartuxui/commerce-source-admission@1",
+  "sourceRepository": "NeoBrutalismshop/NeoBrutal-Commerce",
+  "sourceCommit": "493f9c0f9f91895199b6d5bdaafdf1c2d8b83d89",
+  "sourceLicense": "PolyForm Noncommercial 1.0.0",
+  "counts": {
+    "sourceEntries": 47,
+    "implementedLocal": 8,
+    "reusedCore": 1,
+    "remaining": 38
+  },
+  "note": "Wave 1 local-only; future waves require scoped contracts, tests and explicit rights review. Neither Blocks nor platform patterns count as primitive components.",
+  "entries": [
+    {
+      "sourceId": "product-card",
+      "decision": "ADAPT",
+      "state": "implemented-local",
+      "wave": 1,
+      "target": "commerce.product-card",
+      "modelRefs": [
+        "ProductView"
+      ],
+      "actionRefs": [
+        "cart.add"
+      ],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "trust-strip",
+      "decision": "PROMOTE_BLOCK",
+      "state": "pending",
+      "wave": 5,
+      "target": null,
+      "modelRefs": [],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "promo-band",
+      "decision": "PROMOTE_BLOCK",
+      "state": "pending",
+      "wave": 5,
+      "target": null,
+      "modelRefs": [],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "badge",
+      "decision": "REUSE_CORE",
+      "state": "already-in-core",
+      "wave": 0,
+      "target": "core.badge",
+      "modelRefs": [
+        "ProductView"
+      ],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "price-block",
+      "decision": "ADAPT",
+      "state": "implemented-local",
+      "wave": 1,
+      "target": "commerce.product-price",
+      "modelRefs": [
+        "ProductView"
+      ],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "product-detail",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 2,
+      "target": null,
+      "modelRefs": [
+        "ProductView"
+      ],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "product-gallery",
+      "decision": "ADAPT",
+      "state": "implemented-local",
+      "wave": 1,
+      "target": "commerce.product-gallery",
+      "modelRefs": [
+        "ProductView"
+      ],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "product-media",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 2,
+      "target": null,
+      "modelRefs": [
+        "ProductView"
+      ],
+      "actionRefs": [],
+      "stateRefs": [
+        "preview",
+        "code",
+        "files"
+      ]
+    },
+    {
+      "sourceId": "review-summary",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 2,
+      "target": null,
+      "modelRefs": [],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "testimonials",
+      "decision": "PROMOTE_BLOCK",
+      "state": "pending",
+      "wave": 5,
+      "target": null,
+      "modelRefs": [],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "guarantee",
+      "decision": "PROMOTE_BLOCK",
+      "state": "pending",
+      "wave": 5,
+      "target": null,
+      "modelRefs": [],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "license-selector",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 2,
+      "target": null,
+      "modelRefs": [
+        "ProductView"
+      ],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "renewal-note",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 2,
+      "target": null,
+      "modelRefs": [
+        "ProductView"
+      ],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "pricing-tier",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 2,
+      "target": null,
+      "modelRefs": [
+        "ProductView"
+      ],
+      "actionRefs": [
+        "cart.add"
+      ],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "plan-comparison",
+      "decision": "PROMOTE_BLOCK",
+      "state": "pending",
+      "wave": 5,
+      "target": null,
+      "modelRefs": [
+        "ProductView"
+      ],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "bundle-builder",
+      "decision": "PROMOTE_BLOCK",
+      "state": "pending",
+      "wave": 5,
+      "target": null,
+      "modelRefs": [
+        "ProductView"
+      ],
+      "actionRefs": [
+        "cart.add"
+      ],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "cart-item",
+      "decision": "ADAPT",
+      "state": "implemented-local",
+      "wave": 1,
+      "target": "commerce.cart-line",
+      "modelRefs": [
+        "CartView"
+      ],
+      "actionRefs": [
+        "cart.remove"
+      ],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "order-summary",
+      "decision": "ADAPT",
+      "state": "implemented-local",
+      "wave": 1,
+      "target": "commerce.order-summary",
+      "modelRefs": [
+        "CartView",
+        "CheckoutQuoteView"
+      ],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "coupon",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 3,
+      "target": null,
+      "modelRefs": [
+        "CartView"
+      ],
+      "actionRefs": [
+        "checkout.quote"
+      ],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "checkout-field",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 3,
+      "target": null,
+      "modelRefs": [
+        "CheckoutQuoteView"
+      ],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "invoice-details",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 3,
+      "target": null,
+      "modelRefs": [
+        "CheckoutQuoteView",
+        "InvoiceView"
+      ],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "checkout-steps",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 3,
+      "target": null,
+      "modelRefs": [
+        "CheckoutQuoteView"
+      ],
+      "actionRefs": [],
+      "stateRefs": [
+        "ready",
+        "processing",
+        "failed",
+        "recovered"
+      ]
+    },
+    {
+      "sourceId": "payment-method",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 3,
+      "target": null,
+      "modelRefs": [
+        "CheckoutQuoteView"
+      ],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "payment-failure",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 3,
+      "target": null,
+      "modelRefs": [
+        "CheckoutQuoteView"
+      ],
+      "actionRefs": [],
+      "stateRefs": [
+        "failed"
+      ]
+    },
+    {
+      "sourceId": "payment-recovery",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 3,
+      "target": null,
+      "modelRefs": [
+        "CheckoutQuoteView"
+      ],
+      "actionRefs": [
+        "checkout.quote",
+        "checkout.submit"
+      ],
+      "stateRefs": [
+        "recovered"
+      ]
+    },
+    {
+      "sourceId": "processing-state",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 3,
+      "target": null,
+      "modelRefs": [
+        "CheckoutQuoteView"
+      ],
+      "actionRefs": [],
+      "stateRefs": [
+        "processing"
+      ]
+    },
+    {
+      "sourceId": "order-confirmation",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 3,
+      "target": null,
+      "modelRefs": [
+        "OrderView"
+      ],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "receipt",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 3,
+      "target": null,
+      "modelRefs": [
+        "OrderView",
+        "InvoiceView"
+      ],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "download-entitlement",
+      "decision": "ADAPT",
+      "state": "implemented-local",
+      "wave": 1,
+      "target": "commerce.download-entitlement",
+      "modelRefs": [
+        "EntitlementView",
+        "SignedDownloadView"
+      ],
+      "actionRefs": [
+        "download.create"
+      ],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "account-nav",
+      "decision": "PROMOTE_BLOCK",
+      "state": "pending",
+      "wave": 5,
+      "target": null,
+      "modelRefs": [],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "download-row",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 4,
+      "target": null,
+      "modelRefs": [
+        "EntitlementView",
+        "SignedDownloadView"
+      ],
+      "actionRefs": [
+        "download.create"
+      ],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "purchase-history-row",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 4,
+      "target": null,
+      "modelRefs": [
+        "OrderView"
+      ],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "license-card",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 4,
+      "target": null,
+      "modelRefs": [
+        "LicenseView",
+        "EntitlementView"
+      ],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "invoice-history",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 4,
+      "target": null,
+      "modelRefs": [
+        "InvoiceView"
+      ],
+      "actionRefs": [
+        "invoice.list"
+      ],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "license-status",
+      "decision": "ADAPT",
+      "state": "implemented-local",
+      "wave": 1,
+      "target": "commerce.license-status",
+      "modelRefs": [
+        "LicenseView",
+        "EntitlementView"
+      ],
+      "actionRefs": [],
+      "stateRefs": [
+        "active",
+        "grace",
+        "expired",
+        "cancelled",
+        "refunded"
+      ]
+    },
+    {
+      "sourceId": "activation-row",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 4,
+      "target": null,
+      "modelRefs": [
+        "ActivationView"
+      ],
+      "actionRefs": [
+        "license.activations.list"
+      ],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "update-eligibility",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 4,
+      "target": null,
+      "modelRefs": [
+        "EntitlementView"
+      ],
+      "actionRefs": [],
+      "stateRefs": [
+        "active",
+        "grace",
+        "expired"
+      ]
+    },
+    {
+      "sourceId": "seat-assignment",
+      "decision": "ADAPT",
+      "state": "implemented-local",
+      "wave": 1,
+      "target": "commerce.seat-usage",
+      "modelRefs": [
+        "SeatAssignmentView"
+      ],
+      "actionRefs": [
+        "license.seats.list",
+        "seat.assign",
+        "seat.remove"
+      ],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "renewal-state",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 4,
+      "target": null,
+      "modelRefs": [
+        "EntitlementView"
+      ],
+      "actionRefs": [
+        "license.renew"
+      ],
+      "stateRefs": [
+        "active",
+        "grace",
+        "expired",
+        "cancelled",
+        "past_due"
+      ]
+    },
+    {
+      "sourceId": "plan-change",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 4,
+      "target": null,
+      "modelRefs": [
+        "PlanChangeQuoteView"
+      ],
+      "actionRefs": [
+        "license.change.quote",
+        "license.change.submit"
+      ],
+      "stateRefs": [
+        "ready",
+        "quoted",
+        "processing",
+        "complete",
+        "failed"
+      ]
+    },
+    {
+      "sourceId": "ownership-transfer",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 4,
+      "target": null,
+      "modelRefs": [
+        "OwnershipTransferView"
+      ],
+      "actionRefs": [
+        "license.transfers.list",
+        "license.transfer.create",
+        "license.transfer.cancel"
+      ],
+      "stateRefs": [
+        "ready",
+        "processing",
+        "complete",
+        "failed"
+      ]
+    },
+    {
+      "sourceId": "subscription-management",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 4,
+      "target": null,
+      "modelRefs": [
+        "SubscriptionView"
+      ],
+      "actionRefs": [
+        "subscription.get",
+        "subscription.cancel",
+        "subscription.resume"
+      ],
+      "stateRefs": [
+        "active",
+        "cancel_at_period_end",
+        "cancelled",
+        "past_due"
+      ]
+    },
+    {
+      "sourceId": "ownership-timeline",
+      "decision": "ADAPT",
+      "state": "pending",
+      "wave": 4,
+      "target": null,
+      "modelRefs": [
+        "OwnershipEventView"
+      ],
+      "actionRefs": [
+        "license.history.list"
+      ],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "component-contract",
+      "decision": "REFERENCE",
+      "state": "pending-platform-review",
+      "wave": 5,
+      "target": null,
+      "modelRefs": [],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "tokens",
+      "decision": "REFERENCE",
+      "state": "pending-platform-review",
+      "wave": 5,
+      "target": null,
+      "modelRefs": [],
+      "actionRefs": [],
+      "stateRefs": []
+    },
+    {
+      "sourceId": "system-states",
+      "decision": "REFERENCE",
+      "state": "pending-platform-review",
+      "wave": 5,
+      "target": null,
+      "modelRefs": [],
+      "actionRefs": [],
+      "stateRefs": [
+        "empty",
+        "loading",
+        "error",
+        "offline",
+        "permission",
+        "unsupported"
+      ]
+    },
+    {
+      "sourceId": "ownership-lifecycle",
+      "decision": "REFERENCE",
+      "state": "pending-platform-review",
+      "wave": 5,
+      "target": null,
+      "modelRefs": [
+        "LicenseView",
+        "SubscriptionView",
+        "OwnershipEventView"
+      ],
+      "actionRefs": [],
+      "stateRefs": []
+    }
+  ]
+}
