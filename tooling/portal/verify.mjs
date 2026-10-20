@@ -20,7 +20,21 @@ for(const item of manifest.files){
  if(/node_modules|\.env|\.git\/|library-package/.test(item.path))throw new Error('Private package or secret path leaked');
 }
 if(sha(Buffer.from(JSON.stringify(manifest.files)))!==manifest.artifactHash)throw new Error('Artifact manifest aggregate SHA mismatch');
-const old=await readFile(resolve(root,'../neosmartuxui.github.io/index.html'),'utf8');
+// The historical Foundry starts as the Pages root, then moves to /foundry/.
+// Look for its actual proof HTML, not whichever document now owns the homepage.
+const candidates=[
+ resolve(root,'../neosmartuxui.github.io/foundry/index.html'),
+ resolve(root,'artifacts/portal-stage/foundry/index.html'),
+ resolve(root,'../neosmartuxui.github.io/index.html')
+];
+let old;
+for(const candidate of candidates){
+ try{
+  const content=await readFile(candidate,'utf8');
+  if(content.includes('id="button-slice"')){old=content;break;}
+ }catch{}
+}
+if(!old)throw new Error('Historical Foundry proof not found: require a controlled Pages checkout or staged Foundry');
 const missing=catalog.items.filter(x=>x.kind==='Core'&&!old.includes('id="'+x.id.slice(5)+'-slice"'));
 if(missing.length)throw new Error('Invalid Core Foundry bookmarks: '+missing.map(x=>x.id).join(','));
 console.log('[portal] verified '+manifest.files.length+' exact files, 106 catalog entries and 50 historical Core anchors; no package publish');
