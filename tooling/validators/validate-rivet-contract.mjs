@@ -56,13 +56,13 @@ const requiredProofPaths = [
 const proofPaths = new Set(proof.implementationFiles.map((entry) => entry.path));
 if (proofPaths.size !== requiredProofPaths.length) fail('Rivet public proof must bind exactly the Light and Dark implementation inputs plus deterministic Dark assembler');
 for (const path of requiredProofPaths) if (!proofPaths.has(path)) fail(`Rivet public proof missing implementation binding: ${path}`);
-for (const assetUrl of ['https://neosmartui.github.io/rivet-theme.css', 'https://neosmartui.github.io/rivet-dark-theme.css']) {
+for (const assetUrl of ['https://neosmartuxui.github.io/rivet-theme.css', 'https://neosmartuxui.github.io/rivet-dark-theme.css']) {
   if (!(proof.live.assetUrls ?? []).includes(assetUrl)) fail(`Rivet public proof missing live Theme asset: ${assetUrl}`);
 }
 
 const docs = await readFile(resolve(root, 'spec/flavors/RIVET.md'), 'utf8');
 for (const marker of [
-  'industrial/mechanical NeoSmartUI flavor', '`flavor.rivet`', 'Official migration maturity: `public-proof`',
+  'industrial/mechanical NeoSmartUXUI flavor', '`flavor.rivet`', 'Official migration maturity: `public-proof`',
   'Public-proof record: `evidence/public/flavor.rivet.json`', '49 public-proof Core components', 'exact resolved semantic dependency union: **55 token IDs**', 'exact same **49-Core / 55-token** semantic dependency surface as Rivet Light', 'exact shipping **49-Core / 55-token** semantic dependency boundary',
   'deliberately **ratified**', 'deliberately **adapted**',
   '`/flavors/rivet/`', '`rivet-theme.css`', '`rivet-dark-theme.css`',

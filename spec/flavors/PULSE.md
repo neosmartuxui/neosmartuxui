@@ -5,7 +5,7 @@ Pulse is the SaaS-forward, high-energy NeoSmartUXUI flavor for dense product int
 ## Stable identity
 
 - Flavor ID: `flavor.pulse`
-- Flavor schema: `neosmartuxui/flavor@1`
+- Flavor schema: `neosmartui/flavor@1`
 - Interaction model: `pressure-not-levitation`
 - Flavor maturity: `public-proof`
 - Pulse Light maturity: `implemented`
@@ -57,7 +57,7 @@ Useful capability signals from the competitor research include dense application
 
 ## Pulse Light implementation
 
-`Pulse Light` is the first concrete `neosmartuxui/theme@1` Theme of `flavor.pulse`.
+`Pulse Light` is the first concrete `neosmartui/theme@1` Theme of `flavor.pulse`.
 
 It resolves the exact current shipping Core boundary:
 
@@ -97,7 +97,7 @@ The shipping Foundry route is `/flavors/pulse/`. Browser QA covers shared adapte
 
 ## Pulse Dark implementation
 
-`Pulse Dark` is the second concrete `neosmartuxui/theme@1` Theme of `flavor.pulse`. It is authored directly rather than generated through inversion or filters. Its canonical authored color strategy is `crisp-charcoal-electric-violet`.
+`Pulse Dark` is the second concrete `neosmartui/theme@1` Theme of `flavor.pulse`. It is authored directly rather than generated through inversion or filters. Its canonical authored color strategy is `crisp-charcoal-electric-violet`.
 
 Dark preserves every non-color Pulse Light invariant:
 

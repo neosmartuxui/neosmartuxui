@@ -5,7 +5,7 @@ Mono is the editorial black/white/gray NeoSmartUXUI flavor. It makes typography,
 ## Stable identity
 
 - Flavor ID: `flavor.mono`
-- Flavor schema: `neosmartuxui/flavor@1`
+- Flavor schema: `neosmartui/flavor@1`
 - First implemented Theme: `packages/themes/mono-light/theme.json`
 - Interaction model: `pressure-not-levitation`
 - Official migration maturity: `public-proof`
@@ -87,7 +87,7 @@ Mono Light deliberately keeps every resolved color role grayscale:
 
 Mono Light and Mono Dark are one evidence-bound public-proof subject under the stable `flavor.mono` identity. Promotion occurred only after the implementation merged, mandatory merged-main Quality passed, the exact merged-main artifact was independently verified, those exact bytes were deployed without rebuilding, the native Pages artifact matched every deployable source byte, and live HTTPS exposed the Dark route and Theme asset.
 
-- deployed source: `neosmartuxui/neosmartuxui@3c110fe3059d13a4030d1543948d8207faf380a9`
+- deployed source: `neosmartui/neosmartuxui@3c110fe3059d13a4030d1543948d8207faf380a9`
 - merged-main Quality run: `35300370653`
 - merged-main browser artifact: `10529716708`
 - merged-main artifact SHA-256: `afb40f8371a538875ca63409d513dd4a61da7877bc79978fa7d7537ad550fc25`

@@ -38,9 +38,9 @@ test('deployment record binds the built proof surface to the exact source SHA', 
   const response = await request.get('/deployment.json');
   expect(response.ok()).toBeTruthy();
   const record = await response.json();
-  expect(record.schema).toBe('neosmartui/deployment-record@1');
-  expect(record.sourceRepository).toBe('neosmartui/neosmartui');
-  expect(record.sourceSha).toBe(process.env.NEOSMARTUI_SOURCE_SHA);
+  expect(record.schema).toBe('neosmartuxui/deployment-record@1');
+  expect(record.sourceRepository).toBe('neosmartuxui/neosmartuxui');
+  expect(record.sourceSha).toBe((process.env.NEOSMARTUXUI_SOURCE_SHA || process.env.NEOSMARTUI_SOURCE_SHA));
   expect(record.artifact).toBe('foundry');
 });
 

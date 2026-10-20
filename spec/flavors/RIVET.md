@@ -5,7 +5,7 @@ Rivet is the industrial/mechanical NeoSmartUXUI flavor. It turns pressure, hard 
 ## Stable identity
 
 - Flavor ID: `flavor.rivet`
-- Flavor schema: `neosmartuxui/flavor@1`
+- Flavor schema: `neosmartui/flavor@1`
 - Light Theme: `packages/themes/rivet-light/theme.json`
 - Dark Theme: `packages/themes/rivet-dark/theme.json`
 - Interaction model: `pressure-not-levitation`
@@ -95,7 +95,7 @@ Public-proof promotion does not redeploy Pages. The separate proof-only source c
 
 Rivet Light reached `public-proof` only after its implementation was merged, the exact merged-main artifact was independently verified, and those exact bytes were deployed to GitHub Pages without rebuilding.
 
-- deployed source: `neosmartuxui/neosmartuxui@5ba46a5962db8241a247574ab920f47cd843925b`
+- deployed source: `neosmartui/neosmartuxui@5ba46a5962db8241a247574ab920f47cd843925b`
 - merged-main Quality run: `34709638377`
 - merged-main browser artifact: `10302489738`
 - Chromium: `111/111`

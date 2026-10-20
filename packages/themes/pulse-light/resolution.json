@@ -1,6 +1,6 @@
 {
   "$schema": "../../../spec/schemas/theme-resolution.schema.json",
-  "schema": "neosmartuxui/theme-resolution@1",
+  "schema": "neosmartui/theme-resolution@1",
   "flavor": "flavor.pulse",
   "theme": "Pulse Light",
   "bundle": "tokens.json",

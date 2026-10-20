@@ -14,12 +14,12 @@ const expectAbsent = async (path, message) => {
 };
 
 const prd = await readFile(resolve(root, 'docs/CANONICAL-PRD.md'), 'utf8');
-for (const marker of ['# 28. Theme architecture', '# 29. NeoSmartUI Studio', '# 30. Studio theme workflow', '# 37. Studio preview matrix']) {
+for (const marker of ['# 28. Theme architecture', '# 29. NeoSmartUXUI Studio', '# 30. Studio theme workflow', '# 37. Studio preview matrix']) {
   if (!prd.includes(marker)) fail(`Canonical PRD missing Studio authority: ${marker}`);
 }
 
 const roadmap = await readFile(resolve(root, 'docs/DEVELOPMENT-ROADMAP.md'), 'utf8');
-const studioIndex = roadmap.indexOf('**v0.4 NeoSmartUI Studio**');
+const studioIndex = roadmap.indexOf('**v0.4 NeoSmartUXUI Studio**');
 const blocksIndex = roadmap.indexOf('**v0.5 Core Blocks**');
 if (studioIndex < 0 || blocksIndex < 0 || studioIndex >= blocksIndex) fail('roadmap must keep v0.4 Studio before v0.5 Core Blocks');
 for (const marker of [

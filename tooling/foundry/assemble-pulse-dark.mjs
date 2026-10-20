@@ -21,4 +21,4 @@ pulseRoute = pulseRoute
   .replace(pulseReturnLink, `${pulseDarkFragment.trimEnd()}\n\n${pulseReturnLink}`);
 await writeFile(pulseRoutePath, pulseRoute);
 
-console.log(`Assembled Pulse Dark into NeoSmartUI Foundry → ${output}`);
+console.log(`Assembled Pulse Dark into NeoSmartUXUI Foundry → ${output}`);

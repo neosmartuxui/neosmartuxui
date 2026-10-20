@@ -10,7 +10,7 @@ A Core component MUST:
 
 1. be business-domain-neutral;
 2. have a stable `core.<name>` ID;
-3. publish a machine-readable `neosmartuxui/component@1` contract;
+3. publish a machine-readable `neosmartui/component@1` contract;
 4. declare all semantic-token dependencies;
 5. define state semantics before visual implementation;
 6. define keyboard, touch, RTL, reduced-motion, and forced-colors support expectations;

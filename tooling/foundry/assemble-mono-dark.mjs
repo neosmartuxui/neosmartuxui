@@ -21,4 +21,4 @@ monoRoute = monoRoute
   .replace(monoReturnLink, `${monoDarkFragment.trimEnd()}\n\n${monoReturnLink}`);
 await writeFile(monoRoutePath, monoRoute);
 
-console.log(`Assembled Mono Dark into NeoSmartUI Foundry → ${output}`);
+console.log(`Assembled Mono Dark into NeoSmartUXUI Foundry → ${output}`);

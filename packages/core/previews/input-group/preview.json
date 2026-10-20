@@ -1,6 +1,6 @@
 {
   "$schema": "../../../../spec/schemas/component-preview.schema.json",
-  "schema": "neosmartuxui/component-preview@1",
+  "schema": "neosmartui/component-preview@1",
   "component": "core.input-group",
   "fixture": "fixture.html",
   "controller": null,

@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://neosmartuxui.com/schemas/flavor@1.json",
+  "$id": "https://neosmartui.com/schemas/flavor@1.json",
   "title": "NeoSmartUXUI Flavor Manifest v1",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema", "id", "name", "intent", "interactionModel"],
   "properties": {
     "$schema": {"type": "string"},
-    "schema": {"const": "neosmartuxui/flavor@1"},
+    "schema": {"const": "neosmartui/flavor@1"},
     "id": {"type": "string", "pattern": "^flavor\\.[a-z][a-z0-9-]*$"},
     "name": {"type": "string", "minLength": 1},
     "intent": {"type": "string", "minLength": 1},

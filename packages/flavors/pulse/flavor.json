@@ -1,6 +1,6 @@
 {
   "$schema": "../../../spec/schemas/flavor.schema.json",
-  "schema": "neosmartuxui/flavor@1",
+  "schema": "neosmartui/flavor@1",
   "id": "flavor.pulse",
   "name": "Pulse",
   "intent": "SaaS-forward high-energy neo-brutalist expression with sharp geometry, compact application density, crisp neutral surfaces, saturated accent reactions, medium hard structural depth, data-heavy clarity, seated selection, and pressure-not-levitation interaction.",

@@ -1,6 +1,6 @@
 {
   "$schema": "../../spec/schemas/component-registry.schema.json",
-  "schema": "neosmartuxui/component-registry@1",
+  "schema": "neosmartui/component-registry@1",
   "domain": "core",
   "components": [
     {

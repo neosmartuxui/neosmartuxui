@@ -6,7 +6,7 @@ A release subject such as a Core component or official Flavor may advance to `pu
 
 1. **Implementation evidence** — the proof points to committed adapter/runtime, Theme, or other shipping implementation files appropriate for the subject.
 2. **Exact-SHA browser evidence** — Chromium QA passes against a Foundry build checked out from the PR head SHA (or the merged `main` SHA on push). The run must exercise the actual rendered subject rather than only inspect source text.
-3. **Deployment provenance** — the generated Foundry includes `deployment.json` with `neosmartuxui/deployment-record@1` and the exact canonical source SHA.
+3. **Deployment provenance** — the generated Foundry includes `deployment.json` with `neosmartui/deployment-record@1` and the exact canonical source SHA.
 4. **Live evidence** — the native GitHub Pages deployment serves that deployment record and the subject proof surface successfully. Flavor proofs use a dedicated Flavor route and may additionally bind live generated assets.
 5. **No maturity leap** — a CI artifact by itself is not public proof. A deployed page without exact-SHA provenance is not public proof.
 
@@ -20,7 +20,7 @@ When a newer green Foundry deployment replaces an older one, unchanged public-pr
 
 Already-proven implementation bytes may need maintenance while the current live deployment and its proof record remain valid. In that state, never rewrite the public-proof record early and never weaken structural proof to permit broad drift.
 
-An active maintenance record lives at `evidence/maintenance/<subject>.json` and uses `neosmartuxui/public-proof-maintenance@1`. It binds the exact current public-proof record blob and the exact old proven blobs for every intentionally changing proof-bound path. The declared path set MUST equal the actual proof-bound mismatch set exactly.
+An active maintenance record lives at `evidence/maintenance/<subject>.json` and uses `neosmartui/public-proof-maintenance@1`. It binds the exact current public-proof record blob and the exact old proven blobs for every intentionally changing proof-bound path. The declared path set MUST equal the actual proof-bound mismatch set exactly.
 
 Maintenance validation therefore fails when:
 

@@ -6,7 +6,7 @@ const root = resolve(import.meta.dirname, '../..');
 const source = resolve(root, 'apps/foundry/src');
 const publicDir = resolve(root, 'apps/foundry/public');
 const output = resolve(root, 'dist/foundry');
-const sourceSha = process.env.NEOSMARTUI_SOURCE_SHA || process.env.GITHUB_SHA || 'local-unpinned';
+const sourceSha = (process.env.NEOSMARTUXUI_SOURCE_SHA || process.env.NEOSMARTUI_SOURCE_SHA) || process.env.GITHUB_SHA || 'local-unpinned';
 
 if (sourceSha !== 'local-unpinned' && !/^[0-9a-f]{40}$/.test(sourceSha)) throw new Error(`Invalid source SHA: ${sourceSha}`);
 
@@ -51,10 +51,10 @@ for (const file of ['button.css', 'checkbox.css', 'checkbox.mjs', 'input.css', '
   await cp(resolve(root, 'packages/adapters/web/components', file), resolve(output, file));
 }
 await writeFile(resolve(output, 'deployment.json'), `${JSON.stringify({
-  schema: 'neosmartui/deployment-record@1',
-  sourceRepository: 'neosmartui/neosmartui',
+  schema: 'neosmartuxui/deployment-record@1',
+  sourceRepository: 'neosmartuxui/neosmartuxui',
   sourceSha,
   artifact: 'foundry'
 }, null, 2)}\n`);
 
-console.log(`Built NeoSmartUI Foundry → ${output} (${sourceSha})`);
+console.log(`Built NeoSmartUXUI Foundry → ${output} (${sourceSha})`);

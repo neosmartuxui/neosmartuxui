@@ -16,7 +16,7 @@ const expectAbsent = async (path, message) => {
 };
 
 const canonical = await readFile(resolve(root, 'docs/CANONICAL-PRD.md'), 'utf8');
-if (!canonical.includes('Hardline becomes the default NeoSmartUI personality.')) fail('Canonical PRD no longer identifies Hardline as the flagship/default Flavor');
+if (!canonical.includes('Hardline becomes the default NeoSmartUXUI personality.')) fail('Canonical PRD no longer identifies Hardline as the flagship/default Flavor');
 if (!canonical.includes('Hardline\n\nSoft\n\nRivet\n\nMono\n\nlight/dark')) fail('Canonical v0.3 Flavor Engine no longer requires the official Flavor set followed by light/dark completion');
 
 const flavor = await json('packages/flavors/hardline/flavor.json');
@@ -72,8 +72,8 @@ if (proofByPath.size !== requiredProofPaths.length) fail('Hardline public proof 
 for (const path of requiredProofPaths) if (!proofByPath.has(path)) fail(`Hardline public proof missing implementation binding: ${path}`);
 const maintenanceRecords = await loadPublicProofMaintenance({ root, fail });
 await validatePublicProofBindings({ root, subject: 'flavor.hardline', proofPath, proof, maintenanceRecords, fail });
-if (proof.live.pageUrl !== 'https://neosmartui.github.io/flavors/hardline/') fail('Hardline public proof must retain the canonical Flavor route');
-for (const assetUrl of ['https://neosmartui.github.io/hardline-theme.css', 'https://neosmartui.github.io/hardline-dark-theme.css']) {
+if (proof.live.pageUrl !== 'https://neosmartuxui.github.io/flavors/hardline/') fail('Hardline public proof must retain the canonical Flavor route');
+for (const assetUrl of ['https://neosmartuxui.github.io/hardline-theme.css', 'https://neosmartuxui.github.io/hardline-dark-theme.css']) {
   if (!(proof.live.assetUrls ?? []).includes(assetUrl)) fail(`Hardline public proof missing live Theme asset: ${assetUrl}`);
 }
 

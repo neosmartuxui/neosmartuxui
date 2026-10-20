@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://neosmartuxui.com/schemas/vertical@1.json",
+  "$id": "https://neosmartui.com/schemas/vertical@1.json",
   "title": "NeoSmartUXUI Vertical Manifest v1",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema", "id", "name", "domainPrefix", "intent"],
   "properties": {
-    "schema": {"const": "neosmartuxui/vertical@1"},
+    "schema": {"const": "neosmartui/vertical@1"},
     "id": {"type": "string", "pattern": "^vertical\\.[a-z][a-z0-9-]*$"},
     "name": {"type": "string", "minLength": 1},
     "domainPrefix": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$", "not": {"const": "core"}},

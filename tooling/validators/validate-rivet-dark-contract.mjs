@@ -47,8 +47,8 @@ if (proofByPath.size !== requiredProofPaths.length) fail('Rivet public proof mus
 for (const path of requiredProofPaths) if (!proofByPath.has(path)) fail(`Rivet public proof missing implementation binding: ${path}`);
 const maintenanceRecords = await loadPublicProofMaintenance({ root, fail });
 await validatePublicProofBindings({ root, subject: 'flavor.rivet', proofPath, proof, maintenanceRecords, fail });
-if (proof.live.pageUrl !== 'https://neosmartui.github.io/flavors/rivet/') fail('Rivet public proof must retain the canonical Flavor route');
-for (const assetUrl of ['https://neosmartui.github.io/rivet-theme.css', 'https://neosmartui.github.io/rivet-dark-theme.css']) {
+if (proof.live.pageUrl !== 'https://neosmartuxui.github.io/flavors/rivet/') fail('Rivet public proof must retain the canonical Flavor route');
+for (const assetUrl of ['https://neosmartuxui.github.io/rivet-theme.css', 'https://neosmartuxui.github.io/rivet-dark-theme.css']) {
   if (!(proof.live.assetUrls ?? []).includes(assetUrl)) fail(`Rivet public proof missing live Theme asset: ${assetUrl}`);
 }
 

@@ -2,23 +2,18 @@
 
 This document is derived from the Canonical PRD. The Canonical PRD remains authoritative.
 
-## Active development topology — GitHub first
+## Active development topology — controlled local release
 
-```text
-neosmartuxui/neosmartuxui
-        ↓
-build + test + validate
-        ↓
-GitHub Actions
-        ↓
-neosmartuxui/neosmartuxui.github.io
-        ↓
-https://neosmartuxui.github.io/
-```
+GitHub Actions stays **disabled** in every NeoSmartUXUI repository. This safety decision supersedes legacy CI/Actions prescriptions from the September 2026 archived PRD and deployment documents.
 
-`neosmartuxui/neosmartuxui` owns source, contracts, tests, tooling, and history. `neosmartuxui/neosmartuxui.github.io` owns generated deploy output only. GitHub Pages is the authoritative public host throughout active development.
+1. Build, validate, and run Chrome/Chromium browser tests on an authorized local machine or controlled VPS.
+2. Keep source in neosmartuxui/neosmartuxui; keep only generated Foundry and Studio files in neosmartuxui/neosmartuxui.github.io.
+3. Push the tested source commit, then rebuild with NEOSMARTUXUI_SOURCE_SHA set to that exact commit SHA.
+4. Deploy only generated dist/foundry root and dist/studio subdirectory by explicit local Git operation, after confirming Actions is disabled in both repositories.
+5. Verify Pages and both deployment records live, matching the exact tested source commit. Native GitHub Pages legacy publishing is not permission to enable GitHub Actions.
+6. Historical proof records are not current proof. Re-establish browser proof under the new hostname before promoting new public-proof claims.
 
-**Custom domain is deferred until the full development roadmap is complete.** `neosmartuxui.com`, Cloudflare, registrar settings, DNS records, and custom-domain certificates are deliberately out of scope during active product development. They MUST NOT block roadmap execution, CI, deployment, browser QA, or a public-proof claim that is already verifiable on the GitHub Pages host.
+GitHub Pages: https://neosmartuxui.github.io/
 
 ## Foundry baseline
 
@@ -28,21 +23,17 @@ Source lives under `apps/foundry/`. `npm run build:foundry` writes deterministic
 
 Development builds MUST NOT emit a `CNAME`. The deployment repository therefore uses its native GitHub Pages hostname until the entire development roadmap is complete and a separate custom-domain milestone is intentionally started.
 
-## Safe CI / deployment strategy
+## Safe local validation and deployment
 
-1. Pull-request CI validates repository authority, builds the Foundry from the explicit PR head SHA, and runs real Chromium browser QA.
-2. No PR or branch build pushes to the deployment repository.
-3. After merge to `main`, the same Quality workflow builds and browser-tests the exact merged SHA.
-4. The generated `dist/foundry/` and `dist/studio/` trees from a green merged SHA are the only valid publish inputs for their respective public routes.
-5. The deployment repository must remain generated output only; do not hand-maintain a divergent implementation there.
-6. A Foundry live proof claim requires the root public `deployment.json` to match its canonical merged source SHA. Studio independently exposes `/studio/deployment.json`; do not substitute one record for the other.
-7. Failed deployment must not rewrite canonical source history.
-8. Custom-domain work begins only after the full development roadmap is complete; that later migration must preserve the same source-SHA proof contract and must not weaken GitHub Pages verification.
+- Run npm run quality:restore for architecture, schemas, local contracts and local builds.
+- Run the full Foundry and Studio browser test suites on your authorized computer before publishing.
+- The strict legacy npm run quality includes archived public-proof source-byte assertions, which remain unresolved until fresh new-site proof exists. Do not bypass them and call old evidence current.
+- .github/workflows is inert historical content. Do not enable Actions or dispatch workflows.
+- Set both generated deployment records to the exact locally-tested Git commit SHA; do not edit generated HTML/CSS/JS by hand.
+- Recovered historical SHA records are archival, not reconstructed Git commit graph.
 
 ## Deployment automation and bootstrap
 
-The preferred permanent path is a dedicated cross-repository GitHub Actions deployment using a narrowly scoped credential or GitHub App installation that can write only `neosmartuxui/neosmartuxui.github.io`.
+Only authorized local agents/maintainers may perform explicit pushes after checking Actions remains disabled. No scheduled GitHub-hosted jobs, autonomous agents on runners, or unattended cross-repository deployment tasks are authorized. Existing CI references in the archival PRD do not override this safety policy.
 
-Until that credential is configured, an authorized maintainer or connected GitHub integration MAY bootstrap-publish the exact already-green `dist/foundry/` and/or `dist/studio/` artifact trees to their canonical deployment paths. The bootstrap path MUST preserve each artifact's `deployment.json`, MUST NOT edit generated files independently, and MUST be followed by native Pages plus live URL/source-SHA verification. Any Foundry cohort movement still requires the normal proof-only promotion after deployment.
-
-Custom-domain configuration is intentionally excluded from every active-development milestone. After the roadmap is complete, it may be scheduled as a separate infrastructure/release milestone.
+Custom domain is deferred until the full development roadmap is complete. The historical neosmartui.com domain should not be assumed available; no ownership or DNS is assumed for neosmartuxui.com.

@@ -39,7 +39,7 @@ const expectedIds = new Map([
   ['token-contracts.schema.json', 'https://neosmartui.com/schemas/token-contracts@1.json'],
   ['resolved-token-bundle.schema.json', 'https://neosmartui.com/schemas/resolved-token-bundle@1.json'],
   ['theme-resolution.schema.json', 'https://neosmartui.com/schemas/theme-resolution@1.json'],
-  ['deployment-record.schema.json', 'https://neosmartui.com/schemas/deployment-record@1.json'],
+  ['deployment-record.schema.json', 'https://neosmartuxui.github.io/schemas/deployment-record@1.json'],
   ['public-proof.schema.json', 'https://neosmartui.com/schemas/public-proof@1.json'],
   ['public-proof-maintenance.schema.json', 'https://neosmartui.com/schemas/public-proof-maintenance@1.json']
 ]);

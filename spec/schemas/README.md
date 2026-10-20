@@ -5,18 +5,18 @@ These schemas define stable identity and minimum machine-readable contracts. The
 ## Schema identifiers
 
 ```text
-neosmartuxui/component@1
-neosmartuxui/component-registry@1
-neosmartuxui/block@1
-neosmartuxui/page@1
-neosmartuxui/theme@1
-neosmartuxui/flavor@1
-neosmartuxui/vertical@1
-neosmartuxui/token-contracts@1
-neosmartuxui/resolved-token-bundle@1
-neosmartuxui/theme-resolution@1
-neosmartuxui/deployment-record@1
-neosmartuxui/public-proof@1
+neosmartui/component@1
+neosmartui/component-registry@1
+neosmartui/block@1
+neosmartui/page@1
+neosmartui/theme@1
+neosmartui/flavor@1
+neosmartui/vertical@1
+neosmartui/token-contracts@1
+neosmartui/resolved-token-bundle@1
+neosmartui/theme-resolution@1
+neosmartui/deployment-record@1
+neosmartui/public-proof@1
 ```
 
 Core token contracts are value-free. Concrete values appear only in resolved Flavor/Theme bundles, and adapters translate those resolved values into framework/platform output. Every deployable Foundry artifact carries a source-SHA deployment record. Public-proof records bind implementation blobs, browser evidence, deployment lineage, and canonical HTTPS endpoints.

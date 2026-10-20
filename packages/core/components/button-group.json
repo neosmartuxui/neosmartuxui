@@ -1,6 +1,6 @@
 {
   "$schema": "../../../spec/schemas/component.schema.json",
-  "schema": "neosmartuxui/component@1",
+  "schema": "neosmartui/component@1",
   "id": "core.button-group",
   "intent": "Group closely related action buttons into one recognizable control cluster without changing each button's native activation semantics.",
   "states": [

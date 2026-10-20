@@ -21,4 +21,4 @@ rivetRoute = rivetRoute
   .replace(rivetReturnLink, `${rivetDarkFragment.trimEnd()}\n\n${rivetReturnLink}`);
 await writeFile(rivetRoutePath, rivetRoute);
 
-console.log(`Assembled Rivet Dark into NeoSmartUI Foundry → ${output}`);
+console.log(`Assembled Rivet Dark into NeoSmartUXUI Foundry → ${output}`);

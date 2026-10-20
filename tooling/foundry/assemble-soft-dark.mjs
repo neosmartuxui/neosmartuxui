@@ -21,4 +21,4 @@ softRoute = softRoute
   .replace(softReturnLink, `${softDarkFragment.trimEnd()}\n\n${softReturnLink}`);
 await writeFile(softRoutePath, softRoute);
 
-console.log(`Assembled Soft Dark into NeoSmartUI Foundry → ${output}`);
+console.log(`Assembled Soft Dark into NeoSmartUXUI Foundry → ${output}`);

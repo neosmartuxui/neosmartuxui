@@ -20,7 +20,7 @@ A public surface that diverges from shipping architecture is a defect, not merel
 
 Public proof binds exact implementation bytes. A proven implementation that needs maintenance MUST NOT silently invalidate, rewrite, or prematurely refresh the live proof record while the old deployment is still public.
 
-An active `neosmartuxui/public-proof-maintenance@1` record is the only sanctioned bridge between the currently live proof and replacement source bytes. It MUST:
+An active `neosmartui/public-proof-maintenance@1` record is the only sanctioned bridge between the currently live proof and replacement source bytes. It MUST:
 
 - bind exactly one active public-proof Component or Flavor;
 - bind the exact Git blob SHA of that subject's current `evidence/public/<subject>.json` record;

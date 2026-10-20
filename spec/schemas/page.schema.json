@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://neosmartuxui.com/schemas/page@1.json",
+  "$id": "https://neosmartui.com/schemas/page@1.json",
   "title": "NeoSmartUXUI Page Contract v1",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema", "id", "layer", "domain", "intent", "states", "dependencies"],
   "properties": {
-    "schema": {"const": "neosmartuxui/page@1"},
+    "schema": {"const": "neosmartui/page@1"},
     "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*\\.page\\.[a-z][a-z0-9-]*$"},
     "layer": {"const": "page"},
     "domain": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},

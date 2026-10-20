@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://neosmartuxui.com/schemas/public-proof-maintenance@1.json",
+  "$id": "https://neosmartui.com/schemas/public-proof-maintenance@1.json",
   "title": "NeoSmartUXUI Public Proof Maintenance Record v1",
   "type": "object",
   "additionalProperties": false,
@@ -11,10 +11,10 @@
   ],
   "properties": {
     "$schema": {"const": "../../spec/schemas/public-proof-maintenance.schema.json"},
-    "schema": {"const": "neosmartuxui/public-proof-maintenance@1"},
+    "schema": {"const": "neosmartui/public-proof-maintenance@1"},
     "component": {"type": "string", "pattern": "^(?!flavor\\.|vertical\\.)[a-z][a-z0-9-]*\\.(?!block\\.|page\\.)[a-z][a-z0-9-]*$"},
     "flavor": {"type": "string", "pattern": "^flavor\\.[a-z][a-z0-9-]*$"},
-    "trackingIssue": {"type": "string", "pattern": "^https://github\\.com/neosmartuxui/neosmartuxui/issues/[1-9][0-9]*$"},
+    "trackingIssue": {"type": "string", "pattern": "^https://github\\.com/neosmartui/neosmartui/issues/[1-9][0-9]*$"},
     "proofRecord": {
       "type": "object",
       "additionalProperties": false,

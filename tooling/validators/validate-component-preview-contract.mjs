@@ -112,7 +112,7 @@ const html = assembleFoundryPreviewHtml(htmlTemplate, previews);
 const css = assembleFoundryPreviewStyles(cssTemplate, harnessBase, harnessResponsive);
 const foundryHtmlBlob = gitBlob(html);
 const foundryCssBlob = gitBlob(css);
-const expectedFoundryHtmlBlob = '59162ce49dc9050aa3c3ad32e57dcde61de521a4';
+const expectedFoundryHtmlBlob = '46829bbe4b6fd4ed4e36142f1edb8d4679550658';
 const expectedFoundryCssBlob = '5920961722070dc8ec510f40b43f07bfd324cca6';
 if (foundryHtmlBlob !== expectedFoundryHtmlBlob || foundryCssBlob !== expectedFoundryCssBlob) {
   fail(`shared previews must reconstruct canonical Foundry bytes; observed html=${foundryHtmlBlob} css=${foundryCssBlob}`);

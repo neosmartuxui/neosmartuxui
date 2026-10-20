@@ -1452,7 +1452,7 @@ Canonical schema:
 
 ```json
 {
-  "schema": "neosmartuxui/theme@1",
+  "schema": "neosmartui/theme@1",
   "name": "Hardline",
   "family": "neosmartuxui",
   "category": "neo-brutalist",
@@ -2277,7 +2277,7 @@ Example:
 
 ```json
 {
-  "schema": "neosmartuxui/component@1",
+  "schema": "neosmartui/component@1",
   "id": "core.button",
 
   "layer": "component",
@@ -2342,10 +2342,10 @@ The schema identifies the NeoSmartUXUI ecosystem.
 Example:
 
 ```text
-neosmartuxui/component@1
-neosmartuxui/block@1
-neosmartuxui/page@1
-neosmartuxui/theme@1
+neosmartui/component@1
+neosmartui/block@1
+neosmartui/page@1
+neosmartui/theme@1
 
 ```
 
@@ -3169,7 +3169,7 @@ No arbitrary component-count race.
 Exit:
 
 ```text
-neosmartuxui/theme@1
+neosmartui/theme@1
 
 Hardline
 

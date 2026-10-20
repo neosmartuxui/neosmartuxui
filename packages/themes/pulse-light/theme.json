@@ -1,8 +1,8 @@
 {
   "$schema": "../../../spec/schemas/theme.schema.json",
-  "schema": "neosmartuxui/theme@1",
+  "schema": "neosmartui/theme@1",
   "name": "Pulse Light",
-  "family": "neosmartuxui",
+  "family": "neosmartui",
   "category": "pulse",
   "color": {
     "mode": "light",

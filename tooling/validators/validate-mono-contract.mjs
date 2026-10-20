@@ -99,7 +99,7 @@ const expectedProofPaths = [
   'tooling/foundry/assemble-mono-dark.mjs'
 ];
 if (proof.implementationFiles.map((entry) => entry.path).join('|') !== expectedProofPaths.join('|')) fail('Mono public proof must bind exactly four Light inputs plus five Dark implementation inputs');
-if ((proof.live.assetUrls ?? []).join('|') !== ['https://neosmartui.github.io/mono-theme.css','https://neosmartui.github.io/mono-dark-theme.css'].join('|')) fail('Mono public proof must bind both live Light and Dark Theme assets');
+if ((proof.live.assetUrls ?? []).join('|') !== ['https://neosmartuxui.github.io/mono-theme.css','https://neosmartuxui.github.io/mono-dark-theme.css'].join('|')) fail('Mono public proof must bind both live Light and Dark Theme assets');
 const provenRoute = proof.implementationFiles.find((entry) => entry.path === 'apps/foundry/src/flavors/mono/index.html');
 if (!provenRoute) fail('Mono Light public proof must retain the canonical source-route binding');
 const routeBytes = await readFile(resolve(root, provenRoute.path));
@@ -108,7 +108,7 @@ if (routeBlob !== provenRoute.blobSha) fail('Mono Dark public proof must keep th
 
 const docs = await readFile(resolve(root, 'spec/flavors/MONO.md'), 'utf8');
 for (const marker of [
-  'editorial black/white/gray NeoSmartUI flavor',
+  'editorial black/white/gray NeoSmartUXUI flavor',
   '`flavor.mono`',
   'Official migration maturity: `public-proof`',
   'Public-proof record: `evidence/public/flavor.mono.json`',

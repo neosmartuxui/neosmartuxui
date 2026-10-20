@@ -22,7 +22,7 @@ for (const file of required) await access(resolve(root, file));
 
 const prd = await readFile(resolve(root, 'docs/CANONICAL-PRD.md'), 'utf8');
 const requiredPrdMarkers = [
-  '# NeoSmartUI',
+  '# NeoSmartUXUI',
   '## Canonical PRD, Architecture, Migration, Competitive Strategy & Execution Plan',
   '**Document version:** 0.4',
   '# 1. Executive decision',
@@ -62,7 +62,7 @@ for (const source of inventory.sources) {
 if (!Array.isArray(inventory.artifacts)) throw new Error('Migration inventory artifacts must be an array.');
 
 const deploymentDoc = await readFile(resolve(root, 'docs/FOUNDRY-DEPLOYMENT.md'), 'utf8');
-if (!deploymentDoc.includes('https://neosmartui.github.io/')) throw new Error('Foundry deployment contract must name the GitHub Pages host.');
+if (!deploymentDoc.includes('https://neosmartuxui.github.io/')) throw new Error('Foundry deployment contract must name the GitHub Pages host.');
 if (!deploymentDoc.includes('Custom domain is deferred')) throw new Error('Foundry deployment contract must explicitly defer custom-domain hosting.');
 
 console.log('Foundation validation passed. Canonical PRD authority, legacy source pins, and GitHub-first Foundry baseline are present.');

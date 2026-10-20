@@ -1,5 +1,9 @@
 # NeoSmartUXUI
 
+
+> **Recovery / proof status (2026-10-20):** This NeoSmartUXUI repository was restored from verified GitHub API snapshots as new commits. Current local builds and browser tests can be verified, but legacy live public-proof evidence refers to the former NeoSmartUI domain and historical source SHA. It has **not** been re-established for the new hostname. GitHub Actions is intentionally disabled. See [Restore and local release](docs/RESTORE-AND-LOCAL-RELEASE.md).
+
+
 **NeoSmartUXUI — The AI-first neo-brutalist UI system.**
 
 Built for humans. Structured for agents.

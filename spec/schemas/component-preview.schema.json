@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://neosmartuxui.com/schemas/component-preview@1.json",
+  "$id": "https://neosmartui.com/schemas/component-preview@1.json",
   "title": "NeoSmartUXUI Component Preview Contract v1",
   "type": "object",
   "additionalProperties": false,
@@ -17,7 +17,7 @@
   ],
   "properties": {
     "$schema": {"type": "string"},
-    "schema": {"const": "neosmartuxui/component-preview@1"},
+    "schema": {"const": "neosmartui/component-preview@1"},
     "component": {
       "type": "string",
       "pattern": "^(?!flavor\\.|vertical\\.)[a-z][a-z0-9-]*\\.(?!block\\.|page\\.)[a-z][a-z0-9-]*$"

@@ -5,7 +5,7 @@ Soft is the calm application-oriented NeoSmartUXUI flavor for long-session inter
 ## Stable identity
 
 - Flavor ID: `flavor.soft`
-- Flavor schema: `neosmartuxui/flavor@1`
+- Flavor schema: `neosmartui/flavor@1`
 - Implemented light Theme: `packages/themes/soft-light/theme.json`
 - Implemented dark Theme: `packages/themes/soft-dark/theme.json`
 - Interaction model: `pressure-not-levitation`
@@ -27,7 +27,7 @@ Soft MUST NOT own Button/Dialog/Product/Checkout/Billing behavior, SaaS workspac
 
 ## Soft Light implementation
 
-`Soft Light` is a concrete schema-valid `neosmartuxui/theme@1` implementation. Its resolution is explicit and machine-readable:
+`Soft Light` is a concrete schema-valid `neosmartui/theme@1` implementation. Its resolution is explicit and machine-readable:
 
 - `packages/themes/soft-light/tokens.json`
 - `packages/themes/soft-light/resolution.json`
@@ -86,7 +86,7 @@ Soft Dark is `public-proof`. The machine-readable record binds both Light and Da
 
 The initial verified Soft Dark public-proof cohort was:
 
-- deployed implementation source `neosmartuxui/neosmartuxui@20b32bba63f5882b17193eaca093e315c214ccd6`;
+- deployed implementation source `neosmartui/neosmartuxui@20b32bba63f5882b17193eaca093e315c214ccd6`;
 - merged-main Quality run `34721447129`;
 - merged-main browser artifact `10306147715`;
 - Chromium `130/130` with zero skipped, unexpected, or flaky tests;
@@ -108,7 +108,7 @@ The contract established that Soft Dark is the second concrete Theme instance of
 
 Soft Light originally reached `public-proof` only after implementation merged and the exact merged-main artifact was independently verified and deployed without rebuilding. Its original proof lifecycle used:
 
-- implementation source `neosmartuxui/neosmartuxui@5e999f2e62dc7727ebb74a9c79c5bd40513d6d0d`
+- implementation source `neosmartui/neosmartuxui@5e999f2e62dc7727ebb74a9c79c5bd40513d6d0d`
 - merged-main Quality run `34707268277`
 - merged-main browser artifact `10301797631`
 - Chromium `105/105`

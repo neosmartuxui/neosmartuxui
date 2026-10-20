@@ -1,8 +1,8 @@
 {
   "$schema": "../../../spec/schemas/theme.schema.json",
-  "schema": "neosmartuxui/theme@1",
+  "schema": "neosmartui/theme@1",
   "name": "Hardline Light",
-  "family": "neosmartuxui",
+  "family": "neosmartui",
   "category": "hardline",
   "color": {"mode":"light","strategy":"high-reaction"},
   "typography": {"strategy":"sharp-system-first"},

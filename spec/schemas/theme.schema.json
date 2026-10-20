@@ -1,15 +1,15 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://neosmartuxui.com/schemas/theme@1.json",
+  "$id": "https://neosmartui.com/schemas/theme@1.json",
   "title": "NeoSmartUXUI Theme Contract v1",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema", "name", "family", "category", "color", "typography", "geometry", "border", "shadow", "spacing", "density", "motion", "interaction", "icons"],
   "properties": {
     "$schema": {"type": "string"},
-    "schema": {"const": "neosmartuxui/theme@1"},
+    "schema": {"const": "neosmartui/theme@1"},
     "name": {"type": "string", "minLength": 1},
-    "family": {"const": "neosmartuxui"},
+    "family": {"const": "neosmartui"},
     "category": {"type": "string", "minLength": 1},
     "color": {"type": "object"},
     "typography": {"type": "object"},

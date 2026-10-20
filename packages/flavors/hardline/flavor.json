@@ -1,6 +1,6 @@
 {
   "$schema": "../../../spec/schemas/flavor.schema.json",
-  "schema": "neosmartuxui/flavor@1",
+  "schema": "neosmartui/flavor@1",
   "id": "flavor.hardline",
   "name": "Hardline",
   "intent": "Flagship sharp neo-brutalist expression with square geometry, hard boundaries, strong structural depth, high color reaction, seated selection, and pressure-not-levitation interaction.",

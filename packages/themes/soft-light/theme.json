@@ -1,8 +1,8 @@
 {
   "$schema": "../../../spec/schemas/theme.schema.json",
-  "schema": "neosmartuxui/theme@1",
+  "schema": "neosmartui/theme@1",
   "name": "Soft Light",
-  "family": "neosmartuxui",
+  "family": "neosmartui",
   "category": "soft",
   "color": {"mode":"light","strategy":"warm-neutral-softened-blue"},
   "typography": {"strategy":"readable-system-first"},

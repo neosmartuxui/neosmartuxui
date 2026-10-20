@@ -5,7 +5,7 @@ Hardline is the flagship/default NeoSmartUXUI flavor. It owns visual and tactile
 ## Stable identity
 
 - Flavor ID: `flavor.hardline`
-- Flavor schema: `neosmartuxui/flavor@1`
+- Flavor schema: `neosmartui/flavor@1`
 - Implemented light Theme: `packages/themes/hardline-light/theme.json`
 - Implemented dark Theme: `packages/themes/hardline-dark/theme.json`
 - Resolved Light bundle: `packages/themes/hardline-light/tokens.json`
@@ -45,7 +45,7 @@ The resolved bundle contains exactly the 55 semantic roles currently required by
 
 ## Hardline Dark implementation
 
-Dark mode follows as its own concrete Theme instance rather than hidden conditional values inside the light Theme. `Hardline Dark` is the second concrete Theme instance of `flavor.hardline`. It is authored as its own `neosmartuxui/theme@1` descriptor, resolution, and 55-token bundle and is not implemented as CSS inversion, filter-based dark mode, or hidden conditional values inside Hardline Light.
+Dark mode follows as its own concrete Theme instance rather than hidden conditional values inside the light Theme. `Hardline Dark` is the second concrete Theme instance of `flavor.hardline`. It is authored as its own `neosmartui/theme@1` descriptor, resolution, and 55-token bundle and is not implemented as CSS inversion, filter-based dark mode, or hidden conditional values inside Hardline Light.
 
 Hardline Dark resolves the exact shipping **49-Core / 55-token** semantic dependency boundary while preserving the complete Hardline structural and interaction model.
 
