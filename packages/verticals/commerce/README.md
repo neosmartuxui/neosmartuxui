@@ -37,3 +37,11 @@ The separate source-admission.json covers all 47 Commerce source IDs without pre
 ## Wave 2 - local catalog/offer admission
 
 Six more catalog/offer entries are implemented locally: product-detail, product-media, review-summary, license-selector, renewal-note, pricing-tier. Product-media has keyboard-operable preview/code/files tabs; license-selector explicitly selects offers through a caller callback. Pricing-tier does not fabricate provider success. Review scores/counts and renewal messages come from the provider. Total implemented Commerce entries: 14; Core stays at 50. Not yet a public release.
+
+## Wave 3 - checkout/payment local admission
+
+Ten additional components are implemented locally: coupon, checkout-field, invoice-details, checkout-steps, payment-method, payment-failure, payment-recovery, processing-state, order-confirmation and receipt. Together with Waves 1/2 this makes 24 locally implemented Commerce components, alongside 50 unchanged Core components.
+
+Authority boundaries: Coupon callbacks return provider accepted/rejected states. Billing draft updates require an adapter acknowledgement. Payment choices are safe descriptors, never raw card credentials or tokens. Checkout recovery cannot be claimed without a provider response. Confirmations require status confirmed; receipt records require status paid; neither implies unverified entitlements. A receipt is not a tax invoice.
+
+No live checkout SDK, backend, payment capture, gateway integration, or real provider validation is implemented in Wave 3. No remote push or public proof.

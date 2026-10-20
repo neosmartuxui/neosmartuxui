@@ -1,6 +1,7 @@
 import {defineConfig} from '@playwright/test';
 export default defineConfig({
   testDir:'./tests/commerce',
+  outputDir:'./artifacts/commerce-test-results',
   timeout:30000,
   expect:{timeout:12000},
   fullyParallel:false,

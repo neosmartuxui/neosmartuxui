@@ -1,5 +1,6 @@
 import {renderProductPrice,renderProductCard,renderProductGallery,renderCartLine,renderOrderSummary,renderLicenseStatus,renderSeatUsage,renderDownloadEntitlement} from './components.mjs';
 import {renderProductDetail,renderProductMedia,renderReviewSummary,renderLicenseSelector,renderRenewalNote,renderPricingTier} from './wave2.mjs';
+import {renderCoupon,renderCheckoutField,renderInvoiceDetails,renderCheckoutSteps,renderPaymentMethod,renderPaymentFailure,renderPaymentRecovery,renderProcessingState,renderOrderConfirmation,renderReceipt} from './wave3.mjs';
 const $=(selector)=>document.querySelector(selector);
 const money=(amount)=>({amount,currency:'USD'});
 const root=$('#components');
@@ -24,6 +25,16 @@ const fixture=[
   ['license-selector',renderLicenseSelector({label:'Choose a license',offers:[{id:'solo',label:'Individual',price:money(49),interval:'per year'},{id:'team',label:'Team',price:money(129),interval:'per year'}]},{onChange:id=>{window.__selectedLicense=id;}})],
   ['renewal-note',renderRenewalNote({message:'Renewal is optional; provider terms determine access after the first year.',renewsAt:'2027-10-20',policyUrl:'./index.html'})],
   ['pricing-tier',renderPricingTier({id:'team',label:'Team plan',price:money(129),description:'Five seats from a provider offer.',features:['Updates for 12 months','Five team seats']},{onSelect:id=>{window.__requestedTier=id;}})],
+  ['coupon',renderCoupon({appliedCode:'WELCOME'},{onApply:async code=>{window.__couponRequests=(window.__couponRequests||[]).concat(code);return {status:'accepted',message:'Provider quote accepted this code. Request a new order summary.'};}})],
+  ['checkout-field',renderCheckoutField({id:'contactEmail',label:'Contact email',value:'demo@example.com',type:'email',required:true,autocomplete:'email'},{onChange:(key,value)=>{window.__checkoutField={key,value};}})],
+  ['invoice-details',renderInvoiceDetails({legalName:'Demo Business',billingEmail:'billing@example.com',billingAddress:'123 Example Street'},{onSave:async draft=>{window.__billingDraft=draft;return {status:'saved',message:'Billing details saved by demo provider.'};}})],
+  ['checkout-steps',renderCheckoutSteps({steps:[{id:'details',label:'Details'},{id:'payment',label:'Payment'},{id:'receipt',label:'Receipt'}],currentId:'payment',status:'ready'})],
+  ['payment-method',renderPaymentMethod({methods:[{id:'wallet',label:'Provider wallet',description:'Handled on the provider secure page'},{id:'card-on-provider',label:'Card with provider',description:'No card data collected here'}]},{onChange:id=>{window.__paymentMethod=id;}})],
+  ['payment-failure',renderPaymentFailure({code:'PROVIDER_DECLINED',message:'The payment provider did not complete this attempt.',retryable:true},{onRetry:async code=>{window.__paymentRetry=code;}})],
+  ['payment-recovery',renderPaymentRecovery({quoteId:'sample-quote',message:'Quote retained for a new provider check.'},{onRecover:async id=>{window.__recoveryRequest=id;return {status:'recovered',message:'Provider confirmed a recoverable quote.'};}})],
+  ['processing-state',renderProcessingState({label:'Payment processing',message:'Waiting for authoritative confirmation.'})],
+  ['order-confirmation',renderOrderConfirmation({id:'ORDER-DEMO-100',status:'confirmed',total:money(95),entitlements:[{productId:'Neo Studio Kit',delivered:false}]})],
+  ['receipt',renderReceipt({id:'RECEIPT-DEMO-100',orderId:'ORDER-DEMO-100',status:'paid',amount:money(95),paidAt:'2026-10-20',invoiceId:'INV-100'})],
   ['download-entitlement',renderDownloadEntitlement({id:'entitlement-1',productId:'Neo Studio Kit',downloadAllowed:true},{onRequest:async()=>{window.__downloadRequests=(window.__downloadRequests||0)+1;}})]
 ];
 for(const [name,component] of fixture){

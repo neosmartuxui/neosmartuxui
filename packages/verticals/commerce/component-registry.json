@@ -250,6 +250,185 @@
         "core.badge"
       ],
       "status": "implemented-local"
+    },
+    {
+      "id": "commerce.coupon",
+      "sourceId": "coupon",
+      "model": "ProviderCheckoutView",
+      "module": "renderCoupon",
+      "modulePath": "wave3.mjs",
+      "states": [
+        "ready",
+        "processing",
+        "accepted",
+        "rejected",
+        "error"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.checkout-field",
+      "sourceId": "checkout-field",
+      "model": "ProviderCheckoutView",
+      "module": "renderCheckoutField",
+      "modulePath": "wave3.mjs",
+      "states": [
+        "rest",
+        "invalid"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.invoice-details",
+      "sourceId": "invoice-details",
+      "model": "ProviderCheckoutView",
+      "module": "renderInvoiceDetails",
+      "modulePath": "wave3.mjs",
+      "states": [
+        "rest",
+        "invalid",
+        "saving",
+        "saved",
+        "rejected",
+        "error"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.checkout-steps",
+      "sourceId": "checkout-steps",
+      "model": "ProviderCheckoutView",
+      "module": "renderCheckoutSteps",
+      "modulePath": "wave3.mjs",
+      "states": [
+        "ready",
+        "processing",
+        "failed",
+        "recovered"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.payment-method",
+      "sourceId": "payment-method",
+      "model": "ProviderCheckoutView",
+      "module": "renderPaymentMethod",
+      "modulePath": "wave3.mjs",
+      "states": [
+        "rest",
+        "selected"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.payment-failure",
+      "sourceId": "payment-failure",
+      "model": "ProviderCheckoutView",
+      "module": "renderPaymentFailure",
+      "modulePath": "wave3.mjs",
+      "states": [
+        "failed",
+        "retrying",
+        "awaiting-provider"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.payment-recovery",
+      "sourceId": "payment-recovery",
+      "model": "ProviderCheckoutView",
+      "module": "renderPaymentRecovery",
+      "modulePath": "wave3.mjs",
+      "states": [
+        "ready",
+        "processing",
+        "recovered",
+        "failed"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.processing-state",
+      "sourceId": "processing-state",
+      "model": "ProviderCheckoutView",
+      "module": "renderProcessingState",
+      "modulePath": "wave3.mjs",
+      "states": [
+        "processing"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.order-confirmation",
+      "sourceId": "order-confirmation",
+      "model": "ProviderCheckoutView",
+      "module": "renderOrderConfirmation",
+      "modulePath": "wave3.mjs",
+      "states": [
+        "confirmed"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.receipt",
+      "sourceId": "receipt",
+      "model": "ProviderCheckoutView",
+      "module": "renderReceipt",
+      "modulePath": "wave3.mjs",
+      "states": [
+        "paid"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
     }
   ],
   "themes": [

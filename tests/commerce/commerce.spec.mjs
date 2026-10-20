@@ -12,8 +12,8 @@ test.beforeEach(async({page})=>{
   await expect(page.locator('body')).toHaveAttribute('data-commerce-ready','true');
 });
 
-test('14 Commerce components render from normalized provider data, without fictitious outcomes',async({page})=>{
-  await expect(page.locator('.demo-box > [data-commerce-component]')).toHaveCount(14);
+test('24 Commerce components render from normalized provider data, without fictitious outcomes',async({page})=>{
+  await expect(page.locator('.demo-box > [data-commerce-component]')).toHaveCount(24);
   await expect(page.locator('[data-component="product-price"] > [data-commerce-component="product-price"]')).toContainText('$49.00');
   await expect(page.locator('[data-component="product-price"] > [data-commerce-component="product-price"] del')).toHaveText('$79.00');
   await expect(page.locator('[data-commerce-component="product-card"]')).toContainText('Neo Studio Kit');
@@ -93,7 +93,7 @@ for(const theme of cases){
     expect(variables.panel).toMatch(/^#[0-9a-fA-F]{6}$/);
     expect(variables.font).not.toBe('');
     expect(parseFloat(variables.border)).toBeGreaterThan(0);
-    await expect(page.locator('.demo-box > [data-commerce-component]')).toHaveCount(14);
+    await expect(page.locator('.demo-box > [data-commerce-component]')).toHaveCount(24);
     expect(page.__commerceErrors).toEqual([]);
   });
 }

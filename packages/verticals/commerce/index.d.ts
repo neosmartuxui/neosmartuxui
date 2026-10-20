@@ -32,3 +32,20 @@ export function renderLicenseSelector(model:{label?:string;offers:LicenseOffer[]
 export function renderRenewalNote(note:{label?:string;message:string;renewsAt?:string;policyUrl?:string}):HTMLElement;
 export function renderPricingTier(offer:LicenseOffer,options?:{onSelect?:(id:string)=>Promise<unknown>|unknown;locale?:string}):HTMLElement;
 export const COMMERCE_WAVE2_RENDERERS:Readonly<Record<string,DOMRenderer>>;
+
+export type CheckoutStep={id:string;label:string};
+export type PaymentOption={id:string;label:string;description?:string};
+export type CouponResult={status:'accepted'|'rejected';message:string};
+export type RecoveryResult={status:'recovered'|'failed';message:string};
+export type BillingUpdate={legalName:string;billingEmail:string;billingAddress:string;taxIdentifier:string};
+export function renderCoupon(model?:{label?:string;placeholder?:string;appliedCode?:string},opts?:{onApply?:(code:string)=>Promise<CouponResult>|CouponResult}):HTMLElement;
+export function renderCheckoutField(model:{id:string;label:string;value?:string;required?:boolean;type?:'text'|'email'|'tel';autocomplete?:string;helpText?:string;error?:string},opts?:{onChange?:(id:string,value:string)=>void}):HTMLElement;
+export function renderInvoiceDetails(details:Partial<BillingUpdate>,opts?:{onSave?:(draft:BillingUpdate)=>Promise<{status:'saved'|'rejected';message:string}>}):HTMLElement;
+export function renderCheckoutSteps(model:{steps:CheckoutStep[];currentId:string;status?:'ready'|'processing'|'failed'|'recovered'}):HTMLElement;
+export function renderPaymentMethod(model:{methods:PaymentOption[];selectedId?:string},opts?:{onChange?:(id:string)=>void}):HTMLElement;
+export function renderPaymentFailure(model:{code:string;message:string;retryable?:boolean},opts?:{onRetry?:(code:string)=>Promise<unknown>|unknown}):HTMLElement;
+export function renderPaymentRecovery(model:{quoteId:string;message:string;status?:'ready'|'failed'|'recovered'},opts?:{onRecover?:(quoteId:string)=>Promise<RecoveryResult>|RecoveryResult}):HTMLElement;
+export function renderProcessingState(model:{label?:string;message?:string;attemptId?:string}):HTMLElement;
+export function renderOrderConfirmation(model:{id:string;status:'confirmed';total?:Money;entitlements?:{productId:string;delivered:boolean}[]},opts?:{locale?:string}):HTMLElement;
+export function renderReceipt(model:{id:string;orderId:string;status:'paid';amount:Money;paidAt?:string;invoiceId?:string},opts?:{locale?:string}):HTMLElement;
+export const COMMERCE_WAVE3_RENDERERS:Readonly<Record<string,DOMRenderer>>;

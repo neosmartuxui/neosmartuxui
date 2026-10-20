@@ -18,6 +18,7 @@ await writeFile(resolve(out,'core.css'),coreCSS.join('\n'));
 await cp(resolve(root,'packages/verticals/commerce/commerce.css'),resolve(out,'commerce.css'));
 await cp(resolve(root,'packages/verticals/commerce/components.mjs'),resolve(out,'components.mjs'));
 await cp(resolve(root,'packages/verticals/commerce/wave2.mjs'),resolve(out,'wave2.mjs'));
+await cp(resolve(root,'packages/verticals/commerce/wave3.mjs'),resolve(out,'wave3.mjs'));
 await cp(resolve(root,'tooling/commerce/demo.mjs'),resolve(out,'demo.mjs'));
 await cp(resolve(root,'apps/foundry/public/favicon.ico'),resolve(out,'favicon.ico'));
 for(const [name,fill,letter] of [['product-1','#78cce2','N'],['product-2','#ffd780','S']]){

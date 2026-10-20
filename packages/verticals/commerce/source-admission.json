@@ -5,9 +5,9 @@
   "sourceLicense": "PolyForm Noncommercial 1.0.0",
   "counts": {
     "sourceEntries": 47,
-    "implementedLocal": 14,
+    "implementedLocal": 24,
     "reusedCore": 1,
-    "remaining": 32
+    "remaining": 22
   },
   "note": "Local-only migration: owner explicitly authorizes cross-project reuse under NeoSmartUXUI's intended terms. NeoSmartUXUI's exact license remains undocumented in a top-level LICENSE file; honor third-party rights. Blocks and platform patterns are not counted as primitives.",
   "entries": [
@@ -233,9 +233,9 @@
     {
       "sourceId": "coupon",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 3,
-      "target": null,
+      "target": "commerce.coupon",
       "modelRefs": [
         "CartView"
       ],
@@ -247,9 +247,9 @@
     {
       "sourceId": "checkout-field",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 3,
-      "target": null,
+      "target": "commerce.checkout-field",
       "modelRefs": [
         "CheckoutQuoteView"
       ],
@@ -259,9 +259,9 @@
     {
       "sourceId": "invoice-details",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 3,
-      "target": null,
+      "target": "commerce.invoice-details",
       "modelRefs": [
         "CheckoutQuoteView",
         "InvoiceView"
@@ -272,9 +272,9 @@
     {
       "sourceId": "checkout-steps",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 3,
-      "target": null,
+      "target": "commerce.checkout-steps",
       "modelRefs": [
         "CheckoutQuoteView"
       ],
@@ -289,9 +289,9 @@
     {
       "sourceId": "payment-method",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 3,
-      "target": null,
+      "target": "commerce.payment-method",
       "modelRefs": [
         "CheckoutQuoteView"
       ],
@@ -301,9 +301,9 @@
     {
       "sourceId": "payment-failure",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 3,
-      "target": null,
+      "target": "commerce.payment-failure",
       "modelRefs": [
         "CheckoutQuoteView"
       ],
@@ -315,9 +315,9 @@
     {
       "sourceId": "payment-recovery",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 3,
-      "target": null,
+      "target": "commerce.payment-recovery",
       "modelRefs": [
         "CheckoutQuoteView"
       ],
@@ -332,9 +332,9 @@
     {
       "sourceId": "processing-state",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 3,
-      "target": null,
+      "target": "commerce.processing-state",
       "modelRefs": [
         "CheckoutQuoteView"
       ],
@@ -346,9 +346,9 @@
     {
       "sourceId": "order-confirmation",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 3,
-      "target": null,
+      "target": "commerce.order-confirmation",
       "modelRefs": [
         "OrderView"
       ],
@@ -358,9 +358,9 @@
     {
       "sourceId": "receipt",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 3,
-      "target": null,
+      "target": "commerce.receipt",
       "modelRefs": [
         "OrderView",
         "InvoiceView"

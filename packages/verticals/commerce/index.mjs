@@ -1,3 +1,4 @@
 export {formatMoney,renderProductPrice,renderProductCard,renderProductGallery,renderCartLine,renderOrderSummary,renderLicenseStatus,renderSeatUsage,renderDownloadEntitlement,COMMERCE_RENDERERS} from './components.mjs';
 
 export {renderProductDetail,renderProductMedia,renderReviewSummary,renderLicenseSelector,renderRenewalNote,renderPricingTier,COMMERCE_WAVE2_RENDERERS} from './wave2.mjs';
+export {renderCoupon,renderCheckoutField,renderInvoiceDetails,renderCheckoutSteps,renderPaymentMethod,renderPaymentFailure,renderPaymentRecovery,renderProcessingState,renderOrderConfirmation,renderReceipt,COMMERCE_WAVE3_RENDERERS} from './wave3.mjs';
