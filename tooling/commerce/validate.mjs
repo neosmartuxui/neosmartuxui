@@ -9,21 +9,22 @@ const core=await json('packages/core/component-registry.json');
 const admission=await json('packages/verticals/commerce/source-admission.json');
 const tokens=await json('spec/core/token-contracts.json');
 if(reg.schema!=='neosmartuxui/commerce-component-registry@1'||reg.vertical!=='commerce')fail('Commerce registry identity');
-if(reg.components.length!==8||reg.maturity!=='implemented-local'||reg.noPublicProofClaim!==true)fail('False local maturity claim');
+if(reg.components.length!==14||reg.maturity!=='implemented-local'||reg.noPublicProofClaim!==true)fail('False local maturity claim');
 if(core.components.length!==50||core.components.filter(x=>x.maturity==='public-proof').length!==49)fail('Core singleton changed');
 if(reg.themes.length!==10||new Set(reg.themes).size!==10)fail('Expected original 10 Theme instances');
 const coreIds=new Set(core.components.map(x=>x.id));
 const modules=await import(pathToFileURL(resolve(root,'packages/verticals/commerce/components.mjs')).href);
-const expected=new Set(['commerce.product-price','commerce.product-card','commerce.product-gallery','commerce.cart-line','commerce.order-summary','commerce.license-status','commerce.seat-usage','commerce.download-entitlement']);
+const wave2=await import(pathToFileURL(resolve(root,'packages/verticals/commerce/wave2.mjs')).href);
+const expected=new Set(['commerce.product-price','commerce.product-card','commerce.product-gallery','commerce.cart-line','commerce.order-summary','commerce.license-status','commerce.seat-usage','commerce.download-entitlement','commerce.product-detail','commerce.product-media','commerce.review-summary','commerce.license-selector','commerce.renewal-note','commerce.pricing-tier']);
 for(const c of reg.components){
   if(!expected.delete(c.id))fail('Duplicate, unexpected, or missing registry ID '+c.id);
   if(coreIds.has(c.id)||!c.id.startsWith('commerce.'))fail('Component collision with Core');
-  if(typeof modules[c.module]!=='function')fail('Renderer missing for '+c.id);
+  if(typeof (c.modulePath==='wave2.mjs'?wave2:modules)[c.module]!=='function')fail('Renderer missing for '+c.id);
   if(c.status!=='implemented-local'||!c.composesCore.every(x=>coreIds.has(x)))fail('Invalid Core usage or maturity '+c.id);
   if(!c.states.length)fail('Missing states '+c.id);
 }
 if(expected.size)fail('Missing '+[...expected].join(','));
-if(admission.entries.length!==47||admission.counts.implementedLocal!==8||admission.counts.reusedCore!==1)fail('Original Commerce admission count drift');
+if(admission.entries.length!==47||admission.counts.implementedLocal!==14||admission.counts.reusedCore!==1)fail('Original Commerce admission count drift');
 const recorded=new Set();
 for(const entry of admission.entries){
   if(recorded.has(entry.sourceId))fail('Duplicate source contract '+entry.sourceId);
@@ -45,4 +46,4 @@ for(const theme of reg.themes){
   for(const key of ['core.button','core.card','core.badge'])if(!bundle.scope.includes(key))fail('Theme missing Core '+key);
 }
 await access(resolve(root,'packages/verticals/commerce/README.md'));
-console.log('[commerce] 8 isolated Commerce renderers / unchanged 50 Core / 10 saved Themes / existing token names PASS');
+console.log('[commerce] 14 isolated Commerce renderers / unchanged 50 Core / 10 saved Themes / existing token names PASS');

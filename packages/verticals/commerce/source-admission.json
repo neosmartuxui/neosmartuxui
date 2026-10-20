@@ -5,9 +5,9 @@
   "sourceLicense": "PolyForm Noncommercial 1.0.0",
   "counts": {
     "sourceEntries": 47,
-    "implementedLocal": 8,
+    "implementedLocal": 14,
     "reusedCore": 1,
-    "remaining": 38
+    "remaining": 32
   },
   "note": "Local-only migration: owner explicitly authorizes cross-project reuse under NeoSmartUXUI's intended terms. NeoSmartUXUI's exact license remains undocumented in a top-level LICENSE file; honor third-party rights. Blocks and platform patterns are not counted as primitives.",
   "entries": [
@@ -72,9 +72,9 @@
     {
       "sourceId": "product-detail",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 2,
-      "target": null,
+      "target": "commerce.product-detail",
       "modelRefs": [
         "ProductView"
       ],
@@ -96,9 +96,9 @@
     {
       "sourceId": "product-media",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 2,
-      "target": null,
+      "target": "commerce.product-media",
       "modelRefs": [
         "ProductView"
       ],
@@ -112,9 +112,9 @@
     {
       "sourceId": "review-summary",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 2,
-      "target": null,
+      "target": "commerce.review-summary",
       "modelRefs": [],
       "actionRefs": [],
       "stateRefs": []
@@ -142,9 +142,9 @@
     {
       "sourceId": "license-selector",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 2,
-      "target": null,
+      "target": "commerce.license-selector",
       "modelRefs": [
         "ProductView"
       ],
@@ -154,9 +154,9 @@
     {
       "sourceId": "renewal-note",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 2,
-      "target": null,
+      "target": "commerce.renewal-note",
       "modelRefs": [
         "ProductView"
       ],
@@ -166,9 +166,9 @@
     {
       "sourceId": "pricing-tier",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 2,
-      "target": null,
+      "target": "commerce.pricing-tier",
       "modelRefs": [
         "ProductView"
       ],

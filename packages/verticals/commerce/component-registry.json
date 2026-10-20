@@ -24,7 +24,8 @@
         "core.button",
         "core.badge"
       ],
-      "status": "implemented-local"
+      "status": "implemented-local",
+      "modulePath": "components.mjs"
     },
     {
       "id": "commerce.product-card",
@@ -39,7 +40,8 @@
         "core.button",
         "core.badge"
       ],
-      "status": "implemented-local"
+      "status": "implemented-local",
+      "modulePath": "components.mjs"
     },
     {
       "id": "commerce.product-gallery",
@@ -55,7 +57,8 @@
         "core.button",
         "core.badge"
       ],
-      "status": "implemented-local"
+      "status": "implemented-local",
+      "modulePath": "components.mjs"
     },
     {
       "id": "commerce.cart-line",
@@ -72,7 +75,8 @@
         "core.button",
         "core.badge"
       ],
-      "status": "implemented-local"
+      "status": "implemented-local",
+      "modulePath": "components.mjs"
     },
     {
       "id": "commerce.order-summary",
@@ -87,7 +91,8 @@
         "core.button",
         "core.badge"
       ],
-      "status": "implemented-local"
+      "status": "implemented-local",
+      "modulePath": "components.mjs"
     },
     {
       "id": "commerce.license-status",
@@ -106,7 +111,8 @@
         "core.button",
         "core.badge"
       ],
-      "status": "implemented-local"
+      "status": "implemented-local",
+      "modulePath": "components.mjs"
     },
     {
       "id": "commerce.seat-usage",
@@ -122,7 +128,8 @@
         "core.button",
         "core.badge"
       ],
-      "status": "implemented-local"
+      "status": "implemented-local",
+      "modulePath": "components.mjs"
     },
     {
       "id": "commerce.download-entitlement",
@@ -132,6 +139,108 @@
       "states": [
         "eligible",
         "unavailable",
+        "requesting",
+        "error"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local",
+      "modulePath": "components.mjs"
+    },
+    {
+      "id": "commerce.product-detail",
+      "sourceId": "product-detail",
+      "model": "ProductView|ProviderSnapshot",
+      "module": "renderProductDetail",
+      "modulePath": "wave2.mjs",
+      "states": [
+        "rest"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.product-media",
+      "sourceId": "product-media",
+      "model": "ProductView|ProviderSnapshot",
+      "module": "renderProductMedia",
+      "modulePath": "wave2.mjs",
+      "states": [
+        "preview",
+        "code",
+        "files"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.review-summary",
+      "sourceId": "review-summary",
+      "model": "ProductView|ProviderSnapshot",
+      "module": "renderReviewSummary",
+      "modulePath": "wave2.mjs",
+      "states": [
+        "rest"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.license-selector",
+      "sourceId": "license-selector",
+      "model": "ProductView|ProviderSnapshot",
+      "module": "renderLicenseSelector",
+      "modulePath": "wave2.mjs",
+      "states": [
+        "unselected",
+        "selected"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.renewal-note",
+      "sourceId": "renewal-note",
+      "model": "ProductView|ProviderSnapshot",
+      "module": "renderRenewalNote",
+      "modulePath": "wave2.mjs",
+      "states": [
+        "rest"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.pricing-tier",
+      "sourceId": "pricing-tier",
+      "model": "ProductView|ProviderSnapshot",
+      "module": "renderPricingTier",
+      "modulePath": "wave2.mjs",
+      "states": [
+        "rest",
         "requesting",
         "error"
       ],

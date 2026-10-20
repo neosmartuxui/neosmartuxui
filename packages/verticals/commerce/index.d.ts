@@ -20,3 +20,15 @@ export function renderLicenseStatus(license:LicenseView):HTMLElement;
 export function renderSeatUsage(info:{label:string;used:number;capacity:number}):HTMLElement;
 export function renderDownloadEntitlement(entitlement:EntitlementView,options?:{onRequest?:(entitlementId:string)=>Promise<unknown>|unknown}):HTMLElement;
 export const COMMERCE_RENDERERS:Readonly<Record<string,DOMRenderer>>;
+
+export type RichProductView=ProductView&{description?:string;availability?:string};
+export type CatalogMedia={label:string;preview?:{src:string;alt:string};code?:string;files?:string[]};
+export type ReviewSummary={rating:number;count:number;caption?:string};
+export type LicenseOffer=ProductOffer&{label:string;description?:string;features?:string[]};
+export function renderProductDetail(product:RichProductView,options?:{offerId?:string;locale?:string}):HTMLElement;
+export function renderProductMedia(media:CatalogMedia,options?:{initial?:'preview'|'code'|'files'}):HTMLElement;
+export function renderReviewSummary(review:ReviewSummary):HTMLElement;
+export function renderLicenseSelector(model:{label?:string;offers:LicenseOffer[];selectedId?:string},options?:{onChange?:(id:string)=>void;locale?:string}):HTMLElement;
+export function renderRenewalNote(note:{label?:string;message:string;renewsAt?:string;policyUrl?:string}):HTMLElement;
+export function renderPricingTier(offer:LicenseOffer,options?:{onSelect?:(id:string)=>Promise<unknown>|unknown;locale?:string}):HTMLElement;
+export const COMMERCE_WAVE2_RENDERERS:Readonly<Record<string,DOMRenderer>>;

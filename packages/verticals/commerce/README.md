@@ -33,3 +33,7 @@ Maturity is implemented-local. Components are not published, not registered in C
 ## Next admission waves
 
 The separate source-admission.json covers all 47 Commerce source IDs without presenting them as 47 production-ready imports. Wave 1: eight implemented locally. One (badge) reuses Core. The other 38 require classification and implementation: 6 catalog/offer components in wave 2, 10 checkout/payment components in wave 3, 11 accounts/ownership components in wave 4, and 11 reusable Blocks/platform patterns deferred until the appropriate foundation exists. Nothing is pushed or published before the vertical is reviewed and ready.
+
+## Wave 2 - local catalog/offer admission
+
+Six more catalog/offer entries are implemented locally: product-detail, product-media, review-summary, license-selector, renewal-note, pricing-tier. Product-media has keyboard-operable preview/code/files tabs; license-selector explicitly selects offers through a caller callback. Pricing-tier does not fabricate provider success. Review scores/counts and renewal messages come from the provider. Total implemented Commerce entries: 14; Core stays at 50. Not yet a public release.

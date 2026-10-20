@@ -35,3 +35,21 @@
 @media(max-width:34rem) { .ns-commerce-cart-line { grid-template-columns:1fr; } }
 @media(prefers-reduced-motion:reduce) { .ns-commerce button { transition-duration:1ms !important; } }
 @media(forced-colors:active) { .ns-commerce-product-art,.ns-commerce-gallery-main,.ns-commerce-gallery-choices button { color:CanvasText; background:Canvas; border-color:CanvasText; } .ns-commerce-gallery-choices button[aria-pressed="true"] { outline:2px solid Highlight; box-shadow:none; } }
+
+/* Wave 2 catalog and offer patterns consume existing Theme tokens. */
+.ns-commerce-detail,.ns-commerce-media,.ns-commerce-reviews,.ns-commerce-license-selector,.ns-commerce-renewal,.ns-commerce-pricing-tier { display:grid; gap:.65rem; padding:var(--ns-space-surface-block) var(--ns-space-surface-inline); min-width:0; }
+.ns-commerce-detail-image { max-width:100%; width:100%; aspect-ratio:4/3; object-fit:contain; }
+.ns-commerce-media-preview img { display:block; max-width:100%; max-height:18rem; margin-inline:auto; }
+.ns-commerce-media-tabs { display:flex; gap:.5rem; flex-wrap:wrap; }
+.ns-commerce-media-tabs button[aria-selected=true] { color:var(--ns-color-action-primary-content); background:var(--ns-color-action-primary-surface); }
+.ns-commerce-media-code { white-space:pre-wrap; overflow-wrap:anywhere; overflow:auto; }
+.ns-commerce-media-files { margin:.35rem 0; padding-inline-start:1.5rem; }
+.ns-commerce-review-head { display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
+.ns-commerce-reviews meter { max-width:100%; width:100%; accent-color:var(--ns-color-action-primary-surface); }
+.ns-commerce-license-selector { border:var(--ns-border-surface-width) solid var(--ns-color-border-strong); }
+.ns-commerce-license-options { display:grid; gap:.65rem; }
+.ns-commerce-license-option { display:flex; gap:.65rem; align-items:start; cursor:pointer; }
+.ns-commerce-license-option input { margin-block-start:.35rem; accent-color:var(--ns-color-action-primary-surface); }
+.ns-commerce-license-option > span { display:grid; gap:.3rem; }
+.ns-commerce-pricing-tier ul { margin:0; padding-inline-start:1.4rem; }
+.ns-commerce-pricing-tier .ns-button { justify-self:start; }

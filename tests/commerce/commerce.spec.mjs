@@ -12,8 +12,8 @@ test.beforeEach(async({page})=>{
   await expect(page.locator('body')).toHaveAttribute('data-commerce-ready','true');
 });
 
-test('8 Commerce components render from normalized provider data, without fictitious outcomes',async({page})=>{
-  await expect(page.locator('.demo-box > [data-commerce-component]')).toHaveCount(8);
+test('14 Commerce components render from normalized provider data, without fictitious outcomes',async({page})=>{
+  await expect(page.locator('.demo-box > [data-commerce-component]')).toHaveCount(14);
   await expect(page.locator('[data-component="product-price"] > [data-commerce-component="product-price"]')).toContainText('$49.00');
   await expect(page.locator('[data-component="product-price"] > [data-commerce-component="product-price"] del')).toHaveText('$79.00');
   await expect(page.locator('[data-commerce-component="product-card"]')).toContainText('Neo Studio Kit');
@@ -80,7 +80,7 @@ test('Provider failure remains a visible error; download-disabled entitlement ha
 });
 
 for(const theme of cases){
-  test('Canonical '+theme+' Theme applies to all 8 Commerce components',async({page,request})=>{
+  test('Canonical '+theme+' Theme applies to all 14 Commerce components',async({page,request})=>{
     await page.locator('#theme').selectOption(theme);
     await expect(page.locator('html')).toHaveAttribute('data-commerce-theme',theme);
     const themeResponse=await request.get('/themes/'+theme+'.css');
@@ -93,7 +93,7 @@ for(const theme of cases){
     expect(variables.panel).toMatch(/^#[0-9a-fA-F]{6}$/);
     expect(variables.font).not.toBe('');
     expect(parseFloat(variables.border)).toBeGreaterThan(0);
-    await expect(page.locator('.demo-box > [data-commerce-component]')).toHaveCount(8);
+    await expect(page.locator('.demo-box > [data-commerce-component]')).toHaveCount(14);
     expect(page.__commerceErrors).toEqual([]);
   });
 }
