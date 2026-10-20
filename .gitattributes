@@ -1,3 +1,3 @@
-# Preserve the exact official Apache-2.0 license bytes on all platforms
-LICENSE text eol=lf
+# Store the official Apache-2.0 license byte-for-byte; tolerate its source CRLF
+LICENSE -text whitespace=cr-at-eol
 NOTICE text eol=lf
