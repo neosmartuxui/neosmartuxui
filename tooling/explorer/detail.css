@@ -51,3 +51,16 @@
 .detail-code-header{flex-wrap:wrap}
 .detail-code-header span{min-width:0;overflow-wrap:anywhere}
 .detail-code code{white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word}
+
+/* Explorer guides are informational. Only semantic controls receive Hardline tactile press. */
+.detail-recipes,.detail-guide{min-width:0}
+.recipe-controls{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.recipe-input-label{display:grid;gap:9px;min-width:min(100%,250px);font:750 12px ui-monospace,Consolas,monospace}
+.recipe-input-label input,.recipe-input-label textarea{width:100%;min-width:0;border:2px solid var(--line);background:var(--surface);color:var(--ink);padding:11px;font:500 13px ui-monospace,monospace;resize:vertical}
+.recipe-input-label input:focus-visible,.recipe-input-label textarea:focus-visible{outline:var(--portal-focus-width) solid var(--portal-focus-color);outline-offset:var(--portal-focus-offset)}
+.recipe-feedback{min-height:26px;margin:15px 0 0;border-inline-start:3px solid var(--blue);padding-inline-start:12px;font:650 12px ui-monospace,Consolas,monospace;line-height:1.65;color:var(--mute)}
+.recipe-guide{margin:0;display:grid;gap:16px}
+.recipe-guide div{display:grid;gap:5px;padding:0 0 15px;border-bottom:1px solid var(--line-soft)}
+.recipe-guide dt{font:850 11px ui-monospace,Consolas,monospace;color:var(--blue);text-transform:uppercase}
+.recipe-guide dd{margin:0;color:var(--ink);font-size:13px;line-height:1.65;overflow-wrap:anywhere}
+.recipe-markup{white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word}

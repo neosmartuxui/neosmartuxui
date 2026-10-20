@@ -100,6 +100,7 @@ export const flavorPage=banner('03 / FLAVORS','Different materials. Shared physi
  ['Strong edges and editorial contrast.','Industrial forms and mechanical interaction.','Calm interfaces with tactile feedback.','Minimal monochrome, focused hierarchy.','Energetic accents and color hierarchy.'][i],i===2?'ops':i===4?'themes':'')).join('')+'</div></div></div>';
 export const docsPage=banner('07 / DOCUMENTATION','Everything documented.','Code, contracts, release boundaries and the local-first quality process.','SOURCE OF TRUTH / GITHUB')+
  '<div class="subsection"><div class="link-list">'+[
+ ['Agent capability index','Machine-readable component contracts and safe preview controls','/components/agent-index.json'],
  ['Source repository','Components, schemas and tests','https://github.com/neosmartuxui/neosmartuxui'],
  ['Project overview','Architecture and usage','https://github.com/neosmartuxui/neosmartuxui/blob/main/README.md'],
  ['Public source status','Verified and experimental distinctions','https://github.com/neosmartuxui/neosmartuxui/blob/main/docs/PUBLIC-SOURCE-STATUS.md'],

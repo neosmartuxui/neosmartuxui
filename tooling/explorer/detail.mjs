@@ -72,3 +72,83 @@ for(const item of (related.length?related:sibling.slice(0,5))){
  a.href=item.route;a.textContent=item.id+' ↗';container.append(a);
 }
 document.body.dataset.explorerReady='true';
+
+// Curated behavior controls only. No arbitrary selector, injected script or generic CSS state simulator.
+const recipeFeedback=document.querySelector('#recipe-feedback');
+if(current.recipe){
+ const authored=current.recipe;
+ const allowed=new Map(authored.controls.map(x=>[x.id,x]));
+ const setFeedback=message=>{recipeFeedback.textContent=message};
+ document.querySelector('#recipe-controls')?.addEventListener('click',event=>{
+  const button=event.target.closest('button[data-recipe-id]');
+  if(!button)return;
+  const control=allowed.get(button.dataset.recipeId);
+  if(!control){setFeedback('Unsupported control.');return;}
+  const doc=iframe.contentDocument;
+  const root=doc?.getElementById(current.id.slice(5)+'-slice')?.closest('section');
+  if(!root){setFeedback('Preview not ready; open the full Foundry demo.');return;}
+  const target=doc.querySelector(authored.specimen);
+  if(!target||!root.contains(target)){setFeedback('Canonical specimen not available in the preview.');return;}
+  const value=control.kind==='button'?control.value:document.querySelector('[data-recipe-field="'+control.id+'"]')?.value;
+  if(typeof value!=='string'||value.length>300){setFeedback('Value is unavailable or too long.');return;}
+  const EventCtor=iframe.contentWindow.Event;
+  const changed=()=>target.dispatchEvent(new EventCtor('change',{bubbles:true}));
+  switch(control.op){
+   case 'aria-disabled':
+    if(target.tagName!=='BUTTON')break;
+    target.disabled=value==='true';
+    if(value==='true')target.setAttribute('aria-disabled','true');
+    else target.removeAttribute('aria-disabled');
+    setFeedback('Native button '+(target.disabled?'disabled':'enabled')+' in the real preview.');
+    return;
+   case 'checkbox':
+    if(target.tagName!=='INPUT'||target.type!=='checkbox')break;
+    target.checked=value==='checked';
+    target.indeterminate=value==='indeterminate';
+    changed();
+    setFeedback('Real checkbox state is '+value+'.');
+    return;
+   case 'switch':
+    if(target.tagName!=='INPUT'||target.getAttribute('role')!=='switch')break;
+    target.checked=value==='on';changed();
+    setFeedback('Real switch is '+value+'.');
+    return;
+   case 'input':
+    if(!['INPUT','TEXTAREA'].includes(target.tagName))break;
+    target.value=value;
+    target.dispatchEvent(new EventCtor('input',{bubbles:true}));
+    setFeedback(value?'Text applied to the real native field.':'Native field cleared.');
+    return;
+   case 'select':
+    if(target.tagName!=='SELECT'||![...target.options].some(x=>x.value===value&&!x.disabled))break;
+    target.value=value;changed();
+    setFeedback('Native select now shows '+value+'.');
+    return;
+   case 'tone':{
+    // Use authored canonical badge samples; never mislabel status by recoloring arbitrary text.
+    const variant=doc.getElementById('badge-'+value);
+    if(!variant||!root.contains(variant)||variant.dataset.tone!==value)break;
+    variant.scrollIntoView({block:'center'});
+    setFeedback('Showing the real '+value+' badge specimen, including its semantic label.');
+    return;
+   }
+   case 'range':
+    if(target.tagName!=='INPUT'||target.type!=='range'||Number(value)<Number(target.min)||Number(value)>Number(target.max))break;
+    target.value=value;
+    target.dispatchEvent(new EventCtor('input',{bubbles:true}));
+    changed();
+    setFeedback('Native range input changed to '+target.value+'.');
+    return;
+   case 'tab':{
+    const tab=doc.querySelector(value);
+    if(!tab||!root.contains(tab)||tab.getAttribute('role')!=='tab'||tab.disabled)break;
+    tab.click();
+    setFeedback('Selected real '+tab.textContent.trim()+' tab through its existing controller.');
+    return;
+   }
+   default: break;
+  }
+  setFeedback('Operation unavailable for this shipping Foundry specimen.');
+ });
+ iframe.addEventListener('load',()=>setFeedback('Preview reloaded. Property controls are ready.'));
+}
