@@ -95,7 +95,9 @@ test('Existing Foundry, Studio and experimental previews survive relocation',asy
  expect(metadata.sourceSha).toBe('ff6897eb0db5d86ab28847b91bac76af26416891');
  const portal=(await (await page.request.get('/deployment.json')).json());
  expect(portal.artifact).toBe('portal');
- expect(portal.sourceSha).toBe('local-unpinned');
+ const manifest=(await (await page.request.get('/portal-manifest.json')).json());
+ expect(portal.sourceSha).toBe(manifest.sourceSha);
+ expect(portal.sourceSha).toMatch(/^(local-unpinned|[0-9a-f]{40})$/);
  expect(page.__errors).toEqual([]);
 });
 test('Mobile menu is keyboard operable, closes on escape and keeps links',async({page})=>{
