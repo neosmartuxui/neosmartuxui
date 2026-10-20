@@ -67,7 +67,10 @@
     "gate:public": "node tooling/ecosystem/release-gate.mjs --public",
     "validate:license": "node tooling/ecosystem/check-license.mjs",
     "test:license": "node tooling/ecosystem/test-license.mjs",
-    "validate:package-dryrun": "node tooling/ecosystem/validate-package-dryrun.mjs"
+    "validate:package-dryrun": "node tooling/ecosystem/validate-package-dryrun.mjs",
+    "build:experimental": "node tooling/experimental/build.mjs",
+    "verify:experimental": "node tooling/experimental/verify.mjs",
+    "test:experimental": "playwright test --config=playwright.experimental.config.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1"
