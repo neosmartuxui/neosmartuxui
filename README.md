@@ -1,10 +1,10 @@
-# NeoSmartUI
+# NeoSmartUXUI
 
-**NeoSmartUI — The AI-first neo-brutalist UI system.**
+**NeoSmartUXUI — The AI-first neo-brutalist UI system.**
 
 Built for humans. Structured for agents.
 
-NeoSmartUI is one agent-native UI architecture with reusable Core capabilities, configurable physical/visual flavors, domain-aware verticals, versioned themes, machine-readable contracts, live public proof, and explainable AI composition.
+NeoSmartUXUI is one agent-native UI architecture with reusable Core capabilities, configurable physical/visual flavors, domain-aware verticals, versioned themes, machine-readable contracts, live public proof, and explainable AI composition.
 
 ## Authority
 
@@ -60,15 +60,15 @@ Commerce and SaaS are verticals. Hardline, Soft, Rivet, Mono, and Pulse are flav
 
 ## Repository role
 
-This repository, `neosmartui/neosmartui`, is the canonical source of truth.
+This repository, `neosmartuxui/neosmartuxui`, is the canonical source of truth.
 
-`neosmartui/neosmartui.github.io` is generated deployment output for the NeoSmartUI Foundry. It must never become a second source of truth.
+`neosmartuxui/neosmartuxui.github.io` is generated deployment output for the NeoSmartUXUI Foundry. It must never become a second source of truth.
 
 Development is branch → implementation → tests → PR → exact-SHA verification → merge. Do not use `main` for casual feature development.
 
 ## Current roadmap position
 
-v0.1 Foundation, v0.2 Core, v0.3 Flavor Engine, and v0.4 NeoSmartUI Studio are complete through public proof.
+v0.1 Foundation, v0.2 Core, v0.3 Flavor Engine, and v0.4 NeoSmartUXUI Studio are complete through public proof.
 
 The product roadmap remains unchanged. The current engineering work is an **in-place expansion of the Core component library** inside the already-delivered Component Lab. It is not a new roadmap version. Expansion C is complete through Toast, Expansion D Table + DataGrid + Item + List are fully public-proof, and the registry now has **50 Core contracts: 49 public-proof + 1 implemented-but-unproven (`core.description-list`)**. Exact-set Flavor maintenance permits a local **50-Core / 55-token** Theme scope and the implementation preview matrix contains **267 real states**, while deployed/public authority remains the exact **49-component / 55-token / 266-state** List singleton until DescriptionList completes merged-main verification, exact-artifact deployment, native/live verification, and proof-only promotion. All five Flavor maintenance records remain active; only the 49 public-proof components count toward the breadth gate:
 

@@ -1,6 +1,6 @@
 # `core.breadcrumb`
 
-`core.breadcrumb` is NeoSmartUI's generic hierarchical navigation trail. It communicates where the current page sits inside a broader information hierarchy and gives users real navigation links back to ancestor locations without importing router, application-shell, commerce, SaaS, or product-specific meaning.
+`core.breadcrumb` is NeoSmartUXUI's generic hierarchical navigation trail. It communicates where the current page sits inside a broader information hierarchy and gives users real navigation links back to ancestor locations without importing router, application-shell, commerce, SaaS, or product-specific meaning.
 
 ## Semantic boundary
 
@@ -102,12 +102,12 @@ Dedicated Chromium QA verifies the ordered semantic hierarchy, native anchor/cur
 
 ## Migration knowledge provenance
 
-This implementation is a clean NeoSmartUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
+This implementation is a clean NeoSmartUXUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
 
 - Family conformance: `NeoBrutalism-shop/spec@fbf499397f4e9a52d6e25c13921fd5377799c626` — shared keyboard, touch, focus, reduced-motion, fluid-token, and no-generic-hover-lift laws apply. Breadcrumb narrows those laws by treating ancestor crumbs as native text links rather than ordinary pressable button surfaces.
 - Soft capability evidence: `NeoBrutalism-shop/NeoBrutal-Soft@dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a` — `COMPONENTS.md` explicitly lists breadcrumb under reusable Navigation + discovery capability.
 - Soft implementation knowledge: the same pinned repository's `components.html` uses a simple hierarchy of ancestor anchors plus one `aria-current="page"` list item, while `src/components/navigation.css` provides wrapped list anatomy, muted ancestor/current hierarchy, separators, and a dedicated `.45rem` breadcrumb gap. `src/tokens.css` supplies the exact fluid text-xs value used for `font.size.navigation`. These remain reference-only knowledge.
-- Rivet implementation knowledge: `NeoBrutalRivet/NeoBrutal-Rivet@bb4b641d35bc77c958b7345a3b7c0a134c7d802d` — `components/ui/breadcrumb.tsx` provides navigation/ordered-list/item/link/current/separator/ellipsis anatomy. NeoSmartUI intentionally does not adopt its current-page `role="link" aria-disabled="true"` pattern because current location is not a disabled navigation target. Repository metadata declares no license, so this remains reference-only knowledge.
+- Rivet implementation knowledge: `NeoBrutalRivet/NeoBrutal-Rivet@bb4b641d35bc77c958b7345a3b7c0a134c7d802d` — `components/ui/breadcrumb.tsx` provides navigation/ordered-list/item/link/current/separator/ellipsis anatomy. NeoSmartUXUI intentionally does not adopt its current-page `role="link" aria-disabled="true"` pattern because current location is not a disabled navigation target. Repository metadata declares no license, so this remains reference-only knowledge.
 
 ## Maturity
 

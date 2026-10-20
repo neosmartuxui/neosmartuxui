@@ -1,6 +1,6 @@
 {
   "$schema": "../../../spec/schemas/component.schema.json",
-  "schema": "neosmartui/component@1",
+  "schema": "neosmartuxui/component@1",
   "id": "core.input-group",
   "intent": "Compose one primary text-entry control with generic leading or trailing adornments and actions while preserving the primary control as the semantic authority.",
   "states": [

@@ -1,11 +1,11 @@
 # Mono Flavor Contract
 
-Mono is the editorial black/white/gray NeoSmartUI flavor. It makes typography, hierarchy, keylines, grayscale contrast, and tactile structural depth carry the interface personality while preserving the same Core semantics and Pressure System laws as every official flavor.
+Mono is the editorial black/white/gray NeoSmartUXUI flavor. It makes typography, hierarchy, keylines, grayscale contrast, and tactile structural depth carry the interface personality while preserving the same Core semantics and Pressure System laws as every official flavor.
 
 ## Stable identity
 
 - Flavor ID: `flavor.mono`
-- Flavor schema: `neosmartui/flavor@1`
+- Flavor schema: `neosmartuxui/flavor@1`
 - First implemented Theme: `packages/themes/mono-light/theme.json`
 - Interaction model: `pressure-not-levitation`
 - Official migration maturity: `public-proof`
@@ -16,11 +16,11 @@ Mono is the editorial black/white/gray NeoSmartUI flavor. It makes typography, h
 
 ## Canonical authority and provenance boundary
 
-The NeoSmartUI Canonical PRD is the direct product authority for Mono. It names Mono as one of the four initial official flavors and defines it as **editorial black/white/gray NeoBrutal**.
+The NeoSmartUXUI Canonical PRD is the direct product authority for Mono. It names Mono as one of the four initial official flavors and defines it as **editorial black/white/gray NeoBrutal**.
 
 The pinned family source `NeoBrutalism-shop/spec@fbf499397f4e9a52d6e25c13921fd5377799c626` supplies cross-flavor laws through `FLAVORS.md`: flavors may change palette, typography, borders, radius, depth, spacing, motion, icon treatment, surfaces, and visual density, but must preserve compress-never-float direction, coherent depth/travel, immediate acknowledgement, equivalent touch/pointer/keyboard semantics, reduced motion, semantic state meaning, accessible focus, and machine-readable intent.
 
-There is **no dedicated legacy Mono repository or Mono implementation artifact in the current migration ledger**. That absence remains intentional evidence. Mono therefore does not claim legacy Mono token values, copy implementation code from another flavor, or silently relabel the family spec's separate `Raw` personality as Mono. The concrete Mono Light values below are authored under NeoSmartUI authority and trace directly to the ratified Mono contract.
+There is **no dedicated legacy Mono repository or Mono implementation artifact in the current migration ledger**. That absence remains intentional evidence. Mono therefore does not claim legacy Mono token values, copy implementation code from another flavor, or silently relabel the family spec's separate `Raw` personality as Mono. The concrete Mono Light values below are authored under NeoSmartUXUI authority and trace directly to the ratified Mono contract.
 
 ## Expression contract
 
@@ -87,7 +87,7 @@ Mono Light deliberately keeps every resolved color role grayscale:
 
 Mono Light and Mono Dark are one evidence-bound public-proof subject under the stable `flavor.mono` identity. Promotion occurred only after the implementation merged, mandatory merged-main Quality passed, the exact merged-main artifact was independently verified, those exact bytes were deployed without rebuilding, the native Pages artifact matched every deployable source byte, and live HTTPS exposed the Dark route and Theme asset.
 
-- deployed source: `neosmartui/neosmartui@3c110fe3059d13a4030d1543948d8207faf380a9`
+- deployed source: `neosmartuxui/neosmartuxui@3c110fe3059d13a4030d1543948d8207faf380a9`
 - merged-main Quality run: `35300370653`
 - merged-main browser artifact: `10529716708`
 - merged-main artifact SHA-256: `afb40f8371a538875ca63409d513dd4a61da7877bc79978fa7d7537ad550fc25`
@@ -99,10 +99,10 @@ Mono Light and Mono Dark are one evidence-bound public-proof subject under the s
 - native Pages artifact: `10529692595`
 - native Pages artifact SHA-256: `080c3680f82d000ea76c21045f26381924269494f66d4e975543ff130f7c3da3`
 - native verification: all `45/45` deployable Foundry files matched merged-main artifact bytes; only Jekyll-generated `assets/css/style.css` was additional
-- live route: `https://neosmartui.github.io/flavors/mono/`
-- live Light Theme asset: `https://neosmartui.github.io/mono-theme.css`
-- live Dark Theme asset: `https://neosmartui.github.io/mono-dark-theme.css`
-- canonical deployment record: `https://neosmartui.github.io/deployment.json`
+- live route: `https://neosmartuxui.github.io/flavors/mono/`
+- live Light Theme asset: `https://neosmartuxui.github.io/mono-theme.css`
+- live Dark Theme asset: `https://neosmartuxui.github.io/mono-dark-theme.css`
+- canonical deployment record: `https://neosmartuxui.github.io/deployment.json`
 
 The singleton `flavor.mono` public-proof record binds exactly nine implementation inputs: four proven Light inputs plus the Dark descriptor, resolution, 55-token bundle, fragment, and additive Mono Dark assembler. No second Flavor identity or route exists.
 

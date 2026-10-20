@@ -1,6 +1,6 @@
-# NeoSmartUI Spec
+# NeoSmartUXUI Spec
 
-NeoSmartUI Spec is the normative architecture contract that evolves under the same SHA as implementation.
+NeoSmartUXUI Spec is the normative architecture contract that evolves under the same SHA as implementation.
 
 The Canonical PRD at `docs/CANONICAL-PRD.md` remains the product, migration, roadmap, quality, and competitive-strategy authority. Spec documents make its architecture executable; they do not replace it.
 

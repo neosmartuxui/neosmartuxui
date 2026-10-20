@@ -1,6 +1,6 @@
 # `core.table`
 
-`core.table` is NeoSmartUI's generic semantic tabular-display primitive for static or read-only row/column relationships. It preserves native table structure and header associations without importing sorting, filtering, pagination, selection, editing, virtualization, business-data, or application-command authority.
+`core.table` is NeoSmartUXUI's generic semantic tabular-display primitive for static or read-only row/column relationships. It preserves native table structure and header associations without importing sorting, filtering, pagination, selection, editing, virtualization, business-data, or application-command authority.
 
 ## Semantic boundary
 

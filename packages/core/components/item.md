@@ -1,6 +1,6 @@
 # `core.item`
 
-`core.item` is NeoSmartUI's generic structured content row/unit. It organizes optional leading/media content, a primary content region, supporting description, metadata, trailing content and independent actions without importing collection, selection, navigation, activation or business semantics.
+`core.item` is NeoSmartUXUI's generic structured content row/unit. It organizes optional leading/media content, a primary content region, supporting description, metadata, trailing content and independent actions without importing collection, selection, navigation, activation or business semantics.
 
 ## Semantic boundary
 

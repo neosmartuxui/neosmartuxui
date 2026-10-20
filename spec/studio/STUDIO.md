@@ -1,6 +1,6 @@
-# NeoSmartUI Studio Contract
+# NeoSmartUXUI Studio Contract
 
-**Roadmap:** v0.4 NeoSmartUI Studio  
+**Roadmap:** v0.4 NeoSmartUXUI Studio  
 **Contract checkpoint:** contract-only  
 **Runtime status:** Studio Theme editor maturity: `implemented`. Contract, shared Component-preview, shared Theme-package, isolated runtime, and full resolved semantic-control checkpoints are complete.
 
@@ -8,7 +8,7 @@ This contract is subordinate to `docs/CANONICAL-PRD.md`. If this document and th
 
 ## 1. Product boundary
 
-NeoSmartUI Studio is the human-facing editing and inspection surface for canonical NeoSmartUI authorities. It is not a second design system, second Theme engine, second token registry, or preview-only implementation layer.
+NeoSmartUXUI Studio is the human-facing editing and inspection surface for canonical NeoSmartUXUI authorities. It is not a second design system, second Theme engine, second token registry, or preview-only implementation layer.
 
 Theme creation is the first Studio module. Future modules may expose Component, Block, Page, Motion, Accessibility, and Agent-trace capabilities only when the corresponding canonical contracts and registries exist.
 
@@ -16,7 +16,7 @@ The roadmap dependency remains:
 
 ```text
 v0.3 Flavor Engine
-→ v0.4 NeoSmartUI Studio
+→ v0.4 NeoSmartUXUI Studio
 → v0.5 Core Blocks
 → later Verticals / Pages / Agent platform
 ```
@@ -29,9 +29,9 @@ Studio must consume what exists at its current roadmap point. It must not pull l
 
 A logical editable Theme is represented by the existing canonical package:
 
-1. `theme.json` — `neosmartui/theme@1`
-2. `resolution.json` — `neosmartui/theme-resolution@1`
-3. `tokens.json` — `neosmartui/resolved-token-bundle@1`
+1. `theme.json` — `neosmartuxui/theme@1`
+2. `resolution.json` — `neosmartuxui/theme-resolution@1`
+3. `tokens.json` — `neosmartuxui/resolved-token-bundle@1`
 
 Studio may present these three files as one coherent editing experience, but it must preserve their identities and relationships.
 
@@ -81,7 +81,7 @@ Initial v0.4 capability truth:
 - Page preview is unavailable until real Page contracts, implementations, and registry authority exist.
 - Core context is available.
 - Commerce, SaaS, and other Vertical previews are unavailable until real Vertical authority exists.
-- A component's state list comes only from the selected `neosmartui/component@1` contract.
+- A component's state list comes only from the selected `neosmartuxui/component@1` contract.
 
 When capability is absent, Studio surfaces unavailable state or `REGISTRY GAP`. It must not create a hand-built lookalike, speculative ID, fake state, or hidden substitute merely to fill the interface.
 
@@ -91,9 +91,9 @@ The current Core registry identifies shipping components, contracts, implementat
 
 v0.4 introduces the separate schema:
 
-`neosmartui/component-preview@1`
+`neosmartuxui/component-preview@1`
 
-This preview contract is presentation/test substrate only. It must not change `neosmartui/component@1` or `neosmartui/component-registry@1`, and it must not duplicate component identity, token dependencies, support flags, maturity, or canonical state lists as a second authority.
+This preview contract is presentation/test substrate only. It must not change `neosmartuxui/component@1` or `neosmartuxui/component-registry@1`, and it must not duplicate component identity, token dependencies, support flags, maturity, or canonical state lists as a second authority.
 
 Implementation layout is deterministic:
 
@@ -227,7 +227,7 @@ Initial rules:
 
 - Desktop / Tablet / Mobile: real preview viewport/container dimensions.
 - Light / Dark: real loaded canonical Theme package in the selected workspace slot.
-- Component state: exact `neosmartui/component-preview@1` realization mode only.
+- Component state: exact `neosmartuxui/component-preview@1` realization mode only.
 - Mouse / Keyboard: real interaction paths.
 - Touch: live only when the device/browser exposes real touch capability; otherwise unavailable/verification-only.
 - Reduced Motion: authoritative live state comes from the real media feature; CI may emulate it for automated verification.
@@ -320,13 +320,13 @@ The implementation must preserve the permanent rules:
 
 ## 15. Public Studio deployment
 
-The canonical public Studio route is `https://neosmartui.github.io/studio/` during active development.
+The canonical public Studio route is `https://neosmartuxui.github.io/studio/` during active development.
 
 Deployment laws:
 
-- `dist/studio/` is built and browser-tested from one exact merged `neosmartui/neosmartui` SHA;
-- only the already-green merged-main artifact may be copied to `neosmartui/neosmartui.github.io/studio/`; deployment must not rebuild or hand-edit Studio;
-- `dist/studio/deployment.json` uses `neosmartui/deployment-record@1` with `artifact: "studio"` and the exact source SHA;
+- `dist/studio/` is built and browser-tested from one exact merged `neosmartuxui/neosmartuxui` SHA;
+- only the already-green merged-main artifact may be copied to `neosmartuxui/neosmartuxui.github.io/studio/`; deployment must not rebuild or hand-edit Studio;
+- `dist/studio/deployment.json` uses `neosmartuxui/deployment-record@1` with `artifact: "studio"` and the exact source SHA;
 - the root Foundry `/deployment.json` and Studio `/studio/deployment.json` remain separate provenance records;
 - launching Studio must not silently move an existing Core/Flavor public-proof cohort; if Foundry bytes are deployed from a newer source SHA, the normal singleton proof-only promotion follows native Pages verification;
 - the deployment repository remains generated output only.

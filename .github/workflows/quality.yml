@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 env:
-  NEOSMARTUI_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+  NEOSMARTUXUI_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
 
 jobs:
   foundation:
@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ env.NEOSMARTUI_SOURCE_SHA }}
+          ref: ${{ env.NEOSMARTUXUI_SOURCE_SHA }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -373,7 +373,7 @@ jobs:
           grep -q 'data-expansion="multiple"' dist/foundry/index.html
           grep -q 'aria-controls="accordion-single-panel-a"' dist/foundry/index.html
           grep -q 'href="./studio/"' dist/foundry/index.html
-          node -e "const fs=require('fs'); const d=JSON.parse(fs.readFileSync('dist/foundry/deployment.json','utf8')); if(d.sourceSha!==process.env.NEOSMARTUI_SOURCE_SHA) throw new Error('deployment source SHA mismatch')"
+          node -e "const fs=require('fs'); const d=JSON.parse(fs.readFileSync('dist/foundry/deployment.json','utf8')); if(d.sourceSha!==process.env.NEOSMARTUXUI_SOURCE_SHA) throw new Error('deployment source SHA mismatch')"
       - name: Build Studio artifact
         run: npm run build:studio
       - name: Verify Studio artifact
@@ -473,8 +473,8 @@ jobs:
           test -f dist/studio/packages/themes/pulse-dark/resolution.json
           test -f dist/studio/packages/themes/pulse-dark/tokens.json
           node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('dist/studio/studio-data.json','utf8'));if(!d.builtInThemes?.pulse||d.builtInThemes.pulse.light!=='packages/themes/pulse-light'||d.builtInThemes.pulse.dark!=='packages/themes/pulse-dark')throw new Error('Pulse official starter pair missing')"
-          node -e "const fs=require('fs'); const d=JSON.parse(fs.readFileSync('dist/studio/studio-build.json','utf8')); if(d.sourceSha!==process.env.NEOSMARTUI_SOURCE_SHA || d.publicDeployment!==true || d.publicRoute!=='/studio/') throw new Error('Studio build provenance mismatch')"
-          node -e "const fs=require('fs'); const d=JSON.parse(fs.readFileSync('dist/studio/deployment.json','utf8')); if(d.schema!=='neosmartui/deployment-record@1' || d.sourceRepository!=='neosmartui/neosmartui' || d.sourceSha!==process.env.NEOSMARTUI_SOURCE_SHA || d.artifact!=='studio') throw new Error('Studio deployment record mismatch')"
+          node -e "const fs=require('fs'); const d=JSON.parse(fs.readFileSync('dist/studio/studio-build.json','utf8')); if(d.sourceSha!==process.env.NEOSMARTUXUI_SOURCE_SHA || d.publicDeployment!==true || d.publicRoute!=='/studio/') throw new Error('Studio build provenance mismatch')"
+          node -e "const fs=require('fs'); const d=JSON.parse(fs.readFileSync('dist/studio/deployment.json','utf8')); if(d.schema!=='neosmartuxui/deployment-record@1' || d.sourceRepository!=='neosmartuxui/neosmartuxui' || d.sourceSha!==process.env.NEOSMARTUXUI_SOURCE_SHA || d.artifact!=='studio') throw new Error('Studio deployment record mismatch')"
 
   browser:
     needs: foundation
@@ -482,7 +482,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ env.NEOSMARTUI_SOURCE_SHA }}
+          ref: ${{ env.NEOSMARTUXUI_SOURCE_SHA }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -502,7 +502,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: foundry-browser-evidence-${{ env.NEOSMARTUI_SOURCE_SHA }}
+          name: foundry-browser-evidence-${{ env.NEOSMARTUXUI_SOURCE_SHA }}
           path: |
             artifacts/browser
             artifacts/studio

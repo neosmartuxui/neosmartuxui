@@ -18,7 +18,7 @@ Keyboard users must be able to move among enabled options, toggle selection with
 
 ## Token boundary
 
-This implementation introduces no component-specific semantic token contract. It reuses the existing NeoSmartUI semantic roles; the implementation cohort expands official local Theme scope from 31 to 32 while preserving the exact 55-token semantic union.
+This implementation introduces no component-specific semantic token contract. It reuses the existing NeoSmartUXUI semantic roles; the implementation cohort expands official local Theme scope from 31 to 32 while preserving the exact 55-token semantic union.
 
 ## Canonical Web implementation
 
@@ -26,7 +26,7 @@ The canonical Web adapter binds an `.ns-multi-select` root with one real disclos
 
 Opening moves focus from the disclosure Button to the listbox and uses `aria-activedescendant` for transient option highlight. Arrow keys and Home/End move only that highlight. Space or Enter toggles the highlighted option without clearing already selected peers or closing the popup. Escape closes and returns focus to the trigger. Tab and Shift+Tab are never prevented or trapped; normal document focus movement closes the popup through ordinary focusout. Pointer movement may update highlight and pointer activation may toggle an enabled option, but disabled options remain inert.
 
-The trigger alone uses NeoSmartUI pressure travel. Listbox/options do not become disguised Buttons, selection remains distinct from transient highlight, and the adapter does not add filtering, freeform values, remote ranking, virtualization, or business-specific policy.
+The trigger alone uses NeoSmartUXUI pressure travel. Listbox/options do not become disguised Buttons, selection remains distinct from transient highlight, and the adapter does not add filtering, freeform values, remote ranking, virtualization, or business-specific policy.
 
 ## Maturity
 

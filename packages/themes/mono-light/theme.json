@@ -1,8 +1,8 @@
 {
   "$schema": "../../../spec/schemas/theme.schema.json",
-  "schema": "neosmartui/theme@1",
+  "schema": "neosmartuxui/theme@1",
   "name": "Mono Light",
-  "family": "neosmartui",
+  "family": "neosmartuxui",
   "category": "mono",
   "color": {"mode":"light","strategy":"editorial-monochrome"},
   "typography": {"strategy":"editorial-type-led"},

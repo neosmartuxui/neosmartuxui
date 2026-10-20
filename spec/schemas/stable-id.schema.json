@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://neosmartui.com/schemas/stable-id@1.json",
-  "title": "NeoSmartUI Stable Semantic ID",
-  "description": "A stable NeoSmartUI semantic identity. Layer-specific schemas narrow this further.",
+  "$id": "https://neosmartuxui.com/schemas/stable-id@1.json",
+  "title": "NeoSmartUXUI Stable Semantic ID",
+  "description": "A stable NeoSmartUXUI semantic identity. Layer-specific schemas narrow this further.",
   "type": "string",
   "oneOf": [
     {"pattern": "^[a-z][a-z0-9-]*\\.[a-z][a-z0-9-]*$"},

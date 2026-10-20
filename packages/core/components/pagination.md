@@ -1,6 +1,6 @@
 # `core.pagination`
 
-`core.pagination` is NeoSmartUI's generic paged-navigation primitive. It helps a user move among discrete pages in one ordered result or content collection without importing table, search, commerce, router, API, or application-specific meaning.
+`core.pagination` is NeoSmartUXUI's generic paged-navigation primitive. It helps a user move among discrete pages in one ordered result or content collection without importing table, search, commerce, router, API, or application-specific meaning.
 
 ## Semantic boundary
 
@@ -94,12 +94,12 @@ Foundry renders one labelled Pagination navigation region with a non-operable pr
 
 ## Migration knowledge provenance
 
-This contract is a clean NeoSmartUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
+This contract is a clean NeoSmartUXUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
 
 - Family conformance: `NeoBrutalism-shop/spec@fbf499397f4e9a52d6e25c13921fd5377799c626` — shared pressure-not-levitation, focus-visible, touch, reduced-motion, fluid-token, and agent-readable laws apply to reachable compact pagination controls.
 - Soft capability evidence: `NeoBrutalism-shop/NeoBrutal-Soft@dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a` — `COMPONENTS.md` explicitly lists pagination under reusable Navigation + discovery capability.
-- Soft implementation knowledge: the same pinned repository's `components.html` demonstrates a labelled pagination region with previous/current/number/next items, while `src/components/navigation.css` supplies wrapping compact-control anatomy, tactile 2px resting depth, inward hover/active compression, current treatment, and disabled presentation. NeoSmartUI keeps the useful physical model while strengthening semantic defaults around real destinations, current-page self-navigation, and the existing 44px minimum target.
-- Rivet provenance review: the pinned `NeoBrutalRivet/NeoBrutal-Rivet@bb4b641d35bc77c958b7345a3b7c0a134c7d802d` tree contains no `components/ui/pagination.tsx`, so NeoSmartUI claims no Rivet Pagination implementation evidence.
+- Soft implementation knowledge: the same pinned repository's `components.html` demonstrates a labelled pagination region with previous/current/number/next items, while `src/components/navigation.css` supplies wrapping compact-control anatomy, tactile 2px resting depth, inward hover/active compression, current treatment, and disabled presentation. NeoSmartUXUI keeps the useful physical model while strengthening semantic defaults around real destinations, current-page self-navigation, and the existing 44px minimum target.
+- Rivet provenance review: the pinned `NeoBrutalRivet/NeoBrutal-Rivet@bb4b641d35bc77c958b7345a3b7c0a134c7d802d` tree contains no `components/ui/pagination.tsx`, so NeoSmartUXUI claims no Rivet Pagination implementation evidence.
 
 ## Maturity
 

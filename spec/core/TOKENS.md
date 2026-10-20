@@ -1,4 +1,4 @@
-# NeoSmartUI Core — Semantic Token Contracts v1
+# NeoSmartUXUI Core — Semantic Token Contracts v1
 
 Core owns **token meaning**, not concrete visual values.
 
@@ -29,7 +29,7 @@ This preserves the architecture rule that exact physical values belong to Flavor
 
 ## Stable token paths
 
-Token IDs are lowercase dot-separated semantic paths. They deliberately omit the `neosmartui` product name because schema identity already supplies ecosystem context.
+Token IDs are lowercase dot-separated semantic paths. They deliberately omit the `neosmartuxui` product name because schema identity already supplies ecosystem context.
 
 Examples:
 
@@ -61,7 +61,7 @@ Core never supplies a hidden fallback value in the contract registry.
 
 ## DTCG interoperability
 
-NeoSmartUI uses its own contract registry to describe stable semantics before values exist. Resolved value bundles SHOULD target the **Design Tokens Community Group Format Module 2025.10** so themes and adapters can interoperate with external token tooling without making DTCG syntax the owner of NeoSmartUI semantics.
+NeoSmartUXUI uses its own contract registry to describe stable semantics before values exist. Resolved value bundles SHOULD target the **Design Tokens Community Group Format Module 2025.10** so themes and adapters can interoperate with external token tooling without making DTCG syntax the owner of NeoSmartUXUI semantics.
 
 The contract registry therefore has no `$value` fields. DTCG-compatible value bundles belong to later Theme/Flavor implementation slices.
 

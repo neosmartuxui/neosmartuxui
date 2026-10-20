@@ -1,11 +1,11 @@
 # Hardline Flavor Contract
 
-Hardline is the flagship/default NeoSmartUI flavor. It owns visual and tactile expression, not component behavior or business semantics.
+Hardline is the flagship/default NeoSmartUXUI flavor. It owns visual and tactile expression, not component behavior or business semantics.
 
 ## Stable identity
 
 - Flavor ID: `flavor.hardline`
-- Flavor schema: `neosmartui/flavor@1`
+- Flavor schema: `neosmartuxui/flavor@1`
 - Implemented light Theme: `packages/themes/hardline-light/theme.json`
 - Implemented dark Theme: `packages/themes/hardline-dark/theme.json`
 - Resolved Light bundle: `packages/themes/hardline-light/tokens.json`
@@ -45,7 +45,7 @@ The resolved bundle contains exactly the 55 semantic roles currently required by
 
 ## Hardline Dark implementation
 
-Dark mode follows as its own concrete Theme instance rather than hidden conditional values inside the light Theme. `Hardline Dark` is the second concrete Theme instance of `flavor.hardline`. It is authored as its own `neosmartui/theme@1` descriptor, resolution, and 55-token bundle and is not implemented as CSS inversion, filter-based dark mode, or hidden conditional values inside Hardline Light.
+Dark mode follows as its own concrete Theme instance rather than hidden conditional values inside the light Theme. `Hardline Dark` is the second concrete Theme instance of `flavor.hardline`. It is authored as its own `neosmartuxui/theme@1` descriptor, resolution, and 55-token bundle and is not implemented as CSS inversion, filter-based dark mode, or hidden conditional values inside Hardline Light.
 
 Hardline Dark resolves the exact shipping **49-Core / 55-token** semantic dependency boundary while preserving the complete Hardline structural and interaction model.
 
@@ -87,13 +87,13 @@ Hardline Dark is `public-proof`. Promotion was gated on the exact merged-main Qu
 
 ## Provenance
 
-Hardline is a new NeoSmartUI flagship personality, not a copied legacy implementation. Its family-law evidence is pinned through the migration ledger to `NeoBrutalism-shop/spec@fbf499397f4e9a52d6e25c13921fd5377799c626`:
+Hardline is a new NeoSmartUXUI flagship personality, not a copied legacy implementation. Its family-law evidence is pinned through the migration ledger to `NeoBrutalism-shop/spec@fbf499397f4e9a52d6e25c13921fd5377799c626`:
 
 - `FLAVORS.md` supplies the Flavor/Core ownership boundary and cross-flavor semantic invariants.
 - `TOKENS.md` supplies the semantic pressure, motion, focus, and token-separation reference model.
 - `INTERACTION.md` supplies compress-never-float, coherent shadow/travel, reduced-motion, keyboard/touch, and static-surface laws.
 
-The canonical NeoSmartUI PRD supplies the Hardline-specific flagship choices: zero-radius/square geometry, hard boundaries, strong structural depth, high reaction, seated selection, restrained decorative movement, and the v0.3 light/dark requirement. No legacy source code is copied.
+The canonical NeoSmartUXUI PRD supplies the Hardline-specific flagship choices: zero-radius/square geometry, hard boundaries, strong structural depth, high reaction, seated selection, restrained decorative movement, and the v0.3 light/dark requirement. No legacy source code is copied.
 
 ## Public-proof evidence
 

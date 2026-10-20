@@ -49,10 +49,10 @@ disabled
 
 ## Migration knowledge provenance
 
-This contract is a clean NeoSmartUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
+This contract is a clean NeoSmartUXUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
 
 - Family behavior: `NeoBrutalism-shop/spec@fbf499397f4e9a52d6e25c13921fd5377799c626` — `COMPONENTS.md` explicitly requires checkbox/radio contact compression and immediate, unambiguous selection feedback.
 - Soft capability evidence: `NeoBrutalism-shop/NeoBrutal-Soft@dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a` — `COMPONENTS.md` lists checkbox among Core primitives and applies the full conformance state/resilience gate.
 - Rivet implementation evidence: `NeoBrutalRivet/NeoBrutal-Rivet@bb4b641d35bc77c958b7345a3b7c0a134c7d802d` — `components/ui/checkbox.tsx` demonstrates a generic checkable primitive, used only as knowledge evidence because repository licensing is not declared in metadata.
 
-Maturity remains `contract-only` until NeoSmartUI-owned implementation evidence exists.
+Maturity remains `contract-only` until NeoSmartUXUI-owned implementation evidence exists.

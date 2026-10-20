@@ -1,4 +1,4 @@
-# NeoSmartUI Core — Component Registry Contract v1
+# NeoSmartUXUI Core — Component Registry Contract v1
 
 Core Components are generic UI capabilities that can be described accurately without naming a business domain.
 
@@ -10,7 +10,7 @@ A Core component MUST:
 
 1. be business-domain-neutral;
 2. have a stable `core.<name>` ID;
-3. publish a machine-readable `neosmartui/component@1` contract;
+3. publish a machine-readable `neosmartuxui/component@1` contract;
 4. declare all semantic-token dependencies;
 5. define state semantics before visual implementation;
 6. define keyboard, touch, RTL, reduced-motion, and forced-colors support expectations;
@@ -50,7 +50,7 @@ Field labels, help/error copy, prefixes/suffixes, password reveal actions, and f
 
 ## Slice 4: `core.radio`
 
-`core.radio` provides mutually-exclusive native choice semantics with a canonical NeoSmartUI Web adapter and live public proof. Unlike checkbox, one checked radio affects its peers in the same selection set; the adapter mirrors state across the native group instead of reimplementing exclusivity.
+`core.radio` provides mutually-exclusive native choice semantics with a canonical NeoSmartUXUI Web adapter and live public proof. Unlike checkbox, one checked radio affects its peers in the same selection set; the adapter mirrors state across the native group instead of reimplementing exclusivity.
 
 The implementation preserves native same-name/form grouping and arrow-key movement while exposing agent-readable checked/unchecked state. Contact follows the family pressure law: hover and press compress toward the surface, never upward, and checked state remains unambiguous after release. The visible glyph is smaller than the token-backed 44px effective target.
 
@@ -58,7 +58,7 @@ Its current public proof is bound to the same exact-SHA GitHub Pages deployment 
 
 ## Slice 5: `core.switch`
 
-`core.switch` is a binary-setting semantic class with a canonical NeoSmartUI Web adapter and live public proof. It remains intentionally distinct from checkbox and radio: one control owns one immediate off/on setting, has no indeterminate state, and does not participate in a mutually-exclusive group.
+`core.switch` is a binary-setting semantic class with a canonical NeoSmartUXUI Web adapter and live public proof. It remains intentionally distinct from checkbox and radio: one control owns one immediate off/on setting, has no indeterminate state, and does not participate in a mutually-exclusive group.
 
 The canonical Web adapter uses a native checkbox base with `role="switch"`, preserves browser form participation and Space-key activation, prevents indeterminate presentation, and mirrors only the authoritative checked state to agent-readable `off`/`on` metadata.
 
@@ -68,7 +68,7 @@ Its current public proof is bound to the same exact-SHA GitHub Pages deployment 
 
 ## Slice 6: `core.tabs`
 
-`core.tabs` is a composite peer-panel navigation primitive with a canonical NeoSmartUI Web adapter and live public proof. It owns the tablist/tab/tabpanel relationship, one-selected-panel state, roving focus model, orientation-aware keyboard navigation, activation mode, and tactile trigger behavior without importing routing or business-domain semantics.
+`core.tabs` is a composite peer-panel navigation primitive with a canonical NeoSmartUXUI Web adapter and live public proof. It owns the tablist/tab/tabpanel relationship, one-selected-panel state, roving focus model, orientation-aware keyboard navigation, activation mode, and tactile trigger behavior without importing routing or business-domain semantics.
 
 The adapter supports both explicit activation modes. Automatic horizontal Tabs move focus and selection together, while manual vertical Tabs allow Arrow/Home/End focus movement without changing selection until Space/Enter. Disabled tabs are skipped, only one enabled tab participates in the page Tab order, and every controlled panel remains linked through `aria-controls`/`aria-labelledby`.
 
@@ -84,7 +84,7 @@ Its current public proof is refreshed onto the same exact merged-main Chromium a
 
 ## Slice 7: `core.textarea`
 
-`core.textarea` is generic multiline text entry with a canonical NeoSmartUI Web adapter and live public proof. It owns the native textarea editing surface and its empty/filled, invalid, read-only, disabled, hover, and focus-visible states without importing field-layout, formatting, auto-save, or business-domain semantics.
+`core.textarea` is generic multiline text entry with a canonical NeoSmartUXUI Web adapter and live public proof. It owns the native textarea editing surface and its empty/filled, invalid, read-only, disabled, hover, and focus-visible states without importing field-layout, formatting, auto-save, or business-domain semantics.
 
 Textarea remains intentionally separate from `core.input`: line breaks, multiline selection, scrolling, native resize affordances, and larger editing geometry materially change platform behavior. The adapter therefore preserves a real native `<textarea>`, leaves author-supplied native attributes authoritative, and mirrors only empty/filled state into agent-readable metadata rather than recreating editing in JavaScript.
 
@@ -98,11 +98,11 @@ Its current public proof shares the singleton cohort at source `57dc766ece8eca13
 
 ## Slice 8: `core.select`
 
-`core.select` is the generic native single-choice picker with a canonical NeoSmartUI Web adapter and live public proof. Its semantic boundary remains intentionally narrower than custom selection widgets: the implementation preserves a real single-select `<select>`, while multi-select/listbox, combobox/autocomplete/search, async option loading, cascading selection, labels/help/error copy, and form layout remain separate capabilities or composition.
+`core.select` is the generic native single-choice picker with a canonical NeoSmartUXUI Web adapter and live public proof. Its semantic boundary remains intentionally narrower than custom selection widgets: the implementation preserves a real single-select `<select>`, while multi-select/listbox, combobox/autocomplete/search, async option loading, cascading selection, labels/help/error copy, and form layout remain separate capabilities or composition.
 
 The native selected option/value is authoritative. The adapter mirrors only `selected` state plus current value/index into agent-readable metadata, rejects `multiple` and multi-row/listbox-style selects, and leaves `<option>`, `<optgroup>`, form participation, required/disabled behavior, browser type-ahead, arrow-key navigation, and the browser/OS picker platform-owned. It does not invent a portable `open` state or a fake native placeholder semantic.
 
-The collapsed select follows the permanent pressure-not-levitation law: rest retains structural depth, hover/contact compresses toward the surface, active/pointer contact reaches the existing active depth, and release restores depth. The platform-owned picker itself is not reimplemented as a NeoSmartUI popup merely to obtain custom motion or state hooks.
+The collapsed select follows the permanent pressure-not-levitation law: rest retains structural depth, hover/contact compresses toward the surface, active/pointer contact reaches the existing active depth, and release restores depth. The platform-owned picker itself is not reimplemented as a NeoSmartUXUI popup merely to obtain custom motion or state hooks.
 
 Rivet Light resolution includes `core.select` in scope. Every select dependency was already present in the exact Core dependency union, so this implementation adds zero new Theme token values; only resolution scope expands.
 
@@ -110,15 +110,15 @@ Foundry renders the native single-select and binds the canonical adapter. Merged
 
 Pinned family conformance supplies the generic pressure, focus, keyboard, touch, reduced-motion, sizing, and agent-readable laws. Pinned Soft explicitly lists `select` beside input and textarea among reusable Core primitives. The reviewed pinned Rivet snapshot has no `components/ui/select.tsx`, so no Rivet Select implementation provenance is claimed.
 
-Its public proof is bound to merged-main Quality run `34699170996`, browser artifact `10300390087`, deployment commit `f5caac25c16aa012222edeeb3b0e85c6b1bfbd11`, deployment tree `b0f9ec75170566945b8bf00af9a5c8b1b3136555`, and native Pages run `34700103133`. Live verification requires `https://neosmartui.github.io/deployment.json` to report source `57dc766ece8eca13b8c60b6f14615692ecdb51e8` and the page to expose the canonical native single-select and browser/OS picker-boundary markers. All seventeen public-proof components share this singleton cohort while retaining their own implementation blob bindings.
+Its public proof is bound to merged-main Quality run `34699170996`, browser artifact `10300390087`, deployment commit `f5caac25c16aa012222edeeb3b0e85c6b1bfbd11`, deployment tree `b0f9ec75170566945b8bf00af9a5c8b1b3136555`, and native Pages run `34700103133`. Live verification requires `https://neosmartuxui.github.io/deployment.json` to report source `57dc766ece8eca13b8c60b6f14615692ecdb51e8` and the page to expose the canonical native single-select and browser/OS picker-boundary markers. All seventeen public-proof components share this singleton cohort while retaining their own implementation blob bindings.
 
 ## Slice 9: `core.card`
 
 `core.card` is a public-proof informational grouping surface with a deliberately CSS-only Web implementation. It is not a generic clickable container: the Card itself has no built-in button/link role, tab stop, selection state, activation behavior, JavaScript binder, or synthetic state synchronization, and nested controls keep their own semantics and focus order.
 
-Pinned family conformance provides the decisive interaction rule: only cards with a real action or navigation role may react to hover/press; informational cards remain stable. NeoSmartUI therefore keeps the primitive at a single `rest` state. The canonical CSS has no hover/active/focus interaction selectors, sets `transform: none` and `transition: none`, and holds resting structural depth constant through pointer proximity and contact.
+Pinned family conformance provides the decisive interaction rule: only cards with a real action or navigation role may react to hover/press; informational cards remain stable. NeoSmartUXUI therefore keeps the primitive at a single `rest` state. The canonical CSS has no hover/active/focus interaction selectors, sets `transform: none` and `transition: none`, and holds resting structural depth constant through pointer proximity and contact.
 
-Soft explicitly lists Card among reusable Core primitives and records default/flat/muted/accent/interactive presentation knowledge. NeoSmartUI keeps visual variants separate from semantic activation so an `interactive` look cannot silently manufacture keyboard or pointer semantics.
+Soft explicitly lists Card among reusable Core primitives and records default/flat/muted/accent/interactive presentation knowledge. NeoSmartUXUI keeps visual variants separate from semantic activation so an `interactive` look cannot silently manufacture keyboard or pointer semantics.
 
 Pinned Rivet contains `components/ui/card.tsx`, which provides useful anatomy knowledge for Card/header/title/description/action/content/footer. That repository snapshot declares no license metadata, so it remains reference-only and no source code is copied.
 
@@ -136,11 +136,11 @@ Badge explicitly does not default to ARIA `role="status"`. That role creates a l
 
 The semantic tone model remains `neutral`, `info`, `success`, `warning`, and `error`. Tone is presentation classification rather than interaction state, and every Foundry example carries visible status text so color is not the sole meaning channel.
 
-Badge preserves the permanent geometry distinction introduced by its contract: compact annotations are neither controls nor Cards. Rivet Light now resolves `space.annotation.inline` to `0.55rem`, `space.annotation.block` to `0.15rem`, `border.annotation.width` to `2px`, and `radius.annotation` to `999px`. Pinned Soft provides the exact info (`#c9b7ff`), success (`#9be3bd`), and warning (`#f4dc78`) light palette values. The existing NeoSmartUI error role remains `#c1121f` so earlier components are not restyled, and inverse foreground resolves to `#ffffff` for that darker error surface.
+Badge preserves the permanent geometry distinction introduced by its contract: compact annotations are neither controls nor Cards. Rivet Light now resolves `space.annotation.inline` to `0.55rem`, `space.annotation.block` to `0.15rem`, `border.annotation.width` to `2px`, and `radius.annotation` to `999px`. Pinned Soft provides the exact info (`#c9b7ff`), success (`#9be3bd`), and warning (`#f4dc78`) light palette values. The existing NeoSmartUXUI error role remains `#c1121f` so earlier components are not restyled, and inverse foreground resolves to `#ffffff` for that darker error surface.
 
 The canonical CSS contains no hover/active/focus selectors, no structural shadow, `transform: none`, and `transition: none`. Long localized text may wrap rather than being silently truncated, logical inline/block geometry supports RTL, and forced-colors replaces custom tones with system Canvas/CanvasText while preserving the annotation border.
 
-Pinned Soft explicitly lists `Badge/status` and supplies exact compact Badge/palette knowledge in its pinned CSS. Pinned Rivet uses a neutral `span` by default, pill geometry, white destructive text, and scopes hover behavior to an actual anchor host. Rivet declares no license metadata, so it remains reference-only and NeoSmartUI copies no source implementation.
+Pinned Soft explicitly lists `Badge/status` and supplies exact compact Badge/palette knowledge in its pinned CSS. Pinned Rivet uses a neutral `span` by default, pill geometry, white destructive text, and scopes hover behavior to an actual anchor host. Rivet declares no license metadata, so it remains reference-only and NeoSmartUXUI copies no source implementation.
 
 Foundry exposes five visible tone examples. Dedicated Chromium QA verifies passive span semantics, exact token-backed geometry and palette resolution, stable hover/pointer contact, RTL plus long localization wrapping, reduced-motion immobility, and forced-colors readability without focusability. Its public proof is bound to merged source `57dc766ece8eca13b8c60b6f14615692ecdb51e8`, Quality run `34699170996`, browser artifact `10300390087`, deployment commit `f5caac25c16aa012222edeeb3b0e85c6b1bfbd11`, deployment tree `b0f9ec75170566945b8bf00af9a5c8b1b3136555`, and Pages run `34700103133`; structural proof validation recomputes the Badge CSS blob and live verification requires all five visible tone markers without adding interaction semantics.
 
@@ -178,7 +178,7 @@ Rivet Light includes `core.field` and resolves exactly one newly required depend
 
 Foundry renders normal/help, invalid/error, and disabled examples. The normal label uses native `<label for>` focus behavior; invalidity remains on the real input with explicit help/error relationships and no live-region role; disabled state remains on the real input rather than the Field container. Dedicated Chromium QA covers those semantics, exact token-backed gap resolution, stable pointer contact, RTL/long localization, reduced motion, and forced colors.
 
-Pinned Soft explicitly classifies `label/help/invalid field` as Core and supplies Field anatomy, invalid presentation, and exact fluid gap knowledge. Pinned Rivet provides Field/Label/Description/Error and fieldset/legend anatomy, but NeoSmartUI does not inherit its generic `role="group"` or unconditional FieldError `role="alert"` defaults. Both sources remain reference-only; no legacy source code is copied.
+Pinned Soft explicitly classifies `label/help/invalid field` as Core and supplies Field anatomy, invalid presentation, and exact fluid gap knowledge. Pinned Rivet provides Field/Label/Description/Error and fieldset/legend anatomy, but NeoSmartUXUI does not inherit its generic `role="group"` or unconditional FieldError `role="alert"` defaults. Both sources remain reference-only; no legacy source code is copied.
 
 Registry maturity is `public-proof`. Canonical implementation evidence remains `packages/adapters/web/components/field.css` with canonical proof `evidence/public/core.field.json`. Its singleton cohort binds source `57dc766ece8eca13b8c60b6f14615692ecdb51e8`, merged-main Quality run `34699170996`, browser artifact `10300390087`, deployment commit `f5caac25c16aa012222edeeb3b0e85c6b1bfbd11`, deployment tree `b0f9ec75170566945b8bf00af9a5c8b1b3136555`, and Pages run `34700103133`; live verification requires the deployed Field label/help/invalid/disabled markers while structural validation recomputes the Field CSS blob.
 
@@ -186,7 +186,7 @@ Registry maturity is `public-proof`. Canonical implementation evidence remains `
 
 `core.breadcrumb` is now public-proof as a generic hierarchical navigation trail with a deliberately CSS-only Web adapter. A labeled navigation landmark contains an ordered location hierarchy, ancestor locations remain genuine links, and exactly one current location is represented as non-interactive text with `aria-current="page"`.
 
-Breadcrumb does not own routing, history mutation, prefetching, page loading, authorization, or application-shell placement. The Foundry preserves real anchor semantics for navigable ancestors rather than replacing them with buttons, click-handler spans, `role="link"` shims, or router-only pseudo-links. The current page is not a disabled link, so NeoSmartUI deliberately rejects legacy `role="link" aria-disabled="true"` current-page treatment.
+Breadcrumb does not own routing, history mutation, prefetching, page loading, authorization, or application-shell placement. The Foundry preserves real anchor semantics for navigable ancestors rather than replacing them with buttons, click-handler spans, `role="link"` shims, or router-only pseudo-links. The current page is not a disabled link, so NeoSmartUXUI deliberately rejects legacy `role="link" aria-disabled="true"` current-page treatment.
 
 Separators and the passive ellipsis are presentation-only through `aria-hidden="true"`. If an overflow indicator later opens hidden ancestors, that trigger/menu interaction remains a separate capability rather than implicit Breadcrumb behavior.
 
@@ -216,7 +216,7 @@ The canonical Web implementation is `packages/adapters/web/components/pagination
 
 Foundry renders a labelled Pagination region with a non-operable previous boundary, real page links, one non-focusable current page, a passive assistive-technology-hidden ellipsis, and a real Next destination. Five additive Chromium cases verify semantic anatomy and exact 44px targets, native Tab/Enter behavior without roving focus, exact pressure compression only on reachable links, RTL and long-label wrapping, and reduced-motion/forced-colors behavior. The existing 70 cases remain unchanged, for 75 total.
 
-Pinned Soft explicitly lists Pagination under reusable Navigation + discovery capability. Its component explorer provides previous/current/page/next anatomy in a labelled region, while `src/components/navigation.css` provides wrapped compact-item layout, 2px resting depth, inward hover/active compression, current treatment, and disabled presentation. NeoSmartUI preserves that physical knowledge while correcting the default semantic host to real destinations and retaining the existing 44px minimum target. The pinned Rivet tree was inspected and contains no `components/ui/pagination.tsx`, so no Rivet Pagination implementation provenance is claimed.
+Pinned Soft explicitly lists Pagination under reusable Navigation + discovery capability. Its component explorer provides previous/current/page/next anatomy in a labelled region, while `src/components/navigation.css` provides wrapped compact-item layout, 2px resting depth, inward hover/active compression, current treatment, and disabled presentation. NeoSmartUXUI preserves that physical knowledge while correcting the default semantic host to real destinations and retaining the existing 44px minimum target. The pinned Rivet tree was inspected and contains no `components/ui/pagination.tsx`, so no Rivet Pagination implementation provenance is claimed.
 
 Registry maturity is `public-proof`, with canonical implementation evidence `packages/adapters/web/components/pagination.css` and canonical proof `evidence/public/core.pagination.json`. Its singleton cohort binds merged source `57dc766ece8eca13b8c60b6f14615692ecdb51e8`, merged-main Quality run `34699170996`, browser artifact `10300390087`, deployment commit `f5caac25c16aa012222edeeb3b0e85c6b1bfbd11`, deployment tree `b0f9ec75170566945b8bf00af9a5c8b1b3136555`, and Pages run `34700103133`; structural proof validation recomputes the Pagination CSS blob and live verification requires the deployed native Pagination markers. All seventeen public-proof components share this singleton deployment/browser cohort while retaining their own implementation blob bindings.
 
@@ -264,7 +264,7 @@ Registry maturity is `public-proof`, with canonical implementation evidence `pac
 
 ## Slice 17: `core.combobox`
 
-`core.combobox` is now public-proof as NeoSmartUI's first editable suggestion-list single-selection composite. It remains deliberately distinct from `core.select`: Select preserves a browser-owned picker and no portable open state, while Combobox owns editable query text, an explicitly related suggestion popup, transient active-option navigation, and one committed selected value.
+`core.combobox` is now public-proof as NeoSmartUXUI's first editable suggestion-list single-selection composite. It remains deliberately distinct from `core.select`: Select preserves a browser-owned picker and no portable open state, while Combobox owns editable query text, an explicitly related suggestion popup, transient active-option navigation, and one committed selected value.
 
 The initial scope remains single-selection only. Query text and committed selection are different authorities; typing or moving highlight cannot silently claim a new selected value. Multi-select, chips/tags, freeform value creation, async request policy, virtualization, remote pagination, ranking, and business-specific filtering remain outside this slice.
 
@@ -280,7 +280,7 @@ Rivet Light scope now includes `core.combobox`, but the implementation introduce
 
 Foundry renders the canonical labelled Combobox with four supplied suggestions, one disabled option, a separate disclosure trigger, and a non-option empty-result message. Five additive Chromium cases verify semantic/listbox/token geometry, input-focused active-descendant keyboard navigation with disabled-option skipping, query-versus-selection separation, immobile editing geometry plus trigger pressure/close stability, and RTL/long-content/reduced-motion/forced-colors resilience. The previous 85 browser cases remain unchanged, for 90 total.
 
-Pinned migration authority remains intentionally narrow and honest: family conformance provides generic composite/accessibility laws plus the Menus/Popovers trigger-compression rule; pinned Soft explicitly lists `Combobox surfaces` while also identifying keyboard-complete production Combobox behavior as unfinished; pinned Rivet provides reference-only `components/ui/combobox.tsx` anatomy. NeoSmartUI does not claim a completed Soft runtime or copy Rivet source code, and narrows Rivet's optional chips/multi-select knowledge out of this first implementation.
+Pinned migration authority remains intentionally narrow and honest: family conformance provides generic composite/accessibility laws plus the Menus/Popovers trigger-compression rule; pinned Soft explicitly lists `Combobox surfaces` while also identifying keyboard-complete production Combobox behavior as unfinished; pinned Rivet provides reference-only `components/ui/combobox.tsx` anatomy. NeoSmartUXUI does not claim a completed Soft runtime or copy Rivet source code, and narrows Rivet's optional chips/multi-select knowledge out of this first implementation.
 
 Registry maturity is `public-proof`, with canonical implementation evidence `packages/adapters/web/components/combobox.mjs`, paired CSS at `packages/adapters/web/components/combobox.css`, and canonical proof `evidence/public/core.combobox.json`. Its singleton cohort binds merged source `57dc766ece8eca13b8c60b6f14615692ecdb51e8`, merged-main Quality run `34699170996`, browser artifact `10300390087`, deployment commit `f5caac25c16aa012222edeeb3b0e85c6b1bfbd11`, deployment tree `b0f9ec75170566945b8bf00af9a5c8b1b3136555`, and native Pages run `34700103133`; structural proof validation recomputes both Combobox implementation blobs and live verification requires the deployed editable Combobox/listbox marker contract. All eighteen public-proof Core components share this singleton cohort while retaining their own implementation blob bindings.
 

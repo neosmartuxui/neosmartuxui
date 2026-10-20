@@ -18,7 +18,7 @@ Keyboard entry must preserve text editing where provided, while calendar navigat
 
 ## Token boundary
 
-This implementation introduces no component-specific semantic token contract. It reuses existing NeoSmartUI semantic roles; the DatePicker cohort expands official local Theme scope from 34 to 35 while preserving the exact 55-token semantic union.
+This implementation introduces no component-specific semantic token contract. It reuses existing NeoSmartUXUI semantic roles; the DatePicker cohort expands official local Theme scope from 34 to 35 while preserving the exact 55-token semantic union.
 
 ## Canonical Web implementation
 
@@ -26,7 +26,7 @@ The canonical Web adapter binds an `.ns-date-picker` root with one real text inp
 
 Single and range modes are coordinated through the same DatePicker ID. In single mode the primary input and Calendar selected date mirror one committed value. In range mode start and end remain separate editable values and mirror Calendar range start/end. A valid start with no end is explicitly `range-partial`; a bounded ordered pair is `range-selected`. Invalid syntax, an end without a start, or an end preceding the start is written and machine-readable through `aria-invalid` plus explicit error text.
 
-The disclosure trigger owns `aria-expanded` / `aria-controls` and may use NeoSmartUI pressure feedback. Editing inputs stay seated and do not gain press travel. The popup is an explicit non-modal dialog and does not trap Tab. Opening may focus the composed Calendar's roving day; Escape closes and returns focus to the trigger. Calendar click/Enter/Space selection synchronizes back to DatePicker after Calendar commits. Completed single/range selection closes the popup; partial range selection stays open.
+The disclosure trigger owns `aria-expanded` / `aria-controls` and may use NeoSmartUXUI pressure feedback. Editing inputs stay seated and do not gain press travel. The popup is an explicit non-modal dialog and does not trap Tab. Opening may focus the composed Calendar's roving day; Escape closes and returns focus to the trigger. Calendar click/Enter/Space selection synchronizes back to DatePicker after Calendar commits. Completed single/range selection closes the popup; partial range selection stays open.
 
 DatePicker imports and binds the shipping `core.calendar` adapter rather than duplicating calendar-grid navigation, current-date, unavailable-date, RTL Arrow, Home/End, selection, or range-marker behavior. It owns only entry/disclosure/value/validation coordination. No appointment, scheduling, network, business, time, or time-zone semantics are implemented.
 

@@ -1,6 +1,6 @@
 # `core.tooltip`
 
-`core.tooltip` is NeoSmartUI's concise supplemental-description primitive. It reveals short, non-interactive explanatory text for a target when pointer hover or keyboard focus needs additional context, without changing the target's own semantics or turning the description into a popup action surface.
+`core.tooltip` is NeoSmartUXUI's concise supplemental-description primitive. It reveals short, non-interactive explanatory text for a target when pointer hover or keyboard focus needs additional context, without changing the target's own semantics or turning the description into a popup action surface.
 
 ## Semantic boundary
 
@@ -104,13 +104,13 @@ The adapter never manufactures a target role or tab stop and installs no click/t
 
 ## Migration knowledge provenance
 
-This implementation is a clean NeoSmartUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
+This implementation is a clean NeoSmartUXUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
 
 - Family conformance: `NeoBrutalism-shop/spec@fbf499397f4e9a52d6e25c13921fd5377799c626` — `COMPONENTS.md` explicitly states that Tooltips must not introduce movement that makes the target appear actionable when it is not, alongside the shared keyboard, touch, reduced-motion, RTL, semantic-token, and agent-readable laws.
 - Soft capability evidence: `NeoBrutalism-shop/NeoBrutal-Soft@dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a` — `COMPONENTS.md` explicitly lists Tooltip under reusable Navigation + discovery capability.
 - Soft semantic/anatomy evidence: the same pinned repository's `components.html` demonstrates a real target using `aria-describedby` to reference a distinct `role="tooltip"` surface.
-- Soft visual evidence: `src/components/navigation.css` demonstrates a compact bounded tooltip surface with annotation-like spacing, border/radius, readable text, and stable structural depth. NeoSmartUI treats those values as reference-only visual knowledge and keeps semantic token ownership in the new architecture.
-- Rivet provenance review: the complete pinned `NeoBrutalRivet/NeoBrutal-Rivet@bb4b641d35bc77c958b7345a3b7c0a134c7d802d` tree was inspected and contains no `components/ui/tooltip.tsx`. NeoSmartUI therefore claims no Rivet Tooltip implementation provenance.
+- Soft visual evidence: `src/components/navigation.css` demonstrates a compact bounded tooltip surface with annotation-like spacing, border/radius, readable text, and stable structural depth. NeoSmartUXUI treats those values as reference-only visual knowledge and keeps semantic token ownership in the new architecture.
+- Rivet provenance review: the complete pinned `NeoBrutalRivet/NeoBrutal-Rivet@bb4b641d35bc77c958b7345a3b7c0a134c7d802d` tree was inspected and contains no `components/ui/tooltip.tsx`. NeoSmartUXUI therefore claims no Rivet Tooltip implementation provenance.
 
 ## Maturity
 

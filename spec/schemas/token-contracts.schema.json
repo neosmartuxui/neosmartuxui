@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://neosmartui.com/schemas/token-contracts@1.json",
-  "title": "NeoSmartUI Semantic Token Contracts",
+  "$id": "https://neosmartuxui.com/schemas/token-contracts@1.json",
+  "title": "NeoSmartUXUI Semantic Token Contracts",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema", "schemaVersion", "interopTarget", "contracts"],
   "properties": {
     "$schema": {"type":"string"},
-    "schema": {"const":"neosmartui/token-contracts@1"},
+    "schema": {"const":"neosmartuxui/token-contracts@1"},
     "schemaVersion": {"const":1},
     "interopTarget": {
       "type":"object",

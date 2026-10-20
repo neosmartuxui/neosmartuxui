@@ -1,12 +1,12 @@
-# NeoSmartUI LLM Guide
+# NeoSmartUXUI LLM Guide
 
 ```yaml
-product: NeoSmartUI
+product: NeoSmartUXUI
 parent: NeoSmartApps
 canonical_prd: docs/CANONICAL-PRD.md
-canonical_repo: neosmartui/neosmartui
-deployment_repo: neosmartui/neosmartui.github.io
-public_foundry: https://neosmartui.com
+canonical_repo: neosmartuxui/neosmartuxui
+deployment_repo: neosmartuxui/neosmartuxui.github.io
+public_foundry: https://neosmartuxui.com
 status: v0.1-foundation
 ```
 
@@ -45,10 +45,10 @@ flavor.hardline
 Schema families:
 
 ```text
-neosmartui/component@1
-neosmartui/block@1
-neosmartui/page@1
-neosmartui/theme@1
+neosmartuxui/component@1
+neosmartuxui/block@1
+neosmartuxui/page@1
+neosmartuxui/theme@1
 ```
 
 ## Non-negotiable agent rules
@@ -72,7 +72,7 @@ Interaction identity: `Pressure, not levitation`; hover begins compression, pres
 
 Migration: verify current branch + exact SHA; record provenance; choose one of `ADOPT|ADAPT|PROMOTE|REWRITE|RETIRE|REFERENCE`.
 
-Repository rule: canonical source lives only in `neosmartui/neosmartui`; generated Foundry output lives in `neosmartui/neosmartui.github.io`.
+Repository rule: canonical source lives only in `neosmartuxui/neosmartuxui`; generated Foundry output lives in `neosmartuxui/neosmartuxui.github.io`.
 
 Permanent rules:
 
@@ -85,15 +85,15 @@ BUILT FOR HUMANS. STRUCTURED FOR AGENTS.
 ## Organization routing
 
 ```yaml
-current_state: neosmartui/Progress-Memory
-process_library: neosmartui/Process-and-Workflows
-skills_registry: neosmartui/Skills
-organization_decisions: neosmartui/Handbook
-brand_identity: neosmartui/Brand
-infrastructure_docs: neosmartui/Infrastructure
-marketing_lab: neosmartui/Marketing
-monetization_lab: neosmartui/Monetization
-automation_lab: neosmartui/Automation
+current_state: neosmartuxui/Progress-Memory
+process_library: neosmartuxui/Process-and-Workflows
+skills_registry: neosmartuxui/Skills
+organization_decisions: neosmartuxui/Handbook
+brand_identity: neosmartuxui/Brand
+infrastructure_docs: neosmartuxui/Infrastructure
+marketing_lab: neosmartuxui/Marketing
+monetization_lab: neosmartuxui/Monetization
+automation_lab: neosmartuxui/Automation
 ```
 
 Session routing: read Progress-Memory first for mutable current state, then load only the relevant canonical product files. For repeatable repository operations, use a matching stable Skill when its contract fits; otherwise consult the Process catalog. None of these support repositories overrides `docs/CANONICAL-PRD.md`, schemas, registries, or runtime ownership in this monorepo.

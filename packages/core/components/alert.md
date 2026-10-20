@@ -1,6 +1,6 @@
 # `core.alert`
 
-`core.alert` is NeoSmartUI's prominent inline message/callout primitive. It groups explanatory, informational, success, warning, or error content without importing business meaning and without assuming that every visually emphasized message is urgent, interactive, or newly announced.
+`core.alert` is NeoSmartUXUI's prominent inline message/callout primitive. It groups explanatory, informational, success, warning, or error content without importing business meaning and without assuming that every visually emphasized message is urgent, interactive, or newly announced.
 
 ## Semantic boundary
 
@@ -81,10 +81,10 @@ The implementation introduces no new token contracts and no new Rivet Light valu
 
 ## Migration knowledge provenance
 
-This contract and implementation are clean NeoSmartUI definitions informed by pinned legacy evidence; no legacy implementation code is copied.
+This contract and implementation are clean NeoSmartUXUI definitions informed by pinned legacy evidence; no legacy implementation code is copied.
 
 - Family conformance: `NeoBrutalism-shop/spec@fbf499397f4e9a52d6e25c13921fd5377799c626` — shared laws provide semantic-token/state documentation, accessibility, RTL, reduced-motion, forced-colors, and the rule that static informational surfaces do not mimic interactive hover/press behavior.
-- Soft capability evidence: `NeoBrutalism-shop/NeoBrutal-Soft@dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a` — `COMPONENTS.md` explicitly classifies alerts as Core. `registry/default/alert/alert.tsx` uses generic tone variants and applies `role="alert"` only to its danger tone, which is useful evidence that visual Alert treatment and announcement semantics are separable; NeoSmartUI makes that separation explicit rather than inferring urgency from tone.
+- Soft capability evidence: `NeoBrutalism-shop/NeoBrutal-Soft@dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a` — `COMPONENTS.md` explicitly classifies alerts as Core. `registry/default/alert/alert.tsx` uses generic tone variants and applies `role="alert"` only to its danger tone, which is useful evidence that visual Alert treatment and announcement semantics are separable; NeoSmartUXUI makes that separation explicit rather than inferring urgency from tone.
 - Soft visual knowledge: the same pinned repository's `src/components/alert.css` provides reference-only evidence for a stable grouped message surface with icon/title/body anatomy and info/success/warning/danger treatments. No source code is copied.
 - Rivet implementation knowledge: `NeoBrutalRivet/NeoBrutal-Rivet@bb4b641d35bc77c958b7345a3b7c0a134c7d802d` — `components/ui/alert.tsx` provides generic Alert/title/description anatomy and default/destructive presentation knowledge. Its unconditional `role="alert"` is not adopted as a Core default because announcement urgency is a semantic decision, not a visual-style decision. Repository metadata declares no license, so this remains reference-only knowledge.
 

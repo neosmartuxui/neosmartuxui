@@ -1,4 +1,4 @@
-# NeoSmartUI Agent Contract
+# NeoSmartUXUI Agent Contract
 
 ## Authority order
 
@@ -45,7 +45,7 @@ If no valid capability exists, report `REGISTRY GAP` and classify it as Core, Ve
 
 ## Interaction identity
 
-Preserve the NeoSmartUI laws:
+Preserve the NeoSmartUXUI laws:
 
 - Sharp before soft.
 - Compress, never float.
@@ -63,7 +63,7 @@ Studio consumes canonical Theme and registry authority. It must not become a com
 
 - One logical editable Theme is the existing canonical package: `theme.json` + `resolution.json` + `tokens.json`.
 - Theme is data, not forked components. Studio must not invent `studio-theme.json`, a hidden fallback token layer, a Studio-only token registry, or a Studio-only runtime styling authority.
-- DISCOVER PREVIEW CAPABILITY before rendering. Component preview comes from canonical component contracts, the Core registry, shipping adapters, and the shared `neosmartui/component-preview@1` substrate.
+- DISCOVER PREVIEW CAPABILITY before rendering. Component preview comes from canonical component contracts, the Core registry, shipping adapters, and the shared `neosmartuxui/component-preview@1` substrate.
 - Component state controls are derived only from the selected component contract. Never invent generic states or fake browser pseudo-states with lookalike CSS.
 - If Block, Page, Vertical, input-environment, or accessibility-preview capability does not yet exist as real authority, surface it as unavailable or `REGISTRY GAP`; do not manufacture a demo so the UI appears complete.
 - Studio import is untrusted data. It may accept canonical Theme JSON only; imported HTML, CSS, JavaScript, fixtures, controllers, selectors, or executable code are not Theme data.
@@ -84,7 +84,7 @@ Do not bulk-copy legacy components before destination contracts are defined.
 
 ## Repository discipline
 
-`neosmartui/neosmartui` is canonical source. `neosmartui/neosmartui.github.io` is generated deployment output only.
+`neosmartuxui/neosmartuxui` is canonical source. `neosmartuxui/neosmartuxui.github.io` is generated deployment output only.
 
 Use branch → implementation → tests → PR → exact-SHA verification → merge. Do not do casual feature work directly on `main`.
 
@@ -98,7 +98,7 @@ Permanent rule: **SOURCE ONCE. DEMONSTRATE EVERYWHERE.**
 
 Foundry, flavor pages, vertical pages, labs, Studio, registry, and agent surfaces should render shipping contracts/implementations wherever practical. Do not create preview-only lookalikes when the real system can be rendered.
 
-Already-proven implementation bytes MUST NOT drift silently. When a public-proof-bound file needs replacement while the old deployment is still live, use `neosmartui/public-proof-maintenance@1`: bind the exact active proof-record blob, link a tracking issue, declare only already-proof-bound paths, bind their old proven blobs, and require the declared path set to equal actual proof-bound drift exactly. Maintenance is never a broad skip. After verified exact deployment, the proof-only promotion refreshes the cohort/bindings and removes the satisfied maintenance records; it does not redeploy Pages.
+Already-proven implementation bytes MUST NOT drift silently. When a public-proof-bound file needs replacement while the old deployment is still live, use `neosmartuxui/public-proof-maintenance@1`: bind the exact active proof-record blob, link a tracking issue, declare only already-proof-bound paths, bind their old proven blobs, and require the declared path set to equal actual proof-bound drift exactly. Maintenance is never a broad skip. After verified exact deployment, the proof-only promotion refreshes the cohort/bindings and removes the satisfied maintenance records; it does not redeploy Pages.
 
 ## Work sequencing
 
@@ -106,17 +106,26 @@ Follow `docs/DEVELOPMENT-ROADMAP.md`, but defer to the Canonical PRD if they div
 
 ## Organization operating layer
 
-NeoSmartUI has organization-level support repositories that improve continuity and repeatable execution without becoming product authority:
+NeoSmartUXUI has organization-level support repositories that improve continuity and repeatable execution without becoming product authority:
 
-- `neosmartui/Progress-Memory` — current state, routing, checkpoints, and handoffs.
-- `neosmartui/Process-and-Workflows` — reusable procedures, QA gates, and recovery runbooks.
-- `neosmartui/Skills` — stable/experimental machine-routable execution capabilities.
-- `neosmartui/Handbook` — organization decisions outside the product contract.
-- `neosmartui/Brand` — corporate/product identity assets only; never product Flavors/Themes.
-- `neosmartui/Infrastructure` — infrastructure documentation/runbooks; never secret values.
-- `neosmartui/Marketing`, `Monetization`, and `Automation` — specialist laboratories that may not redefine product truth.
+- `neosmartuxui/Progress-Memory` — current state, routing, checkpoints, and handoffs.
+- `neosmartuxui/Process-and-Workflows` — reusable procedures, QA gates, and recovery runbooks.
+- `neosmartuxui/Skills` — stable/experimental machine-routable execution capabilities.
+- `neosmartuxui/Handbook` — organization decisions outside the product contract.
+- `neosmartuxui/Brand` — corporate/product identity assets only; never product Flavors/Themes.
+- `neosmartuxui/Infrastructure` — infrastructure documentation/runbooks; never secret values.
+- `neosmartuxui/Marketing`, `Monetization`, and `Automation` — specialist laboratories that may not redefine product truth.
 
 For session continuity, start with Progress-Memory and route to the minimum canonical context needed. For repeatable execution, prefer a matching **stable Skill**; otherwise use the best validated/repeatable Process workflow/runbook. New procedures should be learned from real execution before promotion to Skills.
 
 Support repositories may summarize or route to this monorepo, but they MUST NOT override the authority order at the top of this file. Product authority and operating authority are deliberately separate.
 
+
+
+## GitHub operating guardrails (NeoSmartUXUI)
+
+- GitHub Actions is intentionally disabled for this repository. Do not enable, dispatch, or add auto-running workflows without explicit owner approval and review of GitHub's Acceptable Use Policies.
+- GitHub is for version control, issues, PRs, and normal repository operations, not persistent agents, third-party website automation, incentivized tasks, scraping, or unrelated compute.
+- Run tests and builds on controlled local computers or approved infrastructure, not GitHub-hosted runners.
+- No cross-organization migrations; only operate within neosmartuxui unless explicitly authorized.
+- Keep original recovery evidence and manifests intact; do not rewrite old SHAs or fabricate Git history.

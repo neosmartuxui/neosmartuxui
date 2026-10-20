@@ -1,6 +1,6 @@
 # `core.description-list`
 
-`core.description-list` is NeoSmartUI's semantic term/description display primitive. It owns native description-list relationships for authored names, terms, labels, values, meanings, metadata or definitions without importing generic collection ordering, row activation, option selection, composite navigation, editing or business semantics.
+`core.description-list` is NeoSmartUXUI's semantic term/description display primitive. It owns native description-list relationships for authored names, terms, labels, values, meanings, metadata or definitions without importing generic collection ordering, row activation, option selection, composite navigation, editing or business semantics.
 
 ## Semantic boundary
 

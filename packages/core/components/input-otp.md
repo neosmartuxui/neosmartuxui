@@ -18,7 +18,7 @@ Backspace/Delete, selection, paste, platform autocomplete and IME-compatible edi
 
 ## Token boundary
 
-This implementation introduces no component-specific semantic token contract. It reuses existing NeoSmartUI semantic roles; the implementation cohort expands official local Theme scope from 30 to 31 while preserving the exact 55-token semantic union.
+This implementation introduces no component-specific semantic token contract. It reuses existing NeoSmartUXUI semantic roles; the implementation cohort expands official local Theme scope from 30 to 31 while preserving the exact 55-token semantic union.
 
 ## Canonical Web implementation
 

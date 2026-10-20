@@ -1,8 +1,8 @@
 {
-  "name": "neosmartui",
+  "name": "neosmartuxui",
   "version": "0.0.0",
   "private": true,
-  "description": "NeoSmartUI — the AI-first neo-brutalist UI system.",
+  "description": "NeoSmartUXUI — the AI-first neo-brutalist UI system.",
   "engines": {
     "node": ">=22"
   },

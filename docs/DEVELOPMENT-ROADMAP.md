@@ -1,4 +1,4 @@
-# NeoSmartUI Development Roadmap
+# NeoSmartUXUI Development Roadmap
 
 This is the operational summary derived from [`CANONICAL-PRD.md`](CANONICAL-PRD.md). If this file and the Canonical PRD ever disagree, the Canonical PRD wins.
 
@@ -10,7 +10,7 @@ This is the operational summary derived from [`CANONICAL-PRD.md`](CANONICAL-PRD.
 1. **v0.1 Foundation** — complete.
 2. **v0.2 Core** — complete foundation and **Component Lab** delivery; the component catalog can continue expanding without reopening or renumbering this milestone.
 3. **v0.3 Flavor Engine** — complete: Hardline, Soft, Rivet, Mono, Light/Dark, typography, geometry, motion and Pressure System. **Pulse** is a post-v0.4 official Flavor expansion. Pulse Light and Pulse Dark are implemented as an official Studio starter pair and are complete through public proof. This does not reopen or renumber v0.3.
-4. **v0.4 NeoSmartUI Studio** — complete through public launch: Theme editing, official starters, component preview, responsive preview, import/export and validation.
+4. **v0.4 NeoSmartUXUI Studio** — complete through public launch: Theme editing, official starters, component preview, responsive preview, import/export and validation.
 5. **v0.5 Core Blocks** — pending: marketing, application and content Blocks; Blocks Lab; machine-readable composition.
 6. **v0.6 Commerce Vertical** — pending: Commerce models, domain components, Blocks, Pages and real application journeys.
 7. **v0.7 Smart Agent Platform** — pending: Resolver, registry API, CLI, MCP, recipes, anti-patterns and Agent Lab.
@@ -29,7 +29,7 @@ The versioned product roadmap above is **unchanged** by the current component-li
 - **Pages Lab** ⏳
 - **Vertical/SaaS/Commerce previews** ⏳
 
-NeoSmartUI Studio is already publicly launched, but Studio completion does **not** mean the dedicated Theme Gallery/Lab is complete. Likewise, the existing Component Lab is complete as a product surface even while the canonical component library continues to gain new production-grade components.
+NeoSmartUXUI Studio is already publicly launched, but Studio completion does **not** mean the dedicated Theme Gallery/Lab is complete. Likewise, the existing Component Lab is complete as a product surface even while the canonical component library continues to gain new production-grade components.
 
 ## Current execution focus — Core component library expansion
 
@@ -286,7 +286,7 @@ Never weaken QA to increase component count faster.
 
 ## Hosting rule during development
 
-GitHub is the permanent home and GitHub Pages is the required public host while this roadmap is active. `neosmartui.com`, Cloudflare, registrar configuration, DNS and custom-domain certificates remain non-blocking infrastructure work.
+GitHub is the permanent home and GitHub Pages is the required public host while this roadmap is active. `neosmartuxui.com`, Cloudflare, registrar configuration, DNS and custom-domain certificates remain non-blocking infrastructure work.
 
 ## Immediate next PR sequence
 

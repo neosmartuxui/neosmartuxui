@@ -18,7 +18,7 @@ Grid/row/gridcell or an accessibility-equivalent calendar pattern must expose cu
 
 ## Token boundary
 
-This implementation introduces no component-specific semantic token contract. It reuses existing NeoSmartUI semantic roles; the Calendar cohort expands official local Theme scope from 33 to 34 while preserving the exact 55-token semantic union.
+This implementation introduces no component-specific semantic token contract. It reuses existing NeoSmartUXUI semantic roles; the Calendar cohort expands official local Theme scope from 33 to 34 while preserving the exact 55-token semantic union.
 
 ## Canonical Web implementation
 
@@ -26,7 +26,7 @@ The canonical Web adapter binds an `.ns-calendar` root to one `role="grid"` surf
 
 Arrow keys move only the active day; Home and End move within the active week. RTL reverses logical horizontal Arrow movement while leaving ISO chronology unchanged. Enter or Space commits the active date. Single selection and bounded range selection share the same primitive: range start, middle, and end remain machine-readable in `data-range-position` and explicit accessible labels, while transient active/focus state stays separate from committed selection.
 
-Previous/next month buttons change only the visible calendar month and retain ordinary Button semantics. Calendar does not parse text, own popup disclosure, add time/time-zone meaning, or implement appointments/scheduling/business rules. Day and month-navigation actions may use NeoSmartUI pressure feedback; selected/range/current/unavailable states persist independently of transient contact.
+Previous/next month buttons change only the visible calendar month and retain ordinary Button semantics. Calendar does not parse text, own popup disclosure, add time/time-zone meaning, or implement appointments/scheduling/business rules. Day and month-navigation actions may use NeoSmartUXUI pressure feedback; selected/range/current/unavailable states persist independently of transient contact.
 
 ## Maturity
 

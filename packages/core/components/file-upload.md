@@ -18,7 +18,7 @@ Users must be able to activate the native picker by keyboard/touch, understand s
 
 ## Token boundary
 
-This implementation introduces no component-specific semantic token contract. It reuses the existing NeoSmartUI semantic roles; the implementation cohort expands official local Theme scope from 32 to 33 while preserving the exact 55-token semantic union.
+This implementation introduces no component-specific semantic token contract. It reuses the existing NeoSmartUXUI semantic roles; the implementation cohort expands official local Theme scope from 32 to 33 while preserving the exact 55-token semantic union.
 
 ## Canonical Web implementation
 

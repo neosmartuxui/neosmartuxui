@@ -1,6 +1,6 @@
 {
   "$schema": "../../../spec/schemas/theme-resolution.schema.json",
-  "schema": "neosmartui/theme-resolution@1",
+  "schema": "neosmartuxui/theme-resolution@1",
   "flavor": "flavor.rivet",
   "theme": "Rivet Dark",
   "bundle": "tokens.json",

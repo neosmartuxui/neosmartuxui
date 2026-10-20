@@ -1,6 +1,6 @@
 {
   "$schema": "../../../spec/schemas/component.schema.json",
-  "schema": "neosmartui/component@1",
+  "schema": "neosmartuxui/component@1",
   "id": "core.toast",
   "layer": "component",
   "domain": "core",

@@ -1,6 +1,6 @@
 {
   "$schema": "../../../../spec/schemas/component-preview.schema.json",
-  "schema": "neosmartui/component-preview@1",
+  "schema": "neosmartuxui/component-preview@1",
   "component": "core.textarea",
   "fixture": "fixture.html",
   "controller": "controller.mjs",

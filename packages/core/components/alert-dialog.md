@@ -16,7 +16,7 @@ The open surface must expose `role="alertdialog"` with real modal behavior. It r
 
 ## Token boundary
 
-This contract introduces no AlertDialog-specific semantic token contract. It reuses the existing NeoSmartUI semantic roles already present in the deployed 37-Core / 55-token Theme union. Public-proof promotion preserves the exact 55-token union and does not redeploy Pages.
+This contract introduces no AlertDialog-specific semantic token contract. It reuses the existing NeoSmartUXUI semantic roles already present in the deployed 37-Core / 55-token Theme union. Public-proof promotion preserves the exact 55-token union and does not redeploy Pages.
 
 ## Canonical Web implementation
 

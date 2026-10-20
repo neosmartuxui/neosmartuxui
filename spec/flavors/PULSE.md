@@ -1,11 +1,11 @@
 # Pulse Flavor Contract
 
-Pulse is the SaaS-forward, high-energy NeoSmartUI flavor for dense product interfaces, dashboards, operations tools, analytics, settings, onboarding, admin surfaces, and long-session application workflows. It keeps NeoSmartUI's tactile pressure language and visible structure while using compact application density, crisp neutral surfaces, and saturated high-signal accent reactions.
+Pulse is the SaaS-forward, high-energy NeoSmartUXUI flavor for dense product interfaces, dashboards, operations tools, analytics, settings, onboarding, admin surfaces, and long-session application workflows. It keeps NeoSmartUXUI's tactile pressure language and visible structure while using compact application density, crisp neutral surfaces, and saturated high-signal accent reactions.
 
 ## Stable identity
 
 - Flavor ID: `flavor.pulse`
-- Flavor schema: `neosmartui/flavor@1`
+- Flavor schema: `neosmartuxui/flavor@1`
 - Interaction model: `pressure-not-levitation`
 - Flavor maturity: `public-proof`
 - Pulse Light maturity: `implemented`
@@ -43,7 +43,7 @@ Pulse defaults toward:
 - restrained pressure motion;
 - clear hierarchy for sidebars, command surfaces, forms, tables, filters, metrics, and multi-step workflows.
 
-Pulse MUST preserve NeoSmartUI's pressure-not-levitation law. Hover begins compression or reaction; direct press completes contact with the resting plane. Ordinary controls MUST NOT generically float upward.
+Pulse MUST preserve NeoSmartUXUI's pressure-not-levitation law. Hover begins compression or reaction; direct press completes contact with the resting plane. Ordinary controls MUST NOT generically float upward.
 
 Pulse is a visual/physical Flavor. SaaS remains a Vertical. Pulse MUST NOT own workspace, billing, organization, subscription, authentication, analytics, or other SaaS business semantics.
 
@@ -51,13 +51,13 @@ Pulse is a visual/physical Flavor. SaaS remains a Vertical. Pulse MUST NOT own w
 
 Riddle UI is a useful competitor benchmark for SaaS-oriented design-system breadth, but Pulse is **not** a Riddle UI derivative and MUST NOT copy or redistribute Riddle's Figma assets, component geometry, palettes, shadows, layouts, icons, sections, naming system, or source files.
 
-The dated Riddle research under `research/competitors/riddle-ui/` is knowledge-only competitive evidence. Pulse implementation is independently authored from NeoSmartUI contracts and semantic tokens.
+The dated Riddle research under `research/competitors/riddle-ui/` is knowledge-only competitive evidence. Pulse implementation is independently authored from NeoSmartUXUI contracts and semantic tokens.
 
-Useful capability signals from the competitor research include dense application navigation, advanced forms, date selection, file upload, steps, tables, charts, notifications, stacked lists, action panels, and broad marketing/application section coverage. Those capabilities belong in Core/Blocks/Pages only when they independently pass NeoSmartUI's admission and quality rules.
+Useful capability signals from the competitor research include dense application navigation, advanced forms, date selection, file upload, steps, tables, charts, notifications, stacked lists, action panels, and broad marketing/application section coverage. Those capabilities belong in Core/Blocks/Pages only when they independently pass NeoSmartUXUI's admission and quality rules.
 
 ## Pulse Light implementation
 
-`Pulse Light` is the first concrete `neosmartui/theme@1` Theme of `flavor.pulse`.
+`Pulse Light` is the first concrete `neosmartuxui/theme@1` Theme of `flavor.pulse`.
 
 It resolves the exact current shipping Core boundary:
 
@@ -67,7 +67,7 @@ It resolves the exact current shipping Core boundary:
 - shared Core adapters only; no Pulse renderer fork;
 - Studio Theme-package validation is supported through the same canonical three-file package contract.
 
-Pulse Light uses independently authored NeoSmartUI values:
+Pulse Light uses independently authored NeoSmartUXUI values:
 
 - interactive surface `#fffefc`;
 - panel surface `#f4f6fa`;
@@ -97,7 +97,7 @@ The shipping Foundry route is `/flavors/pulse/`. Browser QA covers shared adapte
 
 ## Pulse Dark implementation
 
-`Pulse Dark` is the second concrete `neosmartui/theme@1` Theme of `flavor.pulse`. It is authored directly rather than generated through inversion or filters. Its canonical authored color strategy is `crisp-charcoal-electric-violet`.
+`Pulse Dark` is the second concrete `neosmartuxui/theme@1` Theme of `flavor.pulse`. It is authored directly rather than generated through inversion or filters. Its canonical authored color strategy is `crisp-charcoal-electric-violet`.
 
 Dark preserves every non-color Pulse Light invariant:
 

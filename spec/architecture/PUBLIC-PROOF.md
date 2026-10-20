@@ -1,4 +1,4 @@
-# NeoSmartUI Spec v1 — Public Proof Contract
+# NeoSmartUXUI Spec v1 — Public Proof Contract
 
 Permanent principle: **SOURCE ONCE. DEMONSTRATE EVERYWHERE.**
 
@@ -12,7 +12,7 @@ The Foundry and Labs are architecture proof surfaces, not parallel demo implemen
 - Every released Vertical MUST eventually expose meaningful workflows and production states.
 - Cross-flavor Vertical previews MUST reuse the same domain implementation.
 - Public counts and identities MUST be generated from registries once registry authority exists.
-- `neosmartui/neosmartui.github.io` is generated output only and MUST NOT become a second source of truth.
+- `neosmartuxui/neosmartuxui.github.io` is generated output only and MUST NOT become a second source of truth.
 
 A public surface that diverges from shipping architecture is a defect, not merely stale documentation.
 
@@ -20,7 +20,7 @@ A public surface that diverges from shipping architecture is a defect, not merel
 
 Public proof binds exact implementation bytes. A proven implementation that needs maintenance MUST NOT silently invalidate, rewrite, or prematurely refresh the live proof record while the old deployment is still public.
 
-An active `neosmartui/public-proof-maintenance@1` record is the only sanctioned bridge between the currently live proof and replacement source bytes. It MUST:
+An active `neosmartuxui/public-proof-maintenance@1` record is the only sanctioned bridge between the currently live proof and replacement source bytes. It MUST:
 
 - bind exactly one active public-proof Component or Flavor;
 - bind the exact Git blob SHA of that subject's current `evidence/public/<subject>.json` record;
@@ -37,6 +37,6 @@ The live public-proof record remains unchanged while replacement source is under
 
 A broken CI scheduler record is infrastructure drift, not permission to mutate canonical source solely to obtain another run.
 
-When a mandatory merged-main Quality run is demonstrably orphaned before job execution, NeoSmartUI MAY accept a separate exact-SHA recovery run only under the closed incident contract in `docs/CI-INCIDENT-RECOVERY.md`. Recovery MUST preserve the same canonical source SHA, byte-identical Quality workflow, mandatory validators/tests/browser coverage, and independently verified artifact provenance. The temporary recovery PR MUST use existing commits only and MUST be closed unmerged.
+When a mandatory merged-main Quality run is demonstrably orphaned before job execution, NeoSmartUXUI MAY accept a separate exact-SHA recovery run only under the closed incident contract in `docs/CI-INCIDENT-RECOVERY.md`. Recovery MUST preserve the same canonical source SHA, byte-identical Quality workflow, mandatory validators/tests/browser coverage, and independently verified artifact provenance. The temporary recovery PR MUST use existing commits only and MUST be closed unmerged.
 
 Recovery evidence substitutes for the missing scheduler execution; it MUST NOT rewrite history or claim that the orphaned run itself passed.

@@ -1,6 +1,6 @@
 # `core.card`
 
-`core.card` is NeoSmartUI's generic informational grouping surface. It gives related content one stable visual container without importing business meaning, navigation, activation, selection, form behavior, or application-specific layout.
+`core.card` is NeoSmartUXUI's generic informational grouping surface. It gives related content one stable visual container without importing business meaning, navigation, activation, selection, form behavior, or application-specific layout.
 
 ## Semantic boundary
 
@@ -54,10 +54,10 @@ The structural dependency set remains surface/background/content roles, surface 
 
 ## Migration knowledge provenance
 
-This contract and implementation are clean NeoSmartUI definitions informed by pinned legacy evidence; no legacy implementation code is copied.
+This contract and implementation are clean NeoSmartUXUI definitions informed by pinned legacy evidence; no legacy implementation code is copied.
 
 - Family conformance: `NeoBrutalism-shop/spec@fbf499397f4e9a52d6e25c13921fd5377799c626` — `COMPONENTS.md` explicitly states that only cards with action/navigation semantics may react to hover/press and that informational cards remain stable.
-- Soft capability evidence: `NeoBrutalism-shop/NeoBrutal-Soft@dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a` — `COMPONENTS.md` lists Card among Core primitives and documents default/flat/muted/accent/interactive presentation knowledge. NeoSmartUI keeps the generic Card informational instead of allowing a visual variant to smuggle in interaction semantics.
+- Soft capability evidence: `NeoBrutalism-shop/NeoBrutal-Soft@dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a` — `COMPONENTS.md` lists Card among Core primitives and documents default/flat/muted/accent/interactive presentation knowledge. NeoSmartUXUI keeps the generic Card informational instead of allowing a visual variant to smuggle in interaction semantics.
 - Rivet implementation knowledge: `NeoBrutalRivet/NeoBrutal-Rivet@bb4b641d35bc77c958b7345a3b7c0a134c7d802d` — `components/ui/card.tsx` demonstrates generic Card anatomy (`card`, header, title, description, action, content, footer) as implementation knowledge only. Repository metadata declares no license, so no source code is copied.
 
 ## Maturity

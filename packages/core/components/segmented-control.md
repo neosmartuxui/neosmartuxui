@@ -1,6 +1,6 @@
 # `core.segmented-control`
 
-`core.segmented-control` is NeoSmartUI's compact single-selection mode/view control. It presents a small set of peer actions as one visually connected group while keeping each segment a real button and keeping one persistent active mode distinguishable after transient press feedback ends.
+`core.segmented-control` is NeoSmartUXUI's compact single-selection mode/view control. It presents a small set of peer actions as one visually connected group while keeping each segment a real button and keeping one persistent active mode distinguishable after transient press feedback ends.
 
 ## Semantic boundary
 
@@ -51,7 +51,7 @@ If a product needs a single-tab-stop composite with Arrow-key selection, that is
 
 ## Touch and target size
 
-Every enabled segment is a standalone compact control and its effective target MUST meet or exceed `size.control.minimum`. The existing Rivet Light minimum is 44px, so NeoSmartUI does not inherit the smaller legacy Soft `2.25rem` segment height as an accessibility target.
+Every enabled segment is a standalone compact control and its effective target MUST meet or exceed `size.control.minimum`. The existing Rivet Light minimum is 44px, so NeoSmartUXUI does not inherit the smaller legacy Soft `2.25rem` segment height as an accessibility target.
 
 Touch activation must acknowledge contact immediately without depending on hover. Selection changes after real button activation and remains visually clear when the finger is removed.
 
@@ -101,14 +101,14 @@ Five additive Chromium cases cover semantic anatomy and single-selection transfe
 
 ## Migration knowledge provenance
 
-This contract is a clean NeoSmartUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
+This contract is a clean NeoSmartUXUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
 
 - Family conformance: `NeoBrutalism-shop/spec@fbf499397f4e9a52d6e25c13921fd5377799c626` — `COMPONENTS.md` explicitly states that chips/segmented controls follow tactile compression and that selected state must remain distinguishable after release, alongside the shared focus, touch, reduced-motion, fluid-token, and agent-readable laws.
 - Soft capability evidence: `NeoBrutalism-shop/NeoBrutal-Soft@dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a` — `COMPONENTS.md` explicitly lists segmented control under reusable Navigation + discovery capability.
 - Soft semantic/anatomy evidence: the same pinned repository's `components.html` demonstrates a labelled `role="group"` containing real buttons with mutually-exclusive `aria-pressed` state.
-- Soft visual evidence: `src/components/navigation.css` demonstrates a connected group frame, compact peer buttons, inward hover/active travel, persistent active treatment, and responsive conversion to an equal-width grid. NeoSmartUI retains the useful physical/layout knowledge while enforcing the existing 44px minimum target instead of copying the smaller legacy height.
-- Soft behavior evidence: `component-explorer.js` demonstrates single-selection transfer by setting exactly one peer button to `aria-pressed="true"` after activation. NeoSmartUI treats this as behavior knowledge only and does not copy source code.
-- Rivet provenance review: pinned `NeoBrutalRivet/NeoBrutal-Rivet@bb4b641d35bc77c958b7345a3b7c0a134c7d802d` contains `components/ui/button-group.tsx`, which provides generic grouped-button orientation/anatomy but no segmented selected-state behavior. NeoSmartUI therefore does not claim a Rivet Segmented Control implementation artifact.
+- Soft visual evidence: `src/components/navigation.css` demonstrates a connected group frame, compact peer buttons, inward hover/active travel, persistent active treatment, and responsive conversion to an equal-width grid. NeoSmartUXUI retains the useful physical/layout knowledge while enforcing the existing 44px minimum target instead of copying the smaller legacy height.
+- Soft behavior evidence: `component-explorer.js` demonstrates single-selection transfer by setting exactly one peer button to `aria-pressed="true"` after activation. NeoSmartUXUI treats this as behavior knowledge only and does not copy source code.
+- Rivet provenance review: pinned `NeoBrutalRivet/NeoBrutal-Rivet@bb4b641d35bc77c958b7345a3b7c0a134c7d802d` contains `components/ui/button-group.tsx`, which provides generic grouped-button orientation/anatomy but no segmented selected-state behavior. NeoSmartUXUI therefore does not claim a Rivet Segmented Control implementation artifact.
 
 ## Maturity
 

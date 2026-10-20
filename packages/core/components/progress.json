@@ -1,6 +1,6 @@
 {
   "$schema": "../../../spec/schemas/component.schema.json",
-  "schema": "neosmartui/component@1",
+  "schema": "neosmartuxui/component@1",
   "id": "core.progress",
   "intent": "Expose completion of a task as a determinate value or an explicitly indeterminate progress state without implying user control.",
   "states": [

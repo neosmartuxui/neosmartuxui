@@ -1,6 +1,6 @@
 {
   "$schema": "../../../spec/schemas/component.schema.json",
-  "schema": "neosmartui/component@1",
+  "schema": "neosmartuxui/component@1",
   "id": "core.toggle",
   "intent": "Represent one independent pressed or unpressed option whose state persists after activation and is distinct from an immediate-setting Switch.",
   "states": [

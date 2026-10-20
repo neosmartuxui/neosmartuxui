@@ -1,10 +1,10 @@
-# NeoSmartUI
+# NeoSmartUXUI
 
 ## Canonical PRD, Architecture, Migration, Competitive Strategy & Execution Plan
 
 **Parent company:** NeoSmartApps
 
-**Product:** NeoSmartUI
+**Product:** NeoSmartUXUI
 
 **Category:** AI-first / agent-native neo-brutalist UI platform
 
@@ -20,26 +20,26 @@
 
 We will rebuild the existing NeoBrutal ecosystem as a new canonical product:
 
-# **NeoSmartUI**
+# **NeoSmartUXUI**
 
-NeoSmartUI will live under the broader **NeoSmartApps** product family.
+NeoSmartUXUI will live under the broader **NeoSmartApps** product family.
 
 ```text
 NeoSmartApps
 │
-├── NeoSmartUI
+├── NeoSmartUXUI
 │   └── AI-first UI platform
 │
 └── AI-first applications
-    └── built using NeoSmartUI
+    └── built using NeoSmartUXUI
 
 ```
 
 NeoSmartApps builds AI-first software.
 
-NeoSmartUI becomes the AI-first interface platform used by humans, coding agents, internal NeoSmartApps products, and third-party developers.
+NeoSmartUXUI becomes the AI-first interface platform used by humans, coding agents, internal NeoSmartApps products, and third-party developers.
 
-We will build NeoSmartUI around:
+We will build NeoSmartUXUI around:
 
 ```text
 ONE MONOREPO
@@ -63,18 +63,18 @@ multiple live public proof surfaces
 
 ```
 
-GitHub is the permanent engineering, documentation, release, and public-demonstration home of NeoSmartUI.
+GitHub is the permanent engineering, documentation, release, and public-demonstration home of NeoSmartUXUI.
 
 The canonical source repository and the generated public deployment are deliberately separated so the main repository remains safe:
 
 ```text
-github.com/neosmartui/neosmartui
+github.com/neosmartuxui/neosmartuxui
 → canonical source, contracts, tests, apps, tooling, roadmap
 
-github.com/neosmartui/neosmartui.github.io
+github.com/neosmartuxui/neosmartuxui.github.io
 → generated public Foundry / GitHub Pages deployment
 
-neosmartui.com
+neosmartuxui.com
 → public product domain for the Foundry
 ```
 
@@ -143,7 +143,7 @@ Meaning:
 ## 2.2 UI platform
 
 ```text
-NeoSmartUI
+NeoSmartUXUI
 
 ```
 
@@ -174,7 +174,7 @@ UI
 
 “Smart” must never be empty marketing language.
 
-In NeoSmartUI, **Smart** specifically means that the system can be understood and used deterministically by software agents.
+In NeoSmartUXUI, **Smart** specifically means that the system can be understood and used deterministically by software agents.
 
 ---
 
@@ -182,7 +182,7 @@ In NeoSmartUI, **Smart** specifically means that the system can be understood an
 
 Primary positioning:
 
-> **NeoSmartUI — The AI-first neo-brutalist UI system.**
+> **NeoSmartUXUI — The AI-first neo-brutalist UI system.**
 
 Supporting message:
 
@@ -192,7 +192,7 @@ Alternative product message:
 
 > **Design once. Compose intelligently.**
 
-NeoSmartUI is not positioned simply as:
+NeoSmartUXUI is not positioned simply as:
 
 > another React component library.
 
@@ -204,7 +204,7 @@ It is positioned as:
 
 # 4. Product vision
 
-NeoSmartUI should become:
+NeoSmartUXUI should become:
 
 > **A machine-readable, themeable, tactile and agent-native UI platform for building complete applications—not merely a collection of neo-brutalist components.**
 
@@ -222,7 +222,7 @@ or:
 
 or:
 
-> Build a billing page and automatically select the best existing NeoSmartUI components and blocks.
+> Build a billing page and automatically select the best existing NeoSmartUXUI components and blocks.
 
 The platform resolves the correct architecture automatically.
 
@@ -267,7 +267,7 @@ which agent instructions
 
 ```
 
-NeoSmartUI resolves those decisions.
+NeoSmartUXUI resolves those decisions.
 
 The human chooses:
 
@@ -280,7 +280,7 @@ framework
 
 ```
 
-NeoSmartUI resolves the system.
+NeoSmartUXUI resolves the system.
 
 ---
 
@@ -340,7 +340,7 @@ Application UI
 Example:
 
 ```text
-NeoSmartUI Core
+NeoSmartUXUI Core
 +
 Commerce
 +
@@ -383,7 +383,7 @@ FLAVORS
 
 Pulse is a public-proof official Flavor expansion. Pulse Light and Pulse Dark are implemented through the shared Core Theme pipeline, form one official Studio starter pair, and completed the full exact-artifact/live-verification/proof lifecycle. Pulse is now a required public-proof compatibility surface alongside Hardline, Soft, Rivet and Mono.
 
-This distinction becomes normative in NeoSmartUI Spec v1.
+This distinction becomes normative in NeoSmartUXUI Spec v1.
 
 Existing documents that call Commerce a flavor must be migrated.
 
@@ -391,7 +391,7 @@ Existing documents that call Commerce a flavor must be migrated.
 
 # 8. Primary product promise
 
-NeoSmartUI keeps these decisions independent:
+NeoSmartUXUI keeps these decisions independent:
 
 ```text
 WHAT am I building?
@@ -431,9 +431,9 @@ Changing one should not force reconstruction of the others.
 
 ---
 
-# 9. NeoSmartUI intelligence model
+# 9. NeoSmartUXUI intelligence model
 
-NeoSmartUI becomes “Smart” through six platform capabilities.
+NeoSmartUXUI becomes “Smart” through six platform capabilities.
 
 ## 9.1 Discover
 
@@ -489,7 +489,7 @@ Example:
 
 ## 10.1 Sharp before soft
 
-The flagship NeoSmartUI identity should prefer:
+The flagship NeoSmartUXUI identity should prefer:
 
 ```text
 square edges
@@ -506,7 +506,7 @@ strong typography
 
 Rounded interfaces remain supported through flavors such as Soft.
 
-Rounded geometry does **not** define NeoSmartUI.
+Rounded geometry does **not** define NeoSmartUXUI.
 
 ---
 
@@ -541,7 +541,7 @@ Generic hover-lift behavior is prohibited.
 
 # 11. NeoSmart Pressure System
 
-The existing tactile concept becomes a first-class NeoSmartUI subsystem:
+The existing tactile concept becomes a first-class NeoSmartUXUI subsystem:
 
 # **Pressure System**
 
@@ -732,7 +732,7 @@ The Foundry, flavor pages, vertical pages, Component Lab, Block Lab, Page Lab, M
 
 # 16. Competitive baseline
 
-Competitive research is a **living multi-competitor system**. No single competitor defines NeoSmartUI architecture or the Core target.
+Competitive research is a **living multi-competitor system**. No single competitor defines NeoSmartUXUI architecture or the Core target.
 
 Primary tracked competitor:
 
@@ -799,27 +799,27 @@ The public Preview IMAGE is sufficient to verify the 39 component-family names, 
 
 The public Figma preview exposes advanced patterns including coach marks, datepicker, file uploader, range slider, steps, tables, charts, modals, notifications, stacked lists and action panels. These are gap-analysis inputs, not assets to copy.
 
-NeoSmartUI's current Core breadth target is a product decision:
+NeoSmartUXUI's current Core breadth target is a product decision:
 
 > **90+ distinct public-proof Core components.**
 
-It is **not** `competitor count + N` and it is not reduced when a competitor has fewer components. Competitor counts are used to reveal gaps, table-stakes capabilities and opportunities—not to mechanically set NeoSmartUI's roadmap.
+It is **not** `competitor count + N` and it is not reduced when a competitor has fewer components. Competitor counts are used to reveal gaps, table-stakes capabilities and opportunities—not to mechanically set NeoSmartUXUI's roadmap.
 
 Before major product gates, active competitors should be re-checked and timestamped. New competitors can be added to `research/competitors/index.json` without changing the architecture.
 
-Therefore NeoSmartUI cannot differentiate through:
+Therefore NeoSmartUXUI cannot differentiate through:
 
 > “We also have buttons, blocks and a color picker.”
 
-Those are baseline expectations. NeoSmartUI must combine broad component coverage with stronger contracts, state semantics, accessibility, Theme/Flavor integration, Studio visibility, agent metadata, vertical depth and public proof.
+Those are baseline expectations. NeoSmartUXUI must combine broad component coverage with stronger contracts, state semantics, accessibility, Theme/Flavor integration, Studio visibility, agent metadata, vertical depth and public proof.
 
 ---
 
 # 17. Competitive differentiation
 
-NeoSmartUI should compete around:
+NeoSmartUXUI should compete around:
 
-| Area NeoSmartUI direction  |                                             |
+| Area NeoSmartUXUI direction  |                                             |
 | -------------------------- | ------------------------------------------- |
 | Components                 | Production-grade Core                       |
 | Blocks                     | Generic Core + domain-aware vertical blocks |
@@ -855,7 +855,7 @@ move inward
 
 ```
 
-NeoSmartUI identity:
+NeoSmartUXUI identity:
 
 ```text
 REST
@@ -889,7 +889,7 @@ Our identity is:
 
 Square corners alone are not enough differentiation.
 
-NeoSmartUI should expose geometry recipes:
+NeoSmartUXUI should expose geometry recipes:
 
 ```text
 square
@@ -937,7 +937,7 @@ Press direction can briefly emphasize the corresponding structural edge.
 
 # Hardline
 
-Hardline becomes the default NeoSmartUI personality.
+Hardline becomes the default NeoSmartUXUI personality.
 
 ```text
 square / zero-radius defaults
@@ -951,7 +951,7 @@ minimal decorative movement
 
 ```
 
-Hardline represents the primary NeoSmartUI visual identity.
+Hardline represents the primary NeoSmartUXUI visual identity.
 
 ---
 
@@ -998,7 +998,7 @@ Editorial black/white/gray NeoBrutal.
 
 SaaS-forward, high-energy NeoBrutal for dense product interfaces, dashboards, analytics, operations, settings, onboarding, admin, tables, charts and other long-session application surfaces. Pulse keeps sharp/micro geometry, visible structure, compact-but-accessible density, saturated high-signal accents, seated selection and the Pressure System.
 
-Pulse is independently authored. Riddle UI may inform competitive capability research, but NeoSmartUI MUST NOT copy or redistribute Riddle's Figma assets, palettes, layouts, icons, sections, component geometry or source files.
+Pulse is independently authored. Riddle UI may inform competitive capability research, but NeoSmartUXUI MUST NOT copy or redistribute Riddle's Figma assets, palettes, layouts, icons, sections, component geometry or source files.
 
 ---
 
@@ -1122,7 +1122,7 @@ Core may also contain generic reusable Blocks and page archetypes.
 
 Blocks are composed from components. A thin primitive layer produces either weak Blocks or repeated one-off primitives hidden inside Blocks.
 
-Therefore NeoSmartUI adopts this permanent dependency:
+Therefore NeoSmartUXUI adopts this permanent dependency:
 
 ```text
 Core contracts
@@ -1452,9 +1452,9 @@ Canonical schema:
 
 ```json
 {
-  "schema": "neosmartui/theme@1",
+  "schema": "neosmartuxui/theme@1",
   "name": "Hardline",
-  "family": "neosmartui",
+  "family": "neosmartuxui",
   "category": "neo-brutalist",
 
   "color": {},
@@ -1476,7 +1476,7 @@ One theme file powers:
 ```text
 runtime CSS
 Tailwind mappings
-NeoSmartUI Studio
+NeoSmartUXUI Studio
 documentation
 preview
 registry
@@ -1488,11 +1488,11 @@ validation
 
 ---
 
-# 29. NeoSmartUI Studio
+# 29. NeoSmartUXUI Studio
 
 The previous “Theme Studio” concept becomes:
 
-# **NeoSmartUI Studio**
+# **NeoSmartUXUI Studio**
 
 Theme creation is one major Studio capability.
 
@@ -1641,7 +1641,7 @@ floating depth
 
 ```
 
-NeoSmartUI treats shadows as structural depth.
+NeoSmartUXUI treats shadows as structural depth.
 
 ---
 
@@ -1797,14 +1797,14 @@ size
 Recommended repository:
 
 ```text
-NeoSmartUI/neosmartui
+NeoSmartUXUI/neosmartuxui
 
 ```
 
 Working structure:
 
 ```text
-neosmartui/
+neosmartuxui/
 │
 ├── spec/
 │   ├── architecture/
@@ -1878,21 +1878,21 @@ Spec and implementation evolve under one SHA.
 
 ## 40.1 GitHub permanent-home contract
 
-GitHub is a permanent part of the NeoSmartUI product architecture, not merely a temporary source host.
+GitHub is a permanent part of the NeoSmartUXUI product architecture, not merely a temporary source host.
 
 Canonical organization:
 
 ```text
-https://github.com/neosmartui
+https://github.com/neosmartuxui
 ```
 
 Required repositories at platform start:
 
 ```text
-neosmartui/neosmartui
+neosmartuxui/neosmartuxui
 → canonical monorepo and source of truth
 
-neosmartui/neosmartui.github.io
+neosmartuxui/neosmartuxui.github.io
 → public Foundry / GitHub Pages deployment target
 ```
 
@@ -1929,37 +1929,37 @@ Generated public-site output must not be committed into canonical `main` merely 
 Preferred deployment flow:
 
 ```text
-neosmartui/neosmartui
+neosmartuxui/neosmartuxui
         ↓
 build + test + validate
         ↓
 GitHub Actions
         ↓
-neosmartui/neosmartui.github.io
+neosmartuxui/neosmartuxui.github.io
         ↓
-neosmartui.com
+neosmartuxui.com
 ```
 
 A failed or broken public deployment must be recoverable without rewriting canonical source history.
 
-## 40.3 NeoSmartUI Foundry
+## 40.3 NeoSmartUXUI Foundry
 
 The root public experience is called:
 
-# **NeoSmartUI Foundry**
+# **NeoSmartUXUI Foundry**
 
 The Foundry is the front door to the complete ecosystem.
 
 Its root page at:
 
 ```text
-https://neosmartui.com/
+https://neosmartuxui.com/
 ```
 
 should explain and expose:
 
 ```text
-NeoSmartUI
+NeoSmartUXUI
 The AI-first neo-brutalist UI system.
 
 Components → Blocks → Pages → Applications
@@ -1976,7 +1976,7 @@ SaaS
 future verticals
 
 BUILD / CUSTOMIZE
-NeoSmartUI Studio
+NeoSmartUXUI Studio
 
 BUILD WITH AI
 Registry
@@ -2107,7 +2107,7 @@ Likewise, Core components and Blocks should be demonstrated through the same shi
 Target public structure:
 
 ```text
-neosmartui.com
+neosmartuxui.com
 │
 ├── /
 │   └── Foundry
@@ -2153,26 +2153,26 @@ This information architecture may evolve, but the product rule does not:
 Canonical package scope:
 
 ```text
-@neosmartui/core
-@neosmartui/tokens
-@neosmartui/contracts
-@neosmartui/registry
-@neosmartui/motion
-@neosmartui/react
-@neosmartui/theme
-@neosmartui/commerce
-@neosmartui/saas
+@neosmartuxui/core
+@neosmartuxui/tokens
+@neosmartuxui/contracts
+@neosmartuxui/registry
+@neosmartuxui/motion
+@neosmartuxui/react
+@neosmartuxui/theme
+@neosmartuxui/commerce
+@neosmartuxui/saas
 
 ```
 
 Possible flavor packages:
 
 ```text
-@neosmartui/flavor-hardline
-@neosmartui/flavor-soft
-@neosmartui/flavor-rivet
-@neosmartui/flavor-mono
-@neosmartui/flavor-pulse
+@neosmartuxui/flavor-hardline
+@neosmartuxui/flavor-soft
+@neosmartuxui/flavor-rivet
+@neosmartuxui/flavor-mono
+@neosmartuxui/flavor-pulse
 
 ```
 
@@ -2187,24 +2187,24 @@ Monorepo boundaries remain logical even if publishing strategy changes.
 Canonical CLI:
 
 ```bash
-npx neosmartui init
+npx neosmartuxui init
 
 ```
 
 Additional commands:
 
 ```bash
-npx neosmartui add button
+npx neosmartuxui add button
 
-npx neosmartui add commerce.cart-drawer
+npx neosmartuxui add commerce.cart-drawer
 
-npx neosmartui theme
+npx neosmartuxui theme
 
-npx neosmartui validate
+npx neosmartuxui validate
 
-npx neosmartui inspect
+npx neosmartuxui inspect
 
-npx neosmartui migrate
+npx neosmartuxui migrate
 
 ```
 
@@ -2213,7 +2213,7 @@ npx neosmartui migrate
 # 43. Frictionless human workflow
 
 ```bash
-npx neosmartui init
+npx neosmartuxui init
 
 ```
 
@@ -2254,7 +2254,7 @@ Choose framework
 
 ```
 
-NeoSmartUI resolves:
+NeoSmartUXUI resolves:
 
 ```text
 Core
@@ -2277,7 +2277,7 @@ Example:
 
 ```json
 {
-  "schema": "neosmartui/component@1",
+  "schema": "neosmartuxui/component@1",
   "id": "core.button",
 
   "layer": "component",
@@ -2337,22 +2337,22 @@ flavor.mono
 
 ```
 
-The schema identifies the NeoSmartUI ecosystem.
+The schema identifies the NeoSmartUXUI ecosystem.
 
 Example:
 
 ```text
-neosmartui/component@1
-neosmartui/block@1
-neosmartui/page@1
-neosmartui/theme@1
+neosmartuxui/component@1
+neosmartuxui/block@1
+neosmartuxui/page@1
+neosmartuxui/theme@1
 
 ```
 
 Avoid unnecessarily verbose IDs such as:
 
 ```text
-neosmartui.core.component.button
+neosmartuxui.core.component.button
 
 ```
 
@@ -2446,7 +2446,7 @@ No invented components unless a registry gap is proven.
 
 # 48. Agent laws
 
-Every NeoSmartUI coding agent follows:
+Every NeoSmartUXUI coding agent follows:
 
 ```text
 DISCOVER before inventing.
@@ -2518,7 +2518,7 @@ Application-specific?
 
 # 50. Agent-native definition
 
-NeoSmartUI is **agent-native** when an authorized agent can:
+NeoSmartUXUI is **agent-native** when an authorized agent can:
 
 ```text
 discover
@@ -2540,7 +2540,7 @@ This should become a measurable product requirement.
 
 # 51. Agent Lab
 
-NeoSmartUI includes a permanent:
+NeoSmartUXUI includes a permanent:
 
 # **Agent Lab**
 
@@ -2577,7 +2577,7 @@ Agent behavior should be inspectable.
 
 # 52. MCP
 
-NeoSmartUI MCP should expose structured functions around:
+NeoSmartUXUI MCP should expose structured functions around:
 
 ```text
 search capabilities
@@ -2629,7 +2629,7 @@ documentation pointers
 
 ```
 
-but future architecture development moves to NeoSmartUI.
+but future architecture development moves to NeoSmartUXUI.
 
 ---
 
@@ -2642,7 +2642,7 @@ ADOPT
 Use essentially unchanged.
 
 ADAPT
-Preserve but conform to NeoSmartUI contracts.
+Preserve but conform to NeoSmartUXUI contracts.
 
 PROMOTE
 Move from a vertical/flavor into Core.
@@ -2789,7 +2789,7 @@ accessibility gates
 
 Commerce should become:
 
-> a migration gold mine and future NeoSmartUI Commerce vertical.
+> a migration gold mine and future NeoSmartUXUI Commerce vertical.
 
 ---
 
@@ -2850,7 +2850,7 @@ No meaningful migration begins without this.
 
 ---
 
-# 61. Migration M1 — NeoSmartUI Foundation
+# 61. Migration M1 — NeoSmartUXUI Foundation
 
 Create canonical repository and workspace.
 
@@ -2876,7 +2876,7 @@ No rush to copy visual components.
 
 ---
 
-# 62. Migration M2 — NeoSmartUI Spec v1
+# 62. Migration M2 — NeoSmartUXUI Spec v1
 
 Define:
 
@@ -3044,7 +3044,7 @@ without changing Commerce business logic.
 
 ---
 
-# 67. Migration M7 — NeoSmartUI Studio
+# 67. Migration M7 — NeoSmartUXUI Studio
 
 Build Studio on the actual theme schema.
 
@@ -3113,11 +3113,11 @@ This is where “Smart” becomes fully operational.
 Exit:
 
 ```text
-NeoSmartUI monorepo
+NeoSmartUXUI monorepo
 
 GitHub permanent-home contract
 
-NeoSmartUI Foundry deployment baseline
+NeoSmartUXUI Foundry deployment baseline
 
 canonical source/deployment separation
 
@@ -3169,7 +3169,7 @@ No arbitrary component-count race.
 Exit:
 
 ```text
-neosmartui/theme@1
+neosmartuxui/theme@1
 
 Hardline
 
@@ -3197,7 +3197,7 @@ Pressure System
 
 ---
 
-## v0.4 — NeoSmartUI Studio
+## v0.4 — NeoSmartUXUI Studio
 
 Exit:
 
@@ -3242,7 +3242,7 @@ Vertical/SaaS/Commerce previews ⏳
 
 The **Component Lab is complete as a delivered surface**. Adding more canonical components extends the library shown by that Lab; it does not reopen or rename the Lab milestone.
 
-NeoSmartUI Studio is also complete through public launch, but Studio completion does **not** mean the separate **Dedicated Theme Gallery/Lab** is complete.
+NeoSmartUXUI Studio is also complete through public launch, but Studio completion does **not** mean the separate **Dedicated Theme Gallery/Lab** is complete.
 
 ### Current Core component expansion workstream — no roadmap renumbering
 
@@ -3426,7 +3426,7 @@ migration completeness
 
 ---
 
-## v1.0 — NeoSmartUI Stable
+## v1.0 — NeoSmartUXUI Stable
 
 Stable contracts for:
 
@@ -3481,7 +3481,7 @@ Initial architectural sequence:
 
 ```text
 PR 01
-NeoSmartUI monorepo scaffold
+NeoSmartUXUI monorepo scaffold
 
 PR 02
 Spec architecture + corrected taxonomy
@@ -3566,7 +3566,7 @@ Every Core component must prove:
 
 | Gate Requirement   |                                   |
 | ------------------ | --------------------------------- |
-| Contract           | Valid NeoSmartUI schema           |
+| Contract           | Valid NeoSmartUXUI schema           |
 | States             | Explicit state matrix             |
 | Keyboard           | Proven                            |
 | Touch              | Proven                            |
@@ -3621,7 +3621,7 @@ Customization cannot silently destroy usability.
 
 ---
 
-# 73. NeoSmartUI Theme Health
+# 73. NeoSmartUXUI Theme Health
 
 Studio can expose:
 
@@ -3729,7 +3729,7 @@ Current first-party evidence:
 - `research/competitors/neobrutalism-com/snapshot-2026-09-20.json`
 - `research/competitors/neobrutalism-dev/components-2026-09-20.json`
 
-The current NeoSmartUI Core target remains **90+ public-proof components** regardless of the lower component counts in these snapshots.
+The current NeoSmartUXUI Core target remains **90+ public-proof components** regardless of the lower component counts in these snapshots.
 
 ---
 
@@ -3787,9 +3787,9 @@ Decision questions:
 ```text
 Does the feature solve a real problem?
 
-Does it fit NeoSmartUI architecture?
+Does it fit NeoSmartUXUI architecture?
 
-Can NeoSmartUI solve the underlying problem better?
+Can NeoSmartUXUI solve the underlying problem better?
 
 ```
 
@@ -3813,7 +3813,7 @@ AI theme generation
 
 ```
 
-NeoSmartUI Studio differentiates through:
+NeoSmartUXUI Studio differentiates through:
 
 ```text
 interaction physics
@@ -3886,7 +3886,7 @@ marketing copy
 
 ```
 
-NeoSmartUI must have its own visual and interaction identity.
+NeoSmartUXUI must have its own visual and interaction identity.
 
 ---
 
@@ -4019,7 +4019,7 @@ install
 
 ```
 
-NeoSmartUI target:
+NeoSmartUXUI target:
 
 ```text
 understand intent
@@ -4054,7 +4054,7 @@ explain decisions
 
 ---
 
-# 85. NeoSmartUI Studio moat
+# 85. NeoSmartUXUI Studio moat
 
 Studio should eventually own:
 
@@ -4163,7 +4163,7 @@ light/dark together
 
 # 87. Smart-specific success metrics
 
-NeoSmartUI should additionally measure:
+NeoSmartUXUI should additionally measure:
 
 ```text
 intent resolution accuracy
@@ -4190,7 +4190,7 @@ explanation trace completeness
 
 # 88. Non-goals for v1
 
-NeoSmartUI v1 does not require:
+NeoSmartUXUI v1 does not require:
 
 ```text
 our own proprietary font
@@ -4287,10 +4287,10 @@ AGENTS.md
 LLMS.md
 → concise machine guidance
 
-neosmartui/neosmartui
+neosmartuxui/neosmartuxui
 → canonical source authority
 
-neosmartui/neosmartui.github.io
+neosmartuxui/neosmartuxui.github.io
 → generated public deployment only; never source authority
 
 ```
@@ -4301,15 +4301,15 @@ neosmartui/neosmartui.github.io
 
 The brand is:
 
-# NeoSmartUI
+# NeoSmartUXUI
 
 The category descriptors remain search-oriented.
 
 Homepage / Foundry title:
 
-> **NeoSmartUI — AI-First Neo-Brutalist UI/UX Design System**
+> **NeoSmartUXUI — AI-First Neo-Brutalist UI/UX Design System**
 
-The root `neosmartui.com` page is the **NeoSmartUI Foundry**: the product landing page and live index of Core, flavors, verticals, Studio, labs, registry, agents, docs, and roadmap.
+The root `neosmartuxui.com` page is the **NeoSmartUXUI Foundry**: the product landing page and live index of Core, flavors, verticals, Studio, labs, registry, agents, docs, and roadmap.
 
 Potential category pages:
 
@@ -4334,15 +4334,15 @@ Potential category pages:
 
 Component page title example:
 
-> **Neo-Brutalist Button Component — NeoSmartUI**
+> **Neo-Brutalist Button Component — NeoSmartUXUI**
 
 Studio:
 
-> **Neo-Brutal Theme Builder — NeoSmartUI Studio**
+> **Neo-Brutal Theme Builder — NeoSmartUXUI Studio**
 
 Commerce:
 
-> **Neo-Brutal Ecommerce UI System — NeoSmartUI Commerce**
+> **Neo-Brutal Ecommerce UI System — NeoSmartUXUI Commerce**
 
 Brand and SEO category remain separate.
 
@@ -4353,7 +4353,7 @@ Brand and SEO category remain separate.
 Use:
 
 ```text
-NeoSmartUI
+NeoSmartUXUI
 
 ```
 
@@ -4363,27 +4363,27 @@ Avoid:
 Neosmartui
 Neo Smart UI
 NeoSmart Ui
-NEOSMARTUI
+NEOSMARTUXUI
 
 ```
 
 Technical slug:
 
 ```text
-neosmartui
+neosmartuxui
 
 ```
 
 Product family:
 
 ```text
-NeoSmartUI Core
-NeoSmartUI Studio
-NeoSmartUI Registry
-NeoSmartUI Resolver
-NeoSmartUI MCP
-NeoSmartUI Commerce
-NeoSmartUI SaaS
+NeoSmartUXUI Core
+NeoSmartUXUI Studio
+NeoSmartUXUI Registry
+NeoSmartUXUI Resolver
+NeoSmartUXUI MCP
+NeoSmartUXUI Commerce
+NeoSmartUXUI SaaS
 
 ```
 
@@ -4391,10 +4391,10 @@ NeoSmartUI SaaS
 
 # 93. Relationship to NeoSmartApps
 
-NeoSmartApps should dogfood NeoSmartUI.
+NeoSmartApps should dogfood NeoSmartUXUI.
 
 ```text
-NeoSmartUI
+NeoSmartUXUI
         ↓
 used to build
         ↓
@@ -4402,13 +4402,13 @@ NeoSmartApps products
         ↓
 real requirements
         ↓
-improve NeoSmartUI Core
+improve NeoSmartUXUI Core
 
 ```
 
 This creates a valuable feedback loop.
 
-NeoSmartUI does not become a theoretical component gallery.
+NeoSmartUXUI does not become a theoretical component gallery.
 
 It is tested in real AI-first software.
 
@@ -4416,7 +4416,7 @@ It is tested in real AI-first software.
 
 # 94. Canonical architectural statement
 
-> **NeoSmartUI is not a collection of separate Soft, Rivet, Commerce and SaaS design systems.**
+> **NeoSmartUXUI is not a collection of separate Soft, Rivet, Commerce and SaaS design systems.**
 
 It is:
 
@@ -4426,7 +4426,7 @@ It is:
 
 # 95. Canonical product statement
 
-> **NeoSmartUI is the AI-first neo-brutalist UI platform for humans and agents.**
+> **NeoSmartUXUI is the AI-first neo-brutalist UI platform for humans and agents.**
 
 It combines:
 
@@ -4460,13 +4460,13 @@ to build complete interfaces.
 The first implementation slice should be:
 
 ```text
-Create/verify NeoSmartUI canonical monorepo
+Create/verify NeoSmartUXUI canonical monorepo
 +
-create/verify neosmartui.github.io public deployment repository
+create/verify neosmartuxui.github.io public deployment repository
 +
 establish canonical-source vs generated-deployment contract
 +
-scaffold the NeoSmartUI Foundry deployment baseline
+scaffold the NeoSmartUXUI Foundry deployment baseline
 +
 freeze legacy development
 +
@@ -4474,7 +4474,7 @@ snapshot exact legacy SHAs
 +
 create migration/inventory.json
 +
-write NeoSmartUI Spec v1
+write NeoSmartUXUI Spec v1
 
 ```
 
@@ -4500,14 +4500,14 @@ Harvest second.
 Recommended state:
 
 ```text
-NeoSmartUI/
-├── neosmartui
+NeoSmartUXUI/
+├── neosmartuxui
 │   └── canonical monorepo / source of truth
 │
-└── neosmartui.github.io
+└── neosmartuxui.github.io
     └── generated GitHub Pages / Foundry deployment
 
-neosmartui.com
+neosmartuxui.com
 └── public domain pointing to the Foundry
 
 ```
@@ -4620,7 +4620,7 @@ Failures are knowledge too.
 
 # 99.1 Permanent GitHub and deployment rule
 
-> **GitHub is NeoSmartUI's permanent engineering and public proof home.**
+> **GitHub is NeoSmartUXUI's permanent engineering and public proof home.**
 
 The canonical monorepo owns source, contracts, history, tests, and development authority.
 
@@ -4657,10 +4657,10 @@ GENERATE
 
 ```
 
-NeoSmartUI resolves:
+NeoSmartUXUI resolves:
 
 ```text
-NeoSmartUI Spec
+NeoSmartUXUI Spec
 +
 Core
 +
@@ -4693,13 +4693,13 @@ without rewriting Commerce.
 
 A coding agent can build the same application because the entire architecture is machine-readable.
 
-That is NeoSmartUI.
+That is NeoSmartUXUI.
 
 ---
 
 # 101. Product promise
 
-> **NeoSmartUI makes distinctive interfaces understandable to both humans and machines.**
+> **NeoSmartUXUI makes distinctive interfaces understandable to both humans and machines.**
 
 Humans choose intent and personality.
 

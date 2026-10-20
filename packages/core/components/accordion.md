@@ -40,7 +40,7 @@ Opening a panel does not move focus into the panel automatically. Closing a pane
 
 ## Pressure and motion
 
-The trigger is a real pressable control and follows the NeoSmartUI pressure law:
+The trigger is a real pressable control and follows the NeoSmartUXUI pressure law:
 
 - rest keeps structural 5px depth;
 - hover/proximity compresses by the existing 2px press vector;
@@ -87,11 +87,11 @@ Foundry demonstrates one single-expansion root with an initially open panel, one
 
 ## Migration provenance
 
-The pinned family `COMPONENTS.md` provides the shared interactive laws used here: explicit state modeling, pressure-not-levitation, keyboard focus, touch acknowledgement, reduced-motion behavior, semantic tokens, and agent-readable metadata. That family snapshot does not contain a separate Accordion-specific interaction law, so NeoSmartUI does not claim one.
+The pinned family `COMPONENTS.md` provides the shared interactive laws used here: explicit state modeling, pressure-not-levitation, keyboard focus, touch acknowledgement, reduced-motion behavior, semantic tokens, and agent-readable metadata. That family snapshot does not contain a separate Accordion-specific interaction law, so NeoSmartUXUI does not claim one.
 
 The pinned Soft snapshot does not list or implement Accordion as a reusable capability. No Soft Accordion provenance is claimed.
 
-Pinned Rivet contains `components/ui/accordion.tsx`, which provides reference-only anatomy for root, item, heading/trigger, content, open/closed state, disabled handling, focus treatment, and a disclosure indicator. Rivet repository metadata declares no license, so NeoSmartUI copies no source implementation.
+Pinned Rivet contains `components/ui/accordion.tsx`, which provides reference-only anatomy for root, item, heading/trigger, content, open/closed state, disabled handling, focus treatment, and a disclosure indicator. Rivet repository metadata declares no license, so NeoSmartUXUI copies no source implementation.
 
 ## Lifecycle
 

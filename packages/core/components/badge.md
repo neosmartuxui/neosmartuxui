@@ -1,6 +1,6 @@
 # `core.badge`
 
-`core.badge` is NeoSmartUI's compact informational metadata/status primitive. It can label a category, state, count, or concise condition without importing business meaning and without becoming an action merely because it looks prominent.
+`core.badge` is NeoSmartUXUI's compact informational metadata/status primitive. It can label a category, state, count, or concise condition without importing business meaning and without becoming an action merely because it looks prominent.
 
 ## Semantic boundary
 
@@ -31,7 +31,7 @@ Tone MUST NOT be the sole carrier of meaning. Text, accessible naming, or anothe
 
 The Badge itself is not pressable. It MUST NOT translate, compress, lift, deepen its shadow, show a pointer cursor, or manufacture focus-visible treatment on hover/contact. Reduced motion therefore has no Badge-specific travel to suppress.
 
-Pinned Rivet implementation knowledge reinforces this semantic split: the ordinary Badge host is a `span`, while hover rules in that legacy artifact are explicitly conditional on an anchor host. NeoSmartUI preserves the lesson, not the source code: interaction belongs to the actual semantic host, not to the visual Badge shape.
+Pinned Rivet implementation knowledge reinforces this semantic split: the ordinary Badge host is a `span`, while hover rules in that legacy artifact are explicitly conditional on an anchor host. NeoSmartUXUI preserves the lesson, not the source code: interaction belongs to the actual semantic host, not to the visual Badge shape.
 
 ## Content and icon rules
 
@@ -72,10 +72,10 @@ Rivet Light resolves those geometry roles from pinned Badge knowledge at `0.55re
 
 ## Migration knowledge provenance
 
-This contract and implementation are clean NeoSmartUI definitions informed by pinned legacy evidence; no legacy implementation code is copied.
+This contract and implementation are clean NeoSmartUXUI definitions informed by pinned legacy evidence; no legacy implementation code is copied.
 
 - Family conformance: `NeoBrutalism-shop/spec@fbf499397f4e9a52d6e25c13921fd5377799c626` — shared laws prohibit generic hover lift, require semantic-token/state documentation, and explicitly require static surfaces not to mimic interactive motion. Badge applies those family laws as a non-interactive primitive.
-- Soft capability and value evidence: `NeoBrutalism-shop/NeoBrutal-Soft@dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a` — `COMPONENTS.md` lists `Badge/status`; `src/components/badge.css` and `src/tokens.css` provide compact pill geometry and light status-palette migration knowledge. NeoSmartUI re-expresses that knowledge through its own semantic contracts and Theme-owned resolved values rather than copying source.
+- Soft capability and value evidence: `NeoBrutalism-shop/NeoBrutal-Soft@dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a` — `COMPONENTS.md` lists `Badge/status`; `src/components/badge.css` and `src/tokens.css` provide compact pill geometry and light status-palette migration knowledge. NeoSmartUXUI re-expresses that knowledge through its own semantic contracts and Theme-owned resolved values rather than copying source.
 - Rivet implementation knowledge: `NeoBrutalRivet/NeoBrutal-Rivet@bb4b641d35bc77c958b7345a3b7c0a134c7d802d` — `components/ui/badge.tsx` uses a neutral `span` host by default, pill geometry, and scopes hover styling to anchor-host usage; its destructive variant uses a white foreground. Repository metadata declares no license, so this is reference-only knowledge and no source code is copied.
 
 ## Maturity

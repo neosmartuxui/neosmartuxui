@@ -1,6 +1,6 @@
 # `core.data-grid`
 
-`core.data-grid` is NeoSmartUI's generic interactive tabular-data composite. It owns one managed grid focus model, deterministic cell navigation, optional single-cell selection, and an explicit transition into and out of cell edit mode without importing application data operations or business semantics.
+`core.data-grid` is NeoSmartUXUI's generic interactive tabular-data composite. It owns one managed grid focus model, deterministic cell navigation, optional single-cell selection, and an explicit transition into and out of cell edit mode without importing application data operations or business semantics.
 
 ## Semantic boundary
 
@@ -88,7 +88,7 @@ The adapter owns only generic grid interaction. Arrow keys move one cell without
 
 Single-cell selection is optional through `data-selection-enabled="true"`. Space toggles the active selectable cell, preserving zero-or-one `aria-selected="true"`. Focus movement does not change selection.
 
-Editable cells use `data-editable="true"` and contain exactly one native `[data-grid-editor]`. Enter or F2 enters edit mode, moves DOM focus into the editor, and suspends grid navigation. Escape exits and restores focus to the owning cell. Enter in a single-line editor emits a local commit exit and restores grid focus. Tab/Shift+Tab remain ordinary document traversal: the adapter schedules edit-mode cleanup without trapping or redirecting Tab. Local `neosmartui:data-grid-edit-exit` events communicate only a generic exit intent; they do not claim persistence, validation, rollback, form submission, network work, or application mutation.
+Editable cells use `data-editable="true"` and contain exactly one native `[data-grid-editor]`. Enter or F2 enters edit mode, moves DOM focus into the editor, and suspends grid navigation. Escape exits and restores focus to the owning cell. Enter in a single-line editor emits a local commit exit and restores grid focus. Tab/Shift+Tab remain ordinary document traversal: the adapter schedules edit-mode cleanup without trapping or redirecting Tab. Local `neosmartuxui:data-grid-edit-exit` events communicate only a generic exit intent; they do not claim persistence, validation, rollback, form submission, network work, or application mutation.
 
 The canonical preview contributes exactly five states: `rest` is fixture-realized, `hover` is native-pointer, `focus-visible` is native-keyboard, and `selected` / `editing` are controller states exercised through the real adapter keyboard path. The implementation preview matrix therefore expands from 259 to **264 real states** = **108 fixture + 49 native-pointer + 27 native-keyboard + 80 controller**. DataGrid adds one canonical Web binding and no additional business controller.
 

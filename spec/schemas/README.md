@@ -1,22 +1,22 @@
-# NeoSmartUI Schemas v1
+# NeoSmartUXUI Schemas v1
 
 These schemas define stable identity and minimum machine-readable contracts. They do not authorize registry counts beyond committed evidence or vertical business models.
 
 ## Schema identifiers
 
 ```text
-neosmartui/component@1
-neosmartui/component-registry@1
-neosmartui/block@1
-neosmartui/page@1
-neosmartui/theme@1
-neosmartui/flavor@1
-neosmartui/vertical@1
-neosmartui/token-contracts@1
-neosmartui/resolved-token-bundle@1
-neosmartui/theme-resolution@1
-neosmartui/deployment-record@1
-neosmartui/public-proof@1
+neosmartuxui/component@1
+neosmartuxui/component-registry@1
+neosmartuxui/block@1
+neosmartuxui/page@1
+neosmartuxui/theme@1
+neosmartuxui/flavor@1
+neosmartuxui/vertical@1
+neosmartuxui/token-contracts@1
+neosmartuxui/resolved-token-bundle@1
+neosmartuxui/theme-resolution@1
+neosmartuxui/deployment-record@1
+neosmartuxui/public-proof@1
 ```
 
 Core token contracts are value-free. Concrete values appear only in resolved Flavor/Theme bundles, and adapters translate those resolved values into framework/platform output. Every deployable Foundry artifact carries a source-SHA deployment record. Public-proof records bind implementation blobs, browser evidence, deployment lineage, and canonical HTTPS endpoints.
@@ -52,7 +52,7 @@ Token:     <semantic-path>
 
 `domain` is `core` or a Vertical domain prefix such as `commerce` or `saas`. Future Vertical prefixes remain extensible; schemas MUST NOT hardcode a closed list of business domains.
 
-The ecosystem/schema name carries `neosmartui`; everyday semantic IDs stay short. Do not introduce verbose IDs such as `neosmartui.core.component.button`.
+The ecosystem/schema name carries `neosmartuxui`; everyday semantic IDs stay short. Do not introduce verbose IDs such as `neosmartuxui.core.component.button`.
 
 ## Identity and evidence rules
 

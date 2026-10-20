@@ -1,4 +1,4 @@
-# NeoSmartUI Spec v1 — Taxonomy
+# NeoSmartUXUI Spec v1 — Taxonomy
 
 ## Core
 
@@ -38,15 +38,15 @@ A package of domain/business knowledge. A Vertical owns domain models, actions, 
 
 **SaaS is a Vertical, not a Flavor.**
 
-Any legacy document that classifies Commerce as a flavor is historical migration input and MUST NOT govern NeoSmartUI architecture.
+Any legacy document that classifies Commerce as a flavor is historical migration input and MUST NOT govern NeoSmartUXUI architecture.
 
 ## Adapter
 
-A boundary translating NeoSmartUI contracts to a framework, runtime, provider, or platform without redefining product semantics.
+A boundary translating NeoSmartUXUI contracts to a framework, runtime, provider, or platform without redefining product semantics.
 
 ## Agent
 
-An authorized software actor that discovers, composes, installs, themes, validates, and explains NeoSmartUI capabilities using machine-readable authority rather than guesses.
+An authorized software actor that discovers, composes, installs, themes, validates, and explains NeoSmartUXUI capabilities using machine-readable authority rather than guesses.
 
 ## Resolver
 

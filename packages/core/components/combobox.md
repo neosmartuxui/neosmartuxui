@@ -1,6 +1,6 @@
 # `core.combobox`
 
-`core.combobox` is NeoSmartUI's generic editable single-selection suggestion primitive. It combines a text-editing control with a related popup list of options so a user can type a query, inspect matching suggestions, move an active option, and commit one selected value without importing search-domain, commerce, SaaS, or application-specific meaning.
+`core.combobox` is NeoSmartUXUI's generic editable single-selection suggestion primitive. It combines a text-editing control with a related popup list of options so a user can type a query, inspect matching suggestions, move an active option, and commit one selected value without importing search-domain, commerce, SaaS, or application-specific meaning.
 
 ## Semantic boundary
 
@@ -118,11 +118,11 @@ Foundry binds this exact adapter to a labelled editable Combobox with four suppl
 
 ## Migration knowledge provenance
 
-This implementation is a clean NeoSmartUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
+This implementation is a clean NeoSmartUXUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
 
 - Family conformance: `NeoBrutalism-shop/spec@fbf499397f4e9a52d6e25c13921fd5377799c626` — shared explicit-state, focus, keyboard, touch, reduced-motion, fluid-token, agent-readable, and pressure-not-levitation laws apply. The family Menus/Popovers rule provides the physical distinction that a trigger compresses while a revealed hierarchical surface may appear without making the trigger float upward.
-- Soft capability evidence: `NeoBrutalism-shop/NeoBrutal-Soft@dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a` — `COMPONENTS.md` explicitly lists `Combobox surfaces` under Navigation + discovery and separately identifies keyboard-complete production Combobox behavior as high-value unfinished work. NeoSmartUI therefore uses Soft only as capability/boundary evidence and does **not** overclaim a completed Soft Combobox runtime.
-- Rivet implementation knowledge: `NeoBrutalRivet/NeoBrutal-Rivet@bb4b641d35bc77c958b7345a3b7c0a134c7d802d` — `components/ui/combobox.tsx` provides reference-only anatomy for editable input, disclosure trigger, clear action, positioned popup, list, items, groups, labels, empty state, separators, selection indicator, and optional chips. The initial NeoSmartUI implementation deliberately narrows that knowledge to single selection and excludes chips/multi-select. Repository metadata declares no license, so no source code is copied.
+- Soft capability evidence: `NeoBrutalism-shop/NeoBrutal-Soft@dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a` — `COMPONENTS.md` explicitly lists `Combobox surfaces` under Navigation + discovery and separately identifies keyboard-complete production Combobox behavior as high-value unfinished work. NeoSmartUXUI therefore uses Soft only as capability/boundary evidence and does **not** overclaim a completed Soft Combobox runtime.
+- Rivet implementation knowledge: `NeoBrutalRivet/NeoBrutal-Rivet@bb4b641d35bc77c958b7345a3b7c0a134c7d802d` — `components/ui/combobox.tsx` provides reference-only anatomy for editable input, disclosure trigger, clear action, positioned popup, list, items, groups, labels, empty state, separators, selection indicator, and optional chips. The initial NeoSmartUXUI implementation deliberately narrows that knowledge to single selection and excludes chips/multi-select. Repository metadata declares no license, so no source code is copied.
 
 ## Maturity
 

@@ -1,6 +1,6 @@
 # `core.input`
 
-`core.input` is NeoSmartUI's generic single-line text-like data-entry primitive. It owns the editable control itself, not the surrounding field composition.
+`core.input` is NeoSmartUXUI's generic single-line text-like data-entry primitive. It owns the editable control itself, not the surrounding field composition.
 
 ## Semantic boundary
 
@@ -49,7 +49,7 @@ Reduced motion removes or shortens non-essential visual transitions without chan
 
 ## Migration provenance
 
-The contract adapts knowledge from the pinned family conformance specification and uses the pinned Soft/Rivet input capabilities as evidence that single-line input belongs in reusable Core. Legacy repositories without declared license metadata are knowledge references only; no legacy implementation code is copied into NeoSmartUI.
+The contract adapts knowledge from the pinned family conformance specification and uses the pinned Soft/Rivet input capabilities as evidence that single-line input belongs in reusable Core. Legacy repositories without declared license metadata are knowledge references only; no legacy implementation code is copied into NeoSmartUXUI.
 
 ## Maturity
 

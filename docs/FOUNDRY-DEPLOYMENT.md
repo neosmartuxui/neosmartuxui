@@ -1,30 +1,30 @@
-# NeoSmartUI Foundry — Source and Deployment Contract
+# NeoSmartUXUI Foundry — Source and Deployment Contract
 
 This document is derived from the Canonical PRD. The Canonical PRD remains authoritative.
 
 ## Active development topology — GitHub first
 
 ```text
-neosmartui/neosmartui
+neosmartuxui/neosmartuxui
         ↓
 build + test + validate
         ↓
 GitHub Actions
         ↓
-neosmartui/neosmartui.github.io
+neosmartuxui/neosmartuxui.github.io
         ↓
-https://neosmartui.github.io/
+https://neosmartuxui.github.io/
 ```
 
-`neosmartui/neosmartui` owns source, contracts, tests, tooling, and history. `neosmartui/neosmartui.github.io` owns generated deploy output only. GitHub Pages is the authoritative public host throughout active development.
+`neosmartuxui/neosmartuxui` owns source, contracts, tests, tooling, and history. `neosmartuxui/neosmartuxui.github.io` owns generated deploy output only. GitHub Pages is the authoritative public host throughout active development.
 
-**Custom domain is deferred until the full development roadmap is complete.** `neosmartui.com`, Cloudflare, registrar settings, DNS records, and custom-domain certificates are deliberately out of scope during active product development. They MUST NOT block roadmap execution, CI, deployment, browser QA, or a public-proof claim that is already verifiable on the GitHub Pages host.
+**Custom domain is deferred until the full development roadmap is complete.** `neosmartuxui.com`, Cloudflare, registrar settings, DNS records, and custom-domain certificates are deliberately out of scope during active product development. They MUST NOT block roadmap execution, CI, deployment, browser QA, or a public-proof claim that is already verifiable on the GitHub Pages host.
 
 ## Foundry baseline
 
 The Foundry root is both a product landing page and a live system index. During development it deliberately exposes only architecture that actually exists. Flavor, vertical, Studio, and Lab routes must not be hand-built lookalikes before their shipping implementations exist.
 
-Source lives under `apps/foundry/`. `npm run build:foundry` writes deterministic static output to `dist/foundry/`. Studio source lives under `apps/studio/`; `npm run build:studio` writes deterministic static output to `dist/studio/`. Each public artifact carries its own `deployment.json` with the canonical `neosmartui/neosmartui` source SHA. Foundry publishes at `/`; Studio publishes at `/studio/`.
+Source lives under `apps/foundry/`. `npm run build:foundry` writes deterministic static output to `dist/foundry/`. Studio source lives under `apps/studio/`; `npm run build:studio` writes deterministic static output to `dist/studio/`. Each public artifact carries its own `deployment.json` with the canonical `neosmartuxui/neosmartuxui` source SHA. Foundry publishes at `/`; Studio publishes at `/studio/`.
 
 Development builds MUST NOT emit a `CNAME`. The deployment repository therefore uses its native GitHub Pages hostname until the entire development roadmap is complete and a separate custom-domain milestone is intentionally started.
 
@@ -41,7 +41,7 @@ Development builds MUST NOT emit a `CNAME`. The deployment repository therefore 
 
 ## Deployment automation and bootstrap
 
-The preferred permanent path is a dedicated cross-repository GitHub Actions deployment using a narrowly scoped credential or GitHub App installation that can write only `neosmartui/neosmartui.github.io`.
+The preferred permanent path is a dedicated cross-repository GitHub Actions deployment using a narrowly scoped credential or GitHub App installation that can write only `neosmartuxui/neosmartuxui.github.io`.
 
 Until that credential is configured, an authorized maintainer or connected GitHub integration MAY bootstrap-publish the exact already-green `dist/foundry/` and/or `dist/studio/` artifact trees to their canonical deployment paths. The bootstrap path MUST preserve each artifact's `deployment.json`, MUST NOT edit generated files independently, and MUST be followed by native Pages plus live URL/source-SHA verification. Any Foundry cohort movement still requires the normal proof-only promotion after deployment.
 

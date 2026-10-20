@@ -1,11 +1,11 @@
 # Soft Flavor Contract
 
-Soft is the calm application-oriented NeoSmartUI flavor for long-session interfaces. It preserves visible structure, direct contrast, tactile depth, obvious affordance, and physical micro-interaction while reducing the visual aggression of the flagship Hardline expression.
+Soft is the calm application-oriented NeoSmartUXUI flavor for long-session interfaces. It preserves visible structure, direct contrast, tactile depth, obvious affordance, and physical micro-interaction while reducing the visual aggression of the flagship Hardline expression.
 
 ## Stable identity
 
 - Flavor ID: `flavor.soft`
-- Flavor schema: `neosmartui/flavor@1`
+- Flavor schema: `neosmartuxui/flavor@1`
 - Implemented light Theme: `packages/themes/soft-light/theme.json`
 - Implemented dark Theme: `packages/themes/soft-dark/theme.json`
 - Interaction model: `pressure-not-levitation`
@@ -23,11 +23,11 @@ Raised controls may express tactile hard-shadow depth. Recessed editing/data sur
 
 Flavor-owned expression may configure palette defaults, typography, geometry, border weight, shadow direction/strength, density, spacing personality, motion intensity/release, icon treatment, surface treatment, and patterns.
 
-Soft MUST NOT own Button/Dialog/Product/Checkout/Billing behavior, SaaS workspace/billing semantics, or any other Core/Vertical behavior. The legacy source called itself a SaaS/application flavor, but NeoSmartUI extracts only its visual/physical personality; SaaS remains a Vertical under the Canonical PRD.
+Soft MUST NOT own Button/Dialog/Product/Checkout/Billing behavior, SaaS workspace/billing semantics, or any other Core/Vertical behavior. The legacy source called itself a SaaS/application flavor, but NeoSmartUXUI extracts only its visual/physical personality; SaaS remains a Vertical under the Canonical PRD.
 
 ## Soft Light implementation
 
-`Soft Light` is a concrete schema-valid `neosmartui/theme@1` implementation. Its resolution is explicit and machine-readable:
+`Soft Light` is a concrete schema-valid `neosmartuxui/theme@1` implementation. Its resolution is explicit and machine-readable:
 
 - `packages/themes/soft-light/tokens.json`
 - `packages/themes/soft-light/resolution.json`
@@ -69,7 +69,7 @@ The non-color Soft laws remain identical across Light and Dark:
 - reduced-motion state acknowledgement without non-essential travel;
 - forced-colors, keyboard, touch, pointer, RTL, localization, and narrow-layout conformance.
 
-The authored Soft Dark semantic palette is NeoSmartUI-owned and independently contrast-validated:
+The authored Soft Dark semantic palette is NeoSmartUXUI-owned and independently contrast-validated:
 
 - interactive surface `#1e1b19` and panel `#292522`;
 - primary content `#f7f1e8` and secondary content `#c7bfb5`;
@@ -86,7 +86,7 @@ Soft Dark is `public-proof`. The machine-readable record binds both Light and Da
 
 The initial verified Soft Dark public-proof cohort was:
 
-- deployed implementation source `neosmartui/neosmartui@20b32bba63f5882b17193eaca093e315c214ccd6`;
+- deployed implementation source `neosmartuxui/neosmartuxui@20b32bba63f5882b17193eaca093e315c214ccd6`;
 - merged-main Quality run `34721447129`;
 - merged-main browser artifact `10306147715`;
 - Chromium `130/130` with zero skipped, unexpected, or flaky tests;
@@ -108,7 +108,7 @@ The contract established that Soft Dark is the second concrete Theme instance of
 
 Soft Light originally reached `public-proof` only after implementation merged and the exact merged-main artifact was independently verified and deployed without rebuilding. Its original proof lifecycle used:
 
-- implementation source `neosmartui/neosmartui@5e999f2e62dc7727ebb74a9c79c5bd40513d6d0d`
+- implementation source `neosmartuxui/neosmartuxui@5e999f2e62dc7727ebb74a9c79c5bd40513d6d0d`
 - merged-main Quality run `34707268277`
 - merged-main browser artifact `10301797631`
 - Chromium `105/105`
@@ -124,7 +124,7 @@ The current accessibility-maintenance refresh is proven from merged source `fb2b
 
 The primary legacy knowledge source is pinned as `NeoBrutalism-shop/NeoBrutal-Soft@dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a`, especially `DESIGN.md`. The migration ledger classifies `legacy.soft.design-language` as `ADAPT` into the Flavor layer and explicitly says to extract Soft visual personality without importing SaaS domain semantics.
 
-The pinned source describes coated-plastic / soft-touch hardware, visible `2px` default structural borders, moderate rounding, shallow hard depth with reference rest → hover → active geometry of `3px → 1.5px → 0px`, warm neutral surfaces, softened blue accents, restrained motion, and dark mode as a first-class Theme rather than an inversion filter. These are migration knowledge inputs; NeoSmartUI resolves its own semantic token values and copies no legacy implementation source.
+The pinned source describes coated-plastic / soft-touch hardware, visible `2px` default structural borders, moderate rounding, shallow hard depth with reference rest → hover → active geometry of `3px → 1.5px → 0px`, warm neutral surfaces, softened blue accents, restrained motion, and dark mode as a first-class Theme rather than an inversion filter. These are migration knowledge inputs; NeoSmartUXUI resolves its own semantic token values and copies no legacy implementation source.
 
 Repository metadata for that legacy source does not declare a license. The migration policy therefore remains `knowledge-only-until-reviewed`, and no legacy CSS/JS/React implementation bytes are imported.
 

@@ -16,7 +16,7 @@ An open Dialog must expose modal dialog semantics with one accessible name and m
 
 ## Token boundary
 
-This contract introduces no component-specific semantic token contract. It reuses the existing NeoSmartUI semantic roles already present in the 35-Core / 55-token deployed Theme union. Contract-only admission does not expand official Theme resolution scope, shipping previews, public proof, or Pages.
+This contract introduces no component-specific semantic token contract. It reuses the existing NeoSmartUXUI semantic roles already present in the 35-Core / 55-token deployed Theme union. Contract-only admission does not expand official Theme resolution scope, shipping previews, public proof, or Pages.
 
 ## Canonical Web implementation
 

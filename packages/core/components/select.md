@@ -1,6 +1,6 @@
 # `core.select`
 
-`core.select` is NeoSmartUI's generic single-choice option picker. It owns the collapsed native select control and its platform selection behavior, not the surrounding field composition, custom popup UI, search workflow, or business meaning of the options.
+`core.select` is NeoSmartUXUI's generic single-choice option picker. It owns the collapsed native select control and its platform selection behavior, not the surrounding field composition, custom popup UI, search workflow, or business meaning of the options.
 
 ## Semantic boundary
 
@@ -20,13 +20,13 @@ Native `<option>` and `<optgroup>` semantics remain authoritative. The selected 
 - `invalid` — invalidity is machine-readable through native constraint/ARIA semantics and is not communicated by color alone when explanatory feedback is composed around the primitive.
 - `disabled` — native disabled behavior prevents interaction and remains visually unambiguous.
 
-The contract intentionally does not invent a portable `open` state. Browser/OS-native select popup visibility is not exposed consistently enough to make it a reliable Core state contract, and NeoSmartUI MUST NOT replace the native popup merely to obtain one.
+The contract intentionally does not invent a portable `open` state. Browser/OS-native select popup visibility is not exposed consistently enough to make it a reliable Core state contract, and NeoSmartUXUI MUST NOT replace the native popup merely to obtain one.
 
 ## Interaction law: pressure, not levitation
 
 Unlike `core.input` and `core.textarea`, a collapsed single-select is a choice trigger rather than a text-editing surface. Direct pointer/touch contact follows the family pressure model: rest depth reduces on hover/contact, press moves toward the surface, and release restores structural depth. Apparent elevation MUST NOT increase on hover.
 
-The platform-owned option popup is not a lifted NeoSmartUI surface and MUST NOT be reimplemented in this primitive. Tactile feedback belongs to the collapsed trigger only; the browser/OS continues to own popup presentation and option interaction.
+The platform-owned option popup is not a lifted NeoSmartUXUI surface and MUST NOT be reimplemented in this primitive. Tactile feedback belongs to the collapsed trigger only; the browser/OS continues to own popup presentation and option interaction.
 
 The adapter mirrors pointer contact only as visual pressed metadata and never calls `preventDefault()` or synthesizes popup behavior. Keyboard-triggered selection/opening therefore preserves native platform behavior instead of being recreated solely to force pressure timing.
 
@@ -63,9 +63,9 @@ Reduced motion removes or shortens non-essential press/release travel while pres
 
 ## Migration knowledge provenance
 
-This contract is a clean NeoSmartUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
+This contract is a clean NeoSmartUXUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
 
-- Family conformance: `NeoBrutalism-shop/spec@fbf499397f4e9a52d6e25c13921fd5377799c626` — `COMPONENTS.md` supplies generic state, pressure-not-levitation, keyboard, touch, reduced-motion, sizing, and agent-readable laws. Its menu/popover-trigger rule reinforces that a collapsed choice trigger compresses rather than floats, while NeoSmartUI keeps the native select popup browser-owned.
+- Family conformance: `NeoBrutalism-shop/spec@fbf499397f4e9a52d6e25c13921fd5377799c626` — `COMPONENTS.md` supplies generic state, pressure-not-levitation, keyboard, touch, reduced-motion, sizing, and agent-readable laws. Its menu/popover-trigger rule reinforces that a collapsed choice trigger compresses rather than floats, while NeoSmartUXUI keeps the native select popup browser-owned.
 - Soft capability evidence: `NeoBrutalism-shop/NeoBrutal-Soft@dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a` — `COMPONENTS.md` explicitly lists `select` beside input and textarea among reusable Core primitives and requires RTL/high-contrast/state resilience.
 - No select-specific Rivet implementation artifact is claimed for `NeoBrutalRivet/NeoBrutal-Rivet@bb4b641d35bc77c958b7345a3b7c0a134c7d802d`; the pinned `components/ui/select.tsx` path does not exist.
 

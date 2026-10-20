@@ -1,6 +1,6 @@
 {
   "$schema": "../../../spec/schemas/component.schema.json",
-  "schema": "neosmartui/component@1",
+  "schema": "neosmartuxui/component@1",
   "id": "core.slider",
   "intent": "Select one scalar value or bounded value range along a continuous or stepped axis using one or two focusable thumbs.",
   "states": [

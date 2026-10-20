@@ -1,6 +1,6 @@
 # `core.textarea`
 
-`core.textarea` is NeoSmartUI's generic multiline text-entry primitive. It owns the editable textarea surface itself, not the surrounding field composition, formatting workflow, or business meaning of the content.
+`core.textarea` is NeoSmartUXUI's generic multiline text-entry primitive. It owns the editable textarea surface itself, not the surrounding field composition, formatting workflow, or business meaning of the content.
 
 ## Semantic boundary
 
@@ -31,7 +31,7 @@ Generic hover lift is forbidden. Button-style pressure compression is also forbi
 
 The Web adapter MUST preserve native multiline behavior rather than recreating editing in JavaScript. This includes line breaks, text selection, clipboard operations, undo/redo, IME/composition, spellcheck/autocorrect where enabled by the platform, scrolling, directionality, and browser-native form participation.
 
-Author-supplied `rows`, `maxlength`, `minlength`, `wrap`, `name`, `required`, and related native attributes remain authoritative when applicable. NeoSmartUI MAY expose agent-readable empty/filled state metadata, but that metadata MUST mirror the native value rather than replace it.
+Author-supplied `rows`, `maxlength`, `minlength`, `wrap`, `name`, `required`, and related native attributes remain authoritative when applicable. NeoSmartUXUI MAY expose agent-readable empty/filled state metadata, but that metadata MUST mirror the native value rather than replace it.
 
 ## Resize and geometry
 
@@ -61,9 +61,9 @@ Reduced motion removes or shortens non-essential visual transitions without chan
 
 ## Migration knowledge provenance
 
-This contract is a clean NeoSmartUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
+This contract is a clean NeoSmartUXUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
 
-- Family conformance: `NeoBrutalism-shop/spec@fbf499397f4e9a52d6e25c13921fd5377799c626` — `COMPONENTS.md` supplies the generic state, keyboard, touch, reduced-motion, fluid-sizing, and agent-readable laws. Because textarea is an editing surface rather than an ordinary pressable control, NeoSmartUI applies those laws without importing the press-compression model.
+- Family conformance: `NeoBrutalism-shop/spec@fbf499397f4e9a52d6e25c13921fd5377799c626` — `COMPONENTS.md` supplies the generic state, keyboard, touch, reduced-motion, fluid-sizing, and agent-readable laws. Because textarea is an editing surface rather than an ordinary pressable control, NeoSmartUXUI applies those laws without importing the press-compression model.
 - Soft capability evidence: `NeoBrutalism-shop/NeoBrutal-Soft@dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a` — `COMPONENTS.md` explicitly lists `textarea` among reusable Core primitives next to input/select/field capability and requires RTL/high-contrast/state resilience across components.
 - No textarea-specific Rivet implementation artifact is claimed for `NeoBrutalRivet/NeoBrutal-Rivet@bb4b641d35bc77c958b7345a3b7c0a134c7d802d`; the pinned `components/ui/textarea.tsx` path does not exist.
 

@@ -1,6 +1,6 @@
 # `core.list`
 
-`core.list` is NeoSmartUI's generic semantic collection primitive. It owns collection/container structure and authored ordering for a sequence or group of related items without importing option selection, composite navigation, activation, disclosure, editing or business semantics.
+`core.list` is NeoSmartUXUI's generic semantic collection primitive. It owns collection/container structure and authored ordering for a sequence or group of related items without importing option selection, composite navigation, activation, disclosure, editing or business semantics.
 
 ## Semantic boundary
 

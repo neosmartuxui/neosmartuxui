@@ -1,4 +1,4 @@
-# NeoSmartUI Spec v1 — Ownership and Dependency Rules
+# NeoSmartUXUI Spec v1 — Ownership and Dependency Rules
 
 ## Allowed direction
 

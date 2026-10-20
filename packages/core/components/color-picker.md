@@ -18,7 +18,7 @@ The control requires an accessible name and visible focus. A visual swatch canno
 
 ## Token boundary
 
-This implementation introduces no component-specific semantic token contract. It reuses existing NeoSmartUI roles; the deployed and publicly proven official Theme scope is now exactly 30 components while preserving the exact 55-token semantic union.
+This implementation introduces no component-specific semantic token contract. It reuses existing NeoSmartUXUI roles; the deployed and publicly proven official Theme scope is now exactly 30 components while preserving the exact 55-token semantic union.
 
 ## Canonical Web implementation
 

@@ -1,6 +1,6 @@
 # `core.field`
 
-`core.field` is NeoSmartUI's generic single-control form-field composition. It associates one primary form control with its visible label, optional description/help, requirement context, and validation message without absorbing the control's own editing, selection, activation, focus, or disabled behavior.
+`core.field` is NeoSmartUXUI's generic single-control form-field composition. It associates one primary form control with its visible label, optional description/help, requirement context, and validation message without absorbing the control's own editing, selection, activation, focus, or disabled behavior.
 
 ## Semantic boundary
 
@@ -76,11 +76,11 @@ The remaining dependencies are existing text/status roles: primary and secondary
 
 ## Migration knowledge provenance
 
-This contract and implementation are clean NeoSmartUI definitions informed by pinned legacy evidence; no legacy implementation code is copied.
+This contract and implementation are clean NeoSmartUXUI definitions informed by pinned legacy evidence; no legacy implementation code is copied.
 
 - Family conformance: `NeoBrutalism-shop/spec@fbf499397f4e9a52d6e25c13921fd5377799c626` — shared accessibility, keyboard, touch, reduced-motion, semantic-token, and agent-readable laws apply while Field itself stays non-pressable and lets the real control own interaction.
 - Soft capability evidence: `NeoBrutalism-shop/NeoBrutal-Soft@dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a` — `COMPONENTS.md` explicitly lists `label/help/invalid field` with input/textarea/select in Core.
-- Soft implementation knowledge: the same pinned repository's `registry/default/field/field.tsx`, `src/components/input.css`, and `src/tokens.css` demonstrate label/control/help anatomy, invalid presentation, a dedicated field gap, and the exact fluid `--nbs-space-2` value. The legacy wrapper-label approach is not treated as universally correct for arbitrary composition; NeoSmartUI requires an explicit valid label/control relationship instead.
+- Soft implementation knowledge: the same pinned repository's `registry/default/field/field.tsx`, `src/components/input.css`, and `src/tokens.css` demonstrate label/control/help anatomy, invalid presentation, a dedicated field gap, and the exact fluid `--nbs-space-2` value. The legacy wrapper-label approach is not treated as universally correct for arbitrary composition; NeoSmartUXUI requires an explicit valid label/control relationship instead.
 - Rivet implementation knowledge: `NeoBrutalRivet/NeoBrutal-Rivet@bb4b641d35bc77c958b7345a3b7c0a134c7d802d` — `components/ui/field.tsx` provides Field/Label/Description/Error/fieldset/legend anatomy and orientation knowledge. Its generic `role="group"` field host and unconditional `role="alert"` FieldError are not adopted as defaults for one-control Field because those semantics must match actual grouping and announcement needs. Repository metadata declares no license, so this remains reference-only knowledge.
 
 ## Maturity

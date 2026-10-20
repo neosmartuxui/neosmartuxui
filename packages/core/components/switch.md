@@ -65,7 +65,7 @@ The canonical Web adapter uses a real `<input type="checkbox">` as the form/acti
 
 ## Migration knowledge provenance
 
-This contract is a clean NeoSmartUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
+This contract is a clean NeoSmartUXUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
 
 - Family behavior: `NeoBrutalism-shop/spec@fbf499397f4e9a52d6e25c13921fd5377799c626` — `COMPONENTS.md` explicitly requires switches to combine contact compression with thumb travel and to resolve state color and thumb position together, under the shared keyboard/touch/reduced-motion conformance rules.
 - Soft capability evidence: `NeoBrutalism-shop/NeoBrutal-Soft@dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a` — `COMPONENTS.md` lists switch among reusable Core primitives and applies the full conformance/resilience gate.

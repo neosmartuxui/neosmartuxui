@@ -1,6 +1,6 @@
 {
   "$schema": "../schemas/token-contracts.schema.json",
-  "schema": "neosmartui/token-contracts@1",
+  "schema": "neosmartuxui/token-contracts@1",
   "schemaVersion": 1,
   "interopTarget": {"format": "DTCG", "version": "2025.10", "stage": "resolved-value-bundles"},
   "contracts": [

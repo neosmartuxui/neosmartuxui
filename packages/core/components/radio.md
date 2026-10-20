@@ -52,10 +52,10 @@ disabled
 
 ## Migration knowledge provenance
 
-This contract is a clean NeoSmartUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
+This contract is a clean NeoSmartUXUI definition informed by pinned legacy evidence; no legacy implementation code is copied.
 
 - Family behavior: `NeoBrutalism-shop/spec@fbf499397f4e9a52d6e25c13921fd5377799c626` — `COMPONENTS.md` explicitly groups radios with checkboxes for contact compression and immediate, unambiguous selection feedback, while also requiring keyboard/touch/reduced-motion conformance.
 - Soft capability evidence: `NeoBrutalism-shop/NeoBrutal-Soft@dfed77bd159ac5c38081f7a4ca5c2229b61ffb8a` — `COMPONENTS.md` lists `radio/choice card` among reusable Core primitives and applies the full conformance state/resilience gate.
 - No radio-specific Rivet implementation artifact is claimed for the pinned Rivet snapshot; provenance is intentionally limited to evidence actually present in the reviewed snapshots.
 
-Maturity is `public-proof`: the NeoSmartUI-owned native Web adapter is covered by exact-SHA browser evidence and the current live GitHub Pages deployment cohort. Custom-domain work remains deferred until the development roadmap is complete.
+Maturity is `public-proof`: the NeoSmartUXUI-owned native Web adapter is covered by exact-SHA browser evidence and the current live GitHub Pages deployment cohort. Custom-domain work remains deferred until the development roadmap is complete.

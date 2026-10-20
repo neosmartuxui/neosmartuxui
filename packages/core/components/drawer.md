@@ -16,7 +16,7 @@ An open Drawer exposes modal dialog semantics with one accessible name and an op
 
 ## Token boundary
 
-This implementation introduces no Drawer-specific semantic token contract. It reuses the existing NeoSmartUI semantic roles already present in the 55-token Theme union. After the maintenance checkpoint, all ten official Light/Dark Themes resolve the local 38-Core scope without expanding that exact token set.
+This implementation introduces no Drawer-specific semantic token contract. It reuses the existing NeoSmartUXUI semantic roles already present in the 55-token Theme union. After the maintenance checkpoint, all ten official Light/Dark Themes resolve the local 38-Core scope without expanding that exact token set.
 
 ## Canonical Web implementation
 

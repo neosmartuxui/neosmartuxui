@@ -1,4 +1,4 @@
-# NeoSmartUI Organization Operating Layer
+# NeoSmartUXUI Organization Operating Layer
 
 This document is a derived routing guide. It does not override the Canonical PRD, schemas, registries, package ownership, or runtime implementation.
 
@@ -6,13 +6,13 @@ This document is a derived routing guide. It does not override the Canonical PRD
 
 | Question | Canonical home |
 |---|---|
-| What is NeoSmartUI / how does the product behave? | `neosmartui/neosmartui` |
-| Where are we now? | `neosmartui/Progress-Memory` |
-| How do we reliably perform recurring work? | `neosmartui/Process-and-Workflows` |
-| What can an agent safely execute repeatedly? | `neosmartui/Skills` |
-| What has the organization decided beyond product contracts? | `neosmartui/Handbook` |
-| What is the corporate identity asset source? | `neosmartui/Brand` |
-| How is infrastructure documented/operated? | `neosmartui/Infrastructure` |
+| What is NeoSmartUXUI / how does the product behave? | `neosmartuxui/neosmartuxui` |
+| Where are we now? | `neosmartuxui/Progress-Memory` |
+| How do we reliably perform recurring work? | `neosmartuxui/Process-and-Workflows` |
+| What can an agent safely execute repeatedly? | `neosmartuxui/Skills` |
+| What has the organization decided beyond product contracts? | `neosmartuxui/Handbook` |
+| What is the corporate identity asset source? | `neosmartuxui/Brand` |
+| How is infrastructure documented/operated? | `neosmartuxui/Infrastructure` |
 | Where do adoption/commercial/orchestration experiments live? | `Marketing` / `Monetization` / `Automation` |
 
 ## Session flow
@@ -36,4 +36,4 @@ Do not encode unstable architectural judgment as a rigid Skill. In particular, C
 
 ## Product repository invariant
 
-`neosmartui/neosmartui` remains the one canonical product/source monorepo. Support repositories are an operating layer around it, not a decomposition of product implementation.
+`neosmartuxui/neosmartuxui` remains the one canonical product/source monorepo. Support repositories are an operating layer around it, not a decomposition of product implementation.

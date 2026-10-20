@@ -1,4 +1,4 @@
-# NeoSmartUI Spec v1 — Architecture Foundations
+# NeoSmartUXUI Spec v1 — Architecture Foundations
 
 Normative terms: **MUST** = required, **SHOULD** = expected unless a documented constraint justifies an exception, **MAY** = optional.
 
@@ -50,7 +50,7 @@ Do not generalize merely because reuse is imaginable. Implement a domain need co
 
 ## Permanent physical laws
 
-NeoSmartUI preserves these family laws from validated legacy knowledge:
+NeoSmartUXUI preserves these family laws from validated legacy knowledge:
 
 - ordinary controls compress rather than lift on hover/proximity;
 - structural shadow/depth changes coherently with translation;
