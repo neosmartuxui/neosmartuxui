@@ -1,5 +1,6 @@
 import {mkdir,readFile,writeFile,cp,rm,readdir,stat} from 'node:fs/promises';
 import {resolve,dirname,relative,sep} from 'node:path';
+import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 const root=resolve(import.meta.dirname,'../..');
 const pages=resolve(process.env.NEOSMARTUXUI_PAGES_REPO||'D:/neosmartuxui-recovered/neosmartuxui.github.io');
@@ -9,14 +10,20 @@ if(manifest.schema!=='neosmartuxui/portal-artifact@1'||manifest.sections.length!
 if(!(await stat(resolve(pages,'.nojekyll')).catch(()=>null)))throw new Error('Pages source is not a valid Pages repo');
 await rm(target,{recursive:true,force:true});
 await cp(pages,target,{recursive:true,filter:src=>!relative(pages,src).split(sep).includes('.git')});
-const oldRoot=await readFile(resolve(target,'index.html'),'utf8');
-if(!oldRoot.includes('id="button-slice"'))throw new Error('Original Foundry proof is missing');
+// Take historical Foundry from committed Pages Git blobs, not a Windows
+// working tree that may convert LF to CRLF or already contain a newer portal.
+const archivedNames=execFileSync('git',['-C',pages,'ls-tree','-r','--name-only','HEAD'],{encoding:'utf8'}).split(/\r?\n/);
+const oldRootPath=archivedNames.includes('foundry/index.html')?'foundry/index.html':'index.html';
+const oldRecordPath=archivedNames.includes('foundry/deployment.json')?'foundry/deployment.json':'deployment.json';
+const gitText=name=>execFileSync('git',['-C',pages,'show','HEAD:'+name],{encoding:'utf8'});
+const oldRoot=gitText(oldRootPath);
+if(!oldRoot.includes('id="button-slice"'))throw new Error('Committed original Foundry proof is missing');
 await mkdir(resolve(target,'foundry'),{recursive:true});
-let foundry=oldRoot.replace('<head>','<head><base href="/">');
+let foundry=oldRoot.includes('<base href="/">')?oldRoot:oldRoot.replace('<head>','<head><base href="/">');
 // Keep fragment links pointing back to the relocated Foundry, not to the new landing page.
 foundry=foundry.replace(/href="#([^"]+)"/g,'href="/foundry/#$1"');
 await writeFile(resolve(target,'foundry/index.html'),foundry);
-const historical=await readFile(resolve(target,'deployment.json'),'utf8');
+const historical=gitText(oldRecordPath);
 const oldDeployment=JSON.parse(historical);
 if(oldDeployment.artifact!=='foundry'||oldDeployment.sourceSha!=='ff6897eb0db5d86ab28847b91bac76af26416891')throw new Error('Historical Foundry deployment provenance changed');
 await writeFile(resolve(target,'foundry/deployment.json'),historical);
