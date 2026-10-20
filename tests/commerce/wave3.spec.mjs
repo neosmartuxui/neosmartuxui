@@ -12,7 +12,7 @@ test.beforeEach(async({page})=>{
 
 test('All ten new checkout/payment surfaces render without payment credentials',async({page})=>{
   for(const id of ids) await expect(page.locator('[data-component="'+id+'"] > [data-commerce-component="'+id+'"]')).toHaveCount(1);
-  await expect(page.locator('.demo-box > [data-commerce-component]')).toHaveCount(24);
+  await expect(page.locator('.demo-box > [data-commerce-component]')).toHaveCount(35);
   await expect(page.locator('[data-component="checkout-steps"] [aria-current=step]')).toHaveText('Payment');
   await expect(page.locator('[data-component="processing-state"] > [data-commerce-component="processing-state"]')).toHaveAttribute('data-state','processing');
   await expect(page.locator('[data-component="order-confirmation"]')).toContainText('Delivery pending');

@@ -429,6 +429,215 @@
         "core.badge"
       ],
       "status": "implemented-local"
+    },
+    {
+      "id": "commerce.download-row",
+      "sourceId": "download-row",
+      "model": "ProviderOwnershipView",
+      "module": "renderDownloadRow",
+      "modulePath": "wave4.mjs",
+      "states": [
+        "eligible",
+        "unavailable",
+        "requesting",
+        "error"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.purchase-history-row",
+      "sourceId": "purchase-history-row",
+      "model": "ProviderOwnershipView",
+      "module": "renderPurchaseHistoryRow",
+      "modulePath": "wave4.mjs",
+      "states": [
+        "paid",
+        "pending",
+        "refunded",
+        "failed"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.license-card",
+      "sourceId": "license-card",
+      "model": "ProviderOwnershipView",
+      "module": "renderLicenseCard",
+      "modulePath": "wave4.mjs",
+      "states": [
+        "active",
+        "grace",
+        "expired",
+        "cancelled",
+        "refunded"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.invoice-history",
+      "sourceId": "invoice-history",
+      "model": "ProviderOwnershipView",
+      "module": "renderInvoiceHistory",
+      "modulePath": "wave4.mjs",
+      "states": [
+        "empty",
+        "populated"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.activation-row",
+      "sourceId": "activation-row",
+      "model": "ProviderOwnershipView",
+      "module": "renderActivationRow",
+      "modulePath": "wave4.mjs",
+      "states": [
+        "active",
+        "inactive",
+        "revoked"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.update-eligibility",
+      "sourceId": "update-eligibility",
+      "model": "ProviderOwnershipView",
+      "module": "renderUpdateEligibility",
+      "modulePath": "wave4.mjs",
+      "states": [
+        "active",
+        "grace",
+        "expired"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.renewal-state",
+      "sourceId": "renewal-state",
+      "model": "ProviderOwnershipView",
+      "module": "renderRenewalState",
+      "modulePath": "wave4.mjs",
+      "states": [
+        "active",
+        "grace",
+        "expired",
+        "cancelled",
+        "past_due",
+        "processing",
+        "confirmed",
+        "failed"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.plan-change",
+      "sourceId": "plan-change",
+      "model": "ProviderOwnershipView",
+      "module": "renderPlanChange",
+      "modulePath": "wave4.mjs",
+      "states": [
+        "ready",
+        "quoted",
+        "processing",
+        "complete",
+        "failed"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.ownership-transfer",
+      "sourceId": "ownership-transfer",
+      "model": "ProviderOwnershipView",
+      "module": "renderOwnershipTransfer",
+      "modulePath": "wave4.mjs",
+      "states": [
+        "ready",
+        "processing",
+        "failed"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.subscription-management",
+      "sourceId": "subscription-management",
+      "model": "ProviderOwnershipView",
+      "module": "renderSubscriptionManagement",
+      "modulePath": "wave4.mjs",
+      "states": [
+        "active",
+        "cancel_at_period_end",
+        "cancelled",
+        "past_due",
+        "processing"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
+    },
+    {
+      "id": "commerce.ownership-timeline",
+      "sourceId": "ownership-timeline",
+      "model": "ProviderOwnershipView",
+      "module": "renderOwnershipTimeline",
+      "modulePath": "wave4.mjs",
+      "states": [
+        "empty",
+        "populated"
+      ],
+      "composesCore": [
+        "core.card",
+        "core.button",
+        "core.badge"
+      ],
+      "status": "implemented-local"
     }
   ],
   "themes": [

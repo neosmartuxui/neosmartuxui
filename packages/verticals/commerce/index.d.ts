@@ -49,3 +49,25 @@ export function renderProcessingState(model:{label?:string;message?:string;attem
 export function renderOrderConfirmation(model:{id:string;status:'confirmed';total?:Money;entitlements?:{productId:string;delivered:boolean}[]},opts?:{locale?:string}):HTMLElement;
 export function renderReceipt(model:{id:string;orderId:string;status:'paid';amount:Money;paidAt?:string;invoiceId?:string},opts?:{locale?:string}):HTMLElement;
 export const COMMERCE_WAVE3_RENDERERS:Readonly<Record<string,DOMRenderer>>;
+
+/** Wave 4 — provider-owned licensing, invoices, transfers and subscriptions. Local-only. */
+export type LicenseOwnershipState='active'|'grace'|'expired'|'cancelled'|'refunded';
+export type ActivationView={id:string;licenseId:string;status:'active'|'inactive'|'revoked';site?:string;lastSeenAt?:string};
+export type InvoiceSummary={id:string;status:'draft'|'open'|'paid'|'void'|'uncollectible';amount:Money;issuedAt?:string;href?:string};
+export type OwnershipEventView={id:string;action:string;occurredAt:string;actor?:string};
+export type ProviderConfirmation={status:'confirmed';message:string};
+export type PlanChangeQuote={status:'quoted';quoteId:string;licenseId:string;targetPlan:string;targetSeats:number;assignedSeats:number;blocked?:boolean;description:string};
+export type TransferInviteResult={status:'pending';invitationId:string};
+export type TransferCancelResult={status:'cancelled';invitationId:string};
+export function renderDownloadRow(entry:{id:string;productId:string;version:string;eligible:boolean;reason?:string},opts?:{onRequest?:(id:string)=>Promise<unknown>|unknown}):HTMLElement;
+export function renderPurchaseHistoryRow(order:{id:string;status:'paid'|'pending'|'refunded'|'failed';purchasedAt?:string;total?:Money;invoiceId?:string},opts?:{locale?:string}):HTMLElement;
+export function renderLicenseCard(license:LicenseView &{scope?:string;entitlement?:{active:boolean;reason:string}}):HTMLElement;
+export function renderInvoiceHistory(data:{invoices:InvoiceSummary[];heading?:string},opts?:{locale?:string}):HTMLElement;
+export function renderActivationRow(activation:ActivationView):HTMLElement;
+export function renderUpdateEligibility(entitlement:{productId:string;status:'active'|'grace'|'expired';allowed:boolean;reason:string;updatesThrough?:string}):HTMLElement;
+export function renderRenewalState(renewal:{licenseId:string;status:'active'|'grace'|'expired'|'cancelled'|'past_due';message:string;renewable?:boolean},opts?:{onRenew?:(licenseId:string)=>Promise<ProviderConfirmation>|ProviderConfirmation}):HTMLElement;
+export function renderPlanChange(data:{licenseId:string;currentSeats:number;targetSeats:number;currentPlan:string;targetPlan:string},opts?:{onQuote?:(request:{licenseId:string;targetPlan:string;targetSeats:number})=>Promise<PlanChangeQuote>|PlanChangeQuote;onSubmit?:(quote:{quoteId:string;licenseId:string;targetPlan:string;targetSeats:number})=>Promise<{status:'complete';quoteId:string;message:string}>}):HTMLElement;
+export function renderOwnershipTransfer(data:{licenseId:string;ownerLabel:string;pendingInvitations?:{id:string;recipient:string;status:'pending'|'accepted'|'expired'|'cancelled'}[]},opts?:{onInvite?:(request:{licenseId:string;recipient:string})=>Promise<TransferInviteResult>|TransferInviteResult;onCancel?:(request:{licenseId:string;invitationId:string})=>Promise<TransferCancelResult>|TransferCancelResult}):HTMLElement;
+export function renderSubscriptionManagement(subscription:{id:string;plan:string;status:'active'|'cancel_at_period_end'|'cancelled'|'past_due';message:string;paidThrough?:string},opts?:{onCancel?:(id:string)=>Promise<{status:'cancel_at_period_end';message:string}>;onResume?:(id:string)=>Promise<{status:'active';message:string}>}):HTMLElement;
+export function renderOwnershipTimeline(data:{licenseId:string;events:OwnershipEventView[];heading?:string}):HTMLElement;
+export const COMMERCE_WAVE4_RENDERERS:Readonly<Record<string,DOMRenderer>>;

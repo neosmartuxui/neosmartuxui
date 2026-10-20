@@ -45,3 +45,11 @@ Ten additional components are implemented locally: coupon, checkout-field, invoi
 Authority boundaries: Coupon callbacks return provider accepted/rejected states. Billing draft updates require an adapter acknowledgement. Payment choices are safe descriptors, never raw card credentials or tokens. Checkout recovery cannot be claimed without a provider response. Confirmations require status confirmed; receipt records require status paid; neither implies unverified entitlements. A receipt is not a tax invoice.
 
 No live checkout SDK, backend, payment capture, gateway integration, or real provider validation is implemented in Wave 3. No remote push or public proof.
+
+## Wave 4 — licensing and account lifecycle admission
+
+Eleven locally implemented UI components: download-row, purchase-history-row, license-card, invoice-history, activation-row, update-eligibility, renewal-state, plan-change, ownership-transfer, subscription-management and ownership-timeline. The Commerce registry now has **35** local entries, Core still has **50**, and source admission has **11** remaining entries reserved for Blocks/platform patterns.
+
+The component layer never invents signed URLs, payments, license history or real ownership transfers. License state, update entitlement, activation, seat allocation, subscription billing and invoice state are intentionally separate. Plan changes require a verified provider quote before submission; unsafe seat-capacity downgrades are blocked. Transfer invitations do not imply accepted ownership. Subscription cancellation keeps the paid period valid when the provider returns cancel-at-period-end. All network actions remain host callbacks and do not issue requests in the UI implementation.
+
+These are tested local DOM renderers, not a production licensing service, SDK, checkout or signed download provider. Rights reuse was authorized by the owner, but the canonical NeoSmartUXUI public license declaration is still pending. No GitHub push, pull or Actions execution.

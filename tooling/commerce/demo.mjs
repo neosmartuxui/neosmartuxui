@@ -1,6 +1,7 @@
 import {renderProductPrice,renderProductCard,renderProductGallery,renderCartLine,renderOrderSummary,renderLicenseStatus,renderSeatUsage,renderDownloadEntitlement} from './components.mjs';
 import {renderProductDetail,renderProductMedia,renderReviewSummary,renderLicenseSelector,renderRenewalNote,renderPricingTier} from './wave2.mjs';
 import {renderCoupon,renderCheckoutField,renderInvoiceDetails,renderCheckoutSteps,renderPaymentMethod,renderPaymentFailure,renderPaymentRecovery,renderProcessingState,renderOrderConfirmation,renderReceipt} from './wave3.mjs';
+import {renderDownloadRow,renderPurchaseHistoryRow,renderLicenseCard,renderInvoiceHistory,renderActivationRow,renderUpdateEligibility,renderRenewalState,renderPlanChange,renderOwnershipTransfer,renderSubscriptionManagement,renderOwnershipTimeline} from './wave4.mjs';
 const $=(selector)=>document.querySelector(selector);
 const money=(amount)=>({amount,currency:'USD'});
 const root=$('#components');
@@ -35,6 +36,17 @@ const fixture=[
   ['processing-state',renderProcessingState({label:'Payment processing',message:'Waiting for authoritative confirmation.'})],
   ['order-confirmation',renderOrderConfirmation({id:'ORDER-DEMO-100',status:'confirmed',total:money(95),entitlements:[{productId:'Neo Studio Kit',delivered:false}]})],
   ['receipt',renderReceipt({id:'RECEIPT-DEMO-100',orderId:'ORDER-DEMO-100',status:'paid',amount:money(95),paidAt:'2026-10-20',invoiceId:'INV-100'})],
+  ['download-row',renderDownloadRow({id:'entitlement-1',productId:'Neo Studio Kit',version:'v1.2.0',eligible:true,reason:'Provider-authorized updates'}, {onRequest:async id=>{window.__wave4Download=id;}})],
+  ['purchase-history-row',renderPurchaseHistoryRow({id:'order-100',status:'paid',purchasedAt:'2026-10-20',total:money(95),invoiceId:'INV-100'})],
+  ['license-card',renderLicenseCard({id:'license-100',productId:'Neo Studio Kit',status:'active',maskedKey:'••••-9K2',scope:'Five seats',entitlement:{active:true,reason:'Allowed by provider'}})],
+  ['invoice-history',renderInvoiceHistory({invoices:[{id:'INV-100',status:'paid',amount:money(95),issuedAt:'2026-10-20',href:'./index.html'}]})],
+  ['activation-row',renderActivationRow({id:'activation-1',licenseId:'license-100',status:'active',site:'example.test',lastSeenAt:'2026-10-20'})],
+  ['update-eligibility',renderUpdateEligibility({productId:'Neo Studio Kit',status:'active',allowed:true,reason:'Provider confirms update access',updatesThrough:'2027-10-20'})],
+  ['renewal-state',renderRenewalState({licenseId:'license-100',status:'grace',message:'Renewal available from provider.',renewable:true},{onRenew:async id=>{window.__renewalRequest=id;return {status:'confirmed',message:'Provider confirmed renewal'};}})],
+  ['plan-change',renderPlanChange({licenseId:'license-100',currentPlan:'Individual',targetPlan:'Team',currentSeats:2,targetSeats:5},{onQuote:async req=>{window.__planQuoteRequest=req;return {status:'quoted',quoteId:'quote-123',...req,assignedSeats:2,description:'Provider quoted Team plan'};},onSubmit:async quote=>{window.__planSubmitRequest=quote;return {status:'complete',quoteId:quote.quoteId,message:'Provider completed plan change'};}})],
+  ['ownership-transfer',renderOwnershipTransfer({licenseId:'license-100',ownerLabel:'Demo Owner',pendingInvitations:[{id:'inv-1',recipient:'pending@example.test',status:'pending'}]},{onInvite:async req=>{window.__transferRequest=req;return {status:'pending',invitationId:'inv-2'};},onCancel:async req=>{window.__transferCancel=req;return {status:'cancelled',invitationId:req.invitationId};}})],
+  ['subscription-management',renderSubscriptionManagement({id:'subscription-100',plan:'Team',status:'active',message:'Renews under provider terms.',paidThrough:'2027-10-20'},{onCancel:async id=>{window.__subscriptionCancel=id;return {status:'cancel_at_period_end',message:'Provider cancelled at period end'};},onResume:async id=>{window.__subscriptionResume=id;return {status:'active',message:'Provider resumed subscription'};}})],
+  ['ownership-timeline',renderOwnershipTimeline({licenseId:'license-100',events:[{id:'evt-1',action:'License issued',occurredAt:'2026-10-20',actor:'Provider'}]})],
   ['download-entitlement',renderDownloadEntitlement({id:'entitlement-1',productId:'Neo Studio Kit',downloadAllowed:true},{onRequest:async()=>{window.__downloadRequests=(window.__downloadRequests||0)+1;}})]
 ];
 for(const [name,component] of fixture){

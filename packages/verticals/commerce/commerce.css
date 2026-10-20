@@ -79,3 +79,20 @@
 
 /* Keep standalone form primitives visible across every Theme and forced-colors mode. */
 .ns-commerce-checkout-field {border:var(--ns-border-annotation-width) solid var(--ns-color-border-strong);}
+
+/* Wave 4 licensing/account surfaces inherit all existing NeoSmartUXUI Theme tokens. */
+.ns-commerce-account-row,.ns-commerce-account-card,.ns-commerce-account-list,.ns-commerce-operation {display:grid;gap:.65rem;padding:var(--ns-space-surface-block) var(--ns-space-surface-inline);min-inline-size:0;overflow-wrap:anywhere;}
+.ns-commerce-account-row .ns-commerce-entitlement,.ns-commerce-account-card .ns-commerce-license-status{border:var(--ns-border-annotation-width) solid var(--ns-color-border-strong);padding:.65rem;}
+.ns-commerce-account-items,.ns-commerce-timeline-list {margin:0;padding-inline-start:1.4rem;display:grid;gap:.6rem;}
+.ns-commerce-account-item,.ns-commerce-timeline-entry {padding:.6rem;border-inline-start:var(--ns-border-control-width) solid var(--ns-color-border-strong);display:grid;gap:.25rem;min-width:0;}
+.ns-commerce-account-actions {display:flex;flex-wrap:wrap;gap:.6rem;}
+.ns-commerce-operation .ns-commerce-input {width:100%;min-width:0;}
+.ns-commerce-transfer-form {display:grid;gap:.45rem;min-width:0;}
+.ns-commerce-account-card .ns-commerce-summary-row dd {overflow-wrap:anywhere;}
+.ns-commerce-action-message {margin:0;min-height:1.5em;}
+.ns-commerce-action-message[data-tone=error]{border-inline-start:var(--ns-border-control-width) solid var(--ns-color-state-error);padding-inline-start:.5rem;}
+.ns-commerce-account-card .ns-badge,.ns-commerce-account-row .ns-badge {justify-self:start;}
+.ns-commerce-operation .ns-button:disabled{opacity:var(--ns-opacity-disabled);}
+.ns-commerce-timeline-entry{border-block-end:var(--ns-border-annotation-width) solid var(--ns-color-border-strong);}
+@media(max-width:34rem){.ns-commerce-account-actions{display:grid;}.ns-commerce-account-actions .ns-button{width:100%;}}
+@media(forced-colors:active){.ns-commerce-timeline-entry,.ns-commerce-account-item{border-inline-color:CanvasText;}}

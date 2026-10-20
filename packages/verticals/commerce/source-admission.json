@@ -5,9 +5,9 @@
   "sourceLicense": "PolyForm Noncommercial 1.0.0",
   "counts": {
     "sourceEntries": 47,
-    "implementedLocal": 24,
+    "implementedLocal": 35,
     "reusedCore": 1,
-    "remaining": 22
+    "remaining": 11
   },
   "note": "Local-only migration: owner explicitly authorizes cross-project reuse under NeoSmartUXUI's intended terms. NeoSmartUXUI's exact license remains undocumented in a top-level LICENSE file; honor third-party rights. Blocks and platform patterns are not counted as primitives.",
   "entries": [
@@ -396,9 +396,9 @@
     {
       "sourceId": "download-row",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 4,
-      "target": null,
+      "target": "commerce.download-row",
       "modelRefs": [
         "EntitlementView",
         "SignedDownloadView"
@@ -411,9 +411,9 @@
     {
       "sourceId": "purchase-history-row",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 4,
-      "target": null,
+      "target": "commerce.purchase-history-row",
       "modelRefs": [
         "OrderView"
       ],
@@ -423,9 +423,9 @@
     {
       "sourceId": "license-card",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 4,
-      "target": null,
+      "target": "commerce.license-card",
       "modelRefs": [
         "LicenseView",
         "EntitlementView"
@@ -436,9 +436,9 @@
     {
       "sourceId": "invoice-history",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 4,
-      "target": null,
+      "target": "commerce.invoice-history",
       "modelRefs": [
         "InvoiceView"
       ],
@@ -469,9 +469,9 @@
     {
       "sourceId": "activation-row",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 4,
-      "target": null,
+      "target": "commerce.activation-row",
       "modelRefs": [
         "ActivationView"
       ],
@@ -483,9 +483,9 @@
     {
       "sourceId": "update-eligibility",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 4,
-      "target": null,
+      "target": "commerce.update-eligibility",
       "modelRefs": [
         "EntitlementView"
       ],
@@ -515,9 +515,9 @@
     {
       "sourceId": "renewal-state",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 4,
-      "target": null,
+      "target": "commerce.renewal-state",
       "modelRefs": [
         "EntitlementView"
       ],
@@ -535,9 +535,9 @@
     {
       "sourceId": "plan-change",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 4,
-      "target": null,
+      "target": "commerce.plan-change",
       "modelRefs": [
         "PlanChangeQuoteView"
       ],
@@ -556,9 +556,9 @@
     {
       "sourceId": "ownership-transfer",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 4,
-      "target": null,
+      "target": "commerce.ownership-transfer",
       "modelRefs": [
         "OwnershipTransferView"
       ],
@@ -577,9 +577,9 @@
     {
       "sourceId": "subscription-management",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 4,
-      "target": null,
+      "target": "commerce.subscription-management",
       "modelRefs": [
         "SubscriptionView"
       ],
@@ -598,9 +598,9 @@
     {
       "sourceId": "ownership-timeline",
       "decision": "ADAPT",
-      "state": "pending",
+      "state": "implemented-local",
       "wave": 4,
-      "target": null,
+      "target": "commerce.ownership-timeline",
       "modelRefs": [
         "OwnershipEventView"
       ],
