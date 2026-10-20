@@ -70,7 +70,11 @@
     "validate:package-dryrun": "node tooling/ecosystem/validate-package-dryrun.mjs",
     "build:experimental": "node tooling/experimental/build.mjs",
     "verify:experimental": "node tooling/experimental/verify.mjs",
-    "test:experimental": "playwright test --config=playwright.experimental.config.mjs"
+    "test:experimental": "playwright test --config=playwright.experimental.config.mjs",
+    "build:portal": "node tooling/portal/build.mjs",
+    "stage:portal:local": "node tooling/portal/stage.mjs",
+    "verify:portal": "node tooling/portal/verify.mjs",
+    "test:portal": "playwright test --config=playwright.portal.config.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1"

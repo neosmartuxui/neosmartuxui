@@ -1,0 +1,26 @@
+import {readFile,stat} from 'node:fs/promises';
+import {resolve} from 'node:path';
+import {createHash} from 'node:crypto';
+const root=resolve(import.meta.dirname,'../..'),out=resolve(root,'artifacts/portal-public');
+const manifest=JSON.parse(await readFile(resolve(out,'portal-manifest.json'),'utf8'));
+const catalog=JSON.parse(await readFile(resolve(out,'components/catalog.json'),'utf8'));
+const desired=process.env.NEOSMARTUXUI_PORTAL_DRAFT==='1'?'local-unpinned':process.env.NEOSMARTUXUI_SOURCE_SHA;
+if(!desired||desired!==manifest.sourceSha||desired!==catalog.sourceSha)throw new Error('Portal and catalog source hashes do not match expected source');
+if(manifest.schema!=='neosmartuxui/portal-artifact@1'||manifest.githubActionsUsed!==false||
+ manifest.privatePackageIncluded!==false||manifest.productionPackageReleased!==false)throw new Error('Invalid portal publishing boundaries');
+if(manifest.files.length!==11||manifest.sections.length!==8||catalog.schema!=='neosmartuxui/portal-catalog@1'||catalog.counts.total!==106||catalog.items.length!==106)throw new Error('Portal inventory drift');
+if(new Set(catalog.items.map(x=>x.id)).size!==106||new Set(manifest.files.map(x=>x.path)).size!==11)throw new Error('Duplicate paths or catalog entries');
+for(const [kind,count] of [['Core',50],['Commerce',35],['Operations',12],['Block',7],['Template',2]])
+ if(catalog.items.filter(x=>x.kind===kind).length!==count)throw new Error('Catalog type count incorrect: '+kind);
+const sha=x=>createHash('sha256').update(x).digest('hex');
+for(const item of manifest.files){
+ if(item.path.includes('..')||item.path.startsWith('/')||!item.sha256)throw new Error('Unsafe public file path');
+ const buf=await readFile(resolve(out,item.path));
+ if(buf.length!==item.bytes||sha(buf)!==item.sha256)throw new Error('Portal artifact digest mismatch: '+item.path);
+ if(/node_modules|\.env|\.git\/|library-package/.test(item.path))throw new Error('Private package or secret path leaked');
+}
+if(sha(Buffer.from(JSON.stringify(manifest.files)))!==manifest.artifactHash)throw new Error('Artifact manifest aggregate SHA mismatch');
+const old=await readFile(resolve(root,'../neosmartuxui.github.io/index.html'),'utf8');
+const missing=catalog.items.filter(x=>x.kind==='Core'&&!old.includes('id="'+x.id.slice(5)+'-slice"'));
+if(missing.length)throw new Error('Invalid Core Foundry bookmarks: '+missing.map(x=>x.id).join(','));
+console.log('[portal] verified '+manifest.files.length+' exact files, 106 catalog entries and 50 historical Core anchors; no package publish');
