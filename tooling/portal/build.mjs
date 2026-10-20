@@ -3,6 +3,7 @@ import {resolve,dirname,relative,sep} from 'node:path';
 import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import * as site from './pages.mjs';
+import {buildDetails} from '../explorer/build-details.mjs';
 
 const root=resolve(import.meta.dirname,'../..'),out=resolve(root,'artifacts/portal-public');
 const git=(...args)=>execFileSync('git',['-C',root,...args],{encoding:'utf8'}).trim();
@@ -66,8 +67,12 @@ const declarations=Object.entries(pressure).map(([css,role])=>{
 }).join('\n');
 const cssBase=await readFile(resolve(root,'tooling/portal/site.css'),'utf8');
 const cssPressure=await readFile(resolve(root,'tooling/portal/pressure.css'),'utf8');
-await write('portal.css',cssBase+'\n/* Generated from canonical Hardline Light Theme; no copied values */\n:root {\n'+declarations+'\n}\n'+cssPressure);
+const explorerCss=await readFile(resolve(root,'tooling/explorer/detail.css'),'utf8');
+await write('portal.css',cssBase+'\n/* Generated from canonical Hardline Light Theme; no copied values */\n:root {\n'+declarations+'\n}\n'+cssPressure+'\n'+explorerCss);
 await cp(resolve(root,'tooling/portal/site.mjs'),resolve(out,'portal.mjs'));
+const details=await buildDetails({root,out,sha,items,shell:site.shell});
+if(details.length!==106)throw new Error('Component Explorer route generation incomplete');
+await cp(resolve(root,'tooling/explorer/detail.mjs'),resolve(out,'component-detail.mjs'));
 const catalog={schema:'neosmartuxui/portal-catalog@1',sourceSha:sha,scope:'mixed-maturity',productionReady:false,counts:{core:50,commerce:35,operations:12,blocks:7,templates:2,total:106},items};
 await write('components/catalog.json',JSON.stringify(catalog,null,2)+'\n');
 const entrypoints=['/','/components/','/themes/','/blocks/','/templates/','/labs/','/flavors/','/docs/'];

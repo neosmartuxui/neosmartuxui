@@ -68,10 +68,10 @@ test('Core catalog uses genuine Foundry links, experimental uses safe preview ro
  await page.goto('/components/');
  const core=page.locator('.entry').filter({has:page.getByRole('heading',{name:'core.button',exact:true})});
  await expect(core).toContainText('Core');
- await expect(core.locator('a')).toHaveAttribute('href','/foundry/#button-slice');
+ await expect(core.locator('a')).toHaveAttribute('href','/components/core/button/');
  const ops=page.locator('.entry').filter({has:page.getByRole('heading',{name:'operations.agent-approval-plan',exact:true})});
  await expect(ops).toContainText('Experimental');
- await expect(ops.locator('a')).toHaveAttribute('href','/labs/experimental/operations/');
+ await expect(ops.locator('a')).toHaveAttribute('href','/components/operations/agent-approval-plan/');
  const response=await page.request.get('/foundry/');
  expect(response.status()).toBe(200);
 });
