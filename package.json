@@ -59,7 +59,12 @@
     "validate:blocks": "node tooling/blocks/validate.mjs",
     "build:blocks": "node tooling/blocks/build.mjs",
     "test:blocks": "playwright test --config=playwright.blocks.config.mjs",
-    "quality:blocks": "npm run validate:blocks && npm run build:blocks && npm run test:blocks"
+    "quality:blocks": "npm run validate:blocks && npm run build:blocks && npm run test:blocks",
+    "build:library:local": "node tooling/ecosystem/package.mjs",
+    "build:ecosystem:local": "node tooling/ecosystem/local.mjs",
+    "validate:ecosystem": "node tooling/ecosystem/validate.mjs",
+    "test:ecosystem": "playwright test --config=playwright.ecosystem.config.mjs",
+    "gate:public": "node tooling/ecosystem/release-gate.mjs --public"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1"

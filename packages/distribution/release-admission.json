@@ -1,0 +1,26 @@
+{
+    "schema":  "neosmartuxui/release-admission@1",
+    "releaseCandidate":  "unified-97-core-commerce-operations",
+    "localMilestoneValidated":  true,
+    "licenseDecision":  "pending-owner-SPDX-selection",
+    "thirdPartyAttributionReviewed":  false,
+    "frameworkAdapters":  "browser-dom-esm-only",
+    "productionProvidersVerified":  false,
+    "publicProofReestablished":  false,
+    "exactArtifactSourceSha":  null,
+    "actionsMustRemainDisabled":  true,
+    "publicPublishApproved":  false,
+    "localValidation":  {
+                            "date":  "2026-10-20",
+                            "scope":  "Local implementation only, not public proof",
+                            "coreValidators":  19,
+                            "appBuilds":  2,
+                            "foundryBrowser":  "415/415",
+                            "studioBrowser":  "8/8",
+                            "unifiedDiscoveryBrowser":  "9/9",
+                            "previouslyCommerceBrowser":  "83/83",
+                            "previouslyOperationsBrowser":  "21/21",
+                            "previouslyBlocksBrowser":  "20/20",
+                            "publicRelease":  "BLOCKED"
+                        }
+}

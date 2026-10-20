@@ -1,0 +1,10 @@
+import type {Money} from '../../verticals/commerce/index.mjs';
+export type TrustStatement={label:string;detail:string};
+export function renderTrustStrip(data:{items:TrustStatement[];label?:string}):HTMLElement;
+export function renderPromoBand(data:{heading:string;description:string;actionLabel:string;promotionCode?:string},options?:{onActivate?:()=>Promise<{status:'accepted'}>|{status:'accepted'}}):HTMLElement;
+export function renderTestimonials(data:{heading:string;items:{author:string;quote:string;source?:string}[]}):HTMLElement;
+export function renderGuarantee(data:{heading:string;terms:string;policyUrl?:string}):HTMLElement;
+export function renderPlanComparison(data:{heading:string;locale?:string;plans:{id:string;name:string;price:Money;interval?:string;features:string[]}[]},options?:{onSelect?:(id:string)=>unknown}):HTMLElement;
+export function renderBundleBuilder(data:{heading:string;items:{id:string;label:string}[];selection?:string[]},options?:{onQuote?:(items:string[])=>Promise<{status:'quoted';itemIds:string[];total:Money}>;locale?:string}):HTMLElement;
+export function renderAccountNav(data:{label?:string;items:{id:string;label:string;href:string}[];currentId?:string}):HTMLElement;
+export const COMMERCE_BLOCKS:Readonly<Record<string,(...args:any[])=>HTMLElement>>;
