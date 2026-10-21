@@ -17,7 +17,8 @@ const schemaFiles = [
   'theme-resolution.schema.json',
   'deployment-record.schema.json',
   'public-proof.schema.json',
-  'public-proof-maintenance.schema.json'
+  'public-proof-maintenance.schema.json',
+  'proof-cohort-candidate.schema.json'
 ];
 
 const parsed = new Map();
@@ -41,13 +42,17 @@ const expectedIds = new Map([
   ['theme-resolution.schema.json', 'https://neosmartui.com/schemas/theme-resolution@1.json'],
   ['deployment-record.schema.json', 'https://neosmartuxui.github.io/schemas/deployment-record@1.json'],
   ['public-proof.schema.json', 'https://neosmartui.com/schemas/public-proof@1.json'],
-  ['public-proof-maintenance.schema.json', 'https://neosmartui.com/schemas/public-proof-maintenance@1.json']
+  ['public-proof-maintenance.schema.json', 'https://neosmartui.com/schemas/public-proof-maintenance@1.json'],
+  ['proof-cohort-candidate.schema.json', 'https://neosmartuxui.github.io/schemas/proof-cohort-candidate@1.json']
 ]);
 for (const [file, id] of expectedIds) if (parsed.get(file).$id !== id) throw new Error(`${file} has unexpected $id`);
 for (const file of ['theme.schema.json', 'flavor.schema.json']) {
   const schema = parsed.get(file);
   if (!schema.required.includes('schema') || !schema.properties.schema) throw new Error(`${file} requires schema but does not permit it`);
 }
+
+const cohort = parsed.get('proof-cohort-candidate.schema.json');
+if (cohort.additionalProperties !== false || cohort.properties.status?.const !== 'UNVERIFIED-CANDIDATE-NOT-PUBLIC-PROOF' || cohort.properties.readyForPublicProof?.const !== false || !cohort.required.includes('flavorReconciliations')) throw new Error('Candidate proof schema must fail closed without public-proof authority');
 
 const componentPreview = parsed.get('component-preview.schema.json');
 if (componentPreview.properties.schema?.const !== 'neosmartui/component-preview@1') throw new Error('component preview schema identity drifted');
