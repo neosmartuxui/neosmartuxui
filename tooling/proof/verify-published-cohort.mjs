@@ -7,6 +7,7 @@ import { chromium } from '@playwright/test';
 import { sha256, PROOF_HOST, SOURCE_REPOSITORY, PAGES_REPOSITORY } from './current-host-contract.mjs';
 import { enumerateFoundry, checkWholeFoundryParity } from './foundry-asset-map.mjs';
 import { verifyEntireCohortCoverage } from './cohort-coverage.mjs';
+import { inspectFlavorPage } from './live-flavor-inspection.mjs';
 
 const root=resolve(import.meta.dirname,'../..');
 const pages=process.env.NEOSMARTUXUI_PAGES_CHECKOUT || resolve(dirname(root),'neosmartuxui.github.io');
@@ -103,13 +104,8 @@ try {
   }
   for(const subject of candidate.subjects.filter(x=>x.kind==='flavor')){
     const flavor=subject.id.slice('flavor.'.length);
-    const response=await page.goto(PROOF_HOST+'/flavors/'+flavor+'/',{waitUntil:'domcontentloaded'});
-    const details=await page.locator('main').first().evaluate(el=>({
-      theme:el.classList.contains('ns-theme-'+flavor+'-light'),
-      title:el.querySelector('h1')?.textContent?.trim()||null
-    })).catch(()=>({theme:false,title:null}));
-    browserResults.push({subject:subject.id,url:PROOF_HOST+'/flavors/'+flavor+'/',
-      found:response?.status()===200&&details.theme,title:details.title});
+    const evidence=await inspectFlavorPage(page,PROOF_HOST,flavor);
+    browserResults.push({subject:subject.id,...evidence});
   }
   if(browserResults.length!==54 || browserResults.some(x=>!x.found || ('liveMarker' in x && !x.liveMarker)) || errors.length) {
     fail('live browser subjects/console check failed: '+JSON.stringify({failed:browserResults.filter(x=>!x.found||x.liveMarker===false),errors}));
