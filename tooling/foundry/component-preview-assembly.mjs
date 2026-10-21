@@ -27,7 +27,7 @@ export function renderFoundryPreviewRuntime(previews) {
       const key = `${binding.module}|${binding.export}`;
       if (!seen.has(key)) {
         seen.add(key);
-        imports.push(`      import { ${binding.export} } from './${basename(binding.module)}';`);
+        imports.push(`      import { ${binding.export} } from '/${basename(binding.module)}';`);
       }
       const options = binding.options === undefined ? '' : `, ${formatOptions(binding.options)}`;
       calls.push(`      ${binding.export}(document.querySelector('${binding.selector}')${options});`);
