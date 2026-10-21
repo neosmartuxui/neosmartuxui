@@ -96,7 +96,7 @@ test('rejects missing, stale, or altered local QA attestations', async () => {
   const record = {
     schema: 'neosmartuxui/local-proof-qa@1',
     sourceRepository: 'neosmartuxui/neosmartuxui', sourceSha: SHA,
-    commands: ['build:foundry', 'test:browser', 'build:studio', 'test:studio'],
+    commands: ['quality:restore', 'test:proof:current', 'test:proof:cohort', 'build:foundry', 'test:browser', 'build:studio', 'test:studio'],
     ...Object.fromEntries(Object.entries(expected).filter(([name]) => name !== 'sourceSha'))
   };
   assert.deepEqual(checkQaAttestation(record, expected), []);

@@ -83,7 +83,7 @@ export function checkQaAttestation(attestation, {
   foundryDeploymentSha256, studioDeploymentSha256
 }) {
   const problems = [];
-  const expectedCommands = ['build:foundry', 'test:browser', 'build:studio', 'test:studio'];
+  const expectedCommands = ['quality:restore', 'test:proof:current', 'test:proof:cohort', 'build:foundry', 'test:browser', 'build:studio', 'test:studio'];
   if (attestation?.schema !== 'neosmartuxui/local-proof-qa@1' ||
       attestation?.sourceRepository !== SOURCE_REPOSITORY ||
       attestation?.sourceSha !== sourceSha) {

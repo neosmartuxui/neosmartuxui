@@ -13,7 +13,7 @@ if (git('status', '--porcelain') || sha !== git('rev-parse', 'origin/main')) {
 await rm(attestationPath, { force: true });
 const env = { ...process.env, NEOSMARTUXUI_SOURCE_SHA: sha,
   NEOSMARTUXUI_BROWSER_CHANNEL: process.env.NEOSMARTUXUI_BROWSER_CHANNEL || 'chrome' };
-const commands = ['build:foundry', 'test:browser', 'build:studio', 'test:studio'];
+const commands = ['quality:restore', 'test:proof:current', 'test:proof:cohort', 'build:foundry', 'test:browser', 'build:studio', 'test:studio'];
 for (const command of commands) {
   console.log(`[proof-qa] ${command} pinned to ${sha}`);
   const result = spawnSync(process.platform === 'win32' ? 'npm.cmd' : 'npm',

@@ -79,7 +79,10 @@
     "test:proof:current": "node --test tooling/proof/current-host-contract.test.mjs",
     "run:proof:local-qa": "node tooling/proof/run-local-proof-qa.mjs",
     "validate:proof:current": "node tooling/proof/current-host-gate.mjs --preflight",
-    "audit:proof:legacy": "node tooling/proof/legacy-inventory.mjs"
+    "audit:proof:legacy": "node tooling/proof/legacy-inventory.mjs",
+    "build:proof:cohort-candidate": "node tooling/proof/build-cohort-candidate.mjs",
+    "verify:proof:cohort:live": "node tooling/proof/verify-published-cohort.mjs",
+    "test:proof:cohort": "node --test tooling/proof/cohort-reconciliation.test.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1"
