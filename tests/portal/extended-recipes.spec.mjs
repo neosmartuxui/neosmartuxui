@@ -100,7 +100,8 @@ test('Integration guide references actual local Core exports and does not claim 
  expect(html).toContain('bindToggle');
  expect(html).toContain('bindNumberField');
  const href=await page.locator('a.btn-primary').first().getAttribute('href');
- expect(href).toMatch(/github\.com\/neosmartuxui\/neosmartuxui\/blob\/local-unpinned\/packages\/adapters\/web\/core-exports\.mjs/);
+ const manifest=await (await page.request.get('/portal-manifest.json')).json();
+ expect(href).toBe('https://github.com/neosmartuxui/neosmartuxui/blob/'+manifest.sourceSha+'/packages/adapters/web/core-exports.mjs');
  await page.goto('/docs/');
  await expect(page.getByRole('link',{name:/Framework integration/})).toHaveAttribute('href','/docs/integrations/');
  expect(page.__errors).toEqual([]);
