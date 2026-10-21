@@ -24,6 +24,13 @@ const catalog={schema:'neosmartuxui/unified-catalog@1',scope:'local-only',public
 await rm(out,{recursive:true,force:true});await mkdir(out,{recursive:true});
 const copy=async(src,dst)=>{const target=resolve(out,dst);await mkdir(dirname(target),{recursive:true});await cp(resolve(root,src),target);};
 for(const [src,dst] of [
+ ['packages/adapters/web/core-exports.mjs','core/index.mjs'],
+ ['packages/adapters/web/core-exports.d.ts','core/index.d.ts'],
+ ['packages/adapters/web/components/accordion.mjs','core/components/accordion.mjs'],
+ ['packages/adapters/web/components/radio.mjs','core/components/radio.mjs'],
+ ['packages/adapters/web/components/toggle.mjs','core/components/toggle.mjs'],
+ ['packages/adapters/web/components/segmented-control.mjs','core/components/segmented-control.mjs'],
+ ['packages/adapters/web/components/number-field.mjs','core/components/number-field.mjs'],
  ['packages/verticals/commerce/components.mjs','verticals/commerce/components.mjs'],
  ['packages/verticals/commerce/wave2.mjs','verticals/commerce/wave2.mjs'],
  ['packages/verticals/commerce/wave3.mjs','verticals/commerce/wave3.mjs'],
@@ -42,17 +49,18 @@ for(const [src,dst] of [
  ['packages/templates/operations.d.ts','templates/operations.d.ts'],
  ['LICENSE','LICENSE'],['NOTICE','NOTICE']
 ])await copy(src,dst);
-const baseCSS=(await Promise.all(['button.css','badge.css','card.css'].map(f=>readFile(resolve(root,'packages/adapters/web/components',f),'utf8')))).join('\n');
+const baseCSS=(await Promise.all(['button.css','badge.css','card.css','accordion.css','radio.css','toggle.css','segmented-control.css','number-field.css'].map(f=>readFile(resolve(root,'packages/adapters/web/components',f),'utf8')))).join('\n');
 await writeFile(resolve(out,'styles/core.css'),baseCSS);
 const tokenSpec=await json('spec/core/token-contracts.json');
 await mkdir(resolve(out,'themes'),{recursive:true});
 for(const t of themes)await writeFile(resolve(out,'themes',t+'.css'),renderResolvedTokenCss(tokenSpec,await json('packages/themes/'+t+'/tokens.json'),{selector:':root'}));
-const barrels=["commerce from './verticals/commerce/index.mjs'","operations from './verticals/operations/index.mjs'","blocks from './blocks/commerce/index.mjs'","templates from './templates/operations.mjs'"];
+const barrels=["core from './core/index.mjs'","commerce from './verticals/commerce/index.mjs'","operations from './verticals/operations/index.mjs'","blocks from './blocks/commerce/index.mjs'","templates from './templates/operations.mjs'"];
 await writeFile(resolve(out,'index.mjs'),barrels.map(x=>'export * as '+x+';').join('\n')+'\n');
 await writeFile(resolve(out,'index.d.ts'),barrels.map(x=>'export * as '+x+';').join('\n')+'\n');
 const moduleExport=(js,types)=>({types,default:js});
-const pkg={name:'@neosmartuxui/library',version:'0.0.0-local',type:'module',private:true,license:'Apache-2.0',description:'Local-only browser DOM ESM package for Commerce, Operations, Blocks, Templates',exports:{
+const pkg={name:'@neosmartuxui/library',version:'0.0.0-local',type:'module',private:true,license:'Apache-2.0',description:'Local-only browser DOM ESM package for selected Core adapters, Commerce, Operations, Blocks, Templates',exports:{
  '.':moduleExport('./index.mjs','./index.d.ts'),
+ './core':moduleExport('./core/index.mjs','./core/index.d.ts'),
  './commerce':moduleExport('./verticals/commerce/index.mjs','./verticals/commerce/index.d.ts'),
  './operations':moduleExport('./verticals/operations/index.mjs','./verticals/operations/index.d.ts'),
  './blocks':moduleExport('./blocks/commerce/index.mjs','./blocks/commerce/index.d.ts'),
@@ -65,7 +73,7 @@ await writeFile(resolve(out,'catalog.json'),JSON.stringify(catalog,null,2)+'\n')
 await writeFile(resolve(out,'README.md'),[
  '# NeoSmartUXUI browser DOM package — LOCAL ONLY',
  '106 catalog entries: 97 components, 7 Commerce Blocks, 2 operational templates.',
- 'Use the package subpaths commerce, operations, blocks and templates. Imports return semantic DOM renderers, not React/Vue components.',
+ 'Use the package subpaths core (five verified DOM adapters), commerce, operations, blocks and templates. Imports return semantic DOM renderers, not React/Vue components.',
  'Import core.css, one canonical theme CSS and relevant vertical/blocks CSS. Theme authoring remains in Studio.',
  'Provider mutations and billing need explicitly integrated host callbacks. No simulated payment authorization.',
  'This package is Apache-2.0, private and 0.0.0-local. The owner chose the license; public release is NOT approved.',
@@ -73,5 +81,6 @@ await writeFile(resolve(out,'README.md'),[
 ].join('\n')+'\n');
 await writeFile(resolve(out,'RELEASE-BLOCKED.txt'),'NOT FOR PUBLIC DISTRIBUTION - third-party rights, provider, proof and approval gates pending.\n');
 const mod=await import(pathToFileURL(resolve(out,'index.mjs')).href);
+if(typeof mod.core.bindAccordion!=='function'||typeof mod.core.bindToggle!=='function'||typeof mod.core.bindNumberField!=='function')throw new Error('Verified Core entry point is missing');
 if(Object.keys(mod.commerce.COMMERCE_RENDERERS).length!==8||Object.keys(mod.operations.OPERATIONS_RENDERERS).length!==12||Object.keys(mod.blocks.COMMERCE_BLOCKS).length!==7||Object.keys(mod.templates.TEMPLATE_RENDERERS).length!==2)throw new Error('Built distribution import self-test failed');
 console.log('[distribution] built private ESM exports and ten saved Themes for',items.length,'catalog entries');

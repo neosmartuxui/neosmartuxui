@@ -139,6 +139,56 @@ if(current.recipe){
     changed();
     setFeedback('Native range input changed to '+target.value+'.');
     return;
+   case 'radio':{
+    if(target.tagName!=='INPUT'||target.type!=='radio')break;
+    const peer=doc.querySelector('#radio-'+value);
+    if(!peer||!root.contains(peer)||peer.name!==target.name||peer.type!=='radio'||peer.disabled)break;
+    peer.click();
+    setFeedback('Native radio selection: '+value+'.');
+    return;
+   }
+   case 'toggle':
+    if(target.tagName!=='BUTTON'||!['true','false'].includes(target.getAttribute('aria-pressed')))break;
+    if(target.getAttribute('aria-pressed')!==(value==='on'?'true':'false'))target.click();
+    setFeedback('Real Toggle '+value+'.');
+    return;
+   case 'accordion':{
+    if(target.tagName!=='BUTTON'||!target.classList.contains('ns-accordion-trigger')||target.disabled)break;
+    const open=value==='open';
+    if(target.getAttribute('aria-expanded')!==(open?'true':'false'))target.click();
+    setFeedback('Accordion '+value+' via existing disclosure controller.');
+    return;
+   }
+   case 'segment':{
+    const group=target.closest('[role="group"]');
+    const segment=doc.querySelector(value);
+    if(!group||!segment||!group.contains(segment)||segment.disabled||
+     !segment.classList.contains('ns-segmented-control-segment'))break;
+    segment.click();
+    setFeedback('Selected real '+segment.textContent.trim()+' segment.');
+    return;
+   }
+   case 'number-field':{
+    const field=target.closest('.ns-number-field');
+    if(target.tagName!=='INPUT'||target.type!=='number'||!field||!root.contains(field))break;
+    const n=Number(value);
+    const min=Number(target.min),max=Number(target.max);
+    if(value!==''&&(!Number.isFinite(n)|| (target.min&&n<min)||(target.max&&n>max)))break;
+    target.value=value;
+    target.dispatchEvent(new EventCtor('input',{bubbles:true}));
+    changed();
+    setFeedback(value?'Real numeric input set to '+target.value+'.':'Numeric field cleared.');
+    return;
+   }
+   case 'number-step':{
+    const field=target.closest('.ns-number-field');
+    if(!field||!root.contains(field))break;
+    const action=field.querySelector('[data-number-field-action="'+value+'"]');
+    if(!action||action.tagName!=='BUTTON'||action.disabled)break;
+    action.click();
+    setFeedback('Used existing numeric '+value+' action.');
+    return;
+   }
    case 'tab':{
     const tab=doc.querySelector(value);
     if(!tab||!root.contains(tab)||tab.getAttribute('role')!=='tab'||tab.disabled)break;

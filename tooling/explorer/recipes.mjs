@@ -80,4 +80,49 @@ export const recipes = Object.freeze({
   controls:[{id:'overview',label:'Overview',kind:'button',op:'tab',value:'#tab-auto-overview'},
             {id:'details',label:'Details',kind:'button',op:'tab',value:'#tab-auto-details'}]
  }
+ ,
+ 'core.radio':{
+  use:'Choose exactly one option from native radio peers with the same name.',
+  avoid:'Do not force aria-checked manually or model Radio as a toggle button.',
+  semantics:'Native radio group and existing bindRadio group state synchronization.',
+  specimen:'#radio-alpha',
+  controls:[{id:'alpha',label:'Alpha',kind:'button',op:'radio',value:'alpha'},
+            {id:'beta',label:'Beta',kind:'button',op:'radio',value:'beta'}]
+ },
+ 'core.toggle':{
+  use:'Maintain an independent persistent pressed state on a semantic button.',
+  avoid:'Momentary :active pressure feedback is not the persistent aria-pressed state.',
+  semantics:'bindToggle owns pressed state after native click.',
+  specimen:'#toggle-demo',
+  controls:[{id:'off',label:'Off',kind:'button',op:'toggle',value:'off'},
+            {id:'on',label:'On',kind:'button',op:'toggle',value:'on'}]
+ },
+ 'core.accordion':{
+  use:'Show or hide disclosure panels using real trigger and panel ID relationships.',
+  avoid:'Never set aria-expanded without the matching panel and single-expansion rules.',
+  semantics:'bindAccordion handles native button activation, aria-expanded and panel.hidden.',
+  specimen:'#accordion-single-trigger-b',
+  controls:[{id:'closed',label:'Closed',kind:'button',op:'accordion',value:'closed'},
+            {id:'open',label:'Open',kind:'button',op:'accordion',value:'open'}]
+ },
+ 'core.segmented-control':{
+  use:'Select one view mode from a mutually exclusive button group.',
+  avoid:'Do not allow two aria-pressed segments or select the disabled item.',
+  semantics:'bindSegmentedControl enforces exactly one selected segment.',
+  specimen:'#segment-overview',
+  controls:[{id:'overview',label:'Overview',kind:'button',op:'segment',value:'#segment-overview'},
+            {id:'activity',label:'Activity',kind:'button',op:'segment',value:'#segment-activity'},
+            {id:'history',label:'History',kind:'button',op:'segment',value:'#segment-history'}]
+ },
+ 'core.number-field':{
+  use:'Edit a bounded numeric input with the real increment and decrement buttons.',
+  avoid:'Do not bypass min/max/step or pretend input value is application state.',
+  semantics:'bindNumberField owns validity, input state and step-button availability.',
+  specimen:'#number-field-input',
+  controls:[{id:'value3',label:'Set 3',kind:'button',op:'number-field',value:'3'},
+            {id:'value7',label:'Set 7',kind:'button',op:'number-field',value:'7'},
+            {id:'empty',label:'Clear',kind:'button',op:'number-field',value:''},
+            {id:'increment',label:'Increase',kind:'button',op:'number-step',value:'increment'},
+            {id:'decrement',label:'Decrease',kind:'button',op:'number-step',value:'decrement'}]
+ }
 });

@@ -4,6 +4,7 @@ import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import * as site from './pages.mjs';
 import {buildDetails} from '../explorer/build-details.mjs';
+import {integrationGuide} from '../explorer/integration-guide.mjs';
 
 const root=resolve(import.meta.dirname,'../..'),out=resolve(root,'artifacts/portal-public');
 const git=(...args)=>execFileSync('git',['-C',root,...args],{encoding:'utf8'}).trim();
@@ -38,6 +39,7 @@ const pages=[
  ['docs/index.html','Documentation',site.docsPage,'Docs']
 ];
 for(const [path,title,body,active] of pages)await write(path,site.shell(title,body,{active,sha}));
+await write('docs/integrations/index.html',site.shell('Framework integration — private ESM',integrationGuide(sha),{active:'Docs',sha}));
 // Use the canonical Hardline Theme rather than arbitrary marketing-page press values.
 const hardline=await json('packages/themes/hardline-light/tokens.json');
 if(hardline.flavor!=='flavor.hardline')throw new Error('Portal must use Hardline Theme');

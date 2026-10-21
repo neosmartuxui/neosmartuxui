@@ -10,14 +10,25 @@ const desired=process.env.NEOSMARTUXUI_PORTAL_DRAFT==='1'?'local-unpinned':proce
 if(!desired||desired!==manifest.sourceSha||desired!==catalog.sourceSha)throw new Error('Portal and catalog source hashes do not match expected source');
 if(manifest.schema!=='neosmartuxui/portal-artifact@1'||manifest.githubActionsUsed!==false||
  manifest.privatePackageIncluded!==false||manifest.productionPackageReleased!==false)throw new Error('Invalid portal publishing boundaries');
-if(manifest.files.length!==120||manifest.sections.length!==8||catalog.schema!=='neosmartuxui/portal-catalog@1'||catalog.counts.total!==106||catalog.items.length!==106)throw new Error('Portal inventory drift');
+if(manifest.files.length!==121||manifest.sections.length!==8||catalog.schema!=='neosmartuxui/portal-catalog@1'||catalog.counts.total!==106||catalog.items.length!==106)throw new Error('Portal inventory drift');
 if(details.schema!=='neosmartuxui/component-details@1'||details.sourceSha!==desired||details.items.length!==106)throw new Error('Invalid component detail directory');
-if(new Set(catalog.items.map(x=>x.id)).size!==106||new Set(manifest.files.map(x=>x.path)).size!==120)throw new Error('Duplicate paths or catalog entries');
+if(new Set(catalog.items.map(x=>x.id)).size!==106||new Set(manifest.files.map(x=>x.path)).size!==121)throw new Error('Duplicate paths or catalog entries');
 if(agents.schema!=='neosmartuxui/agent-capabilities@1'||agents.sourceSha!==desired||
  agents.productionPackageReleased!==false||agents.items.length!==106||
  agents.inventory.total!==106)throw new Error('Agent capability index drift');
-const validOps=new Set(['aria-disabled','checkbox','switch','input','select','tone','range','tab']);
-const recipeIds=new Set(['core.button','core.checkbox','core.switch','core.input','core.textarea','core.select','core.badge','core.slider','core.tabs']);
+const actualExports={accordion:'bindAccordion',radio:'bindRadio',toggle:'bindToggle','segmented-control':'bindSegmentedControl','number-field':'bindNumberField'};
+if(!manifest.files.some(f=>f.path==='docs/integrations/index.html'))throw new Error('Framework integration guide missing');
+for(const item of agents.items){
+ const name=item.id.startsWith('core.')?item.id.slice(5):'';
+ const binding=actualExports[name];
+ if(binding){
+  if(item.integration?.scope!=='private-local-only'||item.integration.exportName!==binding||
+   item.integration.docs!=='/docs/integrations/'||
+   item.integration.package!=='@neosmartuxui/library/core')throw new Error('Core export authority mismatch '+item.id);
+ }else if(item.integration!==null)throw new Error('Undeclared framework integration '+item.id);
+}
+const validOps=new Set(['aria-disabled','checkbox','switch','input','select','tone','range','tab','radio','toggle','accordion','segment','number-field','number-step']);
+const recipeIds=new Set(['core.button','core.checkbox','core.switch','core.input','core.textarea','core.select','core.badge','core.slider','core.tabs','core.radio','core.toggle','core.accordion','core.segmented-control','core.number-field']);
 if(details.items.filter(x=>x.recipe).length!==recipeIds.size)throw new Error('Unexpected authored capability count');
 for(const item of agents.items){
  const actual=details.items.find(x=>x.id===item.id);

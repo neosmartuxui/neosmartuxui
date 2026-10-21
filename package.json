@@ -2,7 +2,7 @@
   "name": "neosmartuxui",
   "version": "0.0.0",
   "private": true,
-  "description": "NeoSmartUXUI \u00c3\u00a2\u00e2\u201a\u00ac\u00e2\u20ac\u009d the AI-first neo-brutalist UI system.",
+  "description": "NeoSmartUXUI Ã¢â‚¬â€ the AI-first neo-brutalist UI system.",
   "engines": {
     "node": ">=22"
   },
@@ -74,7 +74,8 @@
     "build:portal": "node tooling/portal/build.mjs",
     "stage:portal:local": "node tooling/portal/stage.mjs",
     "verify:portal": "node tooling/portal/verify.mjs",
-    "test:portal": "playwright test --config=playwright.portal.config.mjs"
+    "test:portal": "playwright test --config=playwright.portal.config.mjs",
+    "validate:core-exports": "node tooling/ecosystem/verify-core-entry.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1"

@@ -1,0 +1,21 @@
+/** Native-browser DOM adapters. Package is PRIVATE, local-only until release admission. */
+export type Dispose = () => void;
+export function bindAccordion(root: HTMLElement, options?: {expansion?: 'single' | 'multiple'}): Dispose;
+export function syncAccordionItem(root: HTMLElement, trigger: HTMLButtonElement, open?: boolean): boolean;
+export function setAccordionItemOpen(root: HTMLElement, trigger: HTMLButtonElement, open: boolean, options?: {expansion?: 'single' | 'multiple'}): boolean;
+export function bindRadio(input: HTMLInputElement): Dispose;
+export function syncRadioState(input: HTMLInputElement): 'checked' | 'unchecked';
+export function syncRadioGroup(input: HTMLInputElement): number;
+export function bindToggle(button: HTMLButtonElement): Dispose;
+export function syncToggleState(button: HTMLButtonElement): string;
+export function setTogglePressed(button: HTMLButtonElement, pressed: boolean): string;
+export function setToggleDisabled(button: HTMLButtonElement, disabled: boolean): string;
+export function bindSegmentedControl(group: HTMLElement): Dispose;
+export function syncSegmentedControl(group: HTMLElement): HTMLButtonElement;
+export function selectSegment(group: HTMLElement, segment: HTMLButtonElement): HTMLButtonElement;
+export function bindNumberField(root: HTMLElement): Dispose;
+export function syncNumberFieldState(root: HTMLElement): string;
+export function setNumberFieldValue(root: HTMLElement, value: number | ''): string;
+export function setNumberFieldInvalid(root: HTMLElement, invalid: boolean): string;
+export function setNumberFieldReadOnly(root: HTMLElement, readOnly: boolean): string;
+export function setNumberFieldDisabled(root: HTMLElement, disabled: boolean): string;

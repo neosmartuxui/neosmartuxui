@@ -15,7 +15,7 @@ test('Agent contract lists 106 source-bound capabilities without inventing produ
  expect(api.productionPackageReleased).toBe(false);
  expect(api.items).toHaveLength(106);
  expect(new Set(api.items.map(x=>x.id)).size).toBe(106);
- expect(api.items.filter(x=>x.controlAvailability==='source-verified')).toHaveLength(9);
+ expect(api.items.filter(x=>x.controlAvailability==='source-verified')).toHaveLength(14);
  for(const item of api.items){
   expect(item.documentationOnly).toBe(true);
   expect(item.productionIntegration).toBe(false);

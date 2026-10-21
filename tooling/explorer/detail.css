@@ -64,3 +64,7 @@
 .recipe-guide dt{font:850 11px ui-monospace,Consolas,monospace;color:var(--blue);text-transform:uppercase}
 .recipe-guide dd{margin:0;color:var(--ink);font-size:13px;line-height:1.65;overflow-wrap:anywhere}
 .recipe-markup{white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word}
+
+/* Source-verified integration table stays scrollable at small mobile widths. */
+.detail-section table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}
+.detail-section table th,.detail-section table td{border:1px solid var(--line);padding:12px;text-align:start;vertical-align:top;font-size:12px}

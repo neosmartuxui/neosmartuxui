@@ -1,0 +1,120 @@
+import {test,expect} from '@playwright/test';
+const pageFor=async(page,id)=>{await page.goto('/components/core/'+id+'/');await expect(page.locator('body')).toHaveAttribute('data-explorer-ready','true')};
+const click=async(page,id)=>page.locator('#recipe-controls button[data-recipe-id="'+id+'"]').click();
+test.beforeEach(async({page})=>{
+ page.__errors=[];
+ page.on('pageerror',e=>page.__errors.push(e.message));
+ page.on('response',r=>{if(r.status()>=400)page.__errors.push('HTTP '+r.status()+' '+r.url())});
+});
+test('Machine index admits exactly 14 source verified controls, five backed by private Core ESM',async({page})=>{
+ const agent=await (await page.request.get('/components/agent-index.json')).json();
+ expect(agent.items).toHaveLength(106);
+ expect(agent.items.filter(x=>x.controlAvailability==='source-verified')).toHaveLength(14);
+ const expected={accordion:'bindAccordion',radio:'bindRadio',toggle:'bindToggle','segmented-control':'bindSegmentedControl','number-field':'bindNumberField'};
+ for(const [name,symbol] of Object.entries(expected)){
+  const item=agent.items.find(x=>x.id==='core.'+name);
+  expect(item.integration).toEqual({package:'@neosmartuxui/library/core',exportName:symbol,scope:'private-local-only',docs:'/docs/integrations/'});
+  expect(item.documentationOnly).toBe(true);expect(item.productionIntegration).toBe(false);
+ }
+ expect(agent.items.filter(x=>x.integration)).toHaveLength(5);
+});
+test('Accordion controls operate original single-expansion buttons/panels',async({page})=>{
+ await pageFor(page,'accordion');
+ const frame=page.frameLocator('#actual-demo');
+ const a=frame.locator('#accordion-single-trigger-a');
+ const b=frame.locator('#accordion-single-trigger-b');
+ const panel=frame.locator('#accordion-single-panel-b');
+ await expect(a).toHaveAttribute('aria-expanded','true');
+ await click(page,'open');
+ await expect(b).toHaveAttribute('aria-expanded','true');
+ await expect(a).toHaveAttribute('aria-expanded','false');
+ await expect(panel).toBeVisible();
+ await click(page,'closed');
+ await expect(b).toHaveAttribute('aria-expanded','false');
+ await expect(panel).toBeHidden();
+ expect(page.__errors).toEqual([]);
+});
+test('Radio recipe selects real same-name native group peers',async({page})=>{
+ await pageFor(page,'radio');
+ const frame=page.frameLocator('#actual-demo');
+ await click(page,'beta');
+ await expect(frame.locator('#radio-beta')).toBeChecked();
+ await expect(frame.locator('#radio-alpha')).not.toBeChecked();
+ await expect(frame.locator('#radio-beta')).toHaveAttribute('data-state','checked');
+ await click(page,'alpha');
+ await expect(frame.locator('#radio-alpha')).toBeChecked();
+ await expect(frame.locator('#radio-beta')).not.toBeChecked();
+ expect(page.__errors).toEqual([]);
+});
+test('Toggle uses original adapter aria-pressed authority and native click',async({page})=>{
+ await pageFor(page,'toggle');
+ const btn=page.frameLocator('#actual-demo').locator('#toggle-demo');
+ await click(page,'on');
+ await expect(btn).toHaveAttribute('aria-pressed','true');
+ await expect(btn).toHaveAttribute('data-state','on');
+ await click(page,'off');
+ await expect(btn).toHaveAttribute('aria-pressed','false');
+ await expect(btn).toHaveAttribute('data-state','off');
+ expect(page.__errors).toEqual([]);
+});
+test('Segmented control retains exactly one selected and refuses disabled item',async({page})=>{
+ await pageFor(page,'segmented-control');
+ const frame=page.frameLocator('#actual-demo');
+ await click(page,'activity');
+ await expect(frame.locator('#segment-activity')).toHaveAttribute('aria-pressed','true');
+ await expect(frame.locator('#segment-overview')).toHaveAttribute('aria-pressed','false');
+ await click(page,'history');
+ await expect(frame.locator('#segment-history')).toHaveAttribute('aria-pressed','true');
+ expect(await frame.locator('.ns-segmented-control-segment[aria-pressed="true"]').count()).toBe(1);
+ await expect(frame.locator('#segment-unavailable')).toBeDisabled();
+ expect(page.__errors).toEqual([]);
+});
+test('Number Field uses actual bounded input, validity state, and native step actions',async({page})=>{
+ await pageFor(page,'number-field');
+ const frame=page.frameLocator('#actual-demo');
+ const input=frame.locator('#number-field-input'),root=frame.locator('#number-field-demo');
+ await click(page,'value3');
+ await expect(input).toHaveValue('3');
+ await expect(root).toHaveAttribute('data-state','filled');
+ await click(page,'increment');
+ await expect(input).toHaveValue('4');
+ await click(page,'decrement');
+ await expect(input).toHaveValue('3');
+ await click(page,'value7');
+ await expect(input).toHaveValue('7');
+ await click(page,'empty');
+ await expect(input).toHaveValue('');
+ await expect(root).toHaveAttribute('data-state','empty');
+ expect(page.__errors).toEqual([]);
+});
+test('Integration guide references actual local Core exports and does not claim published React/Vue components',async({page})=>{
+ await page.goto('/docs/integrations/');
+ await expect(page.getByRole('heading',{level:1})).toHaveText('Framework integration');
+ await expect(page.locator('pre.detail-code')).toHaveCount(3);
+ for(const name of ['Vanilla JavaScript','React (uncontrolled DOM adapter)','Vue 3 (mounted DOM adapter)'])await expect(page.getByRole('heading',{name})).toHaveCount(1);
+ const html=await page.locator('main').innerText();
+ expect(html).toContain('not React or Vue component exports');
+ expect(html).toContain('0.0.0-local');
+ expect(html).toContain('private');
+ expect(html).toContain('bindAccordion');
+ expect(html).toContain('bindToggle');
+ expect(html).toContain('bindNumberField');
+ const href=await page.locator('a.btn-primary').first().getAttribute('href');
+ expect(href).toMatch(/github\.com\/neosmartuxui\/neosmartuxui\/blob\/local-unpinned\/packages\/adapters\/web\/core-exports\.mjs/);
+ await page.goto('/docs/');
+ await expect(page.getByRole('link',{name:/Framework integration/})).toHaveAttribute('href','/docs/integrations/');
+ expect(page.__errors).toEqual([]);
+});
+test('Mobile keyboard and RTL keep extended recipe controls and integration table within viewport',async({page})=>{
+ await page.setViewportSize({width:390,height:844});
+ await page.emulateMedia({reducedMotion:'reduce',forcedColors:'active'});
+ await pageFor(page,'toggle');
+ await page.evaluate(()=>document.documentElement.dir='rtl');
+ await page.locator('button[data-recipe-id=on]').focus();
+ await page.keyboard.press('Enter');
+ await expect(page.frameLocator('#actual-demo').locator('#toggle-demo')).toHaveAttribute('aria-pressed','true');
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1)).toBe(false);
+ await page.goto('/docs/integrations/');
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1)).toBe(false);
+ expect(page.__errors).toEqual([]);
+});

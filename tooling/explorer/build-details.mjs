@@ -3,6 +3,7 @@ import {resolve,dirname} from 'node:path';
 const repo='https://github.com/neosmartuxui/neosmartuxui/blob/';
 const escape=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;');
 import {recipes} from './recipes.mjs';
+import {documentedExports} from './integration-guide.mjs';
 import {loadComponentPreviews} from '../foundry/component-preview-assembly.mjs';
 const kindPath={Core:'core',Commerce:'commerce',Operations:'operations',Block:'block',Template:'template'};
 function readSpecimen(foundry,id,recipe){
@@ -59,7 +60,7 @@ function html(item) {
  '<div class="wrap subpage detail-wrap" data-component-id="'+e(item.id)+'">',
  '<nav class="detail-breadcrumb" aria-label="Breadcrumb"><a href="/components/">Components</a><span>/</span><span>'+e(item.kind)+'</span><span>/</span><span aria-current="page">'+e(item.id)+'</span></nav>',
  '<header class="detail-head"><span class="pill">'+e(item.kind)+' / '+e(item.status)+'</span><h1>'+e(item.id)+'</h1><p class="detail-intent">'+e(item.intent)+'</p>',
- '<div class="detail-head-actions"><a class="btn btn-primary" href="'+e(item.sourceUrl)+'">View real source ↗</a><a class="btn" href="'+e(item.fullPreview)+'">Open full demo ↗</a><a class="btn" href="/studio/">Theme Studio ↗</a></div></header>',
+ '<div class="detail-head-actions"><a class="btn btn-primary" href="'+e(item.sourceUrl)+'">View real source ↗</a><a class="btn" href="'+e(item.fullPreview)+'">Open full demo ↗</a><a class="btn" href="/studio/">Theme Studio ↗</a>'+(item.integration?'<a class="btn" href="/docs/integrations/">Verified ESM integration ↗</a>':'')+'</div></header>',
  '<div class="detail-layout"><div class="detail-primary"><section class="detail-section detail-preview">',
  '<div class="detail-section-head"><div><span class="kicker">01 / EXISTING IMPLEMENTATION</span><h2>Live component preview</h2></div><span class="detail-proof">'+(item.kind==='Core'?'Core Foundry':'Experimental lab')+'</span></div>',
  '<p class="detail-context">'+note+'</p><div class="detail-controls">',
@@ -133,7 +134,8 @@ export async function buildDetails({root,out,sha,items,shell}){
    previewSelector:item.kind==='Core'?'#'+name+'-slice':item.kind==='Commerce'?'[data-component="'+name+'"]':'[data-example="'+name+'"]',
    dependencies:item.kind==='Core'?contract.dependencies:(metadata.composesCore||[]),
    providerAuthority:item.kind==='Operations'?metadata.authority:null,
-   recipe:null};
+   recipe:null,
+   integration:item.kind==='Core'&&documentedExports[name]?{package:'@neosmartuxui/library/core',exportName:documentedExports[name],scope:'private-local-only',docs:'/docs/integrations/'}:null};
   if(recipes[item.id]){
    if(item.kind!=='Core'||!record.status||record.status==='Experimental')throw new Error('Recipe is only for Core');
    if(!record.states.includes('rest'))throw new Error('Recipe requires contract rest state');
@@ -157,6 +159,7 @@ export async function buildDetails({root,out,sha,items,shell}){
   providerAuthority:x.providerAuthority,
   controls:x.recipe?x.recipe.controls.map(c=>({id:c.id,kind:c.kind,operation:c.op,value:c.value})):[],
   controlAvailability:x.recipe?'source-verified':'not-declared',
+  integration:x.integration,
   documentationOnly:true,productionIntegration:false
  }));
  await writeFile(resolve(out,'components/agent-index.json'),JSON.stringify({

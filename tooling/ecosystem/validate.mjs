@@ -15,12 +15,14 @@ for(const filename of ['LICENSE','NOTICE']){
  if((await readFile(resolve(lib,filename))).compare(await readFile(resolve(root,filename)))!==0)throw new Error('Packaged '+filename+' does not match canonical root');
 }
 const exported=await import(pathToFileURL(resolve(lib,'index.mjs')).href);
-for(const k of ['commerce','operations','blocks','templates'])if(!exported[k])throw new Error('Missing package namespace '+k);
-for(const name of ['commerce','operations','blocks','templates']){
+for(const k of ['core','commerce','operations','blocks','templates'])if(!exported[k])throw new Error('Missing package namespace '+k);
+for(const name of ['core','commerce','operations','blocks','templates']){
  const e=manifest.exports['./'+name];if(!e?.types||!e?.default)throw new Error('Missing typed subpath: '+name);
  await access(resolve(lib,e.default));
  await access(resolve(lib,e.types));
 }
+for(const name of ['accordion','radio','toggle','segmented-control','number-field'])await access(resolve(lib,'core/components',name+'.mjs'));
+if(typeof exported.core?.bindAccordion!=='function'||typeof exported.core?.bindNumberField!=='function')throw new Error('Core source entry point not resolved');
 for(const theme of catalog.themes)await access(resolve(lib,'themes',theme+'.css'));
 for(const app of ['foundry','studio']){
  const base=resolve(root,'dist',app);
@@ -35,4 +37,5 @@ for(const app of ['foundry','studio']){
 const sourceFoundry=await readFile(resolve(root,'apps/foundry/src/index.html'),'utf8');
 const sourceStudio=await readFile(resolve(root,'apps/studio/src/index.html'),'utf8');
 if(sourceFoundry.includes('data-local-ecosystem')||sourceStudio.includes('data-local-ecosystem'))throw new Error('Local-only overlay leaked into public application sources');
-console.log('[ecosystem] PASS: 106 distinct indexed entries; 4 typed module subpaths; both local discovery surfaces; private/Apache-2.0; ten Themes; public-source isolation.');
+await import('./verify-core-entry.mjs');
+console.log('[ecosystem] PASS: 106 distinct indexed entries; 5 typed module subpaths; both local discovery surfaces; private/Apache-2.0; ten Themes; public-source isolation.');
