@@ -3,6 +3,10 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
 test('Foundry keeps its artifact URLs at the site root when served under /foundry/', async ({ page }) => {
+  const attrs = await readFile(resolve('.gitattributes'), 'utf8');
+  expect(attrs).toContain('apps/foundry/src/index.html text eol=lf');
+  const authored = await readFile(resolve('apps/foundry/src/index.html'), 'utf8');
+  expect(authored).not.toContain('\r\n');
   const html = await readFile(resolve('dist/foundry/index.html'), 'utf8');
   expect(html).not.toContain('<base href="/">');
   await page.goto('/');
