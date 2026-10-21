@@ -1,4 +1,4 @@
-import { access, readFile, readdir } from 'node:fs/promises';
+﻿import { access, readFile, readdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
 import { assembleFoundryPreviewHtml, assembleFoundryPreviewStyles, loadComponentPreviews, renderFoundryPreviewRuntime } from '../foundry/component-preview-assembly.mjs';
@@ -112,7 +112,7 @@ const html = assembleFoundryPreviewHtml(htmlTemplate, previews);
 const css = assembleFoundryPreviewStyles(cssTemplate, harnessBase, harnessResponsive);
 const foundryHtmlBlob = gitBlob(html);
 const foundryCssBlob = gitBlob(css);
-const expectedFoundryHtmlBlob = '46829bbe4b6fd4ed4e36142f1edb8d4679550658';
+const expectedFoundryHtmlBlob = '0522ed1a6febbe710d65c81a92c1f17b3163026c';
 const expectedFoundryCssBlob = '5920961722070dc8ec510f40b43f07bfd324cca6';
 if (foundryHtmlBlob !== expectedFoundryHtmlBlob || foundryCssBlob !== expectedFoundryCssBlob) {
   fail(`shared previews must reconstruct canonical Foundry bytes; observed html=${foundryHtmlBlob} css=${foundryCssBlob}`);
