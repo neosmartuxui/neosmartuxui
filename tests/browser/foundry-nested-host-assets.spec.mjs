@@ -29,3 +29,22 @@ test('Foundry keeps its artifact URLs at the site root when served under /foundr
   const bodyWidth = await page.evaluate(() => document.documentElement.scrollWidth);
   expect(bodyWidth).toBeGreaterThan(0);
 });
+
+test('nested public Foundry loads every shipping module from the site root', async ({ page }) => {
+  const html = await readFile(resolve('dist/foundry/index.html'), 'utf8');
+  const importedModules = [...html.matchAll(/from '([^']+\.mjs)'/g)].map(match => match[1]);
+  expect(importedModules.length).toBeGreaterThanOrEqual(30);
+  for (const modulePath of importedModules) {
+    expect(modulePath, 'shipping Foundry import must resolve from the Pages root').toMatch(/^\/[a-z0-9-]+\.mjs$/);
+  }
+
+  const failures = [];
+  page.on('pageerror', error => failures.push('page: ' + error.message));
+  page.on('response', response => {
+    if (response.status() >= 400) failures.push(response.status() + ' ' + response.url());
+  });
+  await page.route('**/foundry/', route => route.fulfill({ status: 200, contentType: 'text/html', body: html }));
+  await page.goto('/foundry/', { waitUntil: 'networkidle' });
+  expect(failures, 'nested public route must load CSS and runtime modules without 404 or browser errors').toEqual([]);
+  await expect(page.locator('#description-list-demo')).toBeVisible();
+});
