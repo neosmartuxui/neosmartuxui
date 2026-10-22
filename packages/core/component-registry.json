@@ -452,6 +452,15 @@
         "implementation": "packages/adapters/web/components/description-list.css",
         "publicProof": "evidence/current-host/cohort-v2.json"
       }
+    },
+    {
+      "id": "core.scroll-area",
+      "contract": "components/scroll-area.json",
+      "maturity": "contract-only",
+      "evidence": {
+        "implementation": null,
+        "publicProof": null
+      }
     }
   ]
 }

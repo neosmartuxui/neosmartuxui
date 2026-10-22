@@ -1,5 +1,6 @@
 export const DEPLOYED_IMPLEMENTATION_SHA = 'ec0a720813565270bceee1191d1d6a9c77cede36';
 export const DEPLOYED_PAGES_SHA = '6ecd5e21b8d7817d9b73526a14d17e790d2ea6cb';
+export const PROOF_PROMOTION_SHA = 'eb363d98f7747b8c963fc8cb8f82e3b856eb5e22';
 export const PROOF_ONLY_ALLOWLIST = Object.freeze([
   'docs/CANONICAL-PRD.md',
   'docs/CURRENT-HOST-PROOF-MIGRATION.md',
@@ -53,7 +54,12 @@ export function checkV2Evidence(record, registry, oldIds) {
   const subjects = record?.subjects || [];
   const ids = subjects.map(x => x.id);
   requireCheck(ids.length === 55 && new Set(ids).size === 55, 'v2 cohort must contain exactly 55 distinct subjects');
-  const known = [...registry.map(x => x.id), ...['hardline','soft','rivet','mono','pulse'].map(x => 'flavor.'+x)];
+  const publishedCore = registry.filter(x => x.maturity === 'public-proof');
+  const unpublished = registry.filter(x => x.maturity !== 'public-proof');
+  requireCheck(unpublished.every(x => x.maturity === 'contract-only' &&
+    x.evidence?.implementation === null && x.evidence?.publicProof === null &&
+    !subjects.some(s => s.id === x.id)), 'unproven Core candidates must stay contract-only, have null evidence and stay outside v2 cohort');
+  const known = [...publishedCore.map(x => x.id), ...['hardline','soft','rivet','mono','pulse'].map(x => 'flavor.'+x)];
   requireCheck(known.length === 55 && JSON.stringify([...known].sort()) === JSON.stringify([...ids].sort()),
     'v2 subject IDs must match exact 50 Core + five official Flavors');
   requireCheck(oldIds.length === 54 && oldIds.every(id => ids.includes(id)) &&
@@ -88,7 +94,7 @@ export function checkV2Evidence(record, registry, oldIds) {
       /^[a-f0-9]{64}$/.test(x.localSha256) &&
       x.localSha256 === x.pagesSha256 &&
       x.pagesSha256 === x.liveSha256), '105-file exact live asset parity missing');
-  requireCheck(registry.length === 50 && registry.every(x => x.maturity === 'public-proof') &&
+  requireCheck(publishedCore.length === 50 && new Set(registry.map(x => x.id)).size === registry.length &&
     registry.find(x => x.id === 'core.description-list')?.evidence?.publicProof === 'evidence/current-host/cohort-v2.json',
     'registry must contain 50 public-proof Core components linked to v2 authority');
   return errors;

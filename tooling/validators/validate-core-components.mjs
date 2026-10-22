@@ -17,10 +17,10 @@ const maturityCounts = registry.components.reduce((counts, entry) => {
   counts[entry.maturity] = (counts[entry.maturity] ?? 0) + 1;
   return counts;
 }, {});
-if (registry.components.length !== 50) fail('DescriptionList implementation cohort must contain exactly 50 honest registry entries');
+if (registry.components.length !== 51) fail('Expansion D ScrollArea contract admission requires 50 proven + one contract-only Core entry');
 if (maturityCounts['public-proof'] !== 50) fail('Current-host v2 cohort must admit exactly 50 public-proof Core components');
 if ((maturityCounts.implemented ?? 0) !== 0) fail('v2 current-host cohort must not leave implemented-but-unproven Core components');
-if ((maturityCounts['contract-only'] ?? 0) !== 0) fail('DescriptionList implementation cohort must contain no remaining contract-only Core entries');
+if ((maturityCounts['contract-only'] ?? 0) !== 1) fail('ScrollArea must be the only contract-only Core entry');
 
 const ids = new Set();
 for (const entry of registry.components) {
@@ -136,7 +136,7 @@ const datePickerImplementation = 'packages/adapters/web/components/date-picker.m
 const expectedContractOnlyExpansionBIds = Object.keys(expansionBContracts).filter((id) => !nativeValueInputs.has(id) && id !== 'core.input-otp' && id !== 'core.multi-select' && id !== 'core.file-upload' && id !== 'core.calendar' && id !== 'core.date-picker').sort();
 if (expectedContractOnlyExpansionBIds.length !== 0) fail(`Expansion B proof completion drifted: ${expectedContractOnlyExpansionBIds.join(',')}`);
 const actualContractOnlyIds = registry.components.filter((entry) => entry.maturity === 'contract-only').map((entry) => entry.id).sort();
-if (actualContractOnlyIds.length !== 0) fail(`DescriptionList implementation cohort must have no contract-only Core entries: ${actualContractOnlyIds.join(',')}`);
+if (actualContractOnlyIds.join('|') !== 'core.scroll-area') fail(`Expansion D must have only contract-only ScrollArea, preserving all 50 public-proof entries: ${actualContractOnlyIds.join(',')}`);
 for (const [id, expectedStates] of Object.entries(expansionBContracts)) {
   const entry = registry.components.find((candidate) => candidate.id === id);
   if (!entry) fail(`${id} must remain registered`);
@@ -1105,6 +1105,29 @@ for (const path of ['evidence/public/core.description-list.json','evidence/maint
   }
 }
 
+const scrollArea = registry.components.find((entry) => entry.id === 'core.scroll-area');
+if (!scrollArea || scrollArea.maturity !== 'contract-only' || scrollArea.contract !== 'components/scroll-area.json') fail('ScrollArea must remain a single contract-only Core candidate');
+if (scrollArea.evidence.implementation !== null || scrollArea.evidence.publicProof !== null) fail('ScrollArea must not claim shipping implementation or public proof');
+const scrollAreaContract = await readJson(resolve(root, 'packages/core/components/scroll-area.json'));
+if (scrollAreaContract.states.join('|') !== 'rest') fail('ScrollArea contract state must be exactly rest, not scroll-position state variants');
+if (scrollAreaContract.dependencies.join('|') !== [
+  'color.border.default','color.focus.ring','space.surface.inline','space.surface.block',
+  'border.surface.width','focus.ring.width','focus.ring.offset'
+].join('|')) fail('ScrollArea contract must use existing semantic/focus tokens without new token IDs');
+const scrollAreaDocs = await readFile(resolve(root, 'packages/core/components/scroll-area.md'), 'utf8');
+for (const marker of [
+  'native scrolling','contract-only','single predictable Tab stop','one original DOM subtree',
+  'normal native scrolling','not automatically assigned','assume a particular sign',
+  'Reduced motion','forced colors','50 proven Core components','55-token','267-state'
+]) if (!scrollAreaDocs.toLowerCase().includes(marker.toLowerCase())) fail(`scroll-area contract documentation missing: ${marker}`);
+for (const path of [
+  'packages/adapters/web/components/scroll-area.css','packages/adapters/web/components/scroll-area.mjs',
+  'packages/core/previews/scroll-area','evidence/public/core.scroll-area.json'
+]) {
+  try { await access(resolve(root, path)); fail(`ScrollArea contract-only admission must not manufacture implementation, preview or proof: ${path}`); }
+  catch (error) { if (error?.message?.startsWith('[core-components]')) throw error; if (error?.code !== 'ENOENT') throw error; }
+}
+
 for (const forbiddenId of ['core.focus-trap', 'core.sheet']) if (registry.components.some((entry) => entry.id === forbiddenId)) fail(`${forbiddenId} must not inflate Core breadth; FocusTrap is infrastructure and Sheet merges into Drawer`);
 
 const multiSelectCss = await readFile(resolve(root, 'packages/adapters/web/components/multi-select.css'), 'utf8');
@@ -1518,4 +1541,4 @@ for (const forbiddenMarker of ["addEventListener('keydown'", 'ArrowLeft', 'Arrow
 const accordionDocs = await readFile(resolve(root, 'packages/core/components/accordion.md'), 'utf8');
 for (const marker of ['real `<button>`', '<button type="button">', '`aria-expanded="true|false"`', '`aria-controls`', 'ordinary document focus traversal', 'installs **no `keydown` handler**', '`open` and `closed` describe disclosure state', '0→2→5px pressure model', '`hidden` attribute', '`single` and `multiple` expansion policies', 'exact implemented/public dependency union remains 55', 'previous 90 browser cases remain unchanged, for 95 total', '`packages/adapters/web/components/accordion.css`', '`packages/adapters/web/components/accordion.mjs`', 'does not list or implement Accordion', '`components/ui/accordion.tsx`', 'Maturity is `public-proof`']) if (!accordionDocs.includes(marker)) fail(`accordion.md missing marker: ${marker}`);
 
-console.log(`[core-components] validated ${registry.components.length} Core components: 50 current-host public-proof including DescriptionList with native-dl/term-description/non-interaction/token/accessibility/evidence/count-integrity invariants`);
+console.log(`[core-components] validated ${registry.components.length} Core contracts: 50 current-host public-proof + contract-only ScrollArea with native-dl/term-description/non-interaction/token/accessibility/evidence/count-integrity invariants`);

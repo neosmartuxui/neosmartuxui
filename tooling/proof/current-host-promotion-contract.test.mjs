@@ -18,6 +18,26 @@ test('complete v2 cohort binds exact 50 Core and 5 Flavor subjects',()=>{
   const s=originals();
   assert.deepEqual(checkV2Evidence(s.record,s.registry,s.oldIds),[]);
 });
+test('new ScrollArea contract remains outside the 55 public-proof v2 subject cohort',()=>{
+  const s=originals();
+  const candidate=s.registry.find(x=>x.id==='core.scroll-area');
+  assert.equal(s.registry.length,51);
+  assert.deepEqual({maturity:candidate.maturity,implementation:candidate.evidence.implementation,
+    publicProof:candidate.evidence.publicProof},
+    {maturity:'contract-only',implementation:null,publicProof:null});
+  assert.ok(!s.record.subjects.some(x=>x.id==='core.scroll-area'));
+  assert.deepEqual(checkV2Evidence(s.record,s.registry,s.oldIds),[]);
+});
+test('an unproven ScrollArea cannot be disguised as implemented or public-proof',()=>{
+  for(const maturity of ['implemented','public-proof']) {
+    const s=originals();
+    s.registry.find(x=>x.id==='core.scroll-area').maturity=maturity;
+    assert.match(messages(s),/unproven Core candidates|v2 subject IDs/);
+  }
+  const s=originals();
+  s.registry.find(x=>x.id==='core.scroll-area').evidence.publicProof='evidence/current-host/cohort-v2.json';
+  assert.match(messages(s),/unproven Core candidates/);
+});
 test('proof-only diff allowlist forbids shipping CSS, JS, templates, and historical proof edits',()=>{
   assert.deepEqual(checkProofOnlyPaths(['packages/adapters/web/components/description-list.css','evidence/public/core.list.json','evidence/maintenance/flavor.mono.json']),
     ['unapproved proof-only change: packages/adapters/web/components/description-list.css','unapproved proof-only change: evidence/public/core.list.json','unapproved proof-only change: evidence/maintenance/flavor.mono.json']);
