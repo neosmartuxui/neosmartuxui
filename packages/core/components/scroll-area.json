@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../spec/schemas/component.schema.json",
+  "schema": "neosmartui/component@1",
+  "id": "core.scroll-area",
+  "layer": "component",
+  "domain": "core",
+  "intent": "Provide one bounded, natively scrollable content viewport while preserving authored child semantics, native keyboard/touch/wheel scrolling, reading and focus order, logical RTL scrolling, and system scrollbar behavior without taking ownership of child interactions, virtualization, resize gestures, custom thumb dragging, network loading, or application state.",
+  "states": [
+    "rest"
+  ],
+  "dependencies": [
+    "color.border.default",
+    "color.focus.ring",
+    "space.surface.inline",
+    "space.surface.block",
+    "border.surface.width",
+    "focus.ring.width",
+    "focus.ring.offset"
+  ],
+  "supports": {
+    "keyboard": true,
+    "touch": true,
+    "rtl": true,
+    "reducedMotion": true,
+    "forcedColors": true
+  }
+}

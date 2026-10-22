@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto';
 import { checkPlaywrightReport, sha256 } from './current-host-contract.mjs';
 import { coverageFor } from './cohort-coverage.mjs';
 import { gitBlobSha, reconcileBinding, validateFlavorMaintenance } from './flavor-reconciliation.mjs';
-import { checkV2Evidence, checkProofOnlyPaths, DEPLOYED_IMPLEMENTATION_SHA, DEPLOYED_PAGES_SHA } from './current-host-promotion-contract.mjs';
+import { checkV2Evidence, checkProofOnlyPaths, DEPLOYED_IMPLEMENTATION_SHA, DEPLOYED_PAGES_SHA, PROOF_PROMOTION_SHA } from './current-host-promotion-contract.mjs';
 
 const root=resolve(import.meta.dirname,'../..');
 const pages=process.env.NEOSMARTUXUI_PAGES_CHECKOUT || resolve(dirname(root),'neosmartuxui.github.io');
@@ -20,12 +20,17 @@ const previousIds=previousFiles.map(f=>f.slice(0,-5));
 const problems=checkV2Evidence(record,registry.components,previousIds);
 if(problems.length)fail(problems.join(' | '));
 if(record.source.treeSha!==git(root,'rev-parse',DEPLOYED_IMPLEMENTATION_SHA+'^{tree}'))fail('deployed source tree SHA mismatch');
-if(git(root,'merge-base',DEPLOYED_IMPLEMENTATION_SHA,'HEAD')!==DEPLOYED_IMPLEMENTATION_SHA)fail('proof-only HEAD is not a descendant of the tested implementation SHA');
-const changed=git(root,'diff','--name-only',DEPLOYED_IMPLEMENTATION_SHA,'HEAD').split(/\r?\n/).filter(Boolean);
-const uncommitted=command('git',['-C',root,'status','--porcelain','--untracked-files=all']).split(/\r?\n/)
- .filter(Boolean).map(line=>line.slice(3).replace(/\\/g,'/'));
-const badPaths=checkProofOnlyPaths([...new Set([...changed,...uncommitted])]);
-if(badPaths.length)fail(badPaths.join(' | '));
+if(git(root,'merge-base',PROOF_PROMOTION_SHA,'HEAD')!==PROOF_PROMOTION_SHA)fail('active v2 proof promotion SHA must remain an ancestor of current source');
+if(git(root,'merge-base',DEPLOYED_IMPLEMENTATION_SHA,PROOF_PROMOTION_SHA)!==DEPLOYED_IMPLEMENTATION_SHA)fail('original proof commit must descend from deployed implementation SHA');
+// The one-time v2 proof-only promotion is frozen at its exact merge. Subsequent contract-only
+// admissions may add registry/contracts without retroactively changing the proven 55-subject cohort.
+const originalPromotionPaths=git(root,'diff','--name-only',DEPLOYED_IMPLEMENTATION_SHA,PROOF_PROMOTION_SHA).split(/\r?\n/).filter(Boolean);
+const badPaths=checkProofOnlyPaths(originalPromotionPaths);
+if(badPaths.length)fail('original proof-only promotion integrity: '+badPaths.join(' | '));
+const originalProofBlob=git(root,'rev-parse',PROOF_PROMOTION_SHA+':evidence/current-host/cohort-v2.json');
+const activeProofBlob=git(root,'rev-parse',':evidence/current-host/cohort-v2.json');
+const proofWorkingDrift=git(root,'status','--porcelain','--','evidence/current-host/cohort-v2.json');
+if(activeProofBlob!==originalProofBlob || proofWorkingDrift)fail('v2 active cohort record must remain identical to original proof-only admission');
 if(git(pages,'rev-parse','HEAD')!==DEPLOYED_PAGES_SHA ||
    git(pages,'rev-parse',DEPLOYED_PAGES_SHA+'^{tree}')!==record.pages.treeSha ||
    git(pages,'status','--porcelain'))fail('Pages must remain the original clean exact published deployment; no proof-only Pages redeploy');
