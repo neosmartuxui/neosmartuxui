@@ -447,10 +447,10 @@
     {
       "id": "core.description-list",
       "contract": "components/description-list.json",
-      "maturity": "implemented",
+      "maturity": "public-proof",
       "evidence": {
         "implementation": "packages/adapters/web/components/description-list.css",
-        "publicProof": null
+        "publicProof": "evidence/current-host/cohort-v2.json"
       }
     }
   ]

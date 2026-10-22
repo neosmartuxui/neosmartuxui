@@ -68,8 +68,8 @@ DescriptionList introduces no component-specific semantic token IDs. It reuses t
 
 The contract deliberately excludes focus, action, pressure, depth, selection, state-color and motion tokens because DescriptionList itself is passive and non-interactive.
 
-The maintained local implementation scope is **50 Core / 55 tokens**. Public proof and Pages remain bound to the deployed **49-Core / 55-token / 266-state** List singleton until mandatory merged-main implementation verification, exact-artifact deployment, native/live verification and proof-only promotion complete.
+The verified public implementation is **50 Core / 55 tokens** with **267 real preview states**. The historical **49-Core / 55-token / 266-state** List singleton remains preserved as v1 evidence. The published current-host Foundry and Pages cohort is bound to source `ec0a720813565270bceee1191d1d6a9c77cede36` and Pages commit `6ecd5e21b8d7817d9b73526a14d17e790d2ea6cb`; no runtime bytes are redeployed by this proof-only promotion.
 
 ## Maturity
 
-Maturity is `implemented`. Implementation evidence is `packages/adapters/web/components/description-list.css`; public-proof evidence remains null until exact-head implementation Quality, guarded merge, mandatory merged-main Quality, exact-artifact deployment, native/live verification, structural proof promotion, and mandatory merged-main proof Quality complete.
+Maturity is `public-proof`. Implementation evidence is `packages/adapters/web/components/description-list.css`. The active current-host `neosmartuxui/public-proof-cohort@2` record is `evidence/current-host/cohort-v2.json`; it proves native DL/DT/DD structure, source order, focus traversal, RTL behavior, eight exact-source Chromium cases, all five Flavor reconciliations, and 105 live asset hashes without GitHub Actions. The old 54 v1 records and five exact maintenance records remain immutable historical evidence.

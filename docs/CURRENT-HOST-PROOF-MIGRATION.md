@@ -65,3 +65,7 @@ The historical 54-record binding audit now reconciles **131 implementation file 
 6. Build a **separate v2 proof-only promotion** after all independent evidence is present. Only then may `core.description-list` be promoted to public-proof as Core 50, with all Flavor maintenance provenance closed in the new system and no post-promotion redeploy.
 
 Legacy `npm run validate:proof` is deliberately unchanged and still fails on old-host Flavor maintenance drift. That failure is not erased by a new candidate. Full historical proof retirement requires a separately admitted, versioned proof-schema migration.
+
+## Current disposition — v2 proof-only cohort
+
+The historical 49+1 implementation state documented above describes the pre-promotion phase. After actual live source/Pages verification (source `ec0a720813565270bceee1191d1d6a9c77cede36`, Pages `6ecd5e21b8d7817d9b73526a14d17e790d2ea6cb`), `evidence/current-host/cohort-v2.json` becomes the versioned 55-subject active proof-only authority: 50 Core including DescriptionList and five official Flavors. Original 54 legacy v1 proof records and exact maintenance records remain in place unchanged. The proof-only merge contains no shipping code, no generated Pages output, no GitHub Actions, and no npm publication. The deployed Foundry remains pinned to its implementation SHA rather than the later proof-only source SHA.

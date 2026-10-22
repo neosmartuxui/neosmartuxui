@@ -18,8 +18,8 @@ const maturityCounts = registry.components.reduce((counts, entry) => {
   return counts;
 }, {});
 if (registry.components.length !== 50) fail('DescriptionList implementation cohort must contain exactly 50 honest registry entries');
-if (maturityCounts['public-proof'] !== 49) fail('DescriptionList implementation cohort must preserve exactly 49 public-proof Core components');
-if ((maturityCounts.implemented ?? 0) !== 1) fail('DescriptionList implementation cohort must contain exactly one implemented-but-unproven Core component');
+if (maturityCounts['public-proof'] !== 50) fail('Current-host v2 cohort must admit exactly 50 public-proof Core components');
+if ((maturityCounts.implemented ?? 0) !== 0) fail('v2 current-host cohort must not leave implemented-but-unproven Core components');
 if ((maturityCounts['contract-only'] ?? 0) !== 0) fail('DescriptionList implementation cohort must contain no remaining contract-only Core entries');
 
 const ids = new Set();
@@ -1049,8 +1049,9 @@ try {
 }
 
 const descriptionListEntry = registry.components.find((entry) => entry.id === 'core.description-list');
-if (!descriptionListEntry || descriptionListEntry.maturity !== 'implemented') fail('core.description-list must be the single implemented-but-unproven fifth Expansion D entry');
-if (descriptionListEntry.evidence.implementation !== 'packages/adapters/web/components/description-list.css' || descriptionListEntry.evidence.publicProof !== null) fail('core.description-list implemented evidence boundary is invalid');
+if (!descriptionListEntry || descriptionListEntry.maturity !== 'public-proof') fail('core.description-list must be public-proof only after v2 current-host admission');
+if (descriptionListEntry.evidence.implementation !== 'packages/adapters/web/components/description-list.css' || descriptionListEntry.evidence.publicProof !== 'evidence/current-host/cohort-v2.json') fail('core.description-list must bind the active v2 current-host proof cohort');
+await access(resolve(root, descriptionListEntry.evidence.publicProof));
 await access(resolve(root, descriptionListEntry.evidence.implementation));
 const descriptionListContract = await readJson(resolve(root, 'packages/core/components/description-list.json'));
 if (descriptionListContract.states.join('|') !== 'rest') fail('core.description-list state contract must remain exactly rest');
@@ -1069,9 +1070,9 @@ for (const marker of [
   'MUST NOT enter the page Tab sequence','ordinary document Tab order','roving `tabindex`','`aria-activedescendant`',
   'sorting, filtering, search, pagination','MUST NOT duplicate labels','owns no spatial motion requirement',
   '## Canonical Web implementation','CSS-only','**267 real states**',
-  'maintained local implementation scope is **50 Core / 55 tokens**',
-  'deployed **49-Core / 55-token / 266-state** List singleton',
-  'Maturity is `implemented`','public-proof evidence remains null'
+  'verified public implementation is **50 Core / 55 tokens**',
+  'historical **49-Core / 55-token / 266-state** List singleton',
+  'Maturity is `public-proof`','current-host `neosmartuxui/public-proof-cohort@2`'
 ]) if (!descriptionListDocs.includes(marker)) fail(`description-list.md missing implemented Expansion D marker: ${marker}`);
 const descriptionListCss = await readFile(resolve(root, 'packages/adapters/web/components/description-list.css'), 'utf8');
 for (const marker of [
@@ -1097,7 +1098,7 @@ try {
   if (error?.code !== 'ENOENT') throw error;
 }
 for (const path of ['evidence/public/core.description-list.json','evidence/maintenance/core.description-list.json']) {
-  try { await access(resolve(root, path)); fail(`core.description-list implemented-but-unproven cohort must not create ${path}`); }
+  try { await access(resolve(root, path)); fail(`core.description-list must not fabricate a historical v1 public-proof or maintenance record: ${path}`); }
   catch (error) {
     if (error?.message?.startsWith('[core-components]')) throw error;
     if (error?.code !== 'ENOENT') throw error;
@@ -1517,4 +1518,4 @@ for (const forbiddenMarker of ["addEventListener('keydown'", 'ArrowLeft', 'Arrow
 const accordionDocs = await readFile(resolve(root, 'packages/core/components/accordion.md'), 'utf8');
 for (const marker of ['real `<button>`', '<button type="button">', '`aria-expanded="true|false"`', '`aria-controls`', 'ordinary document focus traversal', 'installs **no `keydown` handler**', '`open` and `closed` describe disclosure state', '0→2→5px pressure model', '`hidden` attribute', '`single` and `multiple` expansion policies', 'exact implemented/public dependency union remains 55', 'previous 90 browser cases remain unchanged, for 95 total', '`packages/adapters/web/components/accordion.css`', '`packages/adapters/web/components/accordion.mjs`', 'does not list or implement Accordion', '`components/ui/accordion.tsx`', 'Maturity is `public-proof`']) if (!accordionDocs.includes(marker)) fail(`accordion.md missing marker: ${marker}`);
 
-console.log(`[core-components] validated ${registry.components.length} Core components: 49 public-proof + implemented DescriptionList with native-dl/term-description/non-interaction/token/accessibility/evidence/count-integrity invariants`);
+console.log(`[core-components] validated ${registry.components.length} Core components: 50 current-host public-proof including DescriptionList with native-dl/term-description/non-interaction/token/accessibility/evidence/count-integrity invariants`);

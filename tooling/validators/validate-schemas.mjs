@@ -18,7 +18,8 @@ const schemaFiles = [
   'deployment-record.schema.json',
   'public-proof.schema.json',
   'public-proof-maintenance.schema.json',
-  'proof-cohort-candidate.schema.json'
+  'proof-cohort-candidate.schema.json',
+  'current-host-proof.schema.json'
 ];
 
 const parsed = new Map();
@@ -43,7 +44,8 @@ const expectedIds = new Map([
   ['deployment-record.schema.json', 'https://neosmartuxui.github.io/schemas/deployment-record@1.json'],
   ['public-proof.schema.json', 'https://neosmartui.com/schemas/public-proof@1.json'],
   ['public-proof-maintenance.schema.json', 'https://neosmartui.com/schemas/public-proof-maintenance@1.json'],
-  ['proof-cohort-candidate.schema.json', 'https://neosmartuxui.github.io/schemas/proof-cohort-candidate@1.json']
+  ['proof-cohort-candidate.schema.json', 'https://neosmartuxui.github.io/schemas/proof-cohort-candidate@1.json'],
+  ['current-host-proof.schema.json', 'https://neosmartuxui.github.io/schemas/current-host-proof@2.json']
 ]);
 for (const [file, id] of expectedIds) if (parsed.get(file).$id !== id) throw new Error(`${file} has unexpected $id`);
 for (const file of ['theme.schema.json', 'flavor.schema.json']) {
@@ -53,6 +55,9 @@ for (const file of ['theme.schema.json', 'flavor.schema.json']) {
 
 const cohort = parsed.get('proof-cohort-candidate.schema.json');
 if (cohort.additionalProperties !== false || cohort.properties.status?.const !== 'UNVERIFIED-CANDIDATE-NOT-PUBLIC-PROOF' || cohort.properties.readyForPublicProof?.const !== false || !cohort.required.includes('flavorReconciliations')) throw new Error('Candidate proof schema must fail closed without public-proof authority');
+
+const promotion = parsed.get('current-host-proof.schema.json');
+if (promotion.additionalProperties !== false || promotion.properties.schema?.const !== 'neosmartuxui/public-proof-cohort@2' || promotion.properties.status?.const !== 'PROOF_ONLY_ADMISSION' || promotion.properties.artifacts?.minItems !== 105 || promotion.properties.subjects?.minItems !== 55 || !promotion.required.includes('historical')) throw new Error('v2 current-host proof-only schema must preserve 55 subjects, 105 assets and historical authority');
 
 const componentPreview = parsed.get('component-preview.schema.json');
 if (componentPreview.properties.schema?.const !== 'neosmartui/component-preview@1') throw new Error('component preview schema identity drifted');

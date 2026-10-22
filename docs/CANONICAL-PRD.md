@@ -4722,3 +4722,5 @@ Contracts preserve correctness.
 Quality gates preserve trust.
 
 That is the platform we are building.
+
+**Current-host proof-only admission (October 22, 2026):** The native DescriptionList has completed exact-source QA, guarded Foundry publication, 105/105 generated/Pages/live asset SHA-256 parity and the 54 historical-subject live migration verifier. The versioned `neosmartuxui/public-proof-cohort@2` evidence in `evidence/current-host/cohort-v2.json` records **50 public-proof Core contracts and five official Flavor subjects** against already deployed source `ec0a720813565270bceee1191d1d6a9c77cede36` and Pages commit `6ecd5e21b8d7817d9b73526a14d17e790d2ea6cb`. It retains the **267-state** preview matrix and the exact **55-token** semantic union. The old 54 historical v1 proof files and five maintenance files remain immutable provenance; no GitHub Actions or npm publication is used. The proof-only source commit does not rebuild or redeploy Pages.
