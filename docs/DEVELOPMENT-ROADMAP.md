@@ -33,7 +33,7 @@ NeoSmartUXUI Studio is already publicly launched, but Studio completion does **n
 
 ## Current execution focus — Core component library expansion
 
-The canonical Core registry currently contains **50 registered component contracts: 49 public-proof + 1 implemented-but-unproven (`core.description-list`)**. Expansion C is complete through Toast, and Expansion D Table + DataGrid + Item + List remain fully public-proof. Exact-set Flavor maintenance permits the local Light/Dark Theme scope to advance to **50 Core / 55 tokens**, and DescriptionList adds its single fixture-realized `rest` state for a local **267-state** preview matrix. Deployed/public authority remains exactly **49 Core / 55 tokens / 266 states** until DescriptionList passes exact-head implementation Quality, guarded merge, mandatory merged-main Quality, exact-artifact deployment, native/live verification, and proof-only promotion. All five Flavor maintenance records remain active; only the 49 public-proof components count toward the breadth gate.
+The canonical Core registry now contains **50 public-proof component contracts**, including `core.description-list`, admitted through the versioned current-host proof-only cohort. The prior 49+1 status below is retained as a historical expansion checkpoint. Expansion C is complete through Toast, and Expansion D Table + DataGrid + Item + List remain fully public-proof. Exact-set Flavor maintenance permits the local Light/Dark Theme scope to advance to **50 Core / 55 tokens**, and DescriptionList adds its single fixture-realized `rest` state for a local **267-state** preview matrix. Deployed/public authority remains exactly **49 Core / 55 tokens / 266 states** until DescriptionList passes exact-head implementation Quality, guarded merge, mandatory merged-main Quality, exact-artifact deployment, native/live verification, and proof-only promotion. All five Flavor maintenance records remain active; only the 49 public-proof components count toward the breadth gate.
 
 The active engineering work expands that catalog inside the existing Core/Component Lab architecture. This is an **execution workstream, not a new roadmap version**.
 
@@ -340,3 +340,7 @@ inspect
 ```
 
 Never weaken tests, validators, accessibility, semantics, browser coverage or proof requirements to make CI green.
+
+### Current-host proof-only admission — October 22, 2026
+
+The 50th Core component, `core.description-list`, is promoted through the separate `neosmartuxui/public-proof-cohort@2` authority after full exact-source QA, approved Foundry publication and independent 105-file/54-old-subject live proof. The active 55-subject cohort is stored under `evidence/current-host/cohort-v2.json`, preserving all original 49 Core + five Flavor v1 proofs and their five maintenance records untouched. No post-promotion Pages redeployment. Core breadth continues with Expansion D after this admission.

@@ -67,3 +67,7 @@ The recovery run must exercise the same canonical source SHA with byte-identical
 For an implementation cohort, the verified recovery artifact may serve as the merged-main artifact only when every recovery invariant passes. For a proof-only promotion where the lifecycle forbids redeployment, the recovery payload excluding provenance-only `deployment.json` must additionally byte-match the already verified live Pages payload.
 
 The original orphaned run remains an incident record. Never state or imply that it passed merely because a separate recovery run succeeded.
+
+## Current-host v2 admission (supersedes v1 as active authority without rewriting history)
+
+Current-host proof-only admissions use `neosmartuxui/public-proof-cohort@2` and `evidence/current-host/cohort-v2.json`. The old `neosmartui/public-proof@1` and five maintenance records remain immutable historical provenance, not claims about the new host. The v2 gate independently validates 50 Core + five Flavors, every original evidence-record Git blob, all 131 bound implementation paths, exact five-Flavor migration decisions, the deployed implementation and Pages commit/tree, all 105 SHA-256 asset bindings, and DescriptionList's eight real browser tests and live native/RTL/focus behavior. `npm run test:proof:v2`, `npm run validate:proof:v2`, and `npm run validate:proof:v2:live` enforce these admission checks. GitHub Actions IDs are never fabricated. The proof-only PR may change no shipping implementation paths and must not redeploy Pages.

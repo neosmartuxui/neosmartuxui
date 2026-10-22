@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://neosmartuxui.github.io/schemas/current-host-proof@2.json",
+  "title": "NeoSmartUXUI current-host proof-only admission",
+  "description": "All 50 Core and five Flavor subjects share the exact already-deployed implementation cohort. This record cannot authorize a Pages rebuild or GitHub Actions.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schema", "status", "currentHost", "source", "pages", "browserEvidence", "historical", "subjects", "flavorReconciliations", "artifacts", "verification"],
+  "properties": {
+    "$schema": {"const": "../../spec/schemas/current-host-proof.schema.json"},
+    "schema": {"const": "neosmartuxui/public-proof-cohort@2"},
+    "status": {"const": "PROOF_ONLY_ADMISSION"},
+    "currentHost": {"const": "https://neosmartuxui.github.io"},
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["repository", "sha", "treeSha"],
+      "properties": {
+        "repository": {"const": "neosmartuxui/neosmartuxui"},
+        "sha": {"$ref": "#/$defs/gitSha"},
+        "treeSha": {"$ref": "#/$defs/gitSha"}
+      }
+    },
+    "pages": {
+      "type": "object", "additionalProperties": false,
+      "required": ["repository", "sha", "treeSha"],
+      "properties": {
+        "repository": {"const": "neosmartuxui/neosmartuxui.github.io"},
+        "sha": {"$ref": "#/$defs/gitSha"},
+        "treeSha": {"$ref": "#/$defs/gitSha"}
+      }
+    },
+    "browserEvidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["foundryReportSha256", "studioReportSha256", "foundryTests", "studioTests", "qaCommands", "completedAt", "verifiedAt"],
+      "properties": {
+        "foundryReportSha256": {"$ref": "#/$defs/digest"},
+        "studioReportSha256": {"$ref": "#/$defs/digest"},
+        "foundryTests": {"type": "integer", "minimum": 424},
+        "studioTests": {"type": "integer", "minimum": 8},
+        "qaCommands": {"type": "array", "minItems": 7, "maxItems": 7, "items": {"type": "string"}},
+        "completedAt": {"type": "string", "minLength": 10},
+        "verifiedAt": {"type": "string", "minLength": 10}
+      }
+    },
+    "historical": {
+      "type": "object", "additionalProperties": false,
+      "required": ["records", "core", "flavors", "originalPath", "maintenancePath", "reconciliationDigest", "decisions"],
+      "properties": {
+        "records": {"const": 54}, "core": {"const": 49}, "flavors": {"const": 5},
+        "originalPath": {"const": "evidence/public/"},
+        "maintenancePath": {"const": "evidence/maintenance/"},
+        "reconciliationDigest": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+        "decisions": {
+          "type": "object", "additionalProperties": false,
+          "required": ["unchanged", "maintenance-declared-theme-expansion", "verified-brand-host-migration"],
+          "properties": {
+            "unchanged": {"const": 101},
+            "maintenance-declared-theme-expansion": {"const": 20},
+            "verified-brand-host-migration": {"const": 10}
+          }
+        }
+      }
+    },
+    "subjects": {
+      "type": "array", "minItems": 55, "maxItems": 55,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "kind", "recordSha", "files", "browserCoverage"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^(core|flavor)\\.[a-z][a-z0-9-]*$"},
+          "kind": {"enum": ["core", "flavor"]},
+          "recordSha": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/gitSha"}]},
+          "files": {
+            "type": "array", "minItems": 1,
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["path", "sha", "classification"],
+              "properties": {
+                "path": {"type": "string", "minLength": 1},
+                "sha": {"$ref": "#/$defs/gitSha"},
+                "classification": {"enum": ["unchanged", "maintenance-declared-theme-expansion", "verified-brand-host-migration", "new-native-semantic"]},
+                "historicalBlobSha": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/gitSha"}]}
+              }
+            }
+          },
+          "browserCoverage": {"type": "object", "required": ["id", "passed"], "properties": {
+            "id": {"type": "string"}, "passed": {"const": true}
+          }},
+          "live": {"type": "object"}
+        }
+      }
+    },
+    "flavorReconciliations": {"type": "array", "minItems": 5, "maxItems": 5,
+      "items": {"type": "object", "required": ["subject", "historicalAnchor", "declaredMaintenance", "verifiedRebrandPaths", "priorThemeBytesUnverified", "decision", "verificationRequired"]}
+    },
+    "artifacts": {"type": "array", "minItems": 105, "maxItems": 105,
+      "items": {"type": "object", "required": ["generatedPath", "publishedPath", "url", "localSha256", "pagesSha256", "liveSha256", "liveStatus"],
+        "properties": {"publishedPath": {"type": "string", "minLength": 1},
+          "localSha256": {"$ref": "#/$defs/digest"}, "pagesSha256": {"$ref": "#/$defs/digest"},
+          "liveSha256": {"$ref": "#/$defs/digest"}, "liveStatus": {"const": 200}}
+      }
+    },
+    "verification": {
+      "type": "object", "additionalProperties": false,
+      "required": ["verifiedPagesCommit", "verifiedSourceCommit", "livePublishedSubjects", "files", "noGitHubActions"],
+      "properties": {
+        "verifiedPagesCommit": {"$ref": "#/$defs/gitSha"},
+        "verifiedSourceCommit": {"$ref": "#/$defs/gitSha"},
+        "livePublishedSubjects": {"const": 55},
+        "files": {"const": 105},
+        "noGitHubActions": {"const": true}
+      }
+    }
+  },
+  "$defs": {
+    "gitSha": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+    "digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}

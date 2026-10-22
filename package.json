@@ -82,7 +82,10 @@
     "audit:proof:legacy": "node tooling/proof/legacy-inventory.mjs",
     "build:proof:cohort-candidate": "node tooling/proof/build-cohort-candidate.mjs",
     "verify:proof:cohort:live": "node tooling/proof/verify-published-cohort.mjs",
-    "test:proof:cohort": "node --test tooling/proof/cohort-reconciliation.test.mjs"
+    "test:proof:cohort": "node --test tooling/proof/cohort-reconciliation.test.mjs",
+    "test:proof:v2": "node --test tooling/proof/current-host-promotion-contract.test.mjs",
+    "validate:proof:v2": "node tooling/proof/validate-promotion-v2.mjs",
+    "validate:proof:v2:live": "node tooling/proof/validate-promotion-v2-live.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.64.1"
